@@ -20,3 +20,4 @@ foreach ($p in $pages) {
         Write-Host "ERR: http://localhost:8080/$p - $($_.Exception.Message)" -ForegroundColor Red
     }
 }
+

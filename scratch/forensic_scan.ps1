@@ -168,3 +168,4 @@ Write-Host "==========================================================" -Foregro
 $htaccessExists = Test-Path ".htaccess"
 $redirectsExists = Test-Path "_redirects"
 Write-Host ".htaccess exists: $htaccessExists | _redirects exists: $redirectsExists"
+

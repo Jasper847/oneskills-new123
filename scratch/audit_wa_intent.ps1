@@ -21,3 +21,4 @@ foreach ($cf in $courseFiles) {
         Write-Host "  CTA: $decoded"
     }
 }
+

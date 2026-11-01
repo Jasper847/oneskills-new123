@@ -10,3 +10,4 @@ $c = Get-Content $path -Raw
     RatingCount15 = [regex]::Matches($c, '"ratingCount":\s*"15"').Count
     PostalCode39350 = [regex]::Matches($c, '"postalCode":\s*"39350"').Count
 }
+

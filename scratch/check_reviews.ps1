@@ -5,3 +5,4 @@ Get-ChildItem courses/*.html | ForEach-Object {
     $mapsLink = $c -match 'google\.com/search\?q=oneskills\+sheikhupura'
     Write-Host "$($_.Name) : hasReviewsSection=$hasReviews | hasQuotes=$hasReviewQuote | mapsLink=$mapsLink"
 }
+

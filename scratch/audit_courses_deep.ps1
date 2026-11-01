@@ -64,3 +64,4 @@ foreach ($cf in $courseFiles) {
     $byolHero = $c -match "BYOL|Bring Your Own Laptop"
     Write-Host "BYOL mentioned: $byolHero"
 }
+

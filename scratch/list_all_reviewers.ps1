@@ -7,3 +7,4 @@ $featured = [regex]::Matches($c, 'featured-review-author[^>]*>([^<]+)<')
 foreach ($f in $featured) {
     Write-Host "Featured Reviewer: $($f.Groups[1].Value.Trim())"
 }
+

@@ -4,3 +4,4 @@ Get-ChildItem -Recurse -Include *.html,*.js | Where-Object { $_.FullName -notmat
         Write-Host "$($_.FullName) contains: $($matches[1])"
     }
 }
+

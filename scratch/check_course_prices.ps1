@@ -17,3 +17,4 @@ foreach ($cf in $courseFiles) {
     $uniquePrices = $prices | ForEach-Object { $_.Value } | Select-Object -Unique
     Write-Host "Prices found: $($uniquePrices -join ', ')"
 }
+
