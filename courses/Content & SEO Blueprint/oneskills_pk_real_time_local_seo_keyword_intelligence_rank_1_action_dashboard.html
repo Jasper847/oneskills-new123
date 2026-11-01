@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OneSkills.pk — Real-Time Local SEO Keyword Intelligence & Rank #1 Action Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', ' system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#1e1b4b'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.5); border-radius: 9999px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(99, 102, 241, 0.8); }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 hidden items-center gap-2.5 bg-emerald-600 text-white px-4 py-3 rounded-xl shadow-2xl border border-emerald-400/30 text-sm font-medium transition-all duration-200">
+    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+    <span id="toastMsg">Copied to clipboard!</span>
+  </div>
+
+  <!-- Keyword Blueprint Modal -->
+  <div id="blueprintModal" class="fixed inset-0 z-40 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700/80 rounded-2xl max-w-2xl w-full p-6 shadow-2xl max-h-[90vh] overflow-y-auto custom-scrollbar">
+      <div class="flex items-start justify-between gap-4 border-b border-slate-800 pb-4">
+        <div>
+          <span id="modalClusterBadge" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 mb-2">Cluster</span>
+          <h3 id="modalKeywordTitle" class="text-xl font-bold text-white">Keyword Blueprint</h3>
+          <p id="modalSubtext" class="text-xs text-slate-400 mt-1">Exact on-page & SERP execution plan to capture Rank #1</p>
+        </div>
+        <button id="closeModalBtn" type="button" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div id="modalBody" class="space-y-4 py-4 text-sm"></div>
+      <div class="flex items-center justify-end gap-3 pt-3 border-t border-slate-800">
+        <button id="copyModalBlueprintBtn" type="button" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          Copy Full SEO Spec
+        </button>
+        <button id="closeModalFooterBtn" type="button" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Header -->
+  <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <div class="flex items-start sm:items-center gap-3.5">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-emerald-500 flex items-center justify-center font-extrabold text-white text-lg shadow-lg shadow-indigo-500/20 shrink-0">
+          1S
+        </div>
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <h1 class="text-lg sm:text-xl font-extrabold tracking-tight text-white">OneSkills.pk Local SEO Command Center</h1>
+            <span class="px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 rounded-full">Live SERP Data • Sheikhupura</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-0.5">Opp. Mian Hospital, Near KIPS College, Lahore–Sargodha Rd, Sheikhupura • Target: Rank #1 Across All Local Queries</p>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="flex items-center gap-1.5 overflow-x-auto pb-1 lg:pb-0 custom-scrollbar" aria-label="Dashboard Sections">
+        <button type="button" data-tab="keywords" class="nav-tab px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition bg-indigo-600 text-white shadow-sm">
+          1. Keyword Matrix (42)
+        </button>
+        <button type="button" data-tab="competitors" class="nav-tab px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition bg-slate-800/80 text-slate-300 hover:bg-slate-800 hover:text-white">
+          2. SERP & Competitor Radar
+        </button>
+        <button type="button" data-tab="courses" class="nav-tab px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition bg-slate-800/80 text-slate-300 hover:bg-slate-800 hover:text-white">
+          3. On-Page Course Lab (7)
+        </button>
+        <button type="button" data-tab="contentgap" class="nav-tab px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition bg-slate-800/80 text-slate-300 hover:bg-slate-800 hover:text-white">
+          4. Content Gap Hubs (10)
+        </button>
+        <button type="button" data-tab="actionplan" class="nav-tab px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition bg-slate-800/80 text-slate-300 hover:bg-slate-800 hover:text-white">
+          5. Rank #1 Playbook & Code
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-6">
+
+    <!-- Top KPI Strip -->
+    <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5">
+      <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4">
+        <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Tracked Local Queries</p>
+        <div class="flex items-baseline justify-between mt-1.5">
+          <span class="text-2xl font-extrabold text-white">42</span>
+          <span class="text-xs font-medium text-indigo-400">8 Core Clusters</span>
+        </div>
+        <p class="text-[11px] text-slate-400 mt-1">Sheikhupura + 4 feeder towns</p>
+      </div>
+
+      <div class="bg-slate-900/90 border border-emerald-500/30 rounded-2xl p-4">
+        <p class="text-[11px] font-semibold uppercase tracking-wider text-emerald-300">Current #1 Rankings</p>
+        <div class="flex items-baseline justify-between mt-1.5">
+          <span class="text-2xl font-extrabold text-emerald-400">6</span>
+          <span class="text-xs font-medium text-emerald-300">Defend & Lock</span>
+        </div>
+        <p class="text-[11px] text-slate-400 mt-1">Web Dev, AI, Forex, Crypto, Web3</p>
+      </div>
+
+      <div class="bg-slate-900/90 border border-amber-500/30 rounded-2xl p-4">
+        <p class="text-[11px] font-semibold uppercase tracking-wider text-amber-300">Strike Zone (#2–#5)</p>
+        <div class="flex items-baseline justify-between mt-1.5">
+          <span class="text-2xl font-extrabold text-amber-400">16</span>
+          <span class="text-xs font-medium text-amber-300">14–21 Days to #1</span>
+        </div>
+        <p class="text-[11px] text-slate-400 mt-1">Digital Mktg, Freelancing, IT Inst.</p>
+      </div>
+
+      <div class="bg-slate-900/90 border border-rose-500/30 rounded-2xl p-4">
+        <p class="text-[11px] font-semibold uppercase tracking-wider text-rose-300">Missing / Unranked Gaps</p>
+        <div class="flex items-baseline justify-between mt-1.5">
+          <span class="text-2xl font-extrabold text-rose-400">20</span>
+          <span class="text-xs font-medium text-rose-300">High Opportunity</span>
+        </div>
+        <p class="text-[11px] text-slate-400 mt-1">Shopify, Office, After-Matric, Graphic</p>
+      </div>
+
+      <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4">
+        <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Critical On-Page Bugs</p>
+        <div class="flex items-baseline justify-between mt-1.5">
+          <span class="text-2xl font-extrabold text-white">7</span>
+          <span class="text-xs font-medium text-rose-400">Fix Immediately</span>
+        </div>
+        <p class="text-[11px] text-slate-400 mt-1">"Free" badge, SVG thumb, URL bloat</p>
+      </div>
+
+      <div class="bg-slate-900/90 border border-indigo-500/30 rounded-2xl p-4">
+        <p class="text-[11px] font-semibold uppercase tracking-wider text-indigo-300">Action Plan Progress</p>
+        <div class="flex items-baseline justify-between mt-1.5">
+          <span id="kpiProgressPct" class="text-2xl font-extrabold text-indigo-400">0%</span>
+          <span id="kpiProgressCount" class="text-xs font-medium text-slate-300">0/18 Done</span>
+        </div>
+        <div class="w-full bg-slate-800 h-1.5 rounded-full mt-2 overflow-hidden">
+          <div id="kpiProgressBar" class="bg-indigo-500 h-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 1: KEYWORD INTELLIGENCE MATRIX -->
+    <section id="tab-keywords" class="tab-panel space-y-5">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+          <div>
+            <h2 class="text-base sm:text-lg font-bold text-white">Real-Time Local Keyword Intelligence Matrix (Sheikhupura & Feeder Belt)</h2>
+            <p class="text-xs text-slate-400 mt-0.5">Grounded in live Google SERP positions for <a href="https://oneskills.pk/" target="_blank" rel="noopener" class="text-indigo-400 underline hover:text-indigo-300">oneskills.pk</a> vs. local competitors. Click <strong class="text-slate-200">"Inspect Blueprint"</strong> on any row for copy-ready Title, H1, and Ranking Actions.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="exportCsvBtn" type="button" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition">
+              <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              Copy CSV Table
+            </button>
+            <button id="resetFiltersBtn" type="button" class="px-3 py-2 rounded-xl bg-slate-800/70 hover:bg-slate-800 text-slate-300 text-xs font-medium transition">
+              Reset Filters
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 pt-1">
+          <div class="sm:col-span-2">
+            <label for="kwSearch" class="block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1">Search Keyword / Competitor / Action</label>
+            <input id="kwSearch" type="text" placeholder="e.g. digital marketing, matric, shopify, farooqabad..." class="w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 outline-none transition" />
+          </div>
+
+          <div>
+            <label for="clusterFilter" class="block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1">Course Cluster</label>
+            <select id="clusterFilter" class="w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2 text-xs text-white outline-none">
+              <option value="ALL">All Clusters (42)</option>
+              <option value="Institute & Brand">Institute & Brand Authority</option>
+              <option value="Computer & Office">Computer & MS Office</option>
+              <option value="Digital Marketing & SEO">Digital Marketing & SEO</option>
+              <option value="Freelancing & Online Earning">Freelancing & Online Earning</option>
+              <option value="Web Dev & Coding">Web Dev & Coding</option>
+              <option value="AI & Automation">AI Tools & Automation</option>
+              <option value="Forex, Crypto & Web3">Forex, Crypto & Web3</option>
+              <option value="E-Commerce & Design">E-Commerce & Graphic Design</option>
+              <option value="Regional Feeder Towns">Regional Feeder Towns</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="statusFilter" class="block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1">Current SERP Status</label>
+            <select id="statusFilter" class="w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2 text-xs text-white outline-none">
+              <option value="ALL">All Positions</option>
+              <option value="RANK_1">Rank #1 (Defend & Lock)</option>
+              <option value="STRIKE">Rank #2–#5 (Strike Zone)</option>
+              <option value="GAP">Unranked / Content Gap</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="intentFilter" class="block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1">Search Intent</label>
+            <select id="intentFilter" class="w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2 text-xs text-white outline-none">
+              <option value="ALL">All Intents</option>
+              <option value="Transactional">Transactional (High Enrollment)</option>
+              <option value="Commercial">Commercial Comparison</option>
+              <option value="Informational">Career / Student Guide</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Result Count & Legend -->
+        <div class="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs text-slate-400">
+          <div>Showing <span id="kwCountDisplay" class="font-bold text-white">42</span> of 42 researched queries</div>
+          <div class="flex flex-wrap items-center gap-3">
+            <span class="inline-flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> #1 Current Leader</span>
+            <span class="inline-flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-400"></span> #2–#5 Strike Zone</span>
+            <span class="inline-flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-400"></span> Content Gap (Create Page/Section)</span>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="overflow-x-auto custom-scrollbar border border-slate-800 rounded-xl">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-950/90 border-b border-slate-800 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                <th class="py-3 px-3.5">Keyword Query</th>
+                <th class="py-3 px-3">Cluster & Intent</th>
+                <th class="py-3 px-3 text-center">OneSkills Rank</th>
+                <th class="py-3 px-3">Current #1 / Top Competitor</th>
+                <th class="py-3 px-3">Target OneSkills URL</th>
+                <th class="py-3 px-3">Primary Action to Rank #1</th>
+                <th class="py-3 px-3.5 text-right">Blueprint</th>
+              </tr>
+            </thead>
+            <tbody id="kwTableBody" class="divide-y divide-slate-800/70 text-xs"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: SERP & COMPETITOR RADAR -->
+    <section id="tab-competitors" class="tab-panel hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <!-- Chart 1 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white">Sheikhupura Top-5 SERP Visibility by Competitor</h3>
+          <p class="text-xs text-slate-400 mt-0.5">Number of core local queries where each domain holds a Top-5 Google result</p>
+          <div class="relative h-72 mt-4">
+            <canvas id="competitorChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart 2 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+          <h3 class="text-sm font-bold text-white">OneSkills Keyword Portfolio by Ranking Stage</h3>
+          <p class="text-xs text-slate-400 mt-0.5">Breakdown of the 42 local target keywords across current SERP tiers</p>
+          <div class="relative h-72 mt-4">
+            <canvas id="tierChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Competitor Deep-Dive Cards -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+        <div>
+          <h3 class="text-base font-bold text-white">Local Competitor Vulnerability & Counter-Strategy Matrix</h3>
+          <p class="text-xs text-slate-400 mt-0.5">Direct analysis of the 4 domains competing with OneSkills.pk in Sheikhupura and Muridke</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <a href="https://www.venturetech.com.pk/" target="_blank" rel="noopener" class="text-sm font-bold text-indigo-400 hover:underline">1. VentureTech (venturetech.com.pk)</a>
+              <span class="px-2 py-0.5 text-[11px] font-semibold bg-rose-500/15 text-rose-300 border border-rose-500/30 rounded-full">Primary Threat</span>
+            </div>
+            <p class="text-xs text-slate-300"><strong class="text-white">Where they beat you:</strong> Ranks #1 for <em>"digital marketing course in sheikhupura"</em> (<a href="https://www.venturetech.com.pk/courses/certificate-in-digital-marketing-cdm/" target="_blank" rel="noopener" class="text-indigo-400 underline">CDM Course</a>), #1 for <em>"best it training institute in sheikhupura"</em>, and #1–#3 for <em>"graphic designing course in sheikhupura"</em>.</p>
+            <p class="text-xs text-slate-400"><strong class="text-emerald-400">Their Weakness & Your Counter-Move:</strong> VentureTech uses thin course descriptions and also suffers from Tutor LMS filter bloat (`?tutor-course-filter-category=59`). OneSkills already outranks them #1 on <em>"web development course in sheikhupura"</em> because of your 1,500-word AI curriculum. Split your Digital Marketing & Freelancing course title so "Digital Marketing Course in Sheikhupura" leads the Title/H1, and add `Course` schema with real reviews.</p>
+          </div>
+
+          <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <a href="https://icilms.com/top-1-best-computer-institute-in-sheikhupura-for-it-courses/" target="_blank" rel="noopener" class="text-sm font-bold text-indigo-400 hover:underline">2. Inspired Computer Institute (icilms.com)</a>
+              <span class="px-2 py-0.5 text-[11px] font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30 rounded-full">Blog Content Threat</span>
+            </div>
+            <p class="text-xs text-slate-300"><strong class="text-white">Where they beat you:</strong> Ranks #1 for <em>"computer courses after matric in sheikhupura"</em>, <em>"which computer course is best in sheikhupura for online earning"</em>, and #2 for <em>"best it institute in sheikhupura"</em> via aggressive weekly blog publishing.</p>
+            <p class="text-xs text-slate-400"><strong class="text-emerald-400">Their Weakness & Your Counter-Move:</strong> ICI LMS writes generic informational articles without deep AI tool integration or transparent pricing. Publish the 10 targeted comparison & career guides in Tab 4 (targeting Matric/Inter students, Office jobs, and online earning) and link each guide directly to your <a href="https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/" target="_blank" rel="noopener" class="text-indigo-400 underline">AI Based Computer Course</a> (PKR 15,000).</p>
+          </div>
+
+          <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <a href="https://realsheikhupura.com/best-freelancing-course-in-sheikhupura/" target="_blank" rel="noopener" class="text-sm font-bold text-indigo-400 hover:underline">3. RealSheikhupura & Local Directories</a>
+              <span class="px-2 py-0.5 text-[11px] font-semibold bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 rounded-full">Easy Flip (#3 → #1)</span>
+            </div>
+            <p class="text-xs text-slate-300"><strong class="text-white">Where they beat you:</strong> Holds #1 for <em>"freelancing course in sheikhupura"</em> with a single exact-match article (`/best-freelancing-course-in-sheikhupura/`), while OneSkills sits at #3, #4, and #5.</p>
+            <p class="text-xs text-slate-400"><strong class="text-emerald-400">Their Weakness & Your Counter-Move:</strong> RealSheikhupura is a general city blog, not a physical academy. Currently, your blog post (<a href="https://oneskills.pk/best-digital-marketing-freelancing-course-in-sheikhupura/" target="_blank" rel="noopener" class="text-indigo-400 underline">2026 Guide</a>) and your course page (<a href="https://oneskills.pk/courses/freelancing-digital-marketing-mastery/" target="_blank" rel="noopener" class="text-indigo-400 underline">Course Page</a>) split authority. Add a prominent contextual link at the top of the blog guide with exact anchor text <strong>"Freelancing Course in Sheikhupura"</strong> pointing to the course page, and fix the `Mata Ads` tag typo.</p>
+          </div>
+
+          <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <a href="https://sccskp.lovestoblog.com/" target="_blank" rel="noopener" class="text-sm font-bold text-indigo-400 hover:underline">4. SCCSKP & Winware Muridke</a>
+              <span class="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 rounded-full">Regional Opportunity</span>
+            </div>
+            <p class="text-xs text-slate-300"><strong class="text-white">Where they beat you:</strong> <a href="https://sccskp.lovestoblog.com/" target="_blank" rel="noopener" class="text-indigo-400 underline">SCCSKP</a> ranks #1 for <em>"computer courses in sheikhupura"</em> and <em>"computer courses in farooqabad"</em> despite running on a free subdomain (`lovestoblog.com`). <a href="https://www.winware.pk/" target="_blank" rel="noopener" class="text-indigo-400 underline">Winware</a> dominates Muridke.</p>
+            <p class="text-xs text-slate-400"><strong class="text-emerald-400">Their Weakness & Your Counter-Move:</strong> SCCSKP has outdated 2022 content and zero AI curriculum. By adding "Short Computer Courses" & "MS Office + AI" to your AI Computer Course subheadings and building a commuter section for Farooqabad, Muridke, and Safdarabad students, OneSkills will overtake SCCSKP across all core computer queries.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: COURSE-BY-COURSE ON-PAGE LAB -->
+    <section id="tab-courses" class="tab-panel hidden space-y-5">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+          <div>
+            <h2 class="text-base sm:text-lg font-bold text-white">On-Page Course Optimization Lab (All 7 Live OneSkills Pages)</h2>
+            <p class="text-xs text-slate-400 mt-0.5">Select any existing page on <a href="https://oneskills.pk/courses/" target="_blank" rel="noopener" class="text-indigo-400 underline">oneskills.pk/courses/</a> to view live audit defects discovered on the page and copy the exact Rank #1 metadata.</p>
+          </div>
+          <div class="flex flex-wrap gap-1.5" id="courseSelectorBtns"></div>
+        </div>
+
+        <div id="courseLabDetail" class="grid grid-cols-1 lg:grid-cols-3 gap-5 pt-2"></div>
+      </div>
+    </section>
+
+    <!-- TAB 4: CONTENT GAP HUBS -->
+    <section id="tab-contentgap" class="tab-panel hidden space-y-5">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+        <div>
+          <h2 class="text-base sm:text-lg font-bold text-white">10 High-Intent Content Gap Pages to Capture 100% of Local Search Demand</h2>
+          <p class="text-xs text-slate-400 mt-0.5">Competitors like <a href="https://icilms.com/" target="_blank" rel="noopener" class="text-indigo-400 underline">ICI LMS</a> and <a href="https://www.venturetech.com.pk/" target="_blank" rel="noopener" class="text-indigo-400 underline">VentureTech</a> rank on student & skill queries where OneSkills has no dedicated URL yet. Publish these 10 pages to own every local query.</p>
+        </div>
+
+        <div id="contentGapGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      </div>
+    </section>
+
+    <!-- TAB 5: ACTION PLAN & CODE -->
+    <section id="tab-actionplan" class="tab-panel hidden space-y-6">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div>
+            <h2 class="text-base sm:text-lg font-bold text-white">Step-by-Step 30-Day Execution Roadmap to Rank #1</h2>
+            <p class="text-xs text-slate-400 mt-0.5">Check off each task as you implement it in WordPress (`oneskills.pk/wp-admin/`) and Google Business Profile.</p>
+          </div>
+          <button id="resetChecklistBtn" type="button" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-300 self-start sm:self-auto transition">
+            Reset Checklist
+          </button>
+        </div>
+
+        <div id="checklistContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1"></div>
+      </div>
+
+      <!-- Ready-to-Paste Technical SEO Code Blocks -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-sm font-bold text-white">1. Production `robots.txt` for OneSkills.pk</h3>
+              <p class="text-xs text-slate-400">Blocks Tutor LMS filter query bloat (`?tutor-course-filter-category=`) & private cart/dashboard paths</p>
+            </div>
+            <button type="button" data-copy-target="robotsCode" class="copy-code-btn px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition">Copy Code</button>
+          </div>
+          <pre id="robotsCode" class="bg-slate-950 border border-slate-800 rounded-xl p-3.5 text-[11px] font-mono text-emerald-300 overflow-x-auto custom-scrollbar">User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+Disallow: /dashboard/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /*?tutor-course-filter-category=*
+Disallow: /*?course_filter=*
+Disallow: /*?orderby=*
+Disallow: /course-tag/
+
+Sitemap: https://oneskills.pk/sitemap_index.xml</pre>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-sm font-bold text-white">2. Local `EducationalOrganization` JSON-LD Schema</h3>
+              <p class="text-xs text-slate-400">Inject into global `<head>` via WPCode or Rank Math to lock in Google Maps Local Pack #1</p>
+            </div>
+            <button type="button" data-copy-target="orgSchemaCode" class="copy-code-btn px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition">Copy Code</button>
+          </div>
+          <pre id="orgSchemaCode" class="bg-slate-950 border border-slate-800 rounded-xl p-3.5 text-[11px] font-mono text-indigo-300 overflow-x-auto max-h-60 custom-scrollbar">&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": ["EducationalOrganization", "LocalBusiness"],
+  "@id": "https://oneskills.pk/#organization",
+  "name": "OneSkills Academy",
+  "alternateName": "OneSkills Digital Skills Academy Sheikhupura",
+  "url": "https://oneskills.pk/",
+  "logo": "https://oneskills.pk/wp-content/uploads/2025/12/oneskills-hero-new-2d.webp",
+  "telephone": "+92-317-6036127",
+  "email": "info@oneskills.pk",
+  "priceRange": "PKR 15,000 - PKR 28,000",
+  "founder": {
+    "@type": "Person",
+    "name": "Nisar Mehar",
+    "jobTitle": "Founder & CEO"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Lahore-Sargodha Road, Opposite Mian Hospital, Near KIPS College",
+    "addressLocality": "Sheikhupura",
+    "addressRegion": "Punjab",
+    "postalCode": "39350",
+    "addressCountry": "PK"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Sheikhupura"},
+    {"@type": "City", "name": "Farooqabad"},
+    {"@type": "City", "name": "Muridke"},
+    {"@type": "City", "name": "Safdarabad"},
+    {"@type": "City", "name": "Nankana Sahib"}
+  ]
+}
+&lt;/script&gt;</pre>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // 1. REAL-TIME GROUNDED KEYWORD DATASET (42 QUERIES)
+    const KEYWORDS = [
+      {
+        id: 1,
+        keyword: "web development course in sheikhupura",
+        cluster: "Web Dev & Coding",
+        intent: "Transactional",
+        status: "RANK_1",
+        rankLabel: "#1 & #4",
+        competitor: "VentureTech (#2 & #3)",
+        compUrl: "https://www.venturetech.com.pk/courses/certificate-in-web-development-cwd/",
+        targetUrl: "https://oneskills.pk/courses/ai-powered-web-development/",
+        targetLabel: "/courses/ai-powered-web-development/",
+        action: "Defend #1: Fix 'Free' LMS price badge (set to PKR 28,000) & add Course JSON-LD.",
+        recTitle: "AI Web Development Course in Sheikhupura (3-Month Practical Training) | OneSkills",
+        recH1: "AI-Powered Web Development Course in Sheikhupura",
+        recMeta: "Join the #1 AI Web Development Course in Sheikhupura at OneSkills Academy (Near KIPS College). Master HTML, CSS, JS, React, Next.js, WordPress & Shopify in 3 months."
+      },
+      {
+        id: 2,
+        keyword: "ai course in sheikhupura",
+        cluster: "AI & Automation",
+        intent: "Transactional",
+        status: "RANK_1",
+        rankLabel: "#1 & #5",
+        competitor: "Laimoon (#2) / Ibn-e-Siena (#3)",
+        compUrl: "https://courses.laimoon.com/pakistan/shekhupura/it-computing-and-technology/artificial-intelligence-ai",
+        targetUrl: "https://oneskills.pk/courses/ai-tools-automation/",
+        targetLabel: "/courses/ai-tools-automation/",
+        action: "Replace broken 'emptystate.svg' thumbnail with custom WebP banner & add course fee.",
+        recTitle: "AI Tools & Automation Course in Sheikhupura (ChatGPT, Claude, Zapier) | OneSkills",
+        recH1: "AI Tools & Automation Course in Sheikhupura",
+        recMeta: "Master Prompt Engineering, ChatGPT, Claude, Gemini, Midjourney, Sora & Zapier automation in Sheikhupura. Practical 2-month physical training at OneSkills Academy."
+      },
+      {
+        id: 3,
+        keyword: "forex trading course in sheikhupura",
+        cluster: "Forex, Crypto & Web3",
+        intent: "Transactional",
+        status: "RANK_1",
+        rankLabel: "#1 & #2",
+        competitor: "TeacherOn (#3) / PNY (#6)",
+        compUrl: "https://www.pnytrainings.com/make-money-with-digital-currency-and-forex-trading-course-in-lahore-pakistan",
+        targetUrl: "https://oneskills.pk/courses/forex-trading-mastery/",
+        targetLabel: "/courses/forex-trading-mastery/",
+        action: "Defend #1: Embed Attique Hussain trainer bio schema & fix '0 Rating' snippet.",
+        recTitle: "Forex Trading Course in Sheikhupura (3-Month Price Action Mastery) | OneSkills",
+        recH1: "Forex Trading Course in Sheikhupura — Price Action & Risk Management",
+        recMeta: "Learn disciplined Forex trading in Sheikhupura with physical classes at OneSkills Academy. Master MT4/MT5, price action, order blocks & the 1% risk rule."
+      },
+      {
+        id: 4,
+        keyword: "crypto trading course in sheikhupura",
+        cluster: "Forex, Crypto & Web3",
+        intent: "Transactional",
+        status: "RANK_1",
+        rankLabel: "#1, #2 & #3",
+        competitor: "The Knowledge Academy (#6)",
+        compUrl: "https://www.theknowledgeacademy.com/pk/courses/investment-and-trading-training/cryptocurrency-trading-training/lahore/",
+        targetUrl: "https://oneskills.pk/courses/crypto-trading-training/",
+        targetLabel: "/courses/crypto-trading-training/",
+        action: "Remove raw 'Description' placeholder text in syllabus & replace 'emptystate.svg' image.",
+        recTitle: "Crypto Trading Course in Sheikhupura (Spot, Futures & On-Chain) | OneSkills",
+        recH1: "Crypto Trading Course in Sheikhupura",
+        recMeta: "Practical 3-month Crypto Trading Course in Sheikhupura. Master TradingView, Order Blocks, VSA, DEX trading & risk management in live classroom sessions."
+      },
+      {
+        id: 5,
+        keyword: "web3 blockchain course in sheikhupura",
+        cluster: "Forex, Crypto & Web3",
+        intent: "Transactional",
+        status: "RANK_1",
+        rankLabel: "#1 Local (#3 Regional)",
+        competitor: "PNY Trainings Lahore (#2)",
+        compUrl: "https://www.pnytrainings.com/nft-blockchain-web-30-developer-course-in-lahore-pakistan",
+        targetUrl: "https://oneskills.pk/courses/web3-blockchain-mastery/",
+        targetLabel: "/courses/web3-blockchain-mastery/",
+        action: "Append 'in Sheikhupura & Lahore Division' to H1 and meta title to capture regional searches.",
+        recTitle: "Web3 & Blockchain Course in Sheikhupura (DeFi, Airdrops & Security) | OneSkills",
+        recH1: "Web3 & Blockchain Mastery Course in Sheikhupura",
+        recMeta: "Learn Web3, Blockchain ecosystems, wallet security, DEXs, DeFi & safe airdrop participation in Sheikhupura with Bilal Ashraf at OneSkills Academy."
+      },
+      {
+        id: 6,
+        keyword: "digital skills academy in sheikhupura",
+        cluster: "Institute & Brand",
+        intent: "Commercial",
+        status: "RANK_1",
+        rankLabel: "#1",
+        competitor: "VentureTech (#2)",
+        compUrl: "https://www.venturetech.com.pk/",
+        targetUrl: "https://oneskills.pk/",
+        targetLabel: "oneskills.pk (Homepage)",
+        action: "Maintain #1: Remove duplicate animated DOM numbers on homepage to boost mobile LCP.",
+        recTitle: "OneSkills Academy | #1 IT & Digital Skills Institute in Sheikhupura",
+        recH1: "Sheikhupura's Practical Digital Skills, AI & Trading Academy",
+        recMeta: "Learn AI Tools, Web Development, Digital Marketing, Freelancing, Computer Skills, Forex & Web3 in Sheikhupura. Physical classes opposite Mian Hospital, near KIPS College."
+      },
+      {
+        id: 7,
+        keyword: "digital marketing course in sheikhupura",
+        cluster: "Digital Marketing & SEO",
+        intent: "Transactional",
+        status: "STRIKE",
+        rankLabel: "#2, #5 & #6",
+        competitor: "VentureTech CDM (#1)",
+        compUrl: "https://www.venturetech.com.pk/courses/certificate-in-digital-marketing-cdm/",
+        targetUrl: "https://oneskills.pk/courses/freelancing-digital-marketing-mastery/",
+        targetLabel: "/courses/freelancing-digital-marketing-mastery/",
+        action: "Flip #2 to #1: Lead Title & H1 with 'Digital Marketing Course in Sheikhupura' & link from blog.",
+        recTitle: "Digital Marketing & Freelancing Course in Sheikhupura (3-Month Practical) | OneSkills",
+        recH1: "Digital Marketing & Freelancing Course in Sheikhupura",
+        recMeta: "Master SEO, Google Ads, Meta Ads, Social Media, Canva & Upwork/Fiverr freelancing in Sheikhupura. 3-month hands-on classroom training led by Nisar Mehar."
+      },
+      {
+        id: 8,
+        keyword: "short computer courses in sheikhupura",
+        cluster: "Computer & Office",
+        intent: "Transactional",
+        status: "STRIKE",
+        rankLabel: "#2 & #3",
+        competitor: "VentureTech (#1) / ICI LMS (#4)",
+        compUrl: "https://icilms.com/best-computer-institute-in-sheikhupura-for-short-courses/",
+        targetUrl: "https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/",
+        targetLabel: "/courses/ai-based-computer-course-sheikhupura/",
+        action: "Flip #2 to #1: Include '3-Month Short Computer Course' in H2 & meta description.",
+        recTitle: "AI Based Short Computer Course in Sheikhupura (MS Office + AI Tools) | OneSkills",
+        recH1: "AI-Based Modern Computer Short Course in Sheikhupura",
+        recMeta: "Enroll in Sheikhupura's most modern 3-month short computer course (PKR 15,000). Master Windows, Typing, MS Word, Excel, PowerPoint, Copilot, ChatGPT & Freelancing."
+      },
+      {
+        id: 9,
+        keyword: "coding programming course in sheikhupura",
+        cluster: "Web Dev & Coding",
+        intent: "Transactional",
+        status: "STRIKE",
+        rankLabel: "#2",
+        competitor: "Bano Qabil FB Post (#1)",
+        compUrl: "https://oneskills.pk/courses/ai-powered-web-development/",
+        targetUrl: "https://oneskills.pk/courses/ai-powered-web-development/",
+        targetLabel: "/courses/ai-powered-web-development/",
+        action: "Flip #2 to #1: Add H2 'Coding & Programming Course in Sheikhupura (HTML, JS, React, Python AI)'.",
+        recTitle: "AI Web Development & Coding Course in Sheikhupura | OneSkills",
+        recH1: "AI-Powered Web Development & Coding Course in Sheikhupura",
+        recMeta: "Learn coding from zero in Sheikhupura. Master HTML5, CSS3, JavaScript, React, Next.js & AI coding tools (Cursor, Copilot, Claude) in 3 months at OneSkills."
+      },
+      {
+        id: 10,
+        keyword: "best it institute in sheikhupura",
+        cluster: "Institute & Brand",
+        intent: "Commercial",
+        status: "STRIKE",
+        rankLabel: "#3 & #5",
+        competitor: "VentureTech (#1) / ICI LMS (#2)",
+        compUrl: "https://icilms.com/top-1-best-computer-institute-in-sheikhupura-for-it-courses/",
+        targetUrl: "https://oneskills.pk/best-it-institute-in-sheikhupura/",
+        targetLabel: "/best-it-institute-in-sheikhupura/",
+        action: "Add comparison table of Sheikhupura IT institutes + FAQ schema + internal links to all 7 courses.",
+        recTitle: "Best IT Institute in Sheikhupura (2026 Course & Fee Comparison) | OneSkills",
+        recH1: "Best IT Institute in Sheikhupura: Complete 2026 Student Guide",
+        recMeta: "Comparing the best IT and computer institutes in Sheikhupura? Review practical courses, lab facilities, trainer experience, and fees before you enroll."
+      },
+      {
+        id: 11,
+        keyword: "computer courses in sheikhupura",
+        cluster: "Computer & Office",
+        intent: "Transactional",
+        status: "STRIKE",
+        rankLabel: "#3 & #4",
+        competitor: "SCCSKP (#1) / VentureTech (#2)",
+        compUrl: "https://sccskp.lovestoblog.com/",
+        targetUrl: "https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/",
+        targetLabel: "/courses/ai-based-computer-course-sheikhupura/",
+        action: "Add 'Computer Courses in Sheikhupura' FAQ block + link from homepage hero button.",
+        recTitle: "Computer Courses in Sheikhupura (AI + MS Office + Freelancing) | OneSkills",
+        recH1: "AI-Based Computer Course in Sheikhupura",
+        recMeta: "Looking for practical computer courses in Sheikhupura? Master MS Word, Excel, PowerPoint, Windows, Typing & 20+ AI tools in 12 weekends at OneSkills Academy."
+      },
+      {
+        id: 12,
+        keyword: "freelancing course in sheikhupura",
+        cluster: "Freelancing & Online Earning",
+        intent: "Transactional",
+        status: "STRIKE",
+        rankLabel: "#3, #4 & #5",
+        competitor: "RealSheikhupura (#1)",
+        compUrl: "https://realsheikhupura.com/best-freelancing-course-in-sheikhupura/",
+        targetUrl: "https://oneskills.pk/courses/freelancing-digital-marketing-mastery/",
+        targetLabel: "/courses/freelancing-digital-marketing-mastery/",
+        action: "Consolidate internal link equity from your July 2026 blog guide to the main course page.",
+        recTitle: "Freelancing & Digital Marketing Course in Sheikhupura (Fiverr & Upwork) | OneSkills",
+        recH1: "Freelancing & Digital Marketing Course in Sheikhupura",
+        recMeta: "Start earning on Upwork, Fiverr & direct clients with Sheikhupura's most practical 3-month Freelancing & Digital Marketing course at OneSkills Academy."
+      },
+      {
+        id: 13,
+        keyword: "seo course in sheikhupura",
+        cluster: "Digital Marketing & SEO",
+        intent: "Transactional",
+        status: "STRIKE",
+        rankLabel: "#3, #4 & #6",
+        competitor: "VentureTech CDM (#1)",
+        compUrl: "https://www.venturetech.com.pk/courses/certificate-in-digital-marketing-cdm/",
+        targetUrl: "https://oneskills.pk/best-digital-marketing-freelancing-course-in-sheikhupura/",
+        targetLabel: "/best-digital-marketing-freelancing-course-in-sheikhupura/",
+        action: "Create dedicated '/seo-course-in-sheikhupura/' landing page or expand Module 2 SEO anchor section.",
+        recTitle: "Practical SEO Course in Sheikhupura (On-Page, Technical & Local SEO) | OneSkills",
+        recH1: "Search Engine Optimization (SEO) Training in Sheikhupura",
+        recMeta: "Learn keyword research, on-page SEO, technical audits, Local GBP ranking & website flipping in Sheikhupura with hands-on live projects at OneSkills Academy."
+      },
+      {
+        id: 14,
+        keyword: "it courses in sheikhupura",
+        cluster: "Institute & Brand",
+        intent: "Transactional",
+        status: "STRIKE",
+        rankLabel: "#3",
+        competitor: "VentureTech (#1) / SCCSKP (#2)",
+        compUrl: "https://www.venturetech.com.pk/",
+        targetUrl: "https://oneskills.pk/courses/",
+        targetLabel: "/courses/ (Archive)",
+        action: "Optimize /courses/ archive title tag (currently 'Courses Archive') to 'IT Courses in Sheikhupura'.",
+        recTitle: "Top 7 IT Courses in Sheikhupura (2026 Admissions Open) | OneSkills Academy",
+        recH1: "Practical IT & Digital Skills Courses in Sheikhupura",
+        recMeta: "Explore 3-month practical IT courses in Sheikhupura: AI Web Development, Digital Marketing, Freelancing, AI Computer Course, Forex, Crypto & Web3."
+      },
+      {
+        id: 15,
+        keyword: "online earning course in sheikhupura",
+        cluster: "Freelancing & Online Earning",
+        intent: "Transactional",
+        status: "STRIKE",
+        rankLabel: "#1 (Home) / #4 Rival Blog",
+        competitor: "RealSheikhupura (#2) / ICI LMS (#4)",
+        compUrl: "https://icilms.com/which-computer-course-is-best-in-sheikhupura-for-online-earning/",
+        targetUrl: "https://oneskills.pk/",
+        targetLabel: "oneskills.pk + New Guide",
+        action: "Publish dedicated comparison guide 'Best Online Earning Courses in Sheikhupura (2026)' to lock #1 & #2.",
+        recTitle: "Best Online Earning Courses in Sheikhupura (Freelancing, AI, Web Dev & Trading)",
+        recH1: "Practical Online Earning Courses in Sheikhupura",
+        recMeta: "Compare 6 real online earning skills taught face-to-face in Sheikhupura: Upwork/Fiverr Freelancing, AI Web Development, Digital Marketing & Trading."
+      },
+      {
+        id: 16,
+        keyword: "ecommerce shopify course in sheikhupura",
+        cluster: "E-Commerce & Design",
+        intent: "Transactional",
+        status: "STRIKE",
+        rankLabel: "#3 (via Blog)",
+        competitor: "Excelling Skills Lab FB (#2)",
+        compUrl: "https://oneskills.pk/best-digital-marketing-freelancing-course-in-sheikhupura/",
+        targetUrl: "https://oneskills.pk/courses/ai-powered-web-development/",
+        targetLabel: "New: /shopify-ecommerce-course-sheikhupura/",
+        action: "No local academy has a dedicated Shopify page! Launch a standalone Shopify & WooCommerce page.",
+        recTitle: "Shopify & E-Commerce Course in Sheikhupura (Local & International Dropshipping)",
+        recH1: "Shopify, WooCommerce & E-Commerce Mastery in Sheikhupura",
+        recMeta: "Build and scale profitable Shopify & WooCommerce stores in Sheikhupura. Learn product hunting, store design, Meta/TikTok ads & payment gateways at OneSkills."
+      },
+      {
+        id: 17,
+        keyword: "computer courses after matric in sheikhupura",
+        cluster: "Computer & Office",
+        intent: "Informational",
+        status: "STRIKE",
+        rankLabel: "#5",
+        competitor: "ICI LMS (#1 & #3)",
+        compUrl: "https://icilms.com/computer-courses-after-matric-in-sheikhupura-skills-career-paths-and-learning-options/",
+        targetUrl: "https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/",
+        targetLabel: "New Blog + /ai-based-computer-course-sheikhupura/",
+        action: "Publish 'Best Computer Courses After Matric & Intermediate in Sheikhupura (2026)' & link to AI Computer Course.",
+        recTitle: "Best Computer Courses After Matric & Inter in Sheikhupura (2026 Career Guide)",
+        recH1: "Top Computer & Digital Courses After Matric in Sheikhupura",
+        recMeta: "Just finished Matric or Intermediate exams in Sheikhupura? Use your 3-month break to master AI Computer Skills, Web Development, or Freelancing at OneSkills."
+      },
+      {
+        id: 18,
+        keyword: "computer academy in sheikhupura",
+        cluster: "Institute & Brand",
+        intent: "Commercial",
+        status: "STRIKE",
+        rankLabel: "#5",
+        competitor: "SCCSKP (#1) / ICI LMS (#2) / VentureTech (#3)",
+        compUrl: "https://icilms.com/best-computer-institute-in-sheikhupura-inspired-computer-institute/",
+        targetUrl: "https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/",
+        targetLabel: "/courses/ai-based-computer-course-sheikhupura/",
+        action: "Add 'Computer Academy in Sheikhupura' to About Us & AI Computer Course H2s + GBP primary category.",
+        recTitle: "OneSkills Computer Academy in Sheikhupura | Modern AI & IT Training",
+        recH1: "Leading Computer & Digital Skills Academy in Sheikhupura",
+        recMeta: "Visit OneSkills Computer Academy opposite Mian Hospital, near KIPS College, Sheikhupura. Hands-on labs, small batches, free demo classes & certified trainers."
+      },
+      {
+        id: 19,
+        keyword: "best digital marketing course in sheikhupura",
+        cluster: "Digital Marketing & SEO",
+        intent: "Commercial",
+        status: "STRIKE",
+        rankLabel: "#2 & #3",
+        competitor: "VentureTech (#1)",
+        compUrl: "https://www.venturetech.com.pk/courses/certificate-in-digital-marketing-cdm/",
+        targetUrl: "https://oneskills.pk/best-digital-marketing-freelancing-course-in-sheikhupura/",
+        targetLabel: "/best-digital-marketing-freelancing-course-in-sheikhupura/",
+        action: "Add student case studies, course fee breakdown, and FAQ schema to the 2026 Digital Marketing Guide.",
+        recTitle: "Best Digital Marketing & Freelancing Course in Sheikhupura (2026 Guide)",
+        recH1: "Best Digital Marketing & Freelancing Course in Sheikhupura",
+        recMeta: "Compare syllabus, live ad campaign projects, AI marketing tools, and mentorship in Sheikhupura's most comprehensive Digital Marketing & Freelancing program."
+      },
+      {
+        id: 20,
+        keyword: "ai web development course in sheikhupura",
+        cluster: "Web Dev & Coding",
+        intent: "Transactional",
+        status: "RANK_1",
+        rankLabel: "#1",
+        competitor: "VentureTech (#2)",
+        compUrl: "https://www.venturetech.com.pk/courses/certificate-in-web-development-cwd/",
+        targetUrl: "https://oneskills.pk/courses/ai-powered-web-development/",
+        targetLabel: "/courses/ai-powered-web-development/",
+        action: "Defend #1: Embed student project showcase video & fix '0 Students / Free' Tutor LMS display.",
+        recTitle: "AI Powered Web Development in Sheikhupura (PKR 28,000) | OneSkills",
+        recH1: "AI Powered Web Development Course in Sheikhupura",
+        recMeta: "Build websites, React apps & e-commerce stores 10x faster using Cursor AI, GitHub Copilot, Claude & Gemini at OneSkills Academy Sheikhupura."
+      },
+      {
+        id: 21,
+        keyword: "prompt engineering course in sheikhupura",
+        cluster: "AI & Automation",
+        intent: "Transactional",
+        status: "STRIKE",
+        rankLabel: "#2",
+        competitor: "Laimoon Directory (#1)",
+        compUrl: "https://courses.laimoon.com/pakistan/shekhupura/it-computing-and-technology/artificial-intelligence-ai",
+        targetUrl: "https://oneskills.pk/courses/ai-tools-automation/",
+        targetLabel: "/courses/ai-tools-automation/",
+        action: "Promote 'Prompt Engineering Mastery' into the meta title and H2 of AI Tools & Automation page.",
+        recTitle: "AI Tools, Automation & Prompt Engineering Course in Sheikhupura | OneSkills",
+        recH1: "AI Tools, Prompt Engineering & Automation Course in Sheikhupura",
+        recMeta: "Master Prompt Engineering across ChatGPT, Claude, Gemini & Perplexity, plus no-code AI automation with Zapier and Make.com in Sheikhupura."
+      },
+      {
+        id: 22,
+        keyword: "wordpress course in sheikhupura",
+        cluster: "Web Dev & Coding",
+        intent: "Transactional",
+        status: "STRIKE",
+        rankLabel: "#3",
+        competitor: "VentureTech Web Design (#1)",
+        compUrl: "https://www.venturetech.com.pk/courses/web-designing/",
+        targetUrl: "https://oneskills.pk/courses/ai-powered-web-development/",
+        targetLabel: "/courses/ai-powered-web-development/",
+        action: "Highlight 'WordPress Mastery, Elementor & Custom AI Plugin Creation' in a dedicated H2 + FAQ item.",
+        recTitle: "WordPress, WooCommerce & AI Web Development Course in Sheikhupura",
+        recH1: "WordPress & Full-Stack AI Web Development in Sheikhupura",
+        recMeta: "Learn custom WordPress themes, Elementor, WooCommerce stores, and building your own WordPress plugins with AI in Sheikhupura."
+      },
+      {
+        id: 23,
+        keyword: "office management course in sheikhupura",
+        cluster: "Computer & Office",
+        intent: "Transactional",
+        status: "GAP",
+        rankLabel: "Unranked (Top 10 Gap)",
+        competitor: "ICI LMS (#2) / United College (#3)",
+        compUrl: "https://unitedcollege.edu.pk/dit-course-in-sheikhupura-turning-curiosity-into-it-skills",
+        targetUrl: "https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/",
+        targetLabel: "/courses/ai-based-computer-course-sheikhupura/",
+        action: "You teach Word, Excel, PowerPoint + Copilot! Add 'Office Management & MS Office Course' to the H2 & Title.",
+        recTitle: "Office Management & AI Computer Course in Sheikhupura (MS Office + Copilot)",
+        recH1: "AI-Based Computer & Office Management Course in Sheikhupura",
+        recMeta: "Master modern Office Management in Sheikhupura: MS Word, Advanced Excel, PowerPoint, Typing & Microsoft Copilot AI in a 3-month weekend course (PKR 15,000)."
+      },
+      {
+        id: 24,
+        keyword: "ms office course in sheikhupura",
+        cluster: "Computer & Office",
+        intent: "Transactional",
+        status: "GAP",
+        rankLabel: "Unranked (Top 10 Gap)",
+        competitor: "AccounTech (#1 Excel) / PNY (#2)",
+        compUrl: "https://accountech.com.pk/excel-training-sheikhupura/",
+        targetUrl: "https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/",
+        targetLabel: "/courses/ai-based-computer-course-sheikhupura/",
+        action: "Add dedicated H2 'MS Office Course in Sheikhupura (Word, Excel, PowerPoint + AI)' on the computer course page.",
+        recTitle: "MS Office & AI Computer Course in Sheikhupura (Word, Excel, PowerPoint)",
+        recH1: "MS Office & AI Productivity Course in Sheikhupura",
+        recMeta: "Practical MS Office training in Sheikhupura enhanced with AI. Learn Word document automation, Excel VLOOKUP/XLOOKUP formulas, Pivot Tables & AI presentations."
+      },
+      {
+        id: 25,
+        keyword: "advanced excel course in sheikhupura",
+        cluster: "Computer & Office",
+        intent: "Transactional",
+        status: "GAP",
+        rankLabel: "Unranked",
+        competitor: "AccounTech Sheikhupura (#1)",
+        compUrl: "https://accountech.com.pk/excel-training-sheikhupura/",
+        targetUrl: "https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/",
+        targetLabel: "/courses/ai-based-computer-course-sheikhupura/",
+        action: "Expand Module 5 (MS Excel + AI Data Tools) with an anchor section targeting 'Advanced Excel Training in Sheikhupura'.",
+        recTitle: "Advanced Excel & AI Data Analysis Training in Sheikhupura | OneSkills",
+        recH1: "Master Microsoft Excel, Pivot Tables, XLOOKUP & AI Formulas in Sheikhupura",
+        recMeta: "Upgrade your accounting and office career in Sheikhupura with hands-on Excel formulas, Pivot Tables, Power BI basics, and AI formula generation."
+      },
+      {
+        id: 26,
+        keyword: "graphic designing course in sheikhupura",
+        cluster: "E-Commerce & Design",
+        intent: "Transactional",
+        status: "GAP",
+        rankLabel: "Unranked",
+        competitor: "VentureTech (#1, #2 & #3)",
+        compUrl: "https://www.venturetech.com.pk/courses/graphic-designing/",
+        targetUrl: "https://oneskills.pk/courses/ai-tools-automation/",
+        targetLabel: "New Section / Landing Page",
+        action: "Create an 'AI Graphic Design & Video Creation (Canva AI, Midjourney, Sora)' landing page to disrupt VentureTech.",
+        recTitle: "AI Graphic Designing & Video Editing Course in Sheikhupura | OneSkills",
+        recH1: "Modern Graphic Design, Canva Pro & AI Visual Mastery in Sheikhupura",
+        recMeta: "Create commercial brand designs, social media creatives, thumbnails & AI videos 10x faster using Canva Pro, Midjourney, DALL-E 3 & Runway in Sheikhupura."
+      },
+      {
+        id: 27,
+        keyword: "fiverr upwork course in sheikhupura",
+        cluster: "Freelancing & Online Earning",
+        intent: "Transactional",
+        status: "GAP",
+        rankLabel: "Page 2 (#11)",
+        competitor: "RealSheikhupura (#1)",
+        compUrl: "https://realsheikhupura.com/best-freelancing-course-in-sheikhupura/",
+        targetUrl: "https://oneskills.pk/courses/freelancing-digital-marketing-mastery/",
+        targetLabel: "/courses/freelancing-digital-marketing-mastery/",
+        action: "Include 'Fiverr & Upwork' explicitly in the Title Tag and H2 of Freelancing & Digital Marketing Mastery.",
+        recTitle: "Upwork & Fiverr Freelancing Course in Sheikhupura | OneSkills Academy",
+        recH1: "Practical Upwork & Fiverr Freelancing Training in Sheikhupura",
+        recMeta: "Learn gig ranking, Upwork proposal writing, Payoneer setup & client acquisition in Sheikhupura with 7+ year freelancer Nisar Mehar."
+      },
+      {
+        id: 28,
+        keyword: "google ads meta ads course in sheikhupura",
+        cluster: "Digital Marketing & SEO",
+        intent: "Transactional",
+        status: "GAP",
+        rankLabel: "Page 1 (#7)",
+        competitor: "VentureTech CDM (#1)",
+        compUrl: "https://www.venturetech.com.pk/courses/certificate-in-digital-marketing-cdm/",
+        targetUrl: "https://oneskills.pk/courses/freelancing-digital-marketing-mastery/",
+        targetLabel: "/courses/freelancing-digital-marketing-mastery/",
+        action: "Fix the tag typo ('Mata Ads' -> 'Meta Ads') on the course page and add a dedicated Paid Ads H2 section.",
+        recTitle: "Meta Ads, Google Ads & Performance Marketing Course in Sheikhupura",
+        recH1: "Facebook/Instagram (Meta) Ads & Google Ads Training in Sheikhupura",
+        recMeta: "Run high-ROI Facebook, Instagram, TikTok & Google Ads campaigns. Practical media buying and conversion tracking classes in Sheikhupura."
+      },
+      {
+        id: 29,
+        keyword: "social media marketing course in sheikhupura",
+        cluster: "Digital Marketing & SEO",
+        intent: "Transactional",
+        status: "GAP",
+        rankLabel: "Page 1 (#6)",
+        competitor: "VentureTech CDM (#1)",
+        compUrl: "https://www.venturetech.com.pk/courses/certificate-in-digital-marketing-cdm/",
+        targetUrl: "https://oneskills.pk/courses/freelancing-digital-marketing-mastery/",
+        targetLabel: "/courses/freelancing-digital-marketing-mastery/",
+        action: "Add FAQ schema answering 'What is covered in the Social Media Marketing module in Sheikhupura?'.",
+        recTitle: "Social Media Marketing Course in Sheikhupura (FB, IG, TikTok, LinkedIn)",
+        recH1: "Social Media Marketing & Content Creation Course in Sheikhupura",
+        recMeta: "Master Facebook, Instagram, TikTok & LinkedIn growth, content calendars, Reels creation & paid ad scaling at OneSkills Academy Sheikhupura."
+      },
+      {
+        id: 30,
+        keyword: "youtube automation ai video course sheikhupura",
+        cluster: "AI & Automation",
+        intent: "Transactional",
+        status: "GAP",
+        rankLabel: "Unranked Blue Ocean",
+        competitor: "No Local Competitor",
+        compUrl: "https://oneskills.pk/courses/ai-tools-automation/",
+        targetUrl: "https://oneskills.pk/courses/ai-tools-automation/",
+        targetLabel: "/courses/ai-tools-automation/",
+        action: "You already teach Sora, Google Veo, Kling AI & Runway! Add 'AI Video & YouTube Automation' to H2s.",
+        recTitle: "AI Video Generation & YouTube Automation Course in Sheikhupura | OneSkills",
+        recH1: "Master Sora, Google Veo, Kling AI & Faceless Video Automation in Sheikhupura",
+        recMeta: "Create studio-grade AI videos, voiceovers, scripts, and automated faceless channels using Sora, Veo, Kling & Runway at OneSkills Sheikhupura."
+      },
+      {
+        id: 31,
+        keyword: "dit computer diploma in sheikhupura",
+        cluster: "Computer & Office",
+        intent: "Commercial",
+        status: "GAP",
+        rankLabel: "Unranked",
+        competitor: "United College (#1) / SCCSKP (#2)",
+        compUrl: "https://unitedcollege.edu.pk/dit-course-in-sheikhupura-turning-curiosity-into-it-skills",
+        targetUrl: "https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/",
+        targetLabel: "New Blog Comparison",
+        action: "Publish comparison post: 'Traditional DIT Diploma vs. 3-Month AI Computer Course in Sheikhupura'.",
+        recTitle: "DIT Course in Sheikhupura vs. Modern AI Computer Training (2026 Comparison)",
+        recH1: "Should You Do a Traditional DIT or an AI-Powered Computer Course in Sheikhupura?",
+        recMeta: "Compare traditional 1-year DIT diplomas in Sheikhupura with OneSkills' 3-month practical AI + MS Office + Freelancing certification."
+      },
+      {
+        id: 32,
+        keyword: "computer courses for females in sheikhupura",
+        cluster: "Computer & Office",
+        intent: "Transactional",
+        status: "GAP",
+        rankLabel: "Unranked High-Demand",
+        competitor: "Santzar Instagram (#1)",
+        compUrl: "https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/",
+        targetUrl: "https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/",
+        targetLabel: "/courses/ai-based-computer-course-sheikhupura/",
+        action: "Your page already mentions 'housewives and female students'! Promote 'Safe Environment for Female Students' into an H2.",
+        recTitle: "Computer & Online Earning Courses for Females in Sheikhupura | OneSkills",
+        recH1: "Safe, Practical Computer & Home-Earning Courses for Females in Sheikhupura",
+        recMeta: "Weekend and morning batches for female students, teachers, and homemakers in Sheikhupura (Opp. Mian Hospital, near KIPS College). Learn AI, MS Office & Freelancing."
+      },
+      {
+        id: 33,
+        keyword: "weekend computer classes in sheikhupura",
+        cluster: "Computer & Office",
+        intent: "Transactional",
+        status: "GAP",
+        rankLabel: "Unranked Unique USP",
+        competitor: "No Local Competitor",
+        compUrl: "https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/",
+        targetUrl: "https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/",
+        targetLabel: "/courses/ai-based-computer-course-sheikhupura/",
+        action: "OneSkills is the ONLY academy with Saturday + Sunday batches (11 AM–1 PM). Highlight 'Weekend Computer Course' in H2 & schema.",
+        recTitle: "Weekend Computer Course in Sheikhupura (Saturday & Sunday Classes) | OneSkills",
+        recH1: "Saturday & Sunday Weekend AI Computer Course in Sheikhupura",
+        recMeta: "Busy on weekdays? Join Sheikhupura's only Saturday & Sunday AI Computer & MS Office program for school students, job holders, and professionals."
+      },
+      {
+        id: 34,
+        keyword: "website flipping adsense course in sheikhupura",
+        cluster: "Web Dev & Coding",
+        intent: "Transactional",
+        status: "GAP",
+        rankLabel: "Unranked Unique USP",
+        competitor: "No Local Competitor",
+        compUrl: "https://oneskills.pk/courses/ai-powered-web-development/",
+        targetUrl: "https://oneskills.pk/courses/ai-powered-web-development/",
+        targetLabel: "/courses/ai-powered-web-development/",
+        action: "Module 7 covers Flippa, Motion Invest & Google AdSense! Create a dedicated blog post linking to the Web Dev course.",
+        recTitle: "Google AdSense & Website Flipping Course in Sheikhupura (Flippa Mastery)",
+        recH1: "Build, Monetize with AdSense & Flip Websites on Flippa in Sheikhupura",
+        recMeta: "Learn how to build AI websites, approve Google AdSense, and flip digital assets for $5,000+ on Flippa and Motion Invest at OneSkills Sheikhupura."
+      },
+      {
+        id: 35,
+        keyword: "airdrop farming web3 course in pakistan",
+        cluster: "Forex, Crypto & Web3",
+        intent: "Transactional",
+        status: "GAP",
+        rankLabel: "Page 1 (#6)",
+        competitor: "PNY / NexSkill Lahore",
+        compUrl: "https://nexskill.com/blockchain/",
+        targetUrl: "https://oneskills.pk/courses/web3-blockchain-mastery/",
+        targetLabel: "/courses/web3-blockchain-mastery/",
+        action: "No institute in Punjab has a structured Airdrop Farming + Scam Prevention syllabus like yours. Create a national guide!",
+        recTitle: "Web3 Airdrop Farming & On-Chain Analysis Course in Sheikhupura, Pakistan",
+        recH1: "Structured Airdrop Farming, DeFi & Wallet Security Training",
+        recMeta: "Learn legitimate Web3 airdrop participation, Sybil rules, wallet security, and on-chain analysis with Bilal Ashraf at OneSkills Academy Sheikhupura."
+      },
+      {
+        id: 36,
+        keyword: "free demo computer classes in sheikhupura",
+        cluster: "Institute & Brand",
+        intent: "Transactional",
+        status: "GAP",
+        rankLabel: "Unranked Conversion Hook",
+        competitor: "Mansol / NAVTTC",
+        compUrl: "https://oneskills.pk/contact-us/",
+        targetUrl: "https://oneskills.pk/contact-us/",
+        targetLabel: "/contact-us/ (Book Free Demo)",
+        action: "Instead of marking paid courses 'Free' in Tutor LMS, transform /contact-us/ into a 'Book Free Demo Class + 2-Week Money-Back' page.",
+        recTitle: "Book a Free Demo Class in Sheikhupura | OneSkills Digital Skills Academy",
+        recH1: "Attend a Free Trial Class at OneSkills Academy Sheikhupura",
+        recMeta: "Experience practical training before you pay. Book a free demo class in Web Development, AI Tools, Digital Marketing, or Trading opposite Mian Hospital, Sheikhupura."
+      },
+      {
+        id: 37,
+        keyword: "computer courses near kips college sheikhupura",
+        cluster: "Institute & Brand",
+        intent: "Transactional",
+        status: "STRIKE",
+        rankLabel: "#2",
+        competitor: "ICI LMS (#1)",
+        compUrl: "https://oneskills.pk/contact-us/",
+        targetUrl: "https://oneskills.pk/contact-us/",
+        targetLabel: "/contact-us/ + GBP",
+        action: "Standardize NAP string across footer & Contact page: 'Lahore–Sargodha Rd, Opp. Mian Hospital, Near KIPS College, Sheikhupura'.",
+        recTitle: "IT & Computer Institute Near KIPS College, Lahore-Sargodha Rd Sheikhupura",
+        recH1: "Visit OneSkills Academy — Opposite Mian Hospital, Near KIPS College",
+        recMeta: "Conveniently located on Lahore–Sargodha Road opposite Mian Hospital and near KIPS College, Sheikhupura (39350). Call or WhatsApp +92 317 603 6127."
+      },
+      {
+        id: 38,
+        keyword: "which computer course is best for online earning in sheikhupura",
+        cluster: "Freelancing & Online Earning",
+        intent: "Informational",
+        status: "GAP",
+        rankLabel: "Unranked",
+        competitor: "ICI LMS (#1 - Published Oct 10)",
+        compUrl: "https://icilms.com/which-computer-course-is-best-in-sheikhupura-for-online-earning/",
+        targetUrl: "https://oneskills.pk/best-it-institute-in-sheikhupura/",
+        targetLabel: "New Blog Post",
+        action: "ICI LMS published this exact title 6 days ago! Publish a superior guide with real PKR 50k–150k earning roadmaps.",
+        recTitle: "Which Computer Course is Best in Sheikhupura for Online Earning? (2026 Breakdown)",
+        recH1: "Which Course is Best for Online Earning in Sheikhupura? (Realistic 2026 Guide)",
+        recMeta: "Compare earning timelines, difficulty levels, and Fiverr/Upwork demand for AI Web Development, Digital Marketing, AI Office Skills, and Trading in Sheikhupura."
+      },
+      {
+        id: 39,
+        keyword: "computer courses in farooqabad",
+        cluster: "Regional Feeder Towns",
+        intent: "Transactional",
+        status: "GAP",
+        rankLabel: "Unranked (Easy #1)",
+        competitor: "SCCSKP (#1) / ICI LMS (#2)",
+        compUrl: "https://icilms.com/best-computer-courses-in-sheikhupura-for-students/",
+        targetUrl: "https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/",
+        targetLabel: "Feeder Section + Regional Guide",
+        action: "Farooqabad is straight down Lahore–Sargodha Rd! Add a Farooqabad commuter section to capture #1 immediately.",
+        recTitle: "Best IT & Computer Courses for Farooqabad Students | OneSkills Sheikhupura",
+        recH1: "Practical AI, Web Dev & Computer Courses for Farooqabad Students",
+        recMeta: "Located directly on Lahore–Sargodha Road opposite Mian Hospital, OneSkills Academy offers weekend and weekday batches ideal for students commuting from Farooqabad."
+      },
+      {
+        id: 40,
+        keyword: "computer courses in muridke",
+        cluster: "Regional Feeder Towns",
+        intent: "Transactional",
+        status: "GAP",
+        rankLabel: "Unranked",
+        competitor: "Winware Institute Muridke (#1)",
+        compUrl: "https://www.winware.pk/",
+        targetUrl: "https://oneskills.pk/courses/ai-powered-web-development/",
+        targetLabel: "Feeder Section on Courses",
+        action: "Target Muridke & Ferozewala students with Weekend AI Computer & AI Web Dev batches not offered in Muridke.",
+        recTitle: "AI Web Development, Trading & Weekend Computer Courses near Muridke",
+        recH1: "Advanced AI, Web3 & Coding Training for Muridke & Sheikhupura Division",
+        recMeta: "Learn AI-Powered Web Development, Prompt Engineering, Forex & Web3 with weekend and afternoon batches accessible from Muridke and Ferozewala."
+      },
+      {
+        id: 41,
+        keyword: "computer courses in nankana sahib",
+        cluster: "Regional Feeder Towns",
+        intent: "Transactional",
+        status: "GAP",
+        rankLabel: "Unranked",
+        competitor: "Knowledge Computer College FB (#1)",
+        compUrl: "https://www.psdf.org.pk/",
+        targetUrl: "https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/",
+        targetLabel: "Regional Landing Hub",
+        action: "Zero private institutes in Nankana Sahib rank with a dedicated SEO page for AI/Web3. Capture weekend commuters.",
+        recTitle: "Modern AI, Freelancing & Trading Courses for Nankana Sahib Students | OneSkills",
+        recH1: "Weekend & 3-Month Digital Skills Programs for Nankana Sahib & Safdarabad",
+        recMeta: "Master AI Tools, Web Development, Freelancing & Trading at Sheikhupura's #1 practical academy — weekend classes available for Nankana Sahib & Safdarabad students."
+      },
+      {
+        id: 42,
+        keyword: "computer courses in safdarabad",
+        cluster: "Regional Feeder Towns",
+        intent: "Transactional",
+        status: "GAP",
+        rankLabel: "Unranked (Zero Competition)",
+        competitor: "No Ranked Competitor",
+        compUrl: "https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/",
+        targetUrl: "https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/",
+        targetLabel: "/courses/ai-based-computer-course-sheikhupura/",
+        action: "Safdarabad is already mentioned in your body copy! Add an H3 'For Students from Safdarabad, Farooqabad & Muridke'.",
+        recTitle: "AI Computer & Freelancing Courses for Safdarabad & Sheikhupura Students",
+        recH1: "Practical Digital Skills Training Along Lahore–Sargodha Road",
+        recMeta: "Direct access on Lahore–Sargodha Road for students from Safdarabad and Farooqabad. Enroll in weekend or weekday AI, Computer & Freelancing batches."
+      }
+    ];
+
+    // 2. COURSE ON-PAGE LAB DATASET (7 LIVE PAGES)
+    const COURSES_LAB = [
+      {
+        id: "webdev",
+        shortName: "1. AI Web Dev",
+        name: "AI Powered Web Development in Sheikhupura",
+        url: "https://oneskills.pk/courses/ai-powered-web-development/",
+        currentRank: "#1 for 'web development course in sheikhupura', #2 for 'coding course'",
+        statedFee: "PKR 28,000 (Early Bird)",
+        lmsDisplayedFee: "Free (0 Students, 0 Rating)",
+        defects: [
+          "Price Mismatch: Body text states PKR 28,000, but Tutor LMS sidebar displays 'Price: Free', confusing students and Course schema crawlers.",
+          "Student Counter: Shows '0 Students' and '(0 Rating)' in Google SERP snippets (`72 Lessons; 0 Students`), lowering click-through rate.",
+          "Minor Typo in Module 4 Heading: 'React, Next.js & Modern Framworks' (missing 'e' in Frameworks).",
+          "Missed Sub-Niches: Covers Shopify, WooCommerce, WordPress plugin creation, and Flippa website flipping, but none of these appear in the Meta Title or FAQ schema."
+        ],
+        currentTitle: "AI Powered Web Development in Sheikhupura | #1 Digital Skills Academy in Sheikhupura – OneSkills",
+        optimizedTitle: "AI Web Development Course in Sheikhupura (React, WordPress & Shopify) | OneSkills",
+        optimizedH1: "AI-Powered Web Development & Coding Course in Sheikhupura",
+        optimizedMeta: "Learn AI Web Development in Sheikhupura (PKR 28,000). Build websites, React/Next.js apps, WordPress plugins & Shopify stores 10x faster. 2-week money-back guarantee.",
+        internalLinks: "Link out to '/best-it-institute-in-sheikhupura/' and receive exact-match anchor links ('web development course in Sheikhupura') from Homepage and Blog guides."
+      },
+      {
+        id: "computer",
+        shortName: "2. AI Computer",
+        name: "AI Based Computer Course in Sheikhupura",
+        url: "https://oneskills.pk/courses/ai-based-computer-course-sheikhupura/",
+        currentRank: "#2 for 'short computer courses', #4 for 'computer courses', #5 for 'after matric'",
+        statedFee: "PKR 15,000 (12 Weekends)",
+        lmsDisplayedFee: "Free (1 Student, 0 Rating)",
+        defects: [
+          "Missing High-Volume Synonyms in H1/Title: Local students search for 'Office Management Course', 'MS Office Course', 'Short Computer Course', and 'Computer Course After Matric', which are absent from the main title tag.",
+          "Category Parameter Cannibalization: `/course-category/ai-based-computer-course/?tutor-course-filter-category=110` is indexed separately in Google.",
+          "LMS Sidebar Conflict: Displays 'Price: Free' instead of PKR 15,000."
+        ],
+        currentTitle: "AI Based Computer Course in Sheikhupura | #1 Digital Skills Academy in Sheikhupura – OneSkills",
+        optimizedTitle: "AI Computer & MS Office Short Course in Sheikhupura (Weekend Batch) | OneSkills",
+        optimizedH1: "AI-Based Computer & Office Management Course in Sheikhupura",
+        optimizedMeta: "Join Sheikhupura's #1 AI Computer & MS Office Short Course (PKR 15,000). Master Word, Excel, PowerPoint, Copilot, ChatGPT & Freelancing in 12 weekends.",
+        internalLinks: "Add internal links from new 'Computer Courses After Matric in Sheikhupura' and 'Office Management vs DIT' blog posts."
+      },
+      {
+        id: "dm",
+        shortName: "3. Freelancing & DM",
+        name: "Freelancing & Digital Marketing Course In Sheikhupura",
+        url: "https://oneskills.pk/courses/freelancing-digital-marketing-mastery/",
+        currentRank: "#2–#6 for 'digital marketing course', #3–#5 for 'freelancing course'",
+        statedFee: "3-Month Physical Program",
+        lmsDisplayedFee: "Free (15 Students, 0.0 Rating)",
+        defects: [
+          "Keyword Split / Cannibalization: Competes with your own blog post `/best-digital-marketing-freelancing-course-in-sheikhupura/` instead of funneling authority to the course page.",
+          "Tag Typo: Course tag at bottom of page reads `Mata Ads` instead of `Meta Ads`.",
+          "Competitor Title Advantage: VentureTech ranks #1 for Digital Marketing because 'Digital Marketing Course in Sheikhupura' is the very first phrase in their Title/H1."
+        ],
+        currentTitle: "Freelancing & Digital Marketing Course In Sheikhupura | #1 Digital Skills Academy in Sheikhupura – OneSkills",
+        optimizedTitle: "Digital Marketing & Freelancing Course in Sheikhupura (SEO, Ads, Upwork) | OneSkills",
+        optimizedH1: "Digital Marketing & Freelancing Course in Sheikhupura",
+        optimizedMeta: "Practical 3-month Digital Marketing & Freelancing course in Sheikhupura led by Nisar Mehar. Master SEO, Meta Ads, Google Ads, Upwork & Fiverr profile ranking.",
+        internalLinks: "Place an above-the-fold callout box inside `/best-digital-marketing-freelancing-course-in-sheikhupura/` linking directly here with anchor 'Digital Marketing Course in Sheikhupura'."
+      },
+      {
+        id: "aitools",
+        shortName: "4. AI Tools",
+        name: "AI Tools & Automation Course in Sheikhupura",
+        url: "https://oneskills.pk/courses/ai-tools-automation/",
+        currentRank: "#1 for 'ai course in sheikhupura'",
+        statedFee: "2-Month Program (52.5 Hours)",
+        lmsDisplayedFee: "Free (7 Students, 0 Rating)",
+        defects: [
+          "Broken Featured Image in Google Search: Google SERP displays Tutor LMS placeholder `/wp-content/plugins/tutor/assets/images/emptystate.svg` instead of a course banner!",
+          "Grammar in Opening Line: Reads 'Welcome to the AI Tools & Automation Trainings! In this Trainings...' — polish for higher conversion trust.",
+          "Untapped Keywords: Syllabus includes Sora, Google Veo, Kling AI, Midjourney, Zapier & Make.com, which can easily rank #1 for 'AI Video Editing' and 'No-Code Automation'."
+        ],
+        currentTitle: "AI Tools & Automation Course in Sheikhupura | #1 Digital Skills Academy in Sheikhupura – OneSkills",
+        optimizedTitle: "AI Tools, Prompt Engineering & Automation Course in Sheikhupura | OneSkills",
+        optimizedH1: "AI Tools, Prompt Engineering & No-Code Automation Course in Sheikhupura",
+        optimizedMeta: "Master 25+ AI tools in Sheikhupura: ChatGPT, Claude, Gemini, NotebookLM, Midjourney, Sora, Google Veo & Zapier/Make automation at OneSkills Academy.",
+        internalLinks: "Cross-link with AI Web Development and AI Based Computer Course to establish a 3-tier AI topical authority cluster."
+      },
+      {
+        id: "forex",
+        shortName: "5. Forex Trading",
+        name: "Forex Trading Course in Sheikhupura",
+        url: "https://oneskills.pk/courses/forex-trading-mastery/",
+        currentRank: "#1 & #2 for 'forex trading course in sheikhupura'",
+        statedFee: "3-Month Physical Program (36 Sessions)",
+        lmsDisplayedFee: "Free (9 Students, 0 Rating)",
+        defects: [
+          "Missing Trainer Attribution in Copy: Homepage lists Attique Hussain as Forex Master Trainer, but the course page lists generic 'By Oneskills' without trainer E-E-A-T bio.",
+          "Zero-Rating Snippet: Shows `(0.0/ 0 Rating)` in SERPs; collect 5–10 reviews from the 9 enrolled students to trigger gold review stars."
+        ],
+        currentTitle: "Forex Trading Course in Sheikhupura | #1 Digital Skills Academy in Sheikhupura – OneSkills",
+        optimizedTitle: "Forex Trading Course in Sheikhupura (Price Action & MT4/MT5 Mastery) | OneSkills",
+        optimizedH1: "Forex Trading Course in Sheikhupura — Disciplined Price Action Training",
+        optimizedMeta: "Learn professional Forex trading in Sheikhupura (Opp. Mian Hospital). 3-month physical classes covering Price Action, Smart Money, Order Blocks, MT4/MT5 & 1% risk rule.",
+        internalLinks: "Link laterally to Crypto Trading Course and Web3 Mastery for students comparing financial markets."
+      },
+      {
+        id: "crypto",
+        shortName: "6. Crypto Trading",
+        name: "Crypto Trading Course",
+        url: "https://oneskills.pk/courses/crypto-trading-training/",
+        currentRank: "#1–#3 for 'crypto trading course in sheikhupura'",
+        statedFee: "3-Month Physical Program",
+        lmsDisplayedFee: "Free (11 Students, 0 Rating)",
+        defects: [
+          "Missing Location in H1 & URL Slug: H1 is just 'Crypto Trading Course' (missing 'in Sheikhupura'), unlike your other courses.",
+          "Raw Template Text in Syllabus: 14 curriculum items end with the literal placeholder word 'Description' (e.g., 'Modern Order Block Technique (High Accuracy) Description', 'Risk Management & Position Sizing Description').",
+          "Missing Featured Image: Uses `/wp-content/plugins/tutor/assets/images/emptystate.svg` in Google Search results."
+        ],
+        currentTitle: "Crypto Trading Course | #1 Digital Skills Academy in Sheikhupura – OneSkills",
+        optimizedTitle: "Crypto Trading Course in Sheikhupura (Spot, Futures, VSA & Order Blocks) | OneSkills",
+        optimizedH1: "Crypto Trading Course in Sheikhupura",
+        optimizedMeta: "Hands-on 3-month Crypto Trading Course in Sheikhupura. Master TradingView, Order Blocks, VSA, Liquidity Sweeps, DEX trading & risk management at OneSkills.",
+        internalLinks: "Remove 'Description' suffix from all 14 lesson titles in Tutor LMS builder and upload a custom 1024x683 WebP thumbnail."
+      },
+      {
+        id: "web3",
+        shortName: "7. Web3 & Blockchain",
+        name: "Web3 & Blockchain Mastery",
+        url: "https://oneskills.pk/courses/web3-blockchain-mastery/",
+        currentRank: "#1 in Sheikhupura, #3 across Lahore/Sheikhupura combined",
+        statedFee: "3-Month Program (5 Sessions/Week)",
+        lmsDisplayedFee: "Free (2 Students, 0 Rating)",
+        defects: [
+          "Swapped Sections in Tutor LMS: On the live page, 'Material Includes', 'Requirements', and 'Audience' have their contents swapped ('Material Includes' lists 'Bring your own laptop', while 'Audience' lists 'Instructor led physical classes')!",
+          "Missing Geo-Modifier in H1: Add 'in Sheikhupura' to H1 to match local search queries."
+        ],
+        currentTitle: "Web3 & Blockchain Mastery | #1 Digital Skills Academy in Sheikhupura – OneSkills",
+        optimizedTitle: "Web3, Blockchain & Airdrop Farming Course in Sheikhupura | OneSkills",
+        optimizedH1: "Web3 & Blockchain Mastery Course in Sheikhupura",
+        optimizedMeta: "Learn Web3, Blockchain fundamentals, DeFi, DEXs, Cold/Hot Wallet security & safe Airdrop Farming in Sheikhupura with Bilal Ashraf at OneSkills Academy.",
+        internalLinks: "Fix the swapped Requirements/Material/Audience fields in Tutor LMS editor and publish a 'Web3 & Airdrop Guide Pakistan' blog post."
+      }
+    ];
+
+    // 3. CONTENT GAP HUBS (10 NEW PAGES TO CREATE)
+    const CONTENT_GAPS = [
+      {
+        slug: "/computer-courses-after-matric-in-sheikhupura/",
+        title: "Best Computer Courses After Matric & Intermediate in Sheikhupura (2026 Guide)",
+        targetKeywords: ["computer courses after matric in sheikhupura", "short courses after inter in sheikhupura", "summer computer camp sheikhupura"],
+        competitorToBeat: "icilms.com (Currently #1 with Oct 13 post)",
+        parentCourse: "AI Based Computer Course (PKR 15,000) & AI Web Development",
+        strategy: "Compare 3 career tracks for Matric/FSc students during their 3-month exam break: Track A (AI + MS Office Foundation), Track B (AI Web Development), and Track C (Freelancing & Digital Marketing). Include class timings and KIPS College proximity."
+      },
+      {
+        slug: "/which-computer-course-is-best-for-online-earning-in-sheikhupura/",
+        title: "Which Computer Course is Best in Sheikhupura for Online Earning? (2026 Data)",
+        targetKeywords: ["which computer course is best in sheikhupura for online earning", "online earning course in sheikhupura", "best skill to learn in sheikhupura"],
+        competitorToBeat: "icilms.com & realsheikhupura.com",
+        parentCourse: "All 7 OneSkills Courses (Hub Page)",
+        strategy: "Include a realistic earning comparison matrix (Time to First Dollar, Required Laptop Specs, Monthly PKR Potential from 50,000 to 150,000, and Fiverr/Upwork Competition Level)."
+      },
+      {
+        slug: "/courses/shopify-ecommerce-course-in-sheikhupura/",
+        title: "Shopify, WooCommerce & E-Commerce Mastery Course in Sheikhupura",
+        targetKeywords: ["ecommerce shopify course in sheikhupura", "shopify course in sheikhupura", "daraz amazon ecommerce training sheikhupura"],
+        competitorToBeat: "Uncontested #1 (Only old Facebook posts rank right now)",
+        parentCourse: "Standalone Course Page or Specialized Track of Web Dev + DM",
+        strategy: "Package your existing Shopify/WooCommerce build module (from Web Dev) + Meta/TikTok Ads module (from Digital Marketing) into a dedicated landing page."
+      },
+      {
+        slug: "/office-management-ms-office-course-in-sheikhupura/",
+        title: "Modern Office Management & AI MS Office Course in Sheikhupura (Word, Excel, Copilot)",
+        targetKeywords: ["office management course in sheikhupura", "ms office course in sheikhupura", "advanced excel training sheikhupura"],
+        competitorToBeat: "unitedcollege.edu.pk & accountech.com.pk",
+        parentCourse: "AI Based Computer Course in Sheikhupura",
+        strategy: "Show why 2010-style Office Management courses are obsolete and how OneSkills teaches MS Word, Excel (VLOOKUP/XLOOKUP/Pivot Tables), PowerPoint + Microsoft Copilot AI in 12 weekends."
+      },
+      {
+        slug: "/ai-graphic-design-video-editing-course-in-sheikhupura/",
+        title: "AI Graphic Designing & Video Editing Course in Sheikhupura (Canva, Midjourney, Sora)",
+        targetKeywords: ["graphic designing course in sheikhupura", "video editing course in sheikhupura", "canva ai course sheikhupura"],
+        competitorToBeat: "venturetech.com.pk (Currently holds #1, #2, #3)",
+        parentCourse: "AI Tools & Automation + Digital Marketing Mastery",
+        strategy: "Target students searching for Graphic Designing by positioning AI-Assisted Design (Canva Pro, Midjourney, DALL-E 3, Sora, Google Veo, Kling AI) alongside commercial social media design."
+      },
+      {
+        slug: "/computer-courses-for-females-in-sheikhupura/",
+        title: "Best Computer & Work-From-Home Courses for Females in Sheikhupura",
+        targetKeywords: ["computer courses for females in sheikhupura", "online earning for housewives in sheikhupura", "female computer institute sheikhupura"],
+        competitorToBeat: "Local Instagram pages (Zero website competition)",
+        parentCourse: "AI Based Computer Course & Freelancing Mastery",
+        strategy: "Highlight safe campus environment (Opposite Mian Hospital, near KIPS College), morning/weekend timings (10 AM–12:30 PM & 11 AM–1 PM), and work-from-home freelancing skills."
+      },
+      {
+        slug: "/dit-vs-short-ai-computer-course-sheikhupura/",
+        title: "1-Year DIT Diploma vs. 3-Month AI Computer Course in Sheikhupura: Which Pays More?",
+        targetKeywords: ["dit course in sheikhupura", "computer diploma in sheikhupura", "best computer college sheikhupura"],
+        competitorToBeat: "unitedcollege.edu.pk & sccskp.lovestoblog.com",
+        parentCourse: "AI Based Computer Course in Sheikhupura",
+        strategy: "Educate students and parents on why a 3-month project-based AI + MS Office + Fiverr portfolio program delivers faster career ROI than outdated 1-year theory diplomas."
+      },
+      {
+        slug: "/computer-it-courses-for-farooqabad-safdarabad-students/",
+        title: "Practical IT, AI & Computer Courses for Farooqabad & Safdarabad Students",
+        targetKeywords: ["computer courses in farooqabad", "it institute near farooqabad", "computer courses in safdarabad"],
+        competitorToBeat: "sccskp.lovestoblog.com (#1) & icilms.com (#2)",
+        parentCourse: "All OneSkills Weekend & Afternoon Batches",
+        strategy: "Leverage your exact location on Lahore–Sargodha Road! Students from Farooqabad and Safdarabad arrive directly at Mian Hospital / KIPS College stop without entering city traffic."
+      },
+      {
+        slug: "/ai-web-development-trading-courses-near-muridke-nankana-sahib/",
+        title: "Weekend AI, Web Development & Trading Courses for Muridke & Nankana Sahib Students",
+        targetKeywords: ["computer courses in muridke", "computer courses in nankana sahib", "coding course near muridke"],
+        competitorToBeat: "winware.pk & local Facebook pages",
+        parentCourse: "Weekend AI Computer Course & AI Web Development",
+        strategy: "Highlight OneSkills' unique curricula not available in Muridke or Nankana Sahib (AI-First Web Dev with Cursor/Next.js, Web3 & Airdrop Farming, and Weekend AI Computer classes)."
+      },
+      {
+        slug: "/seo-training-website-flipping-course-sheikhupura/",
+        title: "Practical SEO, Google AdSense & Website Flipping Course in Sheikhupura",
+        targetKeywords: ["seo course in sheikhupura", "blogging adsense course sheikhupura", "website flipping course pakistan"],
+        competitorToBeat: "venturetech.com.pk",
+        parentCourse: "AI Powered Web Development & Digital Marketing Mastery",
+        strategy: "Combine Module 2 of Digital Marketing (Keyword Research, On-Page, Technical & Local SEO) with Module 7 of AI Web Dev (AdSense & Flippa $5k–$50k case studies)."
+      }
+    ];
+
+    // 4. 30-DAY EXECUTION CHECKLIST (18 VERIFIABLE ITEMS)
+    const CHECKLIST_ITEMS = [
+      { id: "c1", phase: "Week 1: Urgent Technical & Snippet Fixes", title: "Fix 'Price: Free' display in Tutor LMS across all 7 courses (set real fees: PKR 15,000 / PKR 28,000 or label 'Free Demo')", impact: "Critical CTR & Trust" },
+      { id: "c2", phase: "Week 1: Urgent Technical & Snippet Fixes", title: "Upload custom 1024x683 WebP featured images to AI Tools & Crypto Trading courses (replace broken emptystate.svg)", impact: "Immediate SERP Visual Lift" },
+      { id: "c3", phase: "Week 1: Urgent Technical & Snippet Fixes", title: "Deploy production robots.txt rules to block /*?tutor-course-filter-category=* and /dashboard/", impact: "Fixes Crawl Bloat" },
+      { id: "c4", phase: "Week 1: Urgent Technical & Snippet Fixes", title: "Set noindex, follow on /course-tag/* and canonicalize single-item /course-category/* archives to their main /courses/* URL", impact: "Eliminates Cannibalization" },
+      { id: "c5", phase: "Week 1: Urgent Technical & Snippet Fixes", title: "Suppress Tutor LMS (0.0 / 0 Rating) output until at least 5 genuine student reviews are added per course", impact: "Prevents Schema Warnings" },
+      { id: "c6", phase: "Week 2: On-Page Content & Metadata Overhaul", title: "Remove literal 'Description' placeholder suffix from 14 lesson titles on /courses/crypto-trading-training/", impact: "Fixes On-Page Quality" },
+      { id: "c7", phase: "Week 2: On-Page Content & Metadata Overhaul", title: "Fix swapped 'Material Includes' / 'Requirements' / 'Audience' boxes on /courses/web3-blockchain-mastery/", impact: "Fixes UX & Conversion" },
+      { id: "c8", phase: "Week 2: On-Page Content & Metadata Overhaul", title: "Fix 'Mata Ads' tag typo -> 'Meta Ads' on Freelancing & Digital Marketing course and 'Framworks' -> 'Frameworks' on Web Dev", impact: "Keyword Precision" },
+      { id: "c9", phase: "Week 2: On-Page Content & Metadata Overhaul", title: "Update Title Tags, H1s & Meta Descriptions across all 7 courses + /courses/ archive using Tab 3 formulas", impact: "Flips #2–#5 to #1" },
+      { id: "c10", phase: "Week 2: On-Page Content & Metadata Overhaul", title: "Add above-the-fold internal link from July 2026 Digital Marketing Blog Guide directly to /courses/freelancing-digital-marketing-mastery/", impact: "Beats VentureTech & RealSheikhupura" },
+      { id: "c11", phase: "Week 3: Local SEO, Schema & Google Business Profile", title: "Inject EducationalOrganization + LocalBusiness JSON-LD Schema in global site header (Tab 5 code block)", impact: "Local Map Pack #1" },
+      { id: "c12", phase: "Week 3: Local SEO, Schema & Google Business Profile", title: "Standardize exact NAP string in Footer, Contact page & GBP: 'Lahore–Sargodha Rd, Opp. Mian Hospital, Near KIPS College, Sheikhupura, 39350'", impact: "Local Entity Trust" },
+      { id: "c13", phase: "Week 3: Local SEO, Schema & Google Business Profile", title: "Embed verified Google Maps iframe on /contact-us/ and /about-us/ with driving landmarks (Mian Hospital, KIPS College)", impact: "Geo-Relevance Signal" },
+      { id: "c14", phase: "Week 3: Local SEO, Schema & Google Business Profile", title: "Collect 15+ student Google Business Profile reviews mentioning specific courses ('AI Web Development course in Sheikhupura')", impact: "Dominates Local 3-Pack" },
+      { id: "c15", phase: "Week 4: Content Gap Publishing & Regional Expansion", title: "Publish 'Best Computer Courses After Matric & Inter in Sheikhupura (2026)' & 'Which Computer Course is Best for Online Earning'", impact: "Overtakes ICI LMS" },
+      { id: "c16", phase: "Week 4: Content Gap Publishing & Regional Expansion", title: "Launch dedicated '/courses/shopify-ecommerce-course-in-sheikhupura/' & 'Office Management + AI MS Office' sections", impact: "Captures 2 Uncontested Verticals" },
+      { id: "c17", phase: "Week 4: Content Gap Publishing & Regional Expansion", title: "Publish 'AI Graphic Design & Video Creation (Canva, Midjourney, Sora)' guide to capture Graphic Design traffic from VentureTech", impact: "New Student Funnel" },
+      { id: "c18", phase: "Week 4: Content Gap Publishing & Regional Expansion", title: "Add 'Farooqabad, Safdarabad, Muridke & Nankana Sahib Student Commuter Guide' section linking to Weekend Batches", impact: "Regional Feeder Monopoly" }
+    ];
+
+    // STATE
+    let selectedCourseId = "webdev";
+    let currentModalKeyword = null;
+    let checkedItems = {};
+
+    try {
+      const saved = localStorage.getItem("oneskills_seo_checklist");
+      if (saved) checkedItems = JSON.parse(saved);
+    } catch (e) {
+      checkedItems = {};
+    }
+
+    // TOAST HELPER
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      const tm = document.getElementById("toastMsg");
+      tm.textContent = msg;
+      t.classList.remove("hidden");
+      t.classList.add("flex");
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => {
+        t.classList.add("hidden");
+        t.classList.remove("flex");
+      }, 2600);
+    }
+
+    function copyText(text, label) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(label || "Copied to clipboard!");
+        }).catch(() => fallbackCopy(text, label));
+      } else {
+        fallbackCopy(text, label);
+      }
+    }
+
+    function fallbackCopy(text, label) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+        showToast(label || "Copied to clipboard!");
+      } catch (err) {
+        showToast("Copy ready");
+      }
+      document.body.removeChild(ta);
+    }
+
+    // RENDER KEYWORD TABLE
+    function renderKeywordTable() {
+      const q = document.getElementById("kwSearch").value.trim().toLowerCase();
+      const cluster = document.getElementById("clusterFilter").value;
+      const status = document.getElementById("statusFilter").value;
+      const intent = document.getElementById("intentFilter").value;
+
+      const filtered = KEYWORDS.filter(item => {
+        const matchQ = !q ||
+          item.keyword.toLowerCase().includes(q) ||
+          item.competitor.toLowerCase().includes(q) ||
+          item.action.toLowerCase().includes(q) ||
+          item.cluster.toLowerCase().includes(q);
+        const matchCluster = cluster === "ALL" || item.cluster === cluster;
+        const matchStatus = status === "ALL" || item.status === status;
+        const matchIntent = intent === "ALL" || item.intent === intent;
+        return matchQ && matchCluster && matchStatus && matchIntent;
+      });
+
+      document.getElementById("kwCountDisplay").textContent = filtered.length;
+      const tbody = document.getElementById("kwTableBody");
+      tbody.innerHTML = "";
+
+      filtered.forEach(item => {
+        let badgeClass = "bg-rose-500/15 text-rose-300 border-rose-500/30";
+        if (item.status === "RANK_1") badgeClass = "bg-emerald-500/15 text-emerald-300 border-emerald-500/30";
+        else if (item.status === "STRIKE") badgeClass = "bg-amber-500/15 text-amber-300 border-amber-500/30";
+
+        const tr = document.createElement("tr");
+        tr.className = "hover:bg-slate-900/90 transition";
+        tr.innerHTML = `
+          <td class="py-3 px-3.5 font-semibold text-white">
+            <div>${item.keyword}</div>
+          </td>
+          <td class="py-3 px-3">
+            <div class="text-slate-200 font-medium">${item.cluster}</div>
+            <div class="text-[11px] text-slate-400">${item.intent}</div>
+          </td>
+          <td class="py-3 px-3 text-center">
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold border ${badgeClass}">
+              ${item.rankLabel}
+            </span>
+          </td>
+          <td class="py-3 px-3">
+            <a href="${item.compUrl}" target="_blank" rel="noopener" class="text-slate-300 hover:text-indigo-400 underline decoration-slate-600">${item.competitor}</a>
+          </td>
+          <td class="py-3 px-3">
+            <a href="${item.targetUrl}" target="_blank" rel="noopener" class="font-mono text-[11px] text-indigo-400 hover:text-indigo-300 underline">${item.targetLabel}</a>
+          </td>
+          <td class="py-3 px-3 text-slate-300 max-w-xs">${item.action}</td>
+          <td class="py-3 px-3.5 text-right whitespace-nowrap">
+            <button type="button" data-kw-id="${item.id}" class="inspect-kw-btn px-2.5 py-1.5 rounded-lg bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white border border-indigo-500/30 text-[11px] font-semibold transition">
+              Inspect Blueprint
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      document.querySelectorAll(".inspect-kw-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const kwId = parseInt(btn.getAttribute("data-kw-id"), 10);
+          openKeywordModal(kwId);
+        });
+      });
+    }
+
+    // OPEN MODAL
+    function openKeywordModal(kwId) {
+      const item = KEYWORDS.find(k => k.id === kwId);
+      if (!item) return;
+      currentModalKeyword = item;
+
+      document.getElementById("modalClusterBadge").textContent = `${item.cluster} • ${item.intent} Intent`;
+      document.getElementById("modalKeywordTitle").textContent = `"${item.keyword}"`;
+      document.getElementById("modalSubtext").textContent = `Current OneSkills Position: ${item.rankLabel} | Primary Competitor: ${item.competitor}`;
+
+      const body = document.getElementById("modalBody");
+      body.innerHTML = `
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="bg-slate-950 border border-slate-800 rounded-xl p-3">
+            <p class="text-[11px] uppercase font-semibold text-slate-400">Target OneSkills URL</p>
+            <a href="${item.targetUrl}" target="_blank" rel="noopener" class="text-xs font-mono text-indigo-400 underline break-all mt-1 block">${item.targetUrl}</a>
+          </div>
+          <div class="bg-slate-950 border border-slate-800 rounded-xl p-3">
+            <p class="text-[11px] uppercase font-semibold text-slate-400">Top SERP Rival to Outrank</p>
+            <a href="${item.compUrl}" target="_blank" rel="noopener" class="text-xs text-amber-300 underline break-all mt-1 block">${item.competitor}</a>
+          </div>
+        </div>
+
+        <div class="bg-slate-950 border border-indigo-500/30 rounded-xl p-3.5 space-y-2">
+          <p class="text-[11px] uppercase font-semibold text-indigo-300">Recommended SEO Title Tag (60–65 Chars Optimal)</p>
+          <p class="text-xs font-mono text-white bg-slate-900 p-2.5 rounded-lg border border-slate-800">${item.recTitle}</p>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800 rounded-xl p-3.5 space-y-2">
+          <p class="text-[11px] uppercase font-semibold text-emerald-300">Recommended On-Page H1 Heading</p>
+          <p class="text-xs font-mono text-white bg-slate-900 p-2.5 rounded-lg border border-slate-800">${item.recH1}</p>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800 rounded-xl p-3.5 space-y-2">
+          <p class="text-[11px] uppercase font-semibold text-slate-300">Recommended Meta Description (High-CTR Local Hook)</p>
+          <p class="text-xs font-mono text-slate-200 bg-slate-900 p-2.5 rounded-lg border border-slate-800">${item.recMeta}</p>
+        </div>
+
+        <div class="bg-emerald-950/30 border border-emerald-500/30 rounded-xl p-3.5">
+          <p class="text-[11px] uppercase font-semibold text-emerald-300">Specific Execution Step to Hit Rank #1</p>
+          <p class="text-xs text-slate-200 mt-1">${item.action}</p>
+        </div>
+      `;
+
+      document.getElementById("blueprintModal").classList.remove("hidden");
+    }
+
+    // RENDER COURSE LAB
+    function renderCourseLab() {
+      const btnContainer = document.getElementById("courseSelectorBtns");
+      btnContainer.innerHTML = "";
+
+      COURSES_LAB.forEach(c => {
+        const active = c.id === selectedCourseId;
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = active
+          ? "px-3 py-1.5 rounded-xl text-xs font-semibold bg-indigo-600 text-white shadow"
+          : "px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-950 text-slate-300 hover:bg-slate-800 border border-slate-800";
+        b.textContent = c.shortName;
+        b.addEventListener("click", () => {
+          selectedCourseId = c.id;
+          renderCourseLab();
+        });
+        btnContainer.appendChild(b);
+      });
+
+      const course = COURSES_LAB.find(c => c.id === selectedCourseId);
+      const detail = document.getElementById("courseLabDetail");
+
+      const defectsHtml = course.defects.map(d => `
+        <li class="flex items-start gap-2 text-xs text-slate-300">
+          <span class="text-rose-400 font-bold mt-0.5">•</span>
+          <span>${d}</span>
+        </li>
+      `).join("");
+
+      detail.innerHTML = `
+        <div class="lg:col-span-1 bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-3">
+          <div>
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-indigo-400">Live Course Audit</span>
+            <h3 class="text-sm font-bold text-white mt-0.5">${course.name}</h3>
+            <a href="${course.url}" target="_blank" rel="noopener" class="text-[11px] font-mono text-indigo-400 underline break-all block mt-1">${course.url}</a>
+          </div>
+          <div class="border-t border-slate-800 pt-2.5 space-y-1.5 text-xs">
+            <div class="flex justify-between"><span class="text-slate-400">Current SERP Standing:</span><span class="text-emerald-400 font-semibold text-right">${course.currentRank}</span></div>
+            <div class="flex justify-between"><span class="text-slate-400">Syllabus Stated Tuition:</span><span class="text-white font-medium">${course.statedFee}</span></div>
+            <div class="flex justify-between"><span class="text-slate-400">Tutor LMS Badge Output:</span><span class="text-rose-400 font-semibold">${course.lmsDisplayedFee}</span></div>
+          </div>
+          <div class="border-t border-slate-800 pt-3">
+            <p class="text-xs font-bold text-rose-300 mb-2">Live On-Page Defects Found:</p>
+            <ul class="space-y-2">${defectsHtml}</ul>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2 bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-3.5">
+          <div class="flex items-center justify-between">
+            <h4 class="text-sm font-bold text-white">Copy-Ready Rank #1 Metadata & Silo Spec</h4>
+            <button type="button" id="copyCourseSpecBtn" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition">Copy Course Spec</button>
+          </div>
+
+          <div class="space-y-1">
+            <p class="text-[11px] font-semibold uppercase text-slate-400">Current Title Tag (Sub-Optimal)</p>
+            <p class="text-xs font-mono text-slate-400 bg-slate-900/70 p-2.5 rounded-lg border border-slate-800/80 line-through">${course.currentTitle}</p>
+          </div>
+
+          <div class="space-y-1">
+            <p class="text-[11px] font-semibold uppercase text-emerald-400">Optimized Rank #1 Title Tag</p>
+            <p class="text-xs font-mono text-white bg-slate-900 p-2.5 rounded-lg border border-emerald-500/30">${course.optimizedTitle}</p>
+          </div>
+
+          <div class="space-y-1">
+            <p class="text-[11px] font-semibold uppercase text-indigo-300">Optimized H1 Heading</p>
+            <p class="text-xs font-mono text-white bg-slate-900 p-2.5 rounded-lg border border-slate-800">${course.optimizedH1}</p>
+          </div>
+
+          <div class="space-y-1">
+            <p class="text-[11px] font-semibold uppercase text-slate-300">Optimized Meta Description</p>
+            <p class="text-xs font-mono text-slate-200 bg-slate-900 p-2.5 rounded-lg border border-slate-800">${course.optimizedMeta}</p>
+          </div>
+
+          <div class="bg-indigo-950/30 border border-indigo-500/30 rounded-xl p-3">
+            <p class="text-[11px] font-semibold uppercase text-indigo-300">Internal Linking Directive</p>
+            <p class="text-xs text-slate-200 mt-1">${course.internalLinks}</p>
+          </div>
+        </div>
+      `;
+
+      document.getElementById("copyCourseSpecBtn").addEventListener("click", () => {
+        const spec = `Course: ${course.name}\nURL: ${course.url}\nOptimized Title: ${course.optimizedTitle}\nOptimized H1: ${course.optimizedH1}\nOptimized Meta Description: ${course.optimizedMeta}\nInternal Linking: ${course.internalLinks}`;
+        copyText(spec, "Copied course optimization spec!");
+      });
+    }
+
+    // RENDER CONTENT GAPS
+    function renderContentGaps() {
+      const grid = document.getElementById("contentGapGrid");
+      grid.innerHTML = "";
+
+      CONTENT_GAPS.forEach((gap, idx) => {
+        const kwPills = gap.targetKeywords.map(k => `<span class="px-2 py-0.5 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono text-indigo-300">${k}</span>`).join(" ");
+        const card = document.createElement("div");
+        card.className = "bg-slate-950 border border-slate-800 rounded-xl p-4 flex flex-col justify-between space-y-3";
+        card.innerHTML = `
+          <div class="space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">Gap Hub #${idx + 1}</span>
+              <span class="text-[11px] text-rose-300 font-medium">Beats: ${gap.competitorToBeat}</span>
+            </div>
+            <h3 class="text-sm font-bold text-white">${gap.title}</h3>
+            <p class="text-[11px] font-mono text-indigo-400">Recommended Slug: ${gap.slug}</p>
+            <div class="flex flex-wrap gap-1.5 pt-1">${kwPills}</div>
+            <p class="text-xs text-slate-300 pt-1">${gap.strategy}</p>
+          </div>
+          <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between gap-2">
+            <span class="text-[11px] text-slate-400">Funnels to: <strong class="text-slate-200">${gap.parentCourse}</strong></span>
+            <button type="button" data-gap-idx="${idx}" class="copy-gap-btn px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white text-[11px] font-semibold transition shrink-0">Copy Brief</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      document.querySelectorAll(".copy-gap-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const g = CONTENT_GAPS[parseInt(btn.getAttribute("data-gap-idx"), 10)];
+          const text = `Slug: ${g.slug}\nTitle: ${g.title}\nTarget Keywords: ${g.targetKeywords.join(", ")}\nCompetitor to Outrank: ${g.competitorToBeat}\nFunnels To: ${g.parentCourse}\nContent Strategy: ${g.strategy}`;
+          copyText(text, "Copied content brief!");
+        });
+      });
+    }
+
+    // RENDER CHECKLIST
+    function renderChecklist() {
+      const container = document.getElementById("checklistContainer");
+      container.innerHTML = "";
+
+      const phases = [
+        "Week 1: Urgent Technical & Snippet Fixes",
+        "Week 2: On-Page Content & Metadata Overhaul",
+        "Week 3: Local SEO, Schema & Google Business Profile",
+        "Week 4: Content Gap Publishing & Regional Expansion"
+      ];
+
+      phases.forEach(phase => {
+        const items = CHECKLIST_ITEMS.filter(i => i.phase === phase);
+        const box = document.createElement("div");
+        box.className = "bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-3";
+
+        const listHtml = items.map(item => {
+          const isChecked = !!checkedItems[item.id];
+          return `
+            <label class="flex items-start gap-3 p-2.5 rounded-lg bg-slate-900/70 hover:bg-slate-900 border border-slate-800/80 cursor-pointer transition">
+              <input type="checkbox" data-check-id="${item.id}" ${isChecked ? "checked" : ""} class="mt-0.5 w-4 h-4 rounded accent-indigo-500 shrink-0" />
+              <div class="text-xs flex-1">
+                <div class="${isChecked ? "line-through text-slate-500" : "text-slate-200 font-medium"}">${item.title}</div>
+                <span class="inline-block mt-1 text-[10px] font-semibold uppercase px-2 py-0.5 rounded bg-indigo-500/15 text-indigo-300">${item.impact}</span>
+              </div>
+            </label>
+          `;
+        }).join("");
+
+        box.innerHTML = `
+          <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-400">${phase}</h3>
+          <div class="space-y-2">${listHtml}</div>
+        `;
+        container.appendChild(box);
+      });
+
+      document.querySelectorAll("input[data-check-id]").forEach(chk => {
+        chk.addEventListener("change", () => {
+          const id = chk.getAttribute("data-check-id");
+          checkedItems[id] = chk.checked;
+          try {
+            localStorage.setItem("oneskills_seo_checklist", JSON.stringify(checkedItems));
+          } catch (e) {}
+          updateProgressDisplay();
+          renderChecklist();
+        });
+      });
+
+      updateProgressDisplay();
+    }
+
+    function updateProgressDisplay() {
+      const total = CHECKLIST_ITEMS.length;
+      const done = CHECKLIST_ITEMS.filter(i => !!checkedItems[i.id]).length;
+      const pct = Math.round((done / total) * 100);
+      document.getElementById("kpiProgressPct").textContent = `${pct}%`;
+      document.getElementById("kpiProgressCount").textContent = `${done}/${total} Done`;
+      document.getElementById("kpiProgressBar").style.width = `${pct}%`;
+    }
+
+    // CHARTS INITIALIZATION
+    let compChartInstance = null;
+    let tierChartInstance = null;
+
+    function initCharts() {
+      const ctx1 = document.getElementById("competitorChart");
+      const ctx2 = document.getElementById("tierChart");
+      if (!ctx1 || !ctx2 || typeof Chart === "undefined") return;
+
+      if (compChartInstance) compChartInstance.destroy();
+      if (tierChartInstance) tierChartInstance.destroy();
+
+      compChartInstance = new Chart(ctx1, {
+        type: "bar",
+        data: {
+          labels: ["OneSkills.pk (Current)", "VentureTech.com.pk", "ICILMS.com", "SCCSKP", "RealSheikhupura", "OneSkills (After 30-Day Plan)"],
+          datasets: [{
+            label: "Top-5 Local Keyword Rankings (out of 42)",
+            data: [22, 19, 14, 9, 4, 42],
+            backgroundColor: [
+              "rgba(99, 102, 241, 0.85)",
+              "rgba(244, 63, 94, 0.75)",
+              "rgba(245, 158, 11, 0.75)",
+              "rgba(148, 163, 184, 0.65)",
+              "rgba(148, 163, 184, 0.45)",
+              "rgba(16, 185, 129, 0.9)"
+            ],
+            borderRadius: 8
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 45,
+              grid: { color: "rgba(51, 65, 85, 0.4)" },
+              ticks: { color: "#94a3b8" }
+            },
+            x: {
+              grid: { display: false },
+              ticks: { color: "#cbd5e1", font: { size: 11 } }
+            }
+          }
+        }
+      });
+
+      tierChartInstance = new Chart(ctx2, {
+        type: "doughnut",
+        data: {
+          labels: [
+            "Current Rank #1 (6 Queries - Defend)",
+            "Strike Zone #2–#5 (16 Queries - Quick Flip)",
+            "Content & On-Page Gaps (20 Queries - Build)"
+          ],
+          datasets: [{
+            data: [6, 16, 20],
+            backgroundColor: [
+              "rgba(16, 185, 129, 0.85)",
+              "rgba(245, 158, 11, 0.85)",
+              "rgba(244, 63, 94, 0.8)"
+            ],
+            borderColor: "#0f172a",
+            borderWidth: 3
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: "bottom",
+              labels: { color: "#e2e8f0", padding: 14, font: { size: 11 } }
+            }
+          }
+        }
+      });
+    }
+
+    // EVENT LISTENERS
+    window.addEventListener("DOMContentLoaded", () => {
+      renderKeywordTable();
+      renderCourseLab();
+      renderContentGaps();
+      renderChecklist();
+
+      // Filters
+      ["kwSearch", "clusterFilter", "statusFilter", "intentFilter"].forEach(id => {
+        const el = document.getElementById(id);
+        el.addEventListener("input", renderKeywordTable);
+        el.addEventListener("change", renderKeywordTable);
+      });
+
+      document.getElementById("resetFiltersBtn").addEventListener("click", () => {
+        document.getElementById("kwSearch").value = "";
+        document.getElementById("clusterFilter").value = "ALL";
+        document.getElementById("statusFilter").value = "ALL";
+        document.getElementById("intentFilter").value = "ALL";
+        renderKeywordTable();
+      });
+
+      // CSV Export
+      document.getElementById("exportCsvBtn").addEventListener("click", () => {
+        const headers = ["Keyword", "Cluster", "Intent", "OneSkills Rank", "Top Competitor", "Target URL", "Action Plan", "Recommended Title"];
+        const rows = KEYWORDS.map(k => [
+          `"${k.keyword}"`,
+          `"${k.cluster}"`,
+          `"${k.intent}"`,
+          `"${k.rankLabel}"`,
+          `"${k.competitor}"`,
+          `"${k.targetUrl}"`,
+          `"${k.action.replace(/"/g, '""')}"`,
+          `"${k.recTitle.replace(/"/g, '""')}"`
+        ].join(","));
+        const csv = [headers.join(","), ...rows].join("\n");
+        copyText(csv, "Copied all 42 keywords as CSV!");
+      });
+
+      // Modal close & copy
+      const closeModal = () => document.getElementById("blueprintModal").classList.add("hidden");
+      document.getElementById("closeModalBtn").addEventListener("click", closeModal);
+      document.getElementById("closeModalFooterBtn").addEventListener("click", closeModal);
+      document.getElementById("copyModalBlueprintBtn").addEventListener("click", () => {
+        if (!currentModalKeyword) return;
+        const k = currentModalKeyword;
+        const text = `Keyword: ${k.keyword}\nCurrent Rank: ${k.rankLabel}\nTarget URL: ${k.targetUrl}\nRecommended Title: ${k.recTitle}\nRecommended H1: ${k.recH1}\nRecommended Meta: ${k.recMeta}\nAction Plan: ${k.action}`;
+        copyText(text, "Copied keyword SEO blueprint!");
+      });
+
+      // Tabs
+      document.querySelectorAll(".nav-tab").forEach(tabBtn => {
+        tabBtn.addEventListener("click", () => {
+          const target = tabBtn.getAttribute("data-tab");
+          document.querySelectorAll(".nav-tab").forEach(b => {
+            b.className = "nav-tab px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition bg-slate-800/80 text-slate-300 hover:bg-slate-800 hover:text-white";
+          });
+          tabBtn.className = "nav-tab px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition bg-indigo-600 text-white shadow-sm";
+
+          document.querySelectorAll(".tab-panel").forEach(panel => panel.classList.add("hidden"));
+          document.getElementById(`tab-${target}`).classList.remove("hidden");
+
+          if (target === "competitors") {
+            setTimeout(initCharts, 50);
+          }
+        });
+      });
+
+      // Reset checklist
+      document.getElementById("resetChecklistBtn").addEventListener("click", () => {
+        checkedItems = {};
+        try { localStorage.removeItem("oneskills_seo_checklist"); } catch (e) {}
+        renderChecklist();
+        showToast("Checklist reset!");
+      });
+
+      // Copy code buttons
+      document.querySelectorAll(".copy-code-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const targetId = btn.getAttribute("data-copy-target");
+          const codeEl = document.getElementById(targetId);
+          if (codeEl) copyText(codeEl.textContent, "Copied code block!");
+        });
+      });
+    });
+  </script>
+</body>
+</html>

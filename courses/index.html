@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>All Courses &amp; Career Programs (2026) | OneSkills Academy Sheikhupura</title>
-  <meta name="description"
-    content="Explore all 9 practical IT, AI, programming, freelancing, and financial markets courses at OneSkills Academy in Sheikhupura. Hands-on physical lab training on dedicated Core i7 workstations.">
+  <meta name="description" content="Explore all 9 practical IT, AI, programming, freelancing, and financial markets courses at OneSkills Academy in Sheikhupura. Hands-on physical lab training. BYOL. 14-day refund.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://oneskills.pk/courses/">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fcfbfe">
@@ -35,8 +33,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="OneSkills Academy">
   <meta property="og:title" content="All Career Programs &amp; IT Courses | OneSkills Academy Sheikhupura">
-  <meta property="og:description"
-    content="Explore all 9 practical career tracks in AI, Freelancing, Full-Stack Web Development, Trading, and Programming at OneSkills Academy in Sheikhupura.">
+  <meta property="og:description" content="Explore all 9 practical career tracks in AI, Freelancing, Full-Stack Web Development, Trading, and Programming at OneSkills Academy in Sheikhupura.">
   <meta property="og:url" content="https://oneskills.pk/courses/">
   <meta property="og:image" content="https://oneskills.pk/assets/images/brand/og-cover.webp">
 
@@ -44,494 +41,713 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@oneskillspk">
   <meta name="twitter:title" content="All Career Programs &amp; IT Courses | OneSkills Academy Sheikhupura">
-  <meta name="twitter:description"
-    content="Explore all 9 practical career tracks in AI, Freelancing, Full-Stack Web Development, Trading, and Programming at OneSkills Academy in Sheikhupura.">
+  <meta name="twitter:description" content="Explore all 9 practical career tracks in AI, Freelancing, Full-Stack Web Development, Trading, and Programming at OneSkills Academy in Sheikhupura.">
   <meta name="twitter:image" content="https://oneskills.pk/assets/images/brand/og-cover.webp">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
-    rel="stylesheet">
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="../assets/css/course-v3-core.css">
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="stylesheet" href="../assets/css/course-v1.css">
+  <style>
+    /* Catalog Hub Custom Additions */
+    .catalog-hero {
+      padding: calc(var(--space-12, 48px) + var(--header-h, 72px)) 0 var(--space-8, 32px);
+      text-align: center;
+      background: radial-gradient(circle at 50% 0%, var(--color-primary-subtle, rgba(111, 66, 193, 0.08)) 0%, transparent 70%);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .catalog-hero__inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 var(--space-4, 16px);
+    }
+    .catalog-hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 9999px;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: var(--space-4, 16px);
+    }
+    .catalog-hero__title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--color-text);
+      margin-bottom: var(--space-4, 16px);
+    }
+    .catalog-hero__lead {
+      font-size: var(--text-lg);
+      line-height: 1.6;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-6, 24px);
+    }
+    .catalog-filter-bar {
+      margin-top: var(--space-6, 24px);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4, 16px);
+      align-items: center;
+    }
+    .catalog-search-box {
+      width: 100%;
+      max-width: 560px;
+      position: relative;
+    }
+    .catalog-search-input {
+      width: 100%;
+      padding: 12px 18px 12px 44px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text);
+      font-size: var(--text-sm);
+      outline: none;
+      transition: border-color var(--transition-base), box-shadow var(--transition-base);
+    }
+    .catalog-search-input:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px var(--color-primary-subtle);
+    }
+    .catalog-search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-text-muted);
+      pointer-events: none;
+    }
+    .catalog-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .catalog-tab-btn {
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+    .catalog-tab-btn:hover {
+      color: var(--color-text);
+      border-color: var(--color-primary);
+    }
+    .catalog-tab-btn.is-active {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #ffffff;
+    }
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--space-6, 24px);
+      padding: var(--space-8, 32px) 0;
+    }
+    .c-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6, 24px);
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+      position: relative;
+    }
+    .c-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-primary);
+    }
+    .c-card__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-3, 12px);
+    }
+    .c-card__duration {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+    .c-card__title {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: var(--space-2, 8px);
+      line-height: 1.3;
+    }
+    .c-card__desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: var(--space-4, 16px);
+      flex-grow: 1;
+    }
+    .c-card__skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: var(--space-5, 20px);
+    }
+    .c-card__skill {
+      padding: 3px 8px;
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+    .c-card__footer {
+      border-top: 1px solid var(--color-border);
+      padding-top: var(--space-4, 16px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .c-card__fee {
+      display: flex;
+      flex-direction: column;
+    }
+    .c-card__fee-amount {
+      font-size: var(--text-lg);
+      font-weight: 800;
+      color: var(--color-text);
+      line-height: 1;
+    }
+    .c-card__fee-sub {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      margin-top: 3px;
+    }
+  </style>
 
+  <!-- Production JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "ItemList",
-        "@id": "https://oneskills.pk/courses/#catalog",
-        "name": "OneSkills Academy Career Programs",
-        "description": "Comprehensive list of all 9 on-campus practical technology and digital economy career programs offered in Sheikhupura.",
+        "@type": "BreadcrumbList",
+        "@id": "https://oneskills.pk/courses/#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Freelancing & Digital Marketing Mastery", "url": "https://oneskills.pk/courses/freelancing-mastery.html" },
-          { "@type": "ListItem", "position": 2, "name": "AI Tools, Prompt Engineering & Automation", "url": "https://oneskills.pk/courses/ai-tools-automation.html" },
-          { "@type": "ListItem", "position": 3, "name": "Next.js 15, React 19 & Fullstack AI Systems", "url": "https://oneskills.pk/courses/ai-web-development.html" },
-          { "@type": "ListItem", "position": 4, "name": "Crypto Trading & Market Structure", "url": "https://oneskills.pk/courses/crypto-trading.html" },
-          { "@type": "ListItem", "position": 5, "name": "Forex Trading & Price Action", "url": "https://oneskills.pk/courses/forex-trading.html" },
-          { "@type": "ListItem", "position": 6, "name": "Programming in C++ & Modern JavaScript", "url": "https://oneskills.pk/courses/programming-js-cpp.html" },
-          { "@type": "ListItem", "position": 7, "name": "Shopify & E-Commerce Dropshipping", "url": "https://oneskills.pk/courses/shopify-ecommerce.html" },
-          { "@type": "ListItem", "position": 8, "name": "Web3, Blockchain & Smart Contracts", "url": "https://oneskills.pk/courses/web3-blockchain.html" },
-          { "@type": "ListItem", "position": 9, "name": "AI Computer & MS Office Specialist", "url": "https://oneskills.pk/courses/ai-based-computer-course.html" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://oneskills.pk/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Courses",
+            "item": "https://oneskills.pk/courses/"
+          }
         ]
       },
       {
-        "@type": "BreadcrumbList",
+        "@type": "ItemList",
+        "@id": "https://oneskills.pk/courses/#catalog",
+        "name": "OneSkills Academy Career Programs",
+        "description": "Comprehensive portfolio of 9 on-campus practical digital economy training programs in Sheikhupura.",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://oneskills.pk/" },
-          { "@type": "ListItem", "position": 2, "name": "Courses", "item": "https://oneskills.pk/courses/" }
+          { "@type": "ListItem", "position": 1, "name": "Freelancing & Digital Marketing", "url": "https://oneskills.pk/courses/freelancing-mastery.html" },
+          { "@type": "ListItem", "position": 2, "name": "AI Web Development (Next.js & React)", "url": "https://oneskills.pk/courses/ai-web-development.html" },
+          { "@type": "ListItem", "position": 3, "name": "Programming in C++ & JavaScript", "url": "https://oneskills.pk/courses/programming-js-cpp.html" },
+          { "@type": "ListItem", "position": 4, "name": "AI Computer & Office Management", "url": "https://oneskills.pk/courses/ai-based-computer-course.html" },
+          { "@type": "ListItem", "position": 5, "name": "AI Tools & Workflow Automation", "url": "https://oneskills.pk/courses/ai-tools-automation.html" },
+          { "@type": "ListItem", "position": 6, "name": "Web3, Blockchain & Airdrop Farming", "url": "https://oneskills.pk/courses/web3-blockchain.html" },
+          { "@type": "ListItem", "position": 7, "name": "Forex Trading & Price Action Mastery", "url": "https://oneskills.pk/courses/forex-trading.html" },
+          { "@type": "ListItem", "position": 8, "name": "Crypto Trading & Market Structure", "url": "https://oneskills.pk/courses/crypto-trading.html" },
+          { "@type": "ListItem", "position": 9, "name": "Shopify & E-Commerce Dropshipping", "url": "https://oneskills.pk/courses/shopify-ecommerce.html" }
         ]
       }
     ]
   }
   </script>
 </head>
+<body class="course-v3-page">
 
-<body class="page-course-hub">
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <!-- Skiplink for Accessibility -->
+  <a href="#main-content" class="sr-only" style="position:absolute;top:8px;left:8px;z-index:99999;padding:8px 16px;background:var(--color-primary);color:#fff;border-radius:4px;text-decoration:none;">Skip to main content</a>
 
-  <!-- Site Navigation Header -->
-  <header class="site-header" id="site-header">
-    <div class="header-inner">
-      <a class="site-logo" href="../index.html" aria-label="OneSkills Academy Home">
-        <img class="logo-img logo-light-img" src="../assets/images/brand/OneSkills-Logo-light.webp" alt="OneSkills Academy" width="140" height="34" loading="eager">
-        <img class="logo-img logo-dark-img" src="../assets/images/brand/OneSkills-Logo-dark.webp" alt="OneSkills Academy" width="140" height="34" loading="eager">
+  <!-- Global Header -->
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="../index.html" class="brand-link" aria-label="OneSkills Academy Home">
+        <picture>
+          <source srcset="../assets/images/brand/logo-dark.webp" media="(prefers-color-scheme: dark)">
+          <img src="../assets/images/brand/logo-light.webp" alt="OneSkills Academy" class="brand-logo" width="160" height="38">
+        </picture>
       </a>
-
-      <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
-
-      <nav class="primary-nav" id="primary-nav" aria-label="Main Navigation">
+      <nav class="site-nav" aria-label="Main Navigation">
         <ul class="nav-links">
-          <li><a class="nav-link" href="../index.html#home">Home</a></li>
-          <li><a class="nav-link active" href="index.html" aria-current="page">Courses</a></li>
-          <li><a class="nav-link" href="../guides/index.html">Guides</a></li>
-          <li><a class="nav-link" href="../about.html">About</a></li>
-          <li><a class="nav-link" href="../index.html#instructors">Instructors</a></li>
-          <li><a class="nav-link" href="../index.html#faq">FAQ</a></li>
-          <li><a class="nav-link" href="../index.html#contact">Contact</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../courses/" class="is-active">Courses</a></li>
+          <li><a href="../verify-certificate.html">Verify Certificate</a></li>
+          <li><a href="../terms-of-service.html">Policies</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
         </ul>
-        <div class="mobile-nav-cta">
-          <a class="btn-primary-mobile" href="https://wa.me/923176036127?text=Hi%20OneSkills%20Academy%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20courses." target="_blank" rel="noopener noreferrer">
-            Book Free Demo Class
-          </a>
-        </div>
       </nav>
-
-      <div class="header-ctas">
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle visual theme" title="Toggle theme">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle-btn" aria-label="Toggle dark/light color mode">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
-        <a class="btn-header-primary" href="https://wa.me/923176036127?text=Hi%20OneSkills%20Academy%2C%20I%27d%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener noreferrer" aria-label="Book Free Demo on WhatsApp">
-          <span class="btn-text-full">Book Free Demo</span>
-          <span class="btn-text-short">Free Demo</span>
-          <span class="btn-header-arrow" aria-hidden="true">&rarr;</span>
+        <a href="https://wa.me/923176036127?text=Hi%20OneSkills%2C%20I%20want%20to%20learn%20more%20about%20academy%20courses." class="c-btn c-btn--primary c-btn--sm">
+          <span>Admissions Desk</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
-        <button class="hamburger" id="hamburger-btn" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
-          <i></i><i></i><i></i>
-        </button>
       </div>
     </div>
   </header>
 
-  <main id="main-content" class="course-main">
-    <div class="hero-heritage-bg" aria-hidden="true"></div>
+  <main id="main-content">
+    <!-- Breadcrumbs -->
+    <nav class="c-breadcrumbs" aria-label="Breadcrumb">
+      <div class="c-breadcrumbs__inner">
+        <ol class="c-breadcrumbs__list">
+          <li class="c-breadcrumbs__item"><a href="../index.html">Home</a></li>
+          <li class="c-breadcrumbs__item" aria-current="page">All Courses</li>
+        </ol>
+      </div>
+    </nav>
 
-    <div class="course-wrap">
+    <!-- Catalog Hub Hero Header -->
+    <section class="catalog-hero" aria-labelledby="catalog-title">
+      <div class="catalog-hero__inner">
+        <div class="catalog-hero__eyebrow">
+          <span>● Sheikhupura Campus</span>
+          <span>·</span>
+          <span>9 Flagship Career Tracks</span>
+          <span>·</span>
+          <span>5.0/5 Google Rating</span>
+        </div>
+        <h1 id="catalog-title" class="catalog-hero__title">
+          Professional Career Programs &amp; Digital Skills
+        </h1>
+        <p class="catalog-hero__lead">
+          Practical, in-person lab courses taught by active practitioners. Small cohorts capped at 12 students, Bring Your Own Laptop (BYOL) learning, 14-day refund guarantee, and optional 1-month post-course internships.
+        </p>
 
-      <!-- Breadcrumbs -->
-      <nav class="course-breadcrumbs" aria-label="Breadcrumb">
-        <a href="../index.html">Home</a>
-        <span class="separator" aria-hidden="true">/</span>
-        <span class="current" aria-current="page">Courses</span>
-      </nav>
-
-      <!-- Hub Hero Header -->
-      <section class="roadmap-section" id="catalog-hero" aria-labelledby="catalog-title">
-        <div class="section-head-left">
-          <div class="status-indicator">
-            <span class="status-pulse" aria-hidden="true"></span>
-            <span>Sheikhupura Campus • 9 Flagship Tracks</span>
+        <!-- Filters & Search -->
+        <div class="catalog-filter-bar">
+          <div class="catalog-search-box">
+            <svg class="catalog-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="search" id="catalog-search" class="catalog-search-input" placeholder="Search courses (e.g. Next.js, C++, Excel, Upwork, MT5, Shopify, Web3, Midjourney)..." aria-label="Search all courses">
           </div>
-          <h1 class="section-title-large" id="catalog-title">
-            Professional Career Programs &amp; IT Courses
-          </h1>
-          <p class="section-subtitle-clean">
-            Master international digital skills with dedicated lab workstations, physical mentor guidance, live client portfolios, and a 14-day refund guarantee.
+
+          <div class="catalog-tabs" role="tablist" aria-label="Filter Courses by Category">
+            <button type="button" class="catalog-tab-btn is-active" data-cat="all">All Tracks (9)</button>
+            <button type="button" class="catalog-tab-btn" data-cat="marketing">Marketing &amp; E-Com (2)</button>
+            <button type="button" class="catalog-tab-btn" data-cat="code">Code &amp; Web Dev (2)</button>
+            <button type="button" class="catalog-tab-btn" data-cat="ai-office">AI &amp; Office (2)</button>
+            <button type="button" class="catalog-tab-btn" data-cat="finance">Financial Markets (3)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Catalog Grid Section -->
+    <section class="c-section" aria-labelledby="courses-grid-title">
+      <div class="c-section__inner">
+        <h2 id="courses-grid-title" class="sr-only">Course Listings</h2>
+
+        <div class="catalog-grid" id="course-cards-container">
+
+          <!-- Course 01: Freelancing -->
+          <article class="c-card" data-category="marketing" data-keywords="freelancing marketing upwork fiverr seo cold pitch agency meta ads">
+            <div class="c-card__top">
+              <span class="c-badge c-badge--subtle">Marketing &amp; Growth</span>
+              <span class="c-card__duration">12 Wks · 80+ Hrs</span>
+            </div>
+            <h3 class="c-card__title">Freelancing &amp; Digital Marketing Mastery</h3>
+            <p class="c-card__desc">Master Upwork proposal writing, Fiverr algorithm SEO, LinkedIn B2B lead generation, and Meta ads scaling. Supervised by Nisar Mehar.</p>
+            <div class="c-card__skills">
+              <span class="c-card__skill">Upwork Bidding</span>
+              <span class="c-card__skill">Fiverr SEO</span>
+              <span class="c-card__skill">Meta Ads</span>
+              <span class="c-card__skill">Cold Pitching</span>
+            </div>
+            <div class="c-card__footer">
+              <div class="c-card__fee">
+                <span class="c-card__fee-amount">PKR 28,000</span>
+                <span class="c-card__fee-sub">or 2 × PKR 14,000</span>
+              </div>
+              <a href="freelancing-mastery.html" class="c-btn c-btn--primary c-btn--sm">
+                <span>View Course →</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Course 02: AI Web Development -->
+          <article class="c-card" data-category="code" data-keywords="ai web development nextjs react tailwind supabase cursor typescript fullstack">
+            <div class="c-card__top">
+              <span class="c-badge c-badge--subtle">Software &amp; Web</span>
+              <span class="c-card__duration">12 Wks · 80+ Hrs</span>
+            </div>
+            <h3 class="c-card__title">AI Web Development with Next.js 15 &amp; React 19</h3>
+            <p class="c-card__desc">Build modern fullstack web apps with Next.js App Router, Tailwind CSS, Supabase backend, and Cursor AI-assisted workflows.</p>
+            <div class="c-card__skills">
+              <span class="c-card__skill">Next.js 15</span>
+              <span class="c-card__skill">React 19</span>
+              <span class="c-card__skill">Tailwind</span>
+              <span class="c-card__skill">Supabase</span>
+              <span class="c-card__skill">Cursor AI</span>
+            </div>
+            <div class="c-card__footer">
+              <div class="c-card__fee">
+                <span class="c-card__fee-amount">PKR 28,000</span>
+                <span class="c-card__fee-sub">or 2 × PKR 14,000</span>
+              </div>
+              <a href="ai-web-development.html" class="c-btn c-btn--primary c-btn--sm">
+                <span>View Course →</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Course 03: Programming (JS & C++) -->
+          <article class="c-card" data-category="code" data-keywords="programming c++ javascript dsa algorithms oop pointers logic software">
+            <div class="c-card__top">
+              <span class="c-badge c-badge--subtle">Computer Science</span>
+              <span class="c-card__duration">10 Wks · 60 Hrs</span>
+            </div>
+            <h3 class="c-card__title">Programming Foundations in C++ &amp; Modern JS</h3>
+            <p class="c-card__desc">Master algorithmic logic, memory pointers, Object-Oriented Programming (OOP), Data Structures (DSA), and modern ES6+ JavaScript.</p>
+            <div class="c-card__skills">
+              <span class="c-card__skill">C++ Logic</span>
+              <span class="c-card__skill">Pointers &amp; Memory</span>
+              <span class="c-card__skill">OOP</span>
+              <span class="c-card__skill">DSA</span>
+              <span class="c-card__skill">Modern JS</span>
+            </div>
+            <div class="c-card__footer">
+              <div class="c-card__fee">
+                <span class="c-card__fee-amount">PKR 25,000</span>
+                <span class="c-card__fee-sub">or 2 × PKR 12,500</span>
+              </div>
+              <a href="programming-js-cpp.html" class="c-btn c-btn--primary c-btn--sm">
+                <span>View Course →</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Course 04: AI-Based Computer Course -->
+          <article class="c-card" data-category="ai-office" data-keywords="computer office word excel vlookup typing copilot windows 11 accounting">
+            <div class="c-card__top">
+              <span class="c-badge c-badge--subtle">Office &amp; AI Productivity</span>
+              <span class="c-card__duration">12 Wks · 48 Hrs</span>
+            </div>
+            <h3 class="c-card__title">AI-Powered Computer Course &amp; Office Management</h3>
+            <p class="c-card__desc">Windows 11, touch typing (30–40 WPM), MS Word documentation, advanced Excel (VLOOKUP, Pivot Tables), and Copilot AI office workflows.</p>
+            <div class="c-card__skills">
+              <span class="c-card__skill">Touch Typing</span>
+              <span class="c-card__skill">MS Word</span>
+              <span class="c-card__skill">Advanced Excel</span>
+              <span class="c-card__skill">MS Copilot AI</span>
+            </div>
+            <div class="c-card__footer">
+              <div class="c-card__fee">
+                <span class="c-card__fee-amount">PKR 15,000</span>
+                <span class="c-card__fee-sub">or 2 × PKR 7,500</span>
+              </div>
+              <a href="ai-based-computer-course.html" class="c-btn c-btn--primary c-btn--sm">
+                <span>View Course →</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Course 05: AI Tools & Automation -->
+          <article class="c-card" data-category="ai-office" data-keywords="ai tools automation chatgpt claude midjourney make zapier faceless prompts">
+            <div class="c-card__top">
+              <span class="c-badge c-badge--subtle">AI &amp; Automation</span>
+              <span class="c-card__duration">8 Wks · 52+ Hrs</span>
+            </div>
+            <h3 class="c-card__title">AI Tools, Prompt Engineering &amp; Workflow Automation</h3>
+            <p class="c-card__desc">Automate content, social channels, and workflows with 25+ cutting-edge tools including ChatGPT-4o, Claude 3.7, Midjourney, and Make.com.</p>
+            <div class="c-card__skills">
+              <span class="c-card__skill">ChatGPT-4o</span>
+              <span class="c-card__skill">Claude 3.7</span>
+              <span class="c-card__skill">Midjourney</span>
+              <span class="c-card__skill">Make.com</span>
+              <span class="c-card__skill">Faceless Video</span>
+            </div>
+            <div class="c-card__footer">
+              <div class="c-card__fee">
+                <span class="c-card__fee-amount">PKR 20,000</span>
+                <span class="c-card__fee-sub">or 2 × PKR 10,000</span>
+              </div>
+              <a href="ai-tools-automation.html" class="c-btn c-btn--primary c-btn--sm">
+                <span>View Course →</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Course 06: Web3 & Blockchain -->
+          <article class="c-card" data-category="finance" data-keywords="web3 blockchain airdrop farming defi metamask rabby bridges solana">
+            <div class="c-card__top">
+              <span class="c-badge c-badge--subtle">Web3 &amp; Crypto</span>
+              <span class="c-card__duration">12 Wks · 80+ Hrs</span>
+            </div>
+            <h3 class="c-card__title">Web3, Blockchain &amp; Airdrop Farming Mastery</h3>
+            <p class="c-card__desc">Master non-custodial wallet isolation, DEXs, cross-chain bridges, DeFi protocols, and structured airdrop farming safely with Bilal Ashraf &amp; Webio.</p>
+            <div class="c-card__skills">
+              <span class="c-card__skill">3-Wallet Isolation</span>
+              <span class="c-card__skill">DeFi &amp; DEXs</span>
+              <span class="c-card__skill">Airdrop Farming</span>
+              <span class="c-card__skill">Revoke.cash</span>
+            </div>
+            <div class="c-card__footer">
+              <div class="c-card__fee">
+                <span class="c-card__fee-amount">PKR 28,000</span>
+                <span class="c-card__fee-sub">or 2 × PKR 14,000</span>
+              </div>
+              <a href="web3-blockchain.html" class="c-btn c-btn--primary c-btn--sm">
+                <span>View Course →</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Course 07: Forex Trading -->
+          <article class="c-card" data-category="finance" data-keywords="forex trading price action mt4 mt5 gold xauusd order blocks smc prop firm">
+            <div class="c-card__top">
+              <span class="c-badge c-badge--subtle">Financial Markets</span>
+              <span class="c-card__duration">12 Wks · 76 Lessons</span>
+            </div>
+            <h3 class="c-card__title">Forex Trading Mastery (Price Action &amp; MT4/MT5)</h3>
+            <p class="c-card__desc">Learn institutional Smart Money Concepts (SMC), Order Blocks, MT4/MT5 execution, Gold (XAU/USD), and 1% risk discipline in our live Trade Room.</p>
+            <div class="c-card__skills">
+              <span class="c-card__skill">Price Action</span>
+              <span class="c-card__skill">Order Blocks</span>
+              <span class="c-card__skill">MT4/MT5</span>
+              <span class="c-card__skill">Gold (XAU/USD)</span>
+              <span class="c-card__skill">Prop Firms</span>
+            </div>
+            <div class="c-card__footer">
+              <div class="c-card__fee">
+                <span class="c-card__fee-amount">PKR 25,000</span>
+                <span class="c-card__fee-sub">or 2 × PKR 12,500</span>
+              </div>
+              <a href="forex-trading.html" class="c-btn c-btn--primary c-btn--sm">
+                <span>View Course →</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Course 08: Crypto Trading -->
+          <article class="c-card" data-category="finance" data-keywords="crypto trading binance spot futures vsa order blocks tradingview dex bots">
+            <div class="c-card__top">
+              <span class="c-badge c-badge--subtle">Financial Markets</span>
+              <span class="c-card__duration">12 Wks · 72.5 Hrs</span>
+            </div>
+            <h3 class="c-card__title">Crypto Trading Mastery (Spot, Futures &amp; VSA)</h3>
+            <p class="c-card__desc">Master TradingView charting, Volume Spread Analysis (VSA), Order Blocks, Spot accumulation, DEXs, and +1 month of free live Trading Floor access.</p>
+            <div class="c-card__skills">
+              <span class="c-card__skill">TradingView</span>
+              <span class="c-card__skill">Order Blocks</span>
+              <span class="c-card__skill">VSA Analysis</span>
+              <span class="c-card__skill">DEX Trading</span>
+              <span class="c-card__skill">AI Bots</span>
+            </div>
+            <div class="c-card__footer">
+              <div class="c-card__fee">
+                <span class="c-card__fee-amount">PKR 25,000</span>
+                <span class="c-card__fee-sub">or 2 × PKR 12,500</span>
+              </div>
+              <a href="crypto-trading.html" class="c-btn c-btn--primary c-btn--sm">
+                <span>View Course →</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Course 09: Shopify E-Commerce -->
+          <article class="c-card" data-category="marketing" data-keywords="shopify ecommerce dropshipping shah alam postex trax cod meta ads tiktok">
+            <div class="c-card__top">
+              <span class="c-badge c-badge--subtle">E-Commerce &amp; Retail</span>
+              <span class="c-card__duration">8 Wks · 50+ Hrs</span>
+            </div>
+            <h3 class="c-card__title">Shopify Store Building, Meta Ads &amp; Pakistan COD</h3>
+            <p class="c-card__desc">Build Shopify stores, source winning products from Lahore Shah Alam wholesale markets, scale Meta/TikTok video ads, and automate courier COD.</p>
+            <div class="c-card__skills">
+              <span class="c-card__skill">Shopify OS 2.0</span>
+              <span class="c-card__skill">Shah Alam Wholesale</span>
+              <span class="c-card__skill">Meta &amp; TikTok Ads</span>
+              <span class="c-card__skill">PostEx/Trax COD</span>
+            </div>
+            <div class="c-card__footer">
+              <div class="c-card__fee">
+                <span class="c-card__fee-amount">PKR 28,000</span>
+                <span class="c-card__fee-sub">or 2 × PKR 14,000</span>
+              </div>
+              <a href="shopify-ecommerce.html" class="c-btn c-btn--primary c-btn--sm">
+                <span>View Course →</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Campus & Policies Strip -->
+    <section class="c-section c-section--alt" aria-labelledby="standards-title">
+      <div class="c-section__inner">
+        <div class="c-section__header">
+          <span class="c-section__eyebrow">THE ONESKILLS STANDARD</span>
+          <h2 id="standards-title" class="c-section__title">Why Students Choose OneSkills Sheikhupura</h2>
+          <p class="c-section__lead">
+            Physical mentorship, disciplined class sizes, consumer protections, and verifiable post-course career opportunities.
           </p>
         </div>
 
-        <!-- 9 Programs Catalog Grid -->
-        <div class="deliverables-grid" style="margin-top: 32px;">
-          
-          <!-- Track 1: Freelancing -->
-          <article class="deliverable-card-pro">
-            <div class="deliverable-info-body">
-              <span class="spec-kicker-emerald">FLAGSHIP TRACK • 12 WEEKS</span>
-              <h2>Freelancing &amp; Digital Marketing</h2>
-              <p>Master Upwork bidding frameworks, Fiverr gig SEO, LinkedIn client sourcing, and USD escrow payment setup.</p>
-              <div class="deliverable-tech-pills">
-                <span class="tech-tag-pill">Upwork</span>
-                <span class="tech-tag-pill">Fiverr Pro</span>
-                <span class="tech-tag-pill">Cold Pitching</span>
-                <span class="tech-tag-pill">PKR 25,000</span>
-              </div>
-              <div style="margin-top: 20px;">
-                <a class="btn-cohort-apply" href="freelancing-mastery.html" style="width: 100%; text-align: center; justify-content: center;">
-                  <span>Explore Syllabus &amp; Cohort &rarr;</span>
-                </a>
-              </div>
-            </div>
-          </article>
+        <div class="c-bento-grid">
+          <div class="c-bento-card">
+            <div class="c-bento-card__icon" aria-hidden="true">🛡️</div>
+            <h3 class="c-bento-card__title">14-Day Full Refund Guarantee</h3>
+            <p class="c-bento-card__text">
+              Every course comes backed by our clear 14-day 100% money-back guarantee counted from your fee payment date. If the class doesn't meet your expectations, request a full refund with zero questions asked.
+            </p>
+          </div>
 
-          <!-- Track 2: AI Tools -->
-          <article class="deliverable-card-pro">
-            <div class="deliverable-info-body">
-              <span class="spec-kicker-emerald">ACCELERATOR • 8 WEEKS</span>
-              <h2>AI Tools, Prompting &amp; Automation</h2>
-              <p>Master ChatGPT-4o, Claude 3.7, Midjourney, NotebookLM, and Make.com autonomous workflow pipelines.</p>
-              <div class="deliverable-tech-pills">
-                <span class="tech-tag-pill">ChatGPT</span>
-                <span class="tech-tag-pill">Claude</span>
-                <span class="tech-tag-pill">Make.com</span>
-                <span class="tech-tag-pill">PKR 22,000</span>
-              </div>
-              <div style="margin-top: 20px;">
-                <a class="btn-cohort-apply" href="ai-tools-automation.html" style="width: 100%; text-align: center; justify-content: center;">
-                  <span>Explore Syllabus &amp; Cohort &rarr;</span>
-                </a>
-              </div>
-            </div>
-          </article>
+          <div class="c-bento-card">
+            <div class="c-bento-card__icon" aria-hidden="true">💻</div>
+            <h3 class="c-bento-card__title">Bring Your Own Laptop (BYOL)</h3>
+            <p class="c-bento-card__text">
+              Students work entirely on their personal laptops. You take home all your development environments, trading charting workspaces, store pixels, and wallet security keys configured ready for continuous operation.
+            </p>
+          </div>
 
-          <!-- Track 3: AI Web Development -->
-          <article class="deliverable-card-pro">
-            <div class="deliverable-info-body">
-              <span class="spec-kicker-emerald">ENGINEERING • 10 WEEKS</span>
-              <h2>Next.js 15, React 19 &amp; Fullstack AI</h2>
-              <p>Code production fullstack web applications using Next.js App Router, TypeScript, Tailwind CSS, Supabase, and Cursor AI.</p>
-              <div class="deliverable-tech-pills">
-                <span class="tech-tag-pill">React 19</span>
-                <span class="tech-tag-pill">Next.js 15</span>
-                <span class="tech-tag-pill">Cursor IDE</span>
-                <span class="tech-tag-pill">PKR 28,000</span>
-              </div>
-              <div style="margin-top: 20px;">
-                <a class="btn-cohort-apply" href="ai-web-development.html" style="width: 100%; text-align: center; justify-content: center;">
-                  <span>Explore Syllabus &amp; Cohort &rarr;</span>
-                </a>
-              </div>
-            </div>
-          </article>
+          <div class="c-bento-card">
+            <div class="c-bento-card__icon" aria-hidden="true">💼</div>
+            <h3 class="c-bento-card__title">1-Month Post-Course Internship</h3>
+            <p class="c-bento-card__text">
+              Graduates are eligible for an optional 1-month unpaid post-course internship, extendable up to 3 months based on performance. Gain live agency and trade room practice under mentor supervision.
+            </p>
+          </div>
 
-          <!-- Track 4: Crypto Trading -->
-          <article class="deliverable-card-pro">
-            <div class="deliverable-info-body">
-              <span class="spec-kicker-emerald">FINANCIAL MARKETS • 12 WEEKS</span>
-              <h2>Crypto Trading &amp; Market Structure</h2>
-              <p>Master TradingView multi-timeframe analysis, Smart Money Concepts (SMC), Volume Spread Analysis, and mathematical 1% risk rules.</p>
-              <div class="deliverable-tech-pills">
-                <span class="tech-tag-pill">Price Action</span>
-                <span class="tech-tag-pill">SMC</span>
-                <span class="tech-tag-pill">Risk Engine</span>
-                <span class="tech-tag-pill">PKR 30,000</span>
-              </div>
-              <div style="margin-top: 20px;">
-                <a class="btn-cohort-apply" href="crypto-trading.html" style="width: 100%; text-align: center; justify-content: center;">
-                  <span>Explore Syllabus &amp; Cohort &rarr;</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Track 5: Forex Trading -->
-          <article class="deliverable-card-pro">
-            <div class="deliverable-info-body">
-              <span class="spec-kicker-emerald">FINANCIAL MARKETS • 12 WEEKS</span>
-              <h2>Forex Trading &amp; Prop Firm Prep</h2>
-              <p>Master MetaTrader 5 execution, currency pairs, London/NY session killzones, and pass $50K-$100K FTMO prop evaluations.</p>
-              <div class="deliverable-tech-pills">
-                <span class="tech-tag-pill">MetaTrader 5</span>
-                <span class="tech-tag-pill">Prop Firms</span>
-                <span class="tech-tag-pill">Killzones</span>
-                <span class="tech-tag-pill">PKR 30,000</span>
-              </div>
-              <div style="margin-top: 20px;">
-                <a class="btn-cohort-apply" href="forex-trading.html" style="width: 100%; text-align: center; justify-content: center;">
-                  <span>Explore Syllabus &amp; Cohort &rarr;</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Track 6: Programming JS & C++ -->
-          <article class="deliverable-card-pro">
-            <div class="deliverable-info-body">
-              <span class="spec-kicker-emerald">COMPUTER SCIENCE • 16 WEEKS</span>
-              <h2>Programming in C++ &amp; JavaScript</h2>
-              <p>Build solid CS fundamentals: memory pointers, Object-Oriented Programming (OOP), Data Structures &amp; Algorithms, and modern ES6+.</p>
-              <div class="deliverable-tech-pills">
-                <span class="tech-tag-pill">C++ Logic</span>
-                <span class="tech-tag-pill">OOP</span>
-                <span class="tech-tag-pill">DSA</span>
-                <span class="tech-tag-pill">PKR 32,000</span>
-              </div>
-              <div style="margin-top: 20px;">
-                <a class="btn-cohort-apply" href="programming-js-cpp.html" style="width: 100%; text-align: center; justify-content: center;">
-                  <span>Explore Syllabus &amp; Cohort &rarr;</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Track 7: Shopify E-Commerce -->
-          <article class="deliverable-card-pro">
-            <div class="deliverable-info-body">
-              <span class="spec-kicker-emerald">COMMERCE • 10 WEEKS</span>
-              <h2>Shopify &amp; Dropshipping Mastery</h2>
-              <p>Build high-converting storefronts, wholesale local sourcing from Shah Alam, Meta/TikTok performance ads, and Pakistan COD courier logistics.</p>
-              <div class="deliverable-tech-pills">
-                <span class="tech-tag-pill">Shopify</span>
-                <span class="tech-tag-pill">TikTok Ads</span>
-                <span class="tech-tag-pill">Local COD</span>
-                <span class="tech-tag-pill">PKR 25,000</span>
-              </div>
-              <div style="margin-top: 20px;">
-                <a class="btn-cohort-apply" href="shopify-ecommerce.html" style="width: 100%; text-align: center; justify-content: center;">
-                  <span>Explore Syllabus &amp; Cohort &rarr;</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Track 8: Web3 & Blockchain -->
-          <article class="deliverable-card-pro">
-            <div class="deliverable-info-body">
-              <span class="spec-kicker-emerald">DECENTRALIZED TECH • 12 WEEKS</span>
-              <h2>Web3, Blockchain &amp; Airdrop Farming</h2>
-              <p>Understand EVM architecture, Solidity smart contracts, DeFi liquidity protocols, hardware security, and algorithmic crypto airdrops.</p>
-              <div class="deliverable-tech-pills">
-                <span class="tech-tag-pill">Solidity</span>
-                <span class="tech-tag-pill">EVM</span>
-                <span class="tech-tag-pill">DeFi</span>
-                <span class="tech-tag-pill">PKR 28,000</span>
-              </div>
-              <div style="margin-top: 20px;">
-                <a class="btn-cohort-apply" href="web3-blockchain.html" style="width: 100%; text-align: center; justify-content: center;">
-                  <span>Explore Syllabus &amp; Cohort &rarr;</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Track 9: AI Computer Course -->
-          <article class="deliverable-card-pro">
-            <div class="deliverable-info-body">
-              <span class="spec-kicker-emerald">OFFICE &amp; ESSENTIALS • 12 WEEKS</span>
-              <h2>AI Computer &amp; MS Office Specialist</h2>
-              <p>Master Windows 11 hardware/software setup, advanced Excel data modeling, Word, PowerPoint, and AI Copilot office automation workflows.</p>
-              <div class="deliverable-tech-pills">
-                <span class="tech-tag-pill">MS Excel</span>
-                <span class="tech-tag-pill">Copilot AI</span>
-                <span class="tech-tag-pill">Hardware</span>
-                <span class="tech-tag-pill">PKR 18,000</span>
-              </div>
-              <div style="margin-top: 20px;">
-                <a class="btn-cohort-apply" href="ai-based-computer-course.html" style="width: 100%; text-align: center; justify-content: center;">
-                  <span>Explore Syllabus &amp; Cohort &rarr;</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
+          <div class="c-bento-card">
+            <div class="c-bento-card__icon" aria-hidden="true">📍</div>
+            <h3 class="c-bento-card__title">Prime Sheikhupura Location</h3>
+            <p class="c-bento-card__text">
+              Conveniently located on main Lahore–Sargodha Road, Opposite Mian Hospital, near KIPS College. Easily commutable for learners from Farooqabad, Safdarabad, Muridke, and Nankana Sahib.
+            </p>
+          </div>
         </div>
-      </section>
-
-      <!-- Admissions Banner -->
-      <section class="final-executive-banner" id="admissions" aria-labelledby="banner-heading">
-        <h2 id="banner-heading">Reserve Your Workstation for the Next Cohort</h2>
-        <p>Physical classes held at our Sheikhupura campus. Inspect our dual-display Core i7 lab workstations, meet instructors, and attend a free 3-day demo class.</p>
-        <a class="btn-banner-white" href="https://wa.me/923176036127?text=Hi%20OneSkills%20Academy%2C%20I%27d%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener noreferrer">
-          <span>Book Free Demo via WhatsApp</span>
-          <span aria-hidden="true">&rarr;</span>
-        </a>
-      </section>
-
-    </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Master 4-Column Footer -->
-  <footer class="footer-wrap" id="footer">
-    <div class="container footer-container">
-      <h2 class="sr-only">Footer Directory &amp; Campus Information</h2>
-      <div class="footer-top-grid">
-
-        <!-- Column 1: OneSkills Brand & Socials -->
-        <div class="footer-brand-col">
-          <div class="footer-brand-name">OneSkills<span class="brand-pk">.pk</span></div>
-          <div class="footer-brand-sub" aria-hidden="true">ACADEMY</div>
-          <p class="footer-desc">Practical digital skills training and hands-on mentorship for learners in Sheikhupura.</p>
-
-          <div class="footer-social-icons-grid" aria-label="OneSkills Social Media Profiles">
-            <a class="social-icon-btn fb" href="https://www.facebook.com/oneskillspk" target="_blank" rel="noopener noreferrer" title="Follow @oneskillspk on Facebook" aria-label="Facebook">
-              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
-            </a>
-            <a class="social-icon-btn insta" href="https://www.instagram.com/oneskillspk/" target="_blank" rel="noopener noreferrer" title="Follow @oneskillspk on Instagram" aria-label="Instagram">
-              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
-            </a>
-            <a class="social-icon-btn yt" href="https://www.youtube.com/@OneSkillspk" target="_blank" rel="noopener noreferrer" title="Subscribe to @OneSkillspk on YouTube" aria-label="YouTube">
-              <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg>
-            </a>
-            <a class="social-icon-btn wa" href="https://wa.me/923176036127" target="_blank" rel="noopener noreferrer" title="Chat with OneSkills on WhatsApp" aria-label="WhatsApp">
-              <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.163 8.163 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.01 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.84-.86 2.06 0 1.21.89 2.39 1.01 2.55.12.17 1.74 2.66 4.22 3.73.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29z" /></svg>
-            </a>
-          </div>
-
-          <div class="footer-brand-tagline-wrap">
-            <div class="footer-brand-dash" aria-hidden="true"></div>
-            <span class="footer-brand-tagline">Skills Today, Brighter Tomorrows.</span>
-          </div>
-        </div>
-
-        <!-- Column 2: Career Tracks -->
-        <div class="footer-col">
-          <h3>Career Tracks</h3>
-          <ul class="footer-links-list">
-            <li><a href="freelancing-mastery.html" class="footer-nav-item"><span>Freelancing Mastery</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
-            <li><a href="ai-tools-automation.html" class="footer-nav-item"><span>AI Tools &amp; Automation</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
-            <li><a href="ai-web-development.html" class="footer-nav-item"><span>AI Web Development</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
-            <li><a href="crypto-trading.html" class="footer-nav-item"><span>Crypto Trading</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
-            <li><a href="forex-trading.html" class="footer-nav-item"><span>Forex Trading</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
-            <li><a href="web3-blockchain.html" class="footer-nav-item"><span>Web3 &amp; Blockchain</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
-            <li><a href="programming-js-cpp.html" class="footer-nav-item"><span>Coding with JS &amp; C++</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
-            <li><a href="ai-based-computer-course.html" class="footer-nav-item"><span>AI Office Computer</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
-            <li><a href="shopify-ecommerce.html" class="footer-nav-item"><span>Shopify &amp; E-Commerce</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
-          </ul>
-        </div>
-
-        <!-- Column 3: High-Intent Guides -->
-        <div class="footer-col">
-          <h3>Essential Guides</h3>
-          <ul class="footer-links-list">
-            <li><a href="../guides/which-computer-course-is-best-for-online-earning-in-sheikhupura.html" class="footer-nav-item"><span>Online Earning Courses</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
-            <li><a href="../guides/computer-courses-after-matric-in-sheikhupura.html" class="footer-nav-item"><span>Courses After Matric</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
-            <li><a href="../guides/computer-courses-for-females-in-sheikhupura.html" class="footer-nav-item"><span>Courses for Females</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
-            <li><a href="../guides/seo-training-website-flipping-course-sheikhupura.html" class="footer-nav-item"><span>SEO &amp; Site Flipping</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
-            <li><a href="../guides/index.html" class="footer-nav-item"><span>All Guides &amp; Roadmaps</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
-          </ul>
-        </div>
-
-        <!-- Column 4: Sheikhupura Campus -->
-        <div class="footer-col">
-          <h3>Sheikhupura Campus</h3>
-          <p class="footer-campus-address">
-            OneSkills Academy<br>
-            Lahore–Sargodha Road, Opp. Mian Hospital<br>
-            Near KIPS College, Sheikhupura, Punjab
+  <!-- Global Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <img src="../assets/images/brand/logo-light.webp" alt="OneSkills Academy" width="150" height="36" class="site-footer__logo">
+          <p class="site-footer__about">
+            Sheikhupura's premier digital skills academy delivering physical lab courses in Freelancing, AI Development, Programming, Web3, and Trading.
           </p>
-          <p class="footer-campus-contact">
-            Phone / WhatsApp: <a href="https://wa.me/923176036127" class="footer-link-highlight">+92 317 603 6127</a><br>
-            Email: <a href="mailto:info@oneskills.pk" class="footer-link-highlight">info@oneskills.pk</a>
+          <p class="site-footer__address">
+            Main Lahore–Sargodha Road, Opp. Mian Hospital, Near KIPS College, Sheikhupura
           </p>
         </div>
-
+        <div class="site-footer__links">
+          <h4>Academy Courses</h4>
+          <ul>
+            <li><a href="../courses/freelancing-mastery.html">Freelancing &amp; Marketing</a></li>
+            <li><a href="../courses/ai-web-development.html">AI Web Development</a></li>
+            <li><a href="../courses/programming-js-cpp.html">Programming (JS &amp; C++)</a></li>
+            <li><a href="../courses/ai-based-computer-course.html">AI Computer Course</a></li>
+            <li><a href="../courses/ai-tools-automation.html">AI Tools &amp; Automation</a></li>
+            <li><a href="../courses/web3-blockchain.html">Web3 &amp; Blockchain</a></li>
+            <li><a href="../courses/crypto-trading.html">Crypto Trading</a></li>
+            <li><a href="../courses/forex-trading.html">Forex Trading</a></li>
+            <li><a href="../courses/shopify-ecommerce.html">Shopify E-Commerce</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__links">
+          <h4>Legal &amp; Policies</h4>
+          <ul>
+            <li><a href="../terms-of-service.html">Terms of Service</a></li>
+            <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="../refund-policy.html">Refund Policy</a></li>
+            <li><a href="../verify-certificate.html">Verify Certificate</a></li>
+          </ul>
+        </div>
       </div>
-
-      <div class="footer-bottom-row">
-        <p class="footer-copyright">&copy; 2026 OneSkills Academy. All rights reserved.</p>
-        <div class="footer-legal-links">
-          <a href="../about.html">About Us</a>
-          <a href="../privacy-policy.html">Privacy Policy</a>
-          <a href="../terms-of-service.html">Terms of Service</a>
-        </div>
+      <div class="site-footer__bottom">
+        <p>© 2026 OneSkills Academy. All rights reserved. A Brighter Sheikhupura Through Skills.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Floating Mobile Action Dock -->
+  <aside class="c-mobile-dock" aria-label="Mobile Quick Actions">
+    <div class="c-mobile-dock__inner">
+      <div class="c-mobile-dock__info">
+        <span class="c-mobile-dock__label">Admissions Desk</span>
+        <span class="c-mobile-dock__sub">9 Practical Courses · BYOL</span>
+      </div>
+      <a href="https://wa.me/923176036127?text=Hi%20OneSkills%2C%20I%20want%20to%20get%20course%20details." class="c-btn c-btn--primary c-btn--sm">
+        <span>Chat on WhatsApp</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Interactive Filtering Script -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Theme Switcher Logic
-      var themeToggle = document.getElementById('theme-toggle');
+    (function () {
+      const searchInput = document.getElementById('catalog-search');
+      const tabBtns = document.querySelectorAll('.catalog-tab-btn');
+      const cards = document.querySelectorAll('#course-cards-container .c-card');
 
-      function switchTheme() {
-        var current = document.documentElement.getAttribute('data-theme') || 'light';
-        var next = current === 'light' ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-        var meta = document.getElementById('meta-theme-color');
-        if (meta) meta.setAttribute('content', next === 'light' ? '#fcfbfe' : '#07060b');
-      }
+      let currentCat = 'all';
+      let currentQuery = '';
 
-      if (themeToggle) themeToggle.addEventListener('click', switchTheme);
+      function filterCards() {
+        cards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          const keywords = (card.getAttribute('data-keywords') || '') + ' ' + (card.querySelector('.c-card__title')?.textContent || '');
+          const matchesCat = (currentCat === 'all' || category === currentCat);
+          const matchesQuery = (!currentQuery || keywords.toLowerCase().includes(currentQuery.toLowerCase()));
 
-      // Window Scroll Header Glassmorphism
-      var siteHeader = document.getElementById('site-header');
-      window.addEventListener('scroll', function () {
-        if (siteHeader) {
-          if (window.scrollY > 20) {
-            siteHeader.classList.add('scrolled');
+          if (matchesCat && matchesQuery) {
+            card.style.display = 'flex';
           } else {
-            siteHeader.classList.remove('scrolled');
+            card.style.display = 'none';
           }
-        }
-      }, { passive: true });
-
-      // Mobile Hamburger Navigation
-      var hamburgerBtn = document.getElementById('hamburger-btn');
-      var primaryNav = document.getElementById('primary-nav');
-      var navOverlay = document.getElementById('nav-overlay');
-
-      if (hamburgerBtn && primaryNav && navOverlay) {
-        hamburgerBtn.addEventListener('click', function () {
-          var expanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
-          hamburgerBtn.setAttribute('aria-expanded', !expanded);
-          primaryNav.classList.toggle('open');
-          navOverlay.classList.toggle('active');
-          document.body.classList.toggle('nav-open');
-        });
-
-        navOverlay.addEventListener('click', function () {
-          hamburgerBtn.setAttribute('aria-expanded', 'false');
-          primaryNav.classList.remove('open');
-          navOverlay.classList.remove('active');
-          document.body.classList.remove('nav-open');
         });
       }
-    });
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+          tabBtns.forEach(b => b.classList.remove('is-active'));
+          this.classList.add('is-active');
+          currentCat = this.getAttribute('data-cat');
+          filterCards();
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', function (e) {
+          currentQuery = e.target.value.trim();
+          filterCards();
+        });
+      }
+    })();
   </script>
 
-  <!-- Mobile Sticky Bottom Conversion Bar -->
-  <div class="sticky-cta" aria-label="Quick actions">
-    <a class="btn-sticky btn-sticky-primary" href="#admissions">
-      Book Free Demo
-    </a>
-    <a class="btn-sticky btn-sticky-wa"
-      href="https://wa.me/923176036127?text=Hi%20OneSkills%20Academy%2C%20I%20want%20to%20book%20a%20free%20demo%20class."
-      target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2z" />
-      </svg>
-      WhatsApp
-    </a>
-  </div>
+  <!-- Core Scripts -->
+  <script src="../assets/js/course-v3-core.js"></script>
 </body>
-
 </html>
