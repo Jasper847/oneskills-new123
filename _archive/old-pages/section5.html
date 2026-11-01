@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>05 · Verified Google Reviews Marquee · OneSkills Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   ULTRA-MODERN DESIGN SYSTEM & TOKENS
+   ============================================================ */
+:root {
+  color-scheme: light;
+
+  /* Ambient Canvas */
+  --bg-page: #faf6f0;
+  --bg-gradient: radial-gradient(circle at 50% 0%, #ffffff 0%, #fdf8f4 40%, #f4ede4 100%);
+  
+  /* Glass Cards */
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.9);
+  --glass-shadow: 0 16px 40px -10px rgba(220, 130, 90, 0.12), 0 2px 8px rgba(0, 0, 0, 0.02);
+  --glass-shadow-hover: 0 28px 64px -8px rgba(230, 110, 70, 0.24), 0 0 0 1.5px rgba(255, 94, 54, 0.4);
+
+  --text-title: #0e1118;
+  --text-desc: #555b6d;
+  --text-muted: #8890a4;
+
+  --accent-orange: #ff5e36;
+  --accent-orange-dim: #fff0eb;
+  --accent-orange-glow: rgba(255, 94, 54, 0.38);
+
+  --accent-purple: #7042f8;
+  --accent-purple-dim: #f3effe;
+  --accent-purple-glow: rgba(112, 66, 248, 0.28);
+
+  --accent-emerald: #10b981;
+  --accent-emerald-dim: #ecfdf5;
+
+  --star-gold: #f59e0b;
+
+  --font: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+
+  --r-card: 24px;
+  --r-pill: 999px;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg-page: #070913;
+  --bg-gradient: radial-gradient(circle at 50% 0%, #151834 0%, #090c1e 50%, #04050d 100%);
+  
+  --glass-bg: rgba(14, 18, 41, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --glass-shadow: 0 20px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --glass-shadow-hover: 0 30px 72px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 94, 54, 0.3);
+
+  --text-title: #f8fafc;
+  --text-desc: #94a3b8;
+  --text-muted: #64748b;
+
+  --accent-orange: #ff6842;
+  --accent-orange-dim: rgba(255, 104, 66, 0.15);
+  --accent-orange-glow: rgba(255, 104, 66, 0.45);
+
+  --accent-purple: #9d7bfd;
+  --accent-purple-dim: rgba(157, 123, 253, 0.14);
+  --accent-purple-glow: rgba(157, 123, 253, 0.35);
+
+  --accent-emerald: #34d399;
+  --accent-emerald-dim: rgba(52, 211, 153, 0.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+
+body {
+  font-family: var(--font);
+  background: var(--bg-page);
+  background-image: var(--bg-gradient);
+  color: var(--text-desc);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 30px 0 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  position: relative;
+  transition: background .35s ease, color .35s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ambient Fluid Glows */
+.ambient-glow-left, .ambient-glow-right {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(100px);
+  z-index: 0;
+  opacity: 0.6;
+  animation: floatAmbient 12s infinite alternate ease-in-out;
+}
+.ambient-glow-left {
+  width: 550px;
+  height: 550px;
+  top: 150px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(255, 94, 54, 0.2) 0%, transparent 70%);
+}
+.ambient-glow-right {
+  width: 600px;
+  height: 600px;
+  top: 350px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(112, 66, 248, 0.22) 0%, transparent 70%);
+  animation-delay: -6s;
+}
+@keyframes floatAmbient {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-40px) scale(1.08); }
+  100% { transform: translateY(30px) scale(0.95); }
+}
+
+.container-header {
+  width: 100%;
+  max-width: 1180px;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Top Controller */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--r-pill);
+  margin-bottom: 40px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .03);
+  border: 1px solid var(--glass-border);
+}
+.brand-title {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--accent-orange);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.live-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.control-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: var(--r-pill);
+  font-size: 12px;
+  font-weight: 750;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: var(--text-desc);
+  cursor: pointer;
+  transition: all .2s var(--ease);
+}
+html[data-theme="dark"] .control-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-desc);
+}
+.control-btn:hover {
+  color: var(--accent-orange);
+  border-color: var(--accent-orange);
+  transform: translateY(-1px);
+}
+.theme-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 18px;
+  border-radius: var(--r-pill);
+  font-size: 12.5px;
+  font-weight: 750;
+  background: var(--accent-orange-dim);
+  border: none;
+  color: var(--accent-orange);
+  cursor: pointer;
+  transition: transform .2s var(--ease);
+}
+.theme-switch:hover {
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   SECTION HEADER (Exact Reference Style)
+   ============================================================ */
+.section-header {
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tilted-capsule {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-orange);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: .02em;
+  padding: 6px 20px;
+  border-radius: var(--r-pill);
+  box-shadow: 0 6px 20px var(--accent-orange-glow);
+  transform: rotate(-3.5deg);
+  margin-bottom: 20px;
+  transition: transform .35s var(--ease), box-shadow .35s;
+  animation: badgeFloat 4s infinite alternate ease-in-out;
+}
+@keyframes badgeFloat {
+  0% { transform: rotate(-3.5deg) translateY(0); }
+  100% { transform: rotate(-2.5deg) translateY(-4px); }
+}
+.tilted-capsule:hover {
+  transform: rotate(0deg) scale(1.06);
+  box-shadow: 0 10px 28px var(--accent-orange-glow);
+}
+
+.main-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 4.5vw, 3.5rem);
+  font-weight: 850;
+  line-height: 1.16;
+  letter-spacing: -.03em;
+  color: var(--text-title);
+  margin-bottom: 14px;
+}
+.main-headline em {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--accent-orange);
+}
+
+.sub-lead {
+  color: var(--text-desc);
+  font-size: 1.1rem;
+  line-height: 1.65;
+  max-width: 64ch;
+}
+
+/* Google Rating Proof Bar */
+.proof-stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+  margin-bottom: 24px;
+}
+
+.g-rating-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 26px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: var(--r-pill);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  text-decoration: none;
+  transition: transform .3s var(--ease), box-shadow .3s, border-color .3s;
+}
+.g-rating-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(255, 94, 54, 0.22);
+  border-color: rgba(255, 94, 54, 0.4);
+}
+.g-logo-svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.star-rating {
+  color: var(--star-gold);
+  font-size: 16px;
+  letter-spacing: 2px;
+  display: inline-flex;
+  animation: starShimmer 3s infinite alternate ease-in-out;
+}
+@keyframes starShimmer {
+  0% { filter: drop-shadow(0 0 2px rgba(245, 158, 11, 0.3)); }
+  100% { filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.8)); }
+}
+
+.rating-num {
+  font-weight: 850;
+  color: var(--text-title);
+  font-size: 15px;
+}
+.rating-caption {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.g-verified-pill {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--accent-emerald);
+  background: var(--accent-emerald-dim);
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(16, 185, 129, 0.15);
+}
+
+/* ============================================================
+   INFINITE DUAL-ROW MARQUEE SYSTEM (60FPS Hardware-Accelerated)
+   ============================================================ */
+.marquee-wrapper {
+  width: 100%;
+  position: relative;
+  margin: 30px 0 54px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow: hidden;
+  padding: 10px 0;
+  /* Ultra-smooth edge gradient masks */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Row 1: Leftward Stream */
+.track-left {
+  animation: marqueeLeft 48s linear infinite;
+}
+@keyframes marqueeLeft {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* Row 2: Rightward Stream */
+.track-right {
+  animation: marqueeRight 54s linear infinite;
+}
+@keyframes marqueeRight {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+/* Pause whole stream on hover */
+.marquee-wrapper:hover .marquee-track,
+.marquee-wrapper.is-paused .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ============================================================
+   TACTILE MARQUEE CARDS WITH CLICK-TO-VERIFY
+   ============================================================ */
+.review-marquee-card {
+  width: 380px;
+  min-height: 235px;
+  flex-shrink: 0;
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--r-card);
+  padding: 26px 26px 22px;
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s;
+  outline: none;
+}
+.review-marquee-card:hover, .review-marquee-card:focus-visible {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--glass-shadow-hover);
+  border-color: rgba(255, 94, 54, 0.4);
+}
+
+.card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tag-course {
+  font-size: 11px;
+  font-weight: 750;
+  color: var(--accent-purple);
+  background: var(--accent-purple-dim);
+  padding: 3px 12px;
+  border-radius: var(--r-pill);
+  border: 1px solid rgba(112, 66, 248, 0.14);
+}
+html[data-theme="dark"] .tag-course {
+  background: rgba(157, 123, 253, 0.14);
+  color: #9d7bfd;
+  border-color: rgba(157, 123, 253, 0.22);
+}
+.verify-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  font-weight: 800;
+  color: #1a73e8;
+  background: rgba(26, 115, 232, 0.08);
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+  transition: background .2s, transform .2s;
+}
+.review-marquee-card:hover .verify-prompt {
+  background: #1a73e8;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.card-quote-body {
+  font-family: var(--font);
+  font-size: 13.5px;
+  font-weight: 550;
+  line-height: 1.62;
+  color: var(--text-title);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card-quote-body strong {
+  color: var(--accent-orange);
+  font-weight: 800;
+}
+
+.card-student-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+html[data-theme="dark"] .card-student-footer {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+.avatar-disc {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-weight: 850;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+}
+.student-meta {
+  display: flex;
+  flex-direction: column;
+}
+.student-title-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.name-text {
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--text-title);
+}
+.check-gmb {
+  width: 14px;
+  height: 14px;
+  color: #1a73e8;
+}
+.stars-mini {
+  color: var(--star-gold);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+/* ============================================================
+   AUTHENTIC GOOGLE VERIFICATION MODAL DIALOG
+   ============================================================ */
+.review-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(8, 10, 20, 0.68);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s var(--ease);
+}
+.review-modal-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.g-review-modal-box {
+  width: 100%;
+  max-width: 580px;
+  background: var(--card-bg, #ffffff);
+  border-radius: 28px;
+  padding: 38px 36px 32px;
+  box-shadow: 0 32px 84px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: scale(0.92) translateY(20px);
+  transition: transform .35s var(--ease);
+  color: var(--text-desc);
+}
+html[data-theme="dark"] .g-review-modal-box {
+  background: #0e1227;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.review-modal-backdrop.is-open .g-review-modal-box {
+  transform: scale(1) translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--text-desc);
+  cursor: pointer;
+  transition: all .2s;
+}
+html[data-theme="dark"] .modal-close-btn {
+  background: rgba(255, 255, 255, 0.08);
+}
+.modal-close-btn:hover {
+  background: var(--accent-orange);
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.modal-header-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.modal-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-weight: 850;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+.modal-reviewer-meta {
+  display: flex;
+  flex-direction: column;
+}
+.modal-reviewer-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 850;
+  color: var(--text-title);
+}
+.modal-verified-tag {
+  font-size: 12px;
+  color: #1a73e8;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 750;
+}
+
+.modal-stars-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(245, 158, 11, 0.08);
+  border-radius: 12px;
+  border: 1px solid rgba(245, 158, 11, 0.18);
+}
+.modal-stars {
+  color: var(--star-gold);
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+.modal-course-badge {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--accent-purple);
+  background: var(--accent-purple-dim);
+  padding: 3px 12px;
+  border-radius: var(--r-pill);
+}
+
+.modal-full-text {
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--text-title);
+}
+
+.modal-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.btn-verify-gmb {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #1a73e8;
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 750;
+  padding: 13px 20px;
+  border-radius: var(--r-pill);
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(26, 115, 232, 0.3);
+  transition: all .2s var(--ease);
+}
+.btn-verify-gmb:hover {
+  background: #1557b0;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(26, 115, 232, 0.4);
+}
+.btn-ask-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #25d366;
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 750;
+  padding: 13px 20px;
+  border-radius: var(--r-pill);
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+  transition: all .2s var(--ease);
+}
+.btn-ask-wa:hover {
+  background: #1eb954;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   BOTTOM ACTION BENTO STRIP
+   ============================================================ */
+.bottom-cta-wrap {
+  width: 100%;
+  max-width: 1180px;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.reviews-bottom-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--r-card);
+  padding: 38px 46px;
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--glass-border);
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.cta-text-side {
+  max-width: 580px;
+}
+.cta-heading {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 850;
+  color: var(--text-title);
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+.cta-sub {
+  color: var(--text-desc);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.cta-button-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.reviews-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #09090b;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 750;
+  padding: 15px 34px;
+  border-radius: var(--r-pill);
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .18);
+  transition: all .28s var(--ease);
+}
+.reviews-cta-btn:hover {
+  background: var(--accent-orange);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 36px var(--accent-orange-glow);
+}
+.gmb-external-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: transparent;
+  color: var(--text-title);
+  border: 1.5px solid rgba(0, 0, 0, .12);
+  font-size: 13.5px;
+  font-weight: 750;
+  padding: 14px 26px;
+  border-radius: var(--r-pill);
+  text-decoration: none;
+  transition: all .25s var(--ease);
+}
+html[data-theme="dark"] .gmb-external-btn {
+  border-color: rgba(255, 255, 255, .16);
+}
+.gmb-external-btn:hover {
+  border-color: var(--accent-orange);
+  color: var(--accent-orange);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(255, 94, 54, 0.16);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .review-marquee-card {
+    width: 320px;
+    padding: 22px 20px;
+  }
+  .reviews-bottom-cta {
+    padding: 30px 24px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .cta-text-side {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .review-marquee-card {
+    width: 290px;
+  }
+  .g-review-modal-box {
+    padding: 28px 20px;
+  }
+  .modal-actions-row {
+    flex-direction: column;
+  }
+  .btn-verify-gmb, .btn-ask-wa {
+    width: 100%;
+  }
+  .cta-button-group {
+    width: 100%;
+    flex-direction: column;
+  }
+  .reviews-cta-btn, .gmb-external-btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track-left, .track-right, .ambient-glow-left, .ambient-glow-right {
+    animation: none !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Ambient Fluid Glow Background -->
+<div class="ambient-glow-left" aria-hidden="true"></div>
+<div class="ambient-glow-right" aria-hidden="true"></div>
+
+<!-- Container Header -->
+<div class="container-header">
+
+  <!-- Top Controller -->
+  <div class="top-bar">
+    <span class="brand-title">
+      <span class="live-pulse-dot"></span>
+      OneSkills Academy · Infinite Verified Reviews Stream
+    </span>
+    <div class="top-actions">
+      <button class="control-btn" id="marquee-toggle-btn" type="button" aria-label="Pause marquee">
+        <span id="marquee-toggle-icon">⏸</span>
+        <span id="marquee-toggle-text">Pause</span>
+      </button>
+      <button class="theme-switch" id="theme-switch-btn" type="button" aria-label="Toggle theme">
+        <span id="theme-icon">☀️</span>
+        <span id="theme-label">Light</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- SECTION 05: HEADER -->
+  <div class="section-header">
+    <span class="tilted-capsule">05 · Verified Google Reviews</span>
+    <h1 class="main-headline">Real reviews from verified students in <em>Sheikhupura</em>.</h1>
+    <p class="sub-lead">100% 5-star verified ratings on Google Maps. Click any review card to open full details &amp; verify on Google.</p>
+
+    <!-- Proof Bar linking directly to Google Reviews Panel -->
+    <div class="proof-stats-bar">
+      <a class="g-rating-card" href="https://www.google.com/search?q=oneskills+sheikhupura#lrd=0x3918c3c2f1923d9f:0x9af4e30249f95916,1,,,," target="_blank" rel="noopener noreferrer" title="View all verified reviews on Google Maps">
+        <svg class="g-logo-svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+        </svg>
+        <span class="star-rating">★★★★★</span>
+        <span class="rating-num">5.0 / 5.0</span>
+        <span class="rating-caption">· 11 Google Reviews</span>
+        <span class="g-verified-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          100% 5-Star
+        </span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================
+     INFINITE DUAL-STREAM MARQUEE
+     ============================================================ -->
+<div class="marquee-wrapper" id="marquee-wrapper" aria-label="Scrolling student reviews stream">
+
+  <!-- ROW 1: Stream Moving Left -->
+  <div class="marquee-track track-left">
+    
+    <!-- Card 1: Ashfaq Ahmad -->
+    <article class="review-marquee-card" data-name="Ashfaq Ahmad" data-avatar="AA" data-color="#ff5e36,#f59e0b" data-course="Forex Master Trading" data-full="Best Experience with Sir Nisar Mehar! If you want to learn Forex in Sheikhupura, OneSkills is the best place. Sir Nisar Mehar is an amazing teacher who treats trading as a proper business, not gambling. His teaching style is very simple, and he focuses on self-analysis and strict 1% risk management instead of fake signals. Highly recommended for serious beginners!" tabindex="0" role="button" aria-label="Open Ashfaq Ahmad verified review">
+      <div class="card-top-row">
+        <span class="tag-course">Forex Master Trading</span>
+        <span class="verify-prompt">Click to Verify ↗</span>
+      </div>
+      <p class="card-quote-body">
+        “<strong>Best experience with Sir Nisar Mehar!</strong> If you want to learn Forex in Sheikhupura, OneSkills is the best place. Sir Nisar treats trading as a proper business, focusing on self-analysis and strict 1% risk management instead of fake signals.”
+      </p>
+      <div class="card-student-footer">
+        <div class="avatar-disc" style="background: linear-gradient(135deg, #ff5e36, #f59e0b);">AA</div>
+        <div class="student-meta">
+          <div class="student-title-row">
+            <strong class="name-text">Ashfaq Ahmad</strong>
+            <svg class="check-gmb" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <span class="stars-mini">★★★★★ · Google Review</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 2: Wajiha M.ali -->
+    <article class="review-marquee-card" data-name="Wajiha M.ali" data-avatar="WM" data-color="#7042f8,#a855f7" data-course="Professional Skills" data-full="My experience with One Skill Academy has been truly excellent. The teaching methodology here is well-structured, and every concept is explained in a way that makes even complex topics easy to understand. The dedication and professionalism of the instructors deserve real appreciation — they don't just cover the syllabus, but also focus on practical knowledge and real-world skills that are essential for career growth." tabindex="0" role="button" aria-label="Open Wajiha M.ali verified review">
+      <div class="card-top-row">
+        <span class="tag-course">Professional Methodology</span>
+        <span class="verify-prompt">Click to Verify ↗</span>
+      </div>
+      <p class="card-quote-body">
+        “The teaching methodology here is well-structured, and every concept is explained easily. The instructors focus on <strong>practical knowledge and real-world skills essential for career growth</strong>.”
+      </p>
+      <div class="card-student-footer">
+        <div class="avatar-disc" style="background: linear-gradient(135deg, #7042f8, #a855f7);">WM</div>
+        <div class="student-meta">
+          <div class="student-title-row">
+            <strong class="name-text">Wajiha M.ali</strong>
+            <svg class="check-gmb" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <span class="stars-mini">★★★★★ · Google Review</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 3: M Zain Ali Nadeem -->
+    <article class="review-marquee-card" data-name="M Zain Ali Nadeem" data-avatar="ZN" data-color="#3b82f6,#1d4ed8" data-course="Web Development" data-full="I had a great learning experience with OneSkills Academy’s Web Development course. The course content was practical, easy to understand, and helped me build my web development skills step by step. The instructors were supportive and explained concepts clearly with hands-on practice. I would definitely recommend OneSkills Academy to anyone who wants to start or improve their career in web development." tabindex="0" role="button" aria-label="Open M Zain Ali Nadeem verified review">
+      <div class="card-top-row">
+        <span class="tag-course">Web Development</span>
+        <span class="verify-prompt">Click to Verify ↗</span>
+      </div>
+      <p class="card-quote-body">
+        “Great learning experience with OneSkills Academy’s Web Development course. <strong>Practical, easy to understand, and helped me build coding skills step by step</strong> with hands-on practice.”
+      </p>
+      <div class="card-student-footer">
+        <div class="avatar-disc" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">ZN</div>
+        <div class="student-meta">
+          <div class="student-title-row">
+            <strong class="name-text">M Zain Ali Nadeem</strong>
+            <svg class="check-gmb" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <span class="stars-mini">★★★★★ · Google Review</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 4: FAIZZAN Cheema -->
+    <article class="review-marquee-card" data-name="FAIZZAN Cheema" data-avatar="FC" data-color="#10b981,#059669" data-course="Forex Price Action" data-full="Mera is academy ke sath Forex trading seekhne ka tajurba boht hi behtareen raha. Yahan ki sab se achi baat ye hai ke trading concepts (jaise Liquidity, Market Structure, aur Risk Management) ko boht hi aasan aur clear tareeqe se samjhaya jata hai. Instructors boht supportive hain aur har step par proper guidance dete hain. Agar aap Forex trading ko seriously seekhna chahte hain aur ek disciplined trader banna chahte hain, toh ye academy best hai." tabindex="0" role="button" aria-label="Open FAIZZAN Cheema verified review">
+      <div class="card-top-row">
+        <span class="tag-course">Forex Market Structure</span>
+        <span class="verify-prompt">Click to Verify ↗</span>
+      </div>
+      <p class="card-quote-body">
+        “Sab se achi baat ye hai ke <strong>Liquidity, Market Structure aur Risk Management concepts</strong> ko boht hi aasan tareeqe se samjhaya jata hai. Instructors har step par proper guidance dete hain.”
+      </p>
+      <div class="card-student-footer">
+        <div class="avatar-disc" style="background: linear-gradient(135deg, #10b981, #059669);">FC</div>
+        <div class="student-meta">
+          <div class="student-title-row">
+            <strong class="name-text">FAIZZAN Cheema</strong>
+            <svg class="check-gmb" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <span class="stars-mini">★★★★★ · Google Review</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 5: Raheel Jutt -->
+    <article class="review-marquee-card" data-name="Raheel Jutt" data-avatar="RJ" data-color="#f97316,#c2410c" data-course="Digital Marketing & Freelancing" data-full="OneSkills Academy ke saath mera learning experience bohat hi acha raha hai. Main yahan Digital Marketing, Freelancing aur Web Development ke courses kar raha hoon. In courses ki sab se achi baat ye hai ke concepts ko simple aur practical way mein samjhaya jata hai, jis se beginners ke liye learning easy ho jati hai. Instructors ka teaching style bohat acha hai aur woh har topic ko step-by-step explain karte hain. Mujhe yahan se sirf skills seekhne ka nahi, balkay apne future career aur freelancing ke liye confidence bhi mil raha hai." tabindex="0" role="button" aria-label="Open Raheel Jutt verified review">
+      <div class="card-top-row">
+        <span class="tag-course">Marketing &amp; Freelancing</span>
+        <span class="verify-prompt">Click to Verify ↗</span>
+      </div>
+      <p class="card-quote-body">
+        “Concepts ko simple aur practical way mein samjhaya jata hai. Mujhe sirf skills seekhne ka nahi, balkay <strong>apne future career aur freelancing ke liye confidence</strong> bhi mil raha hai.”
+      </p>
+      <div class="card-student-footer">
+        <div class="avatar-disc" style="background: linear-gradient(135deg, #f97316, #c2410c);">RJ</div>
+        <div class="student-meta">
+          <div class="student-title-row">
+            <strong class="name-text">Raheel Jutt</strong>
+            <svg class="check-gmb" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <span class="stars-mini">★★★★★ · Google Review</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- DUPLICATES FOR INFINITE SEAMLESS LOOP -->
+    <article class="review-marquee-card" data-name="Ashfaq Ahmad" data-avatar="AA" data-color="#ff5e36,#f59e0b" data-course="Forex Master Trading" data-full="Best Experience with Sir Nisar Mehar! If you want to learn Forex in Sheikhupura, OneSkills is the best place. Sir Nisar Mehar is an amazing teacher who treats trading as a proper business, not gambling. His teaching style is very simple, and he focuses on self-analysis and strict 1% risk management instead of fake signals." aria-hidden="true" tabindex="-1">
+      <div class="card-top-row"><span class="tag-course">Forex Master Trading</span><span class="verify-prompt">Click to Verify ↗</span></div>
+      <p class="card-quote-body">“<strong>Best experience with Sir Nisar Mehar!</strong> If you want to learn Forex in Sheikhupura, OneSkills is the best place. Strict 1% risk management instead of fake signals.”</p>
+      <div class="card-student-footer"><div class="avatar-disc" style="background: linear-gradient(135deg, #ff5e36, #f59e0b);">AA</div><div class="student-meta"><div class="student-title-row"><strong class="name-text">Ashfaq Ahmad</strong><svg class="check-gmb" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><span class="stars-mini">★★★★★ · Google Review</span></div></div>
+    </article>
+
+  </div>
+
+  <!-- ROW 2: Stream Moving Right -->
+  <div class="marquee-track track-right">
+    
+    <!-- Card 6: Hassam Gujjar -->
+    <article class="review-marquee-card" data-name="Hassam Gujjar" data-avatar="HG" data-color="#ec4899,#be185d" data-course="YouTube Automation & AI" data-full="Main OneSkills Academy se YouTube Automation ka course kar raha hoon aur mera experience kaafi acha raha hai. Yahan cheezen sirf theory mein nahi batayi jatin, balkay practical examples ke sath step-by-step guide kiya jata hai. Instructor ka teaching style simple aur easy to understand hai... YouTube Automation ke sath AI tools, content creation, research aur channel growth ke important aspects par bhi achi guidance milti hai." tabindex="0" role="button" aria-label="Open Hassam Gujjar verified review">
+      <div class="card-top-row">
+        <span class="tag-course">YouTube Automation &amp; AI</span>
+        <span class="verify-prompt">Click to Verify ↗</span>
+      </div>
+      <p class="card-quote-body">
+        “Yahan cheezen sirf theory mein nahi batayi jatin, balkay <strong>practical examples, AI tools, content creation, research aur channel growth</strong> par step-by-step guidance milti hai.”
+      </p>
+      <div class="card-student-footer">
+        <div class="avatar-disc" style="background: linear-gradient(135deg, #ec4899, #be185d);">HG</div>
+        <div class="student-meta">
+          <div class="student-title-row">
+            <strong class="name-text">Hassam Gujjar</strong>
+            <svg class="check-gmb" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <span class="stars-mini">★★★★★ · Google Review</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 7: Hamza Rajpoot -->
+    <article class="review-marquee-card" data-name="Hamza Rajpoot" data-avatar="HR" data-color="#06b6d4,#0891b2" data-course="Forex Mentorship" data-full="OneSkills Academy has exceeded all my expectations! The Forex Trading course is exceptionally well-structured, and the mentors are highly educated, experienced, and genuinely dedicated to student success. The staff is professional, supportive, and always ready to help." tabindex="0" role="button" aria-label="Open Hamza Rajpoot verified review">
+      <div class="card-top-row">
+        <span class="tag-course">Forex Mentorship</span>
+        <span class="verify-prompt">Click to Verify ↗</span>
+      </div>
+      <p class="card-quote-body">
+        “<strong>OneSkills Academy has exceeded all my expectations!</strong> The course is exceptionally well-structured, and mentors are experienced and genuinely dedicated to student success.”
+      </p>
+      <div class="card-student-footer">
+        <div class="avatar-disc" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">HR</div>
+        <div class="student-meta">
+          <div class="student-title-row">
+            <strong class="name-text">Hamza Rajpoot</strong>
+            <svg class="check-gmb" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <span class="stars-mini">★★★★★ · Google Review</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 8: Maliha Asif -->
+    <article class="review-marquee-card" data-name="Maliha Asif" data-avatar="MA" data-color="#e11d48,#be123c" data-course="Live Trading Lab" data-full="Best decision ever! The hands-on environment here is amazing – live trading sessions, real charts, and super supportive mentors make learning forex so much fun and practical. I gained way more solid knowledge in just a few months than years of self-study." tabindex="0" role="button" aria-label="Open Maliha Asif verified review">
+      <div class="card-top-row">
+        <span class="tag-course">Live Trading Lab</span>
+        <span class="verify-prompt">Click to Verify ↗</span>
+      </div>
+      <p class="card-quote-body">
+        “<strong>Best decision ever!</strong> The hands-on environment here is amazing – live trading sessions, real charts, and super supportive mentors make learning forex practical.”
+      </p>
+      <div class="card-student-footer">
+        <div class="avatar-disc" style="background: linear-gradient(135deg, #e11d48, #be123c);">MA</div>
+        <div class="student-meta">
+          <div class="student-title-row">
+            <strong class="name-text">Maliha Asif</strong>
+            <svg class="check-gmb" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <span class="stars-mini">★★★★★ · Google Review</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 9: Wajeeha -->
+    <article class="review-marquee-card" data-name="Wajeeha" data-avatar="W" data-color="#8b5cf6,#6d28d9" data-course="Trading Strategy & Risk" data-full="I cannot recommend Trading Academy enough! Before joining, I was completely overwhelmed by the markets and had no idea where to start. The structured curriculum breaks down complex concepts into digestible lessons. What really sets them apart is the mentorship; the instructors are actual traders who take the time to ensure you understand risk management and strategy, not just the hype." tabindex="0" role="button" aria-label="Open Wajeeha verified review">
+      <div class="card-top-row">
+        <span class="tag-course">Trading Strategy &amp; Risk</span>
+        <span class="verify-prompt">Click to Verify ↗</span>
+      </div>
+      <p class="card-quote-body">
+        “I was completely overwhelmed by the markets before joining. What sets them apart is the mentorship — <strong>the instructors are actual traders who teach risk management</strong>.”
+      </p>
+      <div class="card-student-footer">
+        <div class="avatar-disc" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">W</div>
+        <div class="student-meta">
+          <div class="student-title-row">
+            <strong class="name-text">Wajeeha</strong>
+            <svg class="check-gmb" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <span class="stars-mini">★★★★★ · Google Review</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- DUPLICATE FOR INFINITE LOOP -->
+    <article class="review-marquee-card" data-name="Hassam Gujjar" data-avatar="HG" data-color="#ec4899,#be185d" data-course="YouTube Automation & AI" data-full="Main OneSkills Academy se YouTube Automation ka course kar raha hoon aur mera experience kaafi acha raha hai. Yahan cheezen sirf theory mein nahi batayi jatin, balkay practical examples ke sath step-by-step guide kiya jata hai." aria-hidden="true" tabindex="-1">
+      <div class="card-top-row"><span class="tag-course">YouTube Automation &amp; AI</span><span class="verify-prompt">Click to Verify ↗</span></div>
+      <p class="card-quote-body">“Yahan cheezen sirf theory mein nahi batayi jatin, balkay <strong>practical examples, AI tools, content creation aur channel growth</strong> par step-by-step guidance milti hai.”</p>
+      <div class="card-student-footer"><div class="avatar-disc" style="background: linear-gradient(135deg, #ec4899, #be185d);">HG</div><div class="student-meta"><div class="student-title-row"><strong class="name-text">Hassam Gujjar</strong><svg class="check-gmb" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><span class="stars-mini">★★★★★ · Google Review</span></div></div>
+    </article>
+
+  </div>
+
+</div>
+
+<!-- Container Footer CTA -->
+<div class="bottom-cta-wrap">
+  <div class="reviews-bottom-cta">
+    <div class="cta-text-side">
+      <h2 class="cta-heading">Ready to start your digital career?</h2>
+      <p class="cta-sub">Join 150+ students learning practical skills on campus opposite Mian Hospital, Sheikhupura.</p>
+    </div>
+    
+    <div class="cta-button-group">
+      <a class="reviews-cta-btn" href="https://wa.me/923176036127" target="_blank" rel="noopener noreferrer" aria-label="Book your free trial class on WhatsApp">
+        <span>Book a Free Trial Class →</span>
+      </a>
+      <a class="gmb-external-btn" href="https://www.google.com/search?q=oneskills+sheikhupura#lrd=0x3918c3c2f1923d9f:0x9af4e30249f95916,1,,,," target="_blank" rel="noopener noreferrer" aria-label="Read all reviews on Google Maps">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <span>View on Google Maps</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     AUTHENTIC GOOGLE VERIFICATION MODAL DIALOG
+     ============================================================ -->
+<div class="review-modal-backdrop" id="review-modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="g-review-modal-box" id="g-review-modal-box">
+    <button class="modal-close-btn" id="modal-close-btn" type="button" aria-label="Close review dialog">&times;</button>
+    
+    <!-- Modal Header -->
+    <div class="modal-header-row">
+      <div class="modal-avatar" id="modal-avatar">AA</div>
+      <div class="modal-reviewer-meta">
+        <h3 class="modal-reviewer-name" id="modal-reviewer-name">Ashfaq Ahmad</h3>
+        <span class="modal-verified-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          Verified Google Maps Reviewer · Sheikhupura
+        </span>
+      </div>
+    </div>
+
+    <!-- Rating & Course Row -->
+    <div class="modal-stars-row">
+      <span class="modal-stars">★★★★★</span>
+      <span class="modal-course-badge" id="modal-course-badge">Forex Master Trading</span>
+    </div>
+
+    <!-- Full Review Text -->
+    <p class="modal-full-text" id="modal-full-text">
+      “Best Experience with Sir Nisar Mehar! If you want to learn Forex in Sheikhupura, OneSkills is the best place...”
+    </p>
+
+    <!-- Actions Row -->
+    <div class="modal-actions-row">
+      <a class="btn-verify-gmb" id="modal-gmb-link" href="https://www.google.com/search?q=oneskills+sheikhupura#lrd=0x3918c3c2f1923d9f:0x9af4e30249f95916,1,,,," target="_blank" rel="noopener noreferrer">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <span>Verify Live on Google Maps ↗</span>
+      </a>
+      <a class="btn-ask-wa" href="https://wa.me/923176036127?text=Hi%20OneSkills%20Academy%2C%20I%20saw%20your%20Google%20reviews%20and%20want%20to%20learn%20more." target="_blank" rel="noopener noreferrer">
+        <span>Chat on WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+// Theme Switcher
+(() => {
+  const btn = document.getElementById('theme-switch-btn');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') || 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    icon.textContent = next === 'dark' ? '🌙' : '☀️';
+    label.textContent = next === 'dark' ? 'Dark' : 'Light';
+  });
+})();
+
+// Marquee Pause / Play Controller
+(() => {
+  const toggleBtn = document.getElementById('marquee-toggle-btn');
+  const wrapper = document.getElementById('marquee-wrapper');
+  const icon = document.getElementById('marquee-toggle-icon');
+  const text = document.getElementById('marquee-toggle-text');
+  if (!toggleBtn || !wrapper) return;
+
+  let isPaused = false;
+  toggleBtn.addEventListener('click', () => {
+    isPaused = !isPaused;
+    wrapper.classList.toggle('is-paused', isPaused);
+    icon.textContent = isPaused ? '▶' : '⏸';
+    text.textContent = isPaused ? 'Resume' : 'Pause';
+  });
+})();
+
+// Interactive Google Review Modal Engine
+(() => {
+  const backdrop = document.getElementById('review-modal-backdrop');
+  const closeBtn = document.getElementById('modal-close-btn');
+  const avatar = document.getElementById('modal-avatar');
+  const name = document.getElementById('modal-reviewer-name');
+  const course = document.getElementById('modal-course-badge');
+  const fullText = document.getElementById('modal-full-text');
+  const cards = document.querySelectorAll('.review-marquee-card');
+
+  if (!backdrop || !cards.length) return;
+
+  const openModal = (card) => {
+    const dName = card.dataset.name;
+    const dAvatar = card.dataset.avatar;
+    const dColor = card.dataset.color || '#ff5e36,#f59e0b';
+    const dCourse = card.dataset.course;
+    const dFull = card.dataset.full;
+
+    if (!dName) return;
+
+    name.textContent = dName;
+    avatar.textContent = dAvatar;
+    avatar.style.background = `linear-gradient(135deg, ${dColor})`;
+    course.textContent = dCourse;
+    fullText.textContent = `“${dFull}”`;
+
+    backdrop.classList.add('is-open');
+    backdrop.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    backdrop.classList.remove('is-open');
+    backdrop.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => openModal(card));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal(card);
+      }
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && backdrop.classList.contains('is-open')) {
+      closeModal();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

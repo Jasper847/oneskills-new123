@@ -1,0 +1,15 @@
+# OneSkills Academy — Production robots.txt
+
+User-agent: *
+Allow: /
+
+# Block draft, template, and internal directories
+Disallow: /_archive/
+Disallow: /scratch/
+Disallow: /Project References/
+Disallow: /courses/*1.html
+Disallow: /courses/dm-new-course.html
+Disallow: /courses/web-development-v2.html
+Disallow: /courses/digital_marketing_*
+
+Sitemap: https://oneskills.pk/sitemap.xml

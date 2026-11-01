@@ -1,0 +1,2259 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>AI-Powered Web Development Course | OneSkills Academy Sheikhupura</title>
+  <meta name="description"
+    content="Master AI-first web engineering in Sheikhupura: HTML5, React, Next.js, WordPress & Cursor AI. 3-month hands-on course, 72 lessons, 4 live capstones, early bird PKR 28,000.">
+  <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+  <link rel="canonical" href="https://oneskills.pk/courses/ai-powered-web-development/">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf8ff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#090614">
+  <meta name="theme-color" content="#faf8ff" id="meta-theme-color">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      var urlTheme = new URLSearchParams(window.location.search).get('theme');
+      var saved = localStorage.getItem('theme');
+      var theme = urlTheme || saved || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      var meta = document.getElementById('meta-theme-color');
+      if (meta) meta.setAttribute('content', theme === 'light' ? '#faf8ff' : '#090614');
+    })();
+  </script>
+  <link rel="icon" type="image/webp" href="../favicon.webp">
+  <link rel="icon" type="image/webp" sizes="32x32" href="../assets/images/brand/favicon.webp">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/brand/favicon.webp">
+  <link rel="shortcut icon" href="../favicon.webp">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="OneSkills Academy Sheikhupura">
+  <meta property="og:title" content="AI-Powered Web Development Course in Sheikhupura | OneSkills">
+  <meta property="og:description"
+    content="Build production-ready websites 10x faster with AI coding assistants. 3 Months, 72 Lessons, 4 Capstone Projects, Flippa Website Flipping, and $2,000 Free Bonus Pack.">
+  <meta property="og:url" content="https://oneskills.pk/courses/ai-powered-web-development/">
+  <meta property="og:image" content="https://oneskills.pk/assets/images/courses/ai-web-development-light.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI-Powered Web Development Course in Sheikhupura | OneSkills">
+  <meta name="twitter:description"
+    content="Master HTML5, CSS Grid, JavaScript, React, Next.js, WordPress & AI coding assistants with Nisar Mehar. 3-month comprehensive track.">
+  <meta name="twitter:image" content="https://oneskills.pk/assets/images/courses/ai-web-development-light.webp">
+
+  <!-- Google Fonts: Inter UI, Source Serif 4 Accents & Caveat Handwriting -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
+    rel="stylesheet">
+
+  <!-- Core Design System & Ultra-Luxury Course Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/course-detail.css">
+
+  <style>
+    /* In-page interactive enhancements for $500M Enterprise Course UI */
+    .curriculum-controls-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding: 12px 16px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--r-m, 12px);
+    }
+    .curriculum-tabs-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .curriculum-tab-btn {
+      padding: 6px 14px;
+      font-size: 12.5px;
+      font-weight: 600;
+      border-radius: 9999px;
+      background: var(--panel, #f4f0ff);
+      color: var(--text-2);
+      border: 1px solid var(--line);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .curriculum-tab-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent-line, rgba(110, 68, 255, 0.3));
+    }
+    .curriculum-tab-btn.active-tab {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      box-shadow: 0 2px 10px rgba(110, 68, 255, 0.25);
+    }
+    .curriculum-toggle-all-btn {
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--text-2);
+      border: 1px solid var(--line);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .curriculum-toggle-all-btn:hover {
+      background: var(--panel, #f4f0ff);
+      color: var(--text);
+    }
+
+    /* ROI Calculator Widget */
+    .roi-calc-card {
+      margin-top: 24px;
+      padding: 28px;
+      background: linear-gradient(135deg, rgba(110, 68, 255, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%), var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--r-l, 16px);
+      box-shadow: var(--shadow-card);
+    }
+    .roi-calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+      margin-top: 18px;
+    }
+    @media (max-width: 768px) {
+      .roi-calc-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .roi-input-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .roi-slider {
+      width: 100%;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+    .roi-result-box {
+      padding: 20px;
+      border-radius: var(--r-m, 12px);
+      background: var(--card);
+      border: 1px solid var(--line-strong, rgba(110, 68, 255, 0.2));
+      text-align: center;
+    }
+    .roi-metric-num {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--accent-emerald);
+      font-family: var(--font-display);
+    }
+    .roi-metric-label {
+      font-size: 12.5px;
+      color: var(--text-2);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    /* Capstones 4-Grid */
+    .capstones-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .capstone-project-card {
+      padding: 22px;
+      border-radius: var(--r-m, 12px);
+      background: var(--card);
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .capstone-project-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-line, rgba(110, 68, 255, 0.35));
+      box-shadow: 0 10px 24px rgba(110, 68, 255, 0.12);
+    }
+    .capstone-badge {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      background: rgba(110, 68, 255, 0.1);
+      color: var(--accent);
+      margin-bottom: 12px;
+      align-self: flex-start;
+    }
+    .capstone-project-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .capstone-project-card p {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .capstone-tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+    .capstone-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--panel, #f4f0ff);
+      color: var(--text-2);
+    }
+
+    /* Tools Showcase Grid */
+    .tools-enterprise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .tool-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 16px 12px;
+      border-radius: var(--r-m, 12px);
+      background: var(--card);
+      border: 1px solid var(--line);
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .tool-tile:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(110, 68, 255, 0.1);
+    }
+    .tool-tile-name {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .tool-tile-category {
+      font-size: 10.5px;
+      color: var(--text-3, #64748b);
+    }
+
+    /* Mentor card styling */
+    .mentor-enterprise-card {
+      display: flex;
+      gap: 24px;
+      padding: 24px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--r-m, 12px);
+      align-items: center;
+      margin-top: 16px;
+    }
+    @media (max-width: 640px) {
+      .mentor-enterprise-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    .mentor-avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: 0 4px 16px rgba(110, 68, 255, 0.2);
+      flex-shrink: 0;
+    }
+  </style>
+
+  <!-- Structured Data: Course Schema (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "AI-Powered Web Development",
+    "description": "Comprehensive 3-month web development program covering HTML5, CSS Grid, JavaScript ES6+, React, Next.js 14, WordPress, website flipping on Flippa, and freelancing client acquisition with AI coding workflows.",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "OneSkills Academy",
+      "sameAs": "https://oneskills.pk/"
+    },
+    "instructor": {
+      "@type": "Person",
+      "name": "Nisar Mehar",
+      "jobTitle": "Founder & Technical Director, OneSkills.pk",
+      "description": "Senior Web Engineer and Digital Growth Strategist with 7+ years hands-on experience."
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "28000",
+      "priceCurrency": "PKR",
+      "category": "Early Bird Launch Offer",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2026-01-01"
+    },
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "onsite",
+      "duration": "P3M",
+      "location": {
+        "@type": "Place",
+        "name": "OneSkills Academy Sheikhupura Campus",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Lahore â€“ Sargodha Road, Opp. Mian Hospital, Near KIPS College",
+          "addressLocality": "Sheikhupura",
+          "addressRegion": "Punjab",
+          "addressCountry": "PK"
+        }
+      }
+    }
+  }
+  </script>
+
+  <!-- Structured Data: BreadcrumbList (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://oneskills.pk/" },
+      { "@type": "ListItem", "position": 2, "name": "Courses", "item": "https://oneskills.pk/#courses" },
+      { "@type": "ListItem", "position": 3, "name": "AI-Powered Web Development", "item": "https://oneskills.pk/courses/ai-powered-web-development/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I need prior coding experience to join the AI-Powered Web Development course in Sheikhupura?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No prior coding experience is needed. The course starts from zero with HTML5, CSS fundamentals, and modern AI coding assistants (Cursor, Claude, ChatGPT) before advancing to JavaScript, React, Next.js, and WordPress."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the duration, schedule, and batch timing of the course?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The course spans 3 Months (80 hours 30 minutes across 72 structured lessons). Classes are held 3 days a week with 2 flexible timing shifts: Batch A (3:00 PM â€“ 5:00 PM) or Batch B (6:00 PM â€“ 8:00 PM), plus Saturday lab practice sessions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the course tuition fee and what bonuses are included?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Early Bird launch fee is PKR 28,000 (regular PKR 40,000 â€” 30% savings) with an easy 2-month installment option. Enrollment includes 7 free bonuses worth over $2,000 (starter templates, prompt engineering guide, premium WP plugins/themes, lifetime updates, and 1-on-1 reviews)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will I get a certificate upon course completion?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Upon completing all 72 lessons and submitting your 4 live capstone projects, you will receive an official OneSkills Academy Certificate of Completion with a unique verification ID."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the Website Flipping model taught in Module 7?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In addition to freelancing for clients, you learn how to build micro-niche content websites with programmatic SEO and sell them on marketplaces like Flippa and Motion Invest for 20x to 40x monthly profit ($500 to $3,000 per website)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the 14-Day 100% Money-Back Guarantee work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You have a full 14 days from the start of the batch to evaluate the training. If for any reason you feel the program isn't meeting your expectations, simply notify us in person or on WhatsApp to receive a complete 100% refund immediately, without questions."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="course-detail-page">
+
+  <!-- ACCESSIBILITY SKIP LINK (Rule 1) -->
+  <a class="skip-link" href="#main-content">Skip to course syllabus &amp; enrollment</a>
+
+  <!-- ENTERPRISE GLASS NAVIGATION BAR -->
+  <header class="header" id="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="OneSkills Academy Home">
+        <picture>
+          <source srcset="../assets/images/brand/OneSkills-Logo-dark.webp" media="(prefers-color-scheme: dark)">
+          <img class="brand-logo" src="../assets/images/brand/OneSkills-Logo-light.webp" alt="OneSkills Academy Logo"
+            width="142" height="34" loading="eager" fetchpriority="high">
+        </picture>
+      </a>
+
+      <nav class="nav-links" id="primary-nav" aria-label="Course Sections">
+        <a href="../index.html#courses">All Tracks</a>
+        <a href="#curriculum">Curriculum (72 Lessons)</a>
+        <a href="#projects">Capstones</a>
+        <a href="#bonuses">Bonus Vault ($2,000)</a>
+        <a href="#trainer">Lead Mentor</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="header-ctas">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <a class="btn-header-primary"
+          href="https://wa.me/923176036127?text=Hi%20OneSkills%20Academy%2C%20I%20want%20to%20book%20a%20free%20demo%20class%20for%20AI%20Web%20Development."
+          target="_blank" rel="noopener noreferrer" aria-label="Book Free Demo on WhatsApp">
+          <span class="btn-text-full">Book Free Demo</span>
+          <span class="btn-text-short">Free Demo</span>
+          <span class="btn-header-arrow" aria-hidden="true">â†’</span>
+        </a>
+        <button class="hamburger" id="hamburger-btn" type="button" aria-expanded="false" aria-controls="primary-nav"
+          aria-label="Open navigation menu">
+          <i></i><i></i><i></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="course-page-wrapper" id="main-content">
+    <!-- Ambient Nebula Lighting Glow -->
+    <div class="course-ambient-glow" aria-hidden="true"></div>
+
+    <div class="course-container">
+      <!-- Breadcrumb Trail -->
+      <nav class="course-breadcrumbs" aria-label="Breadcrumb navigation">
+        <a href="../index.html">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          Home
+        </a>
+        <span class="breadcrumb-sep" aria-hidden="true">/</span>
+        <a href="../index.html#courses">Courses</a>
+        <span class="breadcrumb-sep" aria-hidden="true">/</span>
+        <span aria-current="page">AI Powered Web Development</span>
+      </nav>
+
+      <!-- ULTRA-PREMIUM HERO SECTION -->
+      <section class="course-hero" aria-labelledby="course-hero-heading">
+        <div class="course-hero-grid">
+          <div>
+            <!-- Status Capsule Badge -->
+            <div class="course-pill-capsule">
+              <span class="pill-pulse-dot" aria-hidden="true"></span>
+              <span class="pill-highlight">Admissions Open</span>
+              <span class="pill-sep" aria-hidden="true">&middot;</span>
+              <span>Next Cohort</span>
+              <span class="pill-sep" aria-hidden="true">&middot;</span>
+              <span>Max 12 Seats</span>
+              <span class="pill-sep" aria-hidden="true">&middot;</span>
+              <span>Sheikhupura Campus</span>
+            </div>
+
+            <!-- Grand Headline with Source Serif Accent -->
+            <h1 class="course-hero-title" id="course-hero-heading">
+              <span class="title-accent">AI-Powered</span> Web Development
+            </h1>
+
+            <!-- Handwritten Editorial Note -->
+            <div class="course-handwritten-note" aria-hidden="true">
+              <span>From zero coding to building, deploying &amp; flipping profitable websites</span>
+              <svg width="60" height="12" viewBox="0 0 60 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M 2 8 C 20 3, 40 4, 58 7" />
+              </svg>
+            </div>
+
+            <p class="course-hero-subtitle">
+              Master modern full-stack web engineering 10x faster with AI coding assistants (ChatGPT, Claude, Cursor AI, v0.dev). Learn HTML5, CSS Grid, JavaScript ES6+, React, Next.js, and WordPress. Build 4 production capstone projects, flip digital assets on Flippa, and land high-paying clients.
+            </p>
+
+            <!-- 4-Item Quick Specs Strip -->
+            <div class="course-specs-strip" role="list" aria-label="Key Course Metrics">
+              <div class="spec-strip-card" role="listitem">
+                <span class="spec-strip-label">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  Duration
+                </span>
+                <span class="spec-strip-val">3 Months (80h 30m)</span>
+              </div>
+              <div class="spec-strip-card" role="listitem">
+                <span class="spec-strip-label">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                  Curriculum
+                </span>
+                <span class="spec-strip-val">8 Modules &middot; 72 Lessons</span>
+              </div>
+              <div class="spec-strip-card" role="listitem">
+                <span class="spec-strip-label">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                  Projects
+                </span>
+                <span class="spec-strip-val">4 Live Capstones</span>
+              </div>
+              <div class="spec-strip-card" role="listitem">
+                <span class="spec-strip-label">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+                  Early Bird Fee
+                </span>
+                <span class="spec-strip-val">PKR 28,000 <small style="font-size: 11px; color: var(--accent-emerald); font-weight: 700;">(Save 30%)</small></span>
+              </div>
+            </div>
+
+            <!-- Hero Action Buttons -->
+            <div class="course-hero-ctas">
+              <a class="btn-hero-wa"
+                href="https://wa.me/923176036127?text=Hi%20OneSkills%20Academy%2C%20I%20want%20to%20book%20a%20free%20demo%20class%20for%20AI-Powered%20Web%20Development."
+                target="_blank" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.163 8.163 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.01 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.84-.86 2.06 0 1.21.89 2.39 1.01 2.55.12.17 1.74 2.66 4.22 3.73.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29z" />
+                </svg>
+                <span>Book Free Demo Seat</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+              <a class="btn-hero-outline" href="#curriculum">
+                <span>Explore 8-Module Syllabus (72 Lessons)</span>
+                <span aria-hidden="true">&darr;</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Right Showcase Stage (Browser Perspective Mockup) -->
+          <div class="hero-showcase-stage">
+            <div class="hero-showcase-halo" aria-hidden="true"></div>
+            <div class="hero-browser-card">
+              <!-- Browser Chrome Header -->
+              <div class="browser-top-bar" aria-hidden="true">
+                <div class="browser-dots">
+                  <span class="browser-dot dot-red"></span>
+                  <span class="browser-dot dot-yellow"></span>
+                  <span class="browser-dot dot-green"></span>
+                </div>
+                <div class="browser-url-pill">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  <span>https://portfolio-v2.vercel.app/live-demo</span>
+                </div>
+              </div>
+
+              <!-- Course Media Artwork -->
+              <div class="browser-media-wrap">
+                <picture>
+                  <source srcset="../assets/images/courses/ai-web-development-dark.webp" media="(prefers-color-scheme: dark)">
+                  <img class="course-artwork-img"
+                    src="../assets/images/courses/ai-web-development-light.webp"
+                    alt="AI Powered Web Development live coding workspace" width="600" height="375" loading="eager"
+                    fetchpriority="high">
+                </picture>
+
+                <!-- Floating Glassmorphic Badges -->
+                <div class="floating-glass-badge badge-pos-bottom-left">
+                  <span class="glass-badge-dot" aria-hidden="true"></span>
+                  <span>Live on Vercel &middot; GitHub Sync</span>
+                </div>
+
+                <div class="floating-glass-badge badge-pos-bottom-right">
+                  <span class="badge-rating-stars">&#9733; 5.0/5</span>
+                  <span>(11+ Reviews)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2-COLUMN MAIN CONTENT LAYOUT -->
+      <div class="course-main-layout">
+        <!-- Main Track (70%) -->
+        <div class="course-track-col">
+
+          <!-- SECTION 1: The OneSkills Edge -->
+          <section class="course-card-section" aria-labelledby="edge-heading">
+            <span class="section-kicker-badge">Developer Advantage</span>
+            <h2 class="section-heading-h2" id="edge-heading">The OneSkills Edge: Old Coding vs AI Workflows</h2>
+            <p class="section-intro-desc">
+              Why spend 9 months memorizing syntax before building anything? By pairing solid HTML/CSS/JavaScript fundamentals with modern AI assistants (Cursor IDE, Copilot, ChatGPT), our students write clean, production code and debug errors in minutes.
+            </p>
+
+            <!-- Old vs New Comparison Grid -->
+            <div class="edge-comparison-grid">
+              <div class="comparison-box box-old-way">
+                <span class="box-badge badge-old">The Outdated Way</span>
+                <h3>Traditional Institutes</h3>
+                <div class="comparison-list">
+                  <div class="comp-item">
+                    <span class="comp-icon-cross" aria-hidden="true">âœ•</span>
+                    <span>Months of memorizing syntax without building real apps</span>
+                  </div>
+                  <div class="comp-item">
+                    <span class="comp-icon-cross" aria-hidden="true">âœ•</span>
+                    <span>Passive whiteboard lectures with no personal workstation</span>
+                  </div>
+                  <div class="comp-item">
+                    <span class="comp-icon-cross" aria-hidden="true">âœ•</span>
+                    <span>No modern tooling â€” stuck on old text editors and PHP</span>
+                  </div>
+                  <div class="comp-item">
+                    <span class="comp-icon-cross" aria-hidden="true">âœ•</span>
+                    <span>Zero deployed client projects or portfolio when graduating</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="comparison-box box-new-way">
+                <span class="box-badge badge-new">The OneSkills Way</span>
+                <h3>AI-Augmented Engineering</h3>
+                <div class="comparison-list">
+                  <div class="comp-item">
+                    <span class="comp-icon-check" aria-hidden="true">âœ“</span>
+                    <span>Prompt-to-code workflows: build responsive apps in days</span>
+                  </div>
+                  <div class="comp-item">
+                    <span class="comp-icon-check" aria-hidden="true">âœ“</span>
+                    <span>Dedicated high-speed workstation with 1-on-1 code reviews</span>
+                  </div>
+                  <div class="comp-item">
+                    <span class="comp-icon-check" aria-hidden="true">âœ“</span>
+                    <span>Cursor AI IDE, React 18, Git, GitHub and Vercel cloud hosting</span>
+                  </div>
+                  <div class="comp-item">
+                    <span class="comp-icon-check" aria-hidden="true">âœ“</span>
+                    <span>4 live public portfolio web apps ready for Upwork clients</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4 Pillar Advantages Grid -->
+            <div class="advantages-4grid">
+              <article class="advantage-card">
+                <div class="advantage-icon-box" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                </div>
+                <h3>Modern Layout &amp; Tokens</h3>
+                <p>Master semantic HTML5, CSS Grid, Flexbox, custom CSS variables, and fluid dark/light design systems.</p>
+              </article>
+
+              <article class="advantage-card">
+                <div class="advantage-icon-box" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                </div>
+                <h3>JavaScript &amp; React.js</h3>
+                <p>Build dynamic interfaces using DOM events, Fetch API, asynchronous requests, component state, and custom hooks.</p>
+              </article>
+
+              <article class="advantage-card">
+                <div class="advantage-icon-box" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><path d="M12 6v6l4 2"></path></svg>
+                </div>
+                <h3>Cursor AI IDE Workflows</h3>
+                <p>Harness prompt-to-code generation, automatic bug triage, automated refactoring, and AI-assisted documentation.</p>
+              </article>
+
+              <article class="advantage-card">
+                <div class="advantage-icon-box" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+                </div>
+                <h3>Cloud Hosting &amp; GitHub</h3>
+                <p>Version control your projects with Git, collaborate via GitHub, and deploy live client projects on Vercel and Netlify.</p>
+              </article>
+            </div>
+          </section>
+
+          <!-- SECTION 2: 8-Module Master Curriculum Roadmap (72 Lessons) -->
+          <section class="course-card-section" id="curriculum" aria-labelledby="curriculum-heading">
+            <span class="section-kicker-badge">Structured 3-Month Journey &middot; 80h 30m</span>
+            <h2 class="section-heading-h2" id="curriculum-heading">Comprehensive 8-Module Master Curriculum (72 Lessons)</h2>
+            <p class="section-intro-desc">
+              Every single module combines theoretical clarity with real on-screen coding exercises. Click each module below to view all 72 individual lessons, tools used, and hands-on milestone deliverables:
+            </p>
+
+            <!-- Dynamic Curriculum Controls -->
+            <div class="curriculum-controls-bar">
+              <div class="curriculum-tabs-nav" id="curriculum-tabs" role="tablist" aria-label="Curriculum categories">
+                <button class="curriculum-tab-btn active-tab" data-filter="all" type="button" role="tab" aria-selected="true">All Modules (8)</button>
+                <button class="curriculum-tab-btn" data-filter="foundations" type="button" role="tab" aria-selected="false">Foundations (M1â€“M2)</button>
+                <button class="curriculum-tab-btn" data-filter="frontend" type="button" role="tab" aria-selected="false">React &amp; JS (M3â€“M4)</button>
+                <button class="curriculum-tab-btn" data-filter="cms" type="button" role="tab" aria-selected="false">WordPress &amp; Headless (M5)</button>
+                <button class="curriculum-tab-btn" data-filter="monetization" type="button" role="tab" aria-selected="false">AI &amp; Flippa (M6â€“M8)</button>
+              </div>
+              <button class="curriculum-toggle-all-btn" id="toggle-all-modules-btn" type="button">Expand All Modules</button>
+            </div>
+
+            <div class="curriculum-timeline-wrapper" id="curriculum-timeline">
+              <!-- Module 1 -->
+              <details class="timeline-module-card" data-category="foundations" open>
+                <summary class="timeline-summary">
+                  <div class="timeline-summary-left">
+                    <span class="module-step-node" aria-hidden="true">01</span>
+                    <div class="module-meta-wrap">
+                      <span class="module-phase-tag">Weeks 1â€“2 &middot; 8 Lessons &middot; ~9 Hours</span>
+                      <span class="module-heading-text">AI-First Web Development Foundation &amp; Toolchain</span>
+                    </div>
+                  </div>
+                  <svg class="accordion-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="timeline-module-body">
+                  <div class="timeline-topics">
+                    <div class="topic-bullet">
+                      <svg class="topic-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>Master modern AI coding setups: Cursor IDE, VS Code extensions, Git terminal, and GitHub repositories.</span>
+                    </div>
+                    <div class="topic-bullet">
+                      <svg class="topic-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>LLM prompt engineering: system prompts, few-shot examples, chain-of-thought, and preventing hallucinations.</span>
+                    </div>
+                    <div class="topic-bullet">
+                      <svg class="topic-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>Rapid prototyping with v0.dev, Bolt.new, and Lovable to convert natural language into working code prototypes.</span>
+                    </div>
+                  </div>
+
+                  <div class="timeline-lessons-list" role="list" aria-label="Module 1 Lessons">
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left">
+                        <span class="lesson-num-tag">1.1</span>
+                        <span class="lesson-title-text">Welcome to the AI Coding Era â€” Why Web Development Has Changed Forever</span>
+                      </div>
+                      <span class="lesson-badge-pill">AI Era</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left">
+                        <span class="lesson-num-tag">1.2</span>
+                        <span class="lesson-title-text">Setting Up Your AI Power-Stack: Cursor IDE, VS Code, Git &amp; GitHub</span>
+                      </div>
+                      <span class="lesson-badge-pill">Setup</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left">
+                        <span class="lesson-num-tag">1.3</span>
+                        <span class="lesson-title-text">How LLMs Write Code: Understanding Tokens, Context Windows &amp; Hallucinations</span>
+                      </div>
+                      <span class="lesson-badge-pill">Core Theory</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left">
+                        <span class="lesson-num-tag">1.4</span>
+                        <span class="lesson-title-text">Master-Level Prompt Engineering for Web Developers (System Prompts, Few-Shot, Chain-of-Thought)</span>
+                      </div>
+                      <span class="lesson-badge-pill">Prompting</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left">
+                        <span class="lesson-num-tag">1.5</span>
+                        <span class="lesson-title-text">Claude 3.5 Sonnet vs. GPT-4o vs. DeepSeek for Coding: When to Use What</span>
+                      </div>
+                      <span class="lesson-badge-pill">AI Models</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left">
+                        <span class="lesson-num-tag">1.6</span>
+                        <span class="lesson-title-text">Rapid Prototyping with v0.dev, Bolt.new, and Lovable</span>
+                      </div>
+                      <span class="lesson-badge-pill">Prototyping</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left">
+                        <span class="lesson-num-tag">1.7</span>
+                        <span class="lesson-title-text">Git &amp; GitHub Fundamentals: Branching, Pull Requests &amp; CI/CD Basics</span>
+                      </div>
+                      <span class="lesson-badge-pill">Git / GitHub</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left">
+                        <span class="lesson-num-tag">1.8</span>
+                        <span class="lesson-title-text">Module 1 Capstone Challenge: Build &amp; Deploy a Modern Developer Link-in-Bio Page to Vercel</span>
+                      </div>
+                      <span class="lesson-badge-pill lesson-badge-capstone">Capstone 1</span>
+                    </div>
+                  </div>
+                </div>
+              </details>
+
+              <!-- Module 2 -->
+              <details class="timeline-module-card" data-category="foundations">
+                <summary class="timeline-summary">
+                  <div class="timeline-summary-left">
+                    <span class="module-step-node" aria-hidden="true">02</span>
+                    <div class="module-meta-wrap">
+                      <span class="module-phase-tag">Weeks 3â€“4 &middot; 10 Lessons &middot; ~11 Hours</span>
+                      <span class="module-heading-text">Semantic HTML5, Modern CSS3 &amp; Responsive Design Systems</span>
+                    </div>
+                  </div>
+                  <svg class="accordion-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="timeline-module-body">
+                  <div class="timeline-topics">
+                    <div class="topic-bullet">
+                      <svg class="topic-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>HTML5 document hierarchy, sectioning elements, aria roles, and accessibility compliance (WCAG 2.2 AA).</span>
+                    </div>
+                    <div class="topic-bullet">
+                      <svg class="topic-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>CSS Grid layout engines, flexible box formatting, clamp fluid typography, and dark/light CSS tokens.</span>
+                    </div>
+                  </div>
+
+                  <div class="timeline-lessons-list" role="list" aria-label="Module 2 Lessons">
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">2.1</span><span class="lesson-title-text">HTML5 Document Structure, Semantic Elements &amp; Accessibility (a11y)</span></div>
+                      <span class="lesson-badge-pill">HTML5</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">2.2</span><span class="lesson-title-text">Forms, Validation, Native Inputs &amp; Microdata Schema Basics</span></div>
+                      <span class="lesson-badge-pill">Forms &amp; SEO</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">2.3</span><span class="lesson-title-text">CSS Architecture: Box Model, Specificity, BEM &amp; Modern Reset</span></div>
+                      <span class="lesson-badge-pill">CSS Core</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">2.4</span><span class="lesson-title-text">CSS Flexbox Mastery: Alignments, Ordering &amp; Fluid Navigation Bars</span></div>
+                      <span class="lesson-badge-pill">Flexbox</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">2.5</span><span class="lesson-title-text">CSS Grid Mastery: 12-Column Systems, MinMax &amp; Responsive Layouts</span></div>
+                      <span class="lesson-badge-pill">CSS Grid</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">2.6</span><span class="lesson-title-text">CSS Custom Properties (Variables) &amp; Flawless Dark/Light Theme Switching</span></div>
+                      <span class="lesson-badge-pill">Design Tokens</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">2.7</span><span class="lesson-title-text">Responsive Design: Mobile-First vs. Desktop-First, clamp() Fluid Typography</span></div>
+                      <span class="lesson-badge-pill">Fluid Layout</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">2.8</span><span class="lesson-title-text">CSS Animations, Keyframes, Transitions &amp; Glassmorphism Effects</span></div>
+                      <span class="lesson-badge-pill">Motion UI</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">2.9</span><span class="lesson-title-text">Tailwind CSS vs. Modern Vanilla CSS: When to Use Utility Frameworks</span></div>
+                      <span class="lesson-badge-pill">Tailwind</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">2.10</span><span class="lesson-title-text">Module 2 Capstone: Build an Ultra-Luxury Agency Landing Page with Dark Mode</span></div>
+                      <span class="lesson-badge-pill lesson-badge-capstone">Capstone 2</span>
+                    </div>
+                  </div>
+                </div>
+              </details>
+
+              <!-- Module 3 -->
+              <details class="timeline-module-card" data-category="frontend">
+                <summary class="timeline-summary">
+                  <div class="timeline-summary-left">
+                    <span class="module-step-node" aria-hidden="true">03</span>
+                    <div class="module-meta-wrap">
+                      <span class="module-phase-tag">Weeks 5â€“6 &middot; 10 Lessons &middot; ~11 Hours</span>
+                      <span class="module-heading-text">Modern JavaScript (ES6+), DOM Manipulation &amp; APIs</span>
+                    </div>
+                  </div>
+                  <svg class="accordion-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="timeline-module-body">
+                  <div class="timeline-topics">
+                    <div class="topic-bullet">
+                      <svg class="topic-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>ES6+ syntax: destructuring, rest/spread, arrow functions, modules, and scope management.</span>
+                    </div>
+                    <div class="topic-bullet">
+                      <svg class="topic-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>Asynchronous programming with async/await, Promises, REST API integration, and error handling.</span>
+                    </div>
+                  </div>
+
+                  <div class="timeline-lessons-list" role="list" aria-label="Module 3 Lessons">
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">3.1</span><span class="lesson-title-text">JavaScript Foundations: Variables, Scopes, Data Types &amp; Strict Equality</span></div>
+                      <span class="lesson-badge-pill">JS Core</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">3.2</span><span class="lesson-title-text">Functions in Depth: Arrow, Callbacks, Higher-Order &amp; Closures</span></div>
+                      <span class="lesson-badge-pill">Functions</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">3.3</span><span class="lesson-title-text">Array Methods That Pay: map, filter, reduce, find, some, every</span></div>
+                      <span class="lesson-badge-pill">Arrays</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">3.4</span><span class="lesson-title-text">DOM Manipulation Masterclass: querySelector, Event Delegation, MutationObserver</span></div>
+                      <span class="lesson-badge-pill">DOM Engine</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">3.5</span><span class="lesson-title-text">Asynchronous JavaScript: Promises, async/await, and Try/Catch Handling</span></div>
+                      <span class="lesson-badge-pill">Async JS</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">3.6</span><span class="lesson-title-text">Working with Web APIs: Fetch, Headers, CORS, Status Codes &amp; JSON</span></div>
+                      <span class="lesson-badge-pill">REST APIs</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">3.7</span><span class="lesson-title-text">Browser Storage Strategies: localStorage, sessionStorage, Cookies &amp; IndexedDB</span></div>
+                      <span class="lesson-badge-pill">Storage</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">3.8</span><span class="lesson-title-text">Object-Oriented JavaScript: Classes, Prototypes &amp; Module Patterns</span></div>
+                      <span class="lesson-badge-pill">OOP</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">3.9</span><span class="lesson-title-text">AI-Assisted Debugging: Using LLMs to Trace Stack Traces &amp; Memory Leaks</span></div>
+                      <span class="lesson-badge-pill">Debugging</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">3.10</span><span class="lesson-title-text">Module 3 Capstone: Build an Interactive Crypto/Forex Currency Dashboard with Live APIs</span></div>
+                      <span class="lesson-badge-pill lesson-badge-capstone">Capstone 3</span>
+                    </div>
+                  </div>
+                </div>
+              </details>
+
+              <!-- Module 4 -->
+              <details class="timeline-module-card" data-category="frontend">
+                <summary class="timeline-summary">
+                  <div class="timeline-summary-left">
+                    <span class="module-step-node" aria-hidden="true">04</span>
+                    <div class="module-meta-wrap">
+                      <span class="module-phase-tag">Weeks 7â€“8 &middot; 10 Lessons &middot; ~11 Hours</span>
+                      <span class="module-heading-text">React 18, Next.js 14 &amp; Component-Driven Architecture</span>
+                    </div>
+                  </div>
+                  <svg class="accordion-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="timeline-module-body">
+                  <div class="timeline-topics">
+                    <div class="topic-bullet">
+                      <svg class="topic-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>React component hierarchy: JSX, props, state, useState, useEffect, and custom hooks.</span>
+                    </div>
+                    <div class="topic-bullet">
+                      <svg class="topic-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>Next.js App Router: Server Components, Client Components, Static Site Generation (SSG), and deployment on Vercel.</span>
+                    </div>
+                  </div>
+
+                  <div class="timeline-lessons-list" role="list" aria-label="Module 4 Lessons">
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">4.1</span><span class="lesson-title-text">Why React? Virtual DOM, Declarative UI, Component Thinking &amp; Vite Setup</span></div>
+                      <span class="lesson-badge-pill">React Core</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">4.2</span><span class="lesson-title-text">JSX Deep-Dive: Expressions, Conditional Rendering, Lists &amp; Keys</span></div>
+                      <span class="lesson-badge-pill">JSX</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">4.3</span><span class="lesson-title-text">React State &amp; Lifecycle: useState, Handling Forms &amp; Two-Way Binding</span></div>
+                      <span class="lesson-badge-pill">State</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">4.4</span><span class="lesson-title-text">Mastering useEffect: Side Effects, Dependencies &amp; Cleanup Functions</span></div>
+                      <span class="lesson-badge-pill">Hooks</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">4.5</span><span class="lesson-title-text">Advanced React Hooks: useRef, useMemo, useCallback &amp; Custom Hooks</span></div>
+                      <span class="lesson-badge-pill">Advanced</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">4.6</span><span class="lesson-title-text">Global State Management: Context API vs. Zustand for Clean Codebases</span></div>
+                      <span class="lesson-badge-pill">State Mgmt</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">4.7</span><span class="lesson-title-text">Next.js 14 App Router: Server Components (RSC) vs. Client Components</span></div>
+                      <span class="lesson-badge-pill">Next.js 14</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">4.8</span><span class="lesson-title-text">Server Actions, API Routes, Route Handlers &amp; Dynamic Routing</span></div>
+                      <span class="lesson-badge-pill">Server Actions</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">4.9</span><span class="lesson-title-text">Next.js SEO: Metadata API, Dynamic OpenGraph Images, Sitemap &amp; Robots.txt</span></div>
+                      <span class="lesson-badge-pill">Next.js SEO</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">4.10</span><span class="lesson-title-text">Module 4 Capstone: Build a Full-Stack AI Prompt-Sharing SaaS Platform on Next.js</span></div>
+                      <span class="lesson-badge-pill lesson-badge-capstone">Capstone 4</span>
+                    </div>
+                  </div>
+                </div>
+              </details>
+
+              <!-- Module 5 -->
+              <details class="timeline-module-card" data-category="cms">
+                <summary class="timeline-summary">
+                  <div class="timeline-summary-left">
+                    <span class="module-step-node" aria-hidden="true">05</span>
+                    <div class="module-meta-wrap">
+                      <span class="module-phase-tag">Weeks 9â€“10 &middot; 10 Lessons &middot; ~11 Hours</span>
+                      <span class="module-heading-text">WordPress Mastery, Custom Themes &amp; Headless CMS</span>
+                    </div>
+                  </div>
+                  <svg class="accordion-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="timeline-module-body">
+                  <div class="timeline-topics">
+                    <div class="topic-bullet">
+                      <svg class="topic-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>WordPress installation, database setup, template hierarchy, and custom block development.</span>
+                    </div>
+                    <div class="topic-bullet">
+                      <svg class="topic-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>Headless WordPress with REST API &amp; GraphQL, connecting WordPress content to Next.js frontends.</span>
+                    </div>
+                  </div>
+
+                  <div class="timeline-lessons-list" role="list" aria-label="Module 5 Lessons">
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">5.1</span><span class="lesson-title-text">WordPress Landscape: LocalWP Setup, Architecture &amp; Database Relationships</span></div>
+                      <span class="lesson-badge-pill">Setup</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">5.2</span><span class="lesson-title-text">Theme Hierarchy &amp; Developing Clean Custom Themes from Scratch</span></div>
+                      <span class="lesson-badge-pill">Theme Dev</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">5.3</span><span class="lesson-title-text">Advanced Custom Fields (ACF Pro) &amp; Custom Post Types (CPT)</span></div>
+                      <span class="lesson-badge-pill">ACF Pro</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">5.4</span><span class="lesson-title-text">WooCommerce Setup: Product Architecture, Gateways &amp; Checkout Customization</span></div>
+                      <span class="lesson-badge-pill">E-Commerce</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">5.5</span><span class="lesson-title-text">Elementor Pro &amp; Bricks Builder: When &amp; How to Deliver Fast Client Sites</span></div>
+                      <span class="lesson-badge-pill">Page Builders</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">5.6</span><span class="lesson-title-text">Speed Optimization: Caching (WP Rocket), Image CDN, Database Cleanups &amp; 95+ Core Web Vitals</span></div>
+                      <span class="lesson-badge-pill">Speed / CWV</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">5.7</span><span class="lesson-title-text">WordPress Security: Hardening wp-config, Firewalls, SSL &amp; Malware Defense</span></div>
+                      <span class="lesson-badge-pill">Security</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">5.8</span><span class="lesson-title-text">Headless WordPress: Fetching Posts &amp; Products via REST API into Next.js</span></div>
+                      <span class="lesson-badge-pill">Headless</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">5.9</span><span class="lesson-title-text">Automated Migration &amp; Staging: Moving Local Sites to Live Production Servers</span></div>
+                      <span class="lesson-badge-pill">Migration</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">5.10</span><span class="lesson-title-text">Module 5 Capstone: Build an Enterprise Real-Estate Portal with ACF Pro &amp; Search Filtering</span></div>
+                      <span class="lesson-badge-pill lesson-badge-capstone">Capstone 5</span>
+                    </div>
+                  </div>
+                </div>
+              </details>
+
+              <!-- Module 6 -->
+              <details class="timeline-module-card" data-category="monetization">
+                <summary class="timeline-summary">
+                  <div class="timeline-summary-left">
+                    <span class="module-step-node" aria-hidden="true">06</span>
+                    <div class="module-meta-wrap">
+                      <span class="module-phase-tag">Week 11 &middot; 8 Lessons &middot; ~9 Hours</span>
+                      <span class="module-heading-text">Full-Stack AI Coding Workflows &amp; Automation</span>
+                    </div>
+                  </div>
+                  <svg class="accordion-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="timeline-module-body">
+                  <div class="timeline-topics">
+                    <div class="topic-bullet">
+                      <svg class="topic-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>Cursor Composer &amp; multi-file refactoring, terminal integration, and codebase indexing.</span>
+                    </div>
+                    <div class="topic-bullet">
+                      <svg class="topic-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>Building autonomous AI web agents using Claude API, OpenAI API, and LangChain/LangGraph.</span>
+                    </div>
+                  </div>
+
+                  <div class="timeline-lessons-list" role="list" aria-label="Module 6 Lessons">
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">6.1</span><span class="lesson-title-text">Cursor IDE Masterclass: Composer, Agent Mode &amp; Multi-File Edits</span></div>
+                      <span class="lesson-badge-pill">Cursor AI</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">6.2</span><span class="lesson-title-text">Creating .cursorrules Files to Lock in Coding Standards &amp; Architecture</span></div>
+                      <span class="lesson-badge-pill">Rulefiles</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">6.3</span><span class="lesson-title-text">Integrating OpenAI &amp; Anthropic APIs into Web Applications</span></div>
+                      <span class="lesson-badge-pill">AI APIs</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">6.4</span><span class="lesson-title-text">Building a Streaming Chat UI with Vercel AI SDK</span></div>
+                      <span class="lesson-badge-pill">AI SDK</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">6.5</span><span class="lesson-title-text">Automated Web Scraping &amp; Data Enrichment with Puppeteer &amp; Firecrawl</span></div>
+                      <span class="lesson-badge-pill">Scraping</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">6.6</span><span class="lesson-title-text">Supabase Vector Embeddings &amp; Semantic Search for Knowledge Bases</span></div>
+                      <span class="lesson-badge-pill">RAG / Vectors</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">6.7</span><span class="lesson-title-text">Automating SEO Content Generation at Scale with Python &amp; Webhooks</span></div>
+                      <span class="lesson-badge-pill">pSEO</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">6.8</span><span class="lesson-title-text">Module 6 Capstone: Build an AI-Powered Customer Support Chat Widget for Websites</span></div>
+                      <span class="lesson-badge-pill lesson-badge-capstone">Capstone 6</span>
+                    </div>
+                  </div>
+                </div>
+              </details>
+
+              <!-- Module 7 -->
+              <details class="timeline-module-card" data-category="monetization">
+                <summary class="timeline-summary">
+                  <div class="timeline-summary-left">
+                    <span class="module-step-node" aria-hidden="true">07</span>
+                    <div class="module-meta-wrap">
+                      <span class="module-phase-tag">Week 12 &middot; 8 Lessons &middot; ~9 Hours</span>
+                      <span class="module-heading-text">Website Flipping on Flippa &amp; Digital Asset Monetization</span>
+                    </div>
+                  </div>
+                  <svg class="accordion-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="timeline-module-body">
+                  <div class="timeline-topics">
+                    <div class="topic-bullet">
+                      <svg class="topic-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>Micro-niche site research, programmatic SEO keyword clustering, and building flip-ready assets.</span>
+                    </div>
+                    <div class="topic-bullet">
+                      <svg class="topic-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>Valuation multiples (20xâ€“40x monthly profit), listing on Flippa and Motion Invest, and escrow transfers.</span>
+                    </div>
+                  </div>
+
+                  <div class="timeline-lessons-list" role="list" aria-label="Module 7 Lessons">
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">7.1</span><span class="lesson-title-text">The Website Flipping Economy: How $50/mo Sites Sell for $1,500â€“$2,500 on Flippa</span></div>
+                      <span class="lesson-badge-pill">Flippa 101</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">7.2</span><span class="lesson-title-text">Niche Research: Finding Low-Competition Keywords with High Commercial Intent</span></div>
+                      <span class="lesson-badge-pill">Niche Audit</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">7.3</span><span class="lesson-title-text">Building a "Flip-Ready" Micro-Niche Site in 48 Hours with AI Coding Workflows</span></div>
+                      <span class="lesson-badge-pill">Rapid Build</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">7.4</span><span class="lesson-title-text">Monetization Stacks: Amazon Associates, Display Ads, SaaS Affiliate &amp; Lead Gen</span></div>
+                      <span class="lesson-badge-pill">Monetization</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">7.5</span><span class="lesson-title-text">Due Diligence Preparation: Google Analytics 4, Search Console &amp; P&amp;L Statements</span></div>
+                      <span class="lesson-badge-pill">Due Diligence</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">7.6</span><span class="lesson-title-text">Writing High-Converting Flippa Listings: Headlines, Storytelling &amp; Valuation Multiples</span></div>
+                      <span class="lesson-badge-pill">Listings</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">7.7</span><span class="lesson-title-text">Buyer Negotiations, Escrow.com Closing &amp; Flawless Asset Transfer</span></div>
+                      <span class="lesson-badge-pill">Escrow Closing</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">7.8</span><span class="lesson-title-text">Module 7 Capstone: Build, Optimize &amp; List a Turnkey Micro-Directory for Sale</span></div>
+                      <span class="lesson-badge-pill lesson-badge-capstone">Capstone 7</span>
+                    </div>
+                  </div>
+                </div>
+              </details>
+
+              <!-- Module 8 -->
+              <details class="timeline-module-card" data-category="monetization">
+                <summary class="timeline-summary">
+                  <div class="timeline-summary-left">
+                    <span class="module-step-node" aria-hidden="true">08</span>
+                    <div class="module-meta-wrap">
+                      <span class="module-phase-tag">Week 13 &middot; 8 Lessons &middot; ~9 Hours</span>
+                      <span class="module-heading-text">Freelancing Mastery, Client Acquisition &amp; Capstone Delivery</span>
+                    </div>
+                  </div>
+                  <svg class="accordion-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="timeline-module-body">
+                  <div class="timeline-topics">
+                    <div class="topic-bullet">
+                      <svg class="topic-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>Upwork &amp; Fiverr profile architecture: niche selection, portfolio showcase, and video intro.</span>
+                    </div>
+                    <div class="topic-bullet">
+                      <svg class="topic-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>Cold email client acquisition, Loom video audits, pricing retainers ($500â€“$2,000/mo), and closing deals.</span>
+                    </div>
+                  </div>
+
+                  <div class="timeline-lessons-list" role="list" aria-label="Module 8 Lessons">
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">8.1</span><span class="lesson-title-text">Positioning Yourself as an AI-Augmented Web Engineer (Not a Generic Coder)</span></div>
+                      <span class="lesson-badge-pill">Positioning</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">8.2</span><span class="lesson-title-text">Upwork Mastery: 100% Profile Score, Specialized Profiles &amp; Project Catalog</span></div>
+                      <span class="lesson-badge-pill">Upwork</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">8.3</span><span class="lesson-title-text">The "Loom Audit" Client Funnel: Landing $500â€“$2,000 Web Projects Without Bidding</span></div>
+                      <span class="lesson-badge-pill">Loom Funnel</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">8.4</span><span class="lesson-title-text">Writing Winning Proposals: The Hook-Proof-Plan-CTA Framework</span></div>
+                      <span class="lesson-badge-pill">Proposals</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">8.5</span><span class="lesson-title-text">Client Discovery Calls: Uncovering True Pain Points &amp; Value-Based Pricing</span></div>
+                      <span class="lesson-badge-pill">Discovery Calls</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">8.6</span><span class="lesson-title-text">Contract Terms, Milestone Scopes, Invoicing &amp; Getting Paid in Pakistan</span></div>
+                      <span class="lesson-badge-pill">Contracts</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">8.7</span><span class="lesson-title-text">Turning 1-Off Projects into $500/mo Maintenance &amp; Growth Retainers</span></div>
+                      <span class="lesson-badge-pill">Retainers</span>
+                    </div>
+                    <div class="lesson-item-row" role="listitem">
+                      <div class="lesson-item-left"><span class="lesson-num-tag">8.8</span><span class="lesson-title-text">Final Grand Capstone Defense: Present Your 4 Public Projects &amp; Certificate Award</span></div>
+                      <span class="lesson-badge-pill lesson-badge-capstone">Final Certificate</span>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <!-- SECTION 3: Interactive Tuition ROI & Career Earnings Calculator -->
+          <section class="course-card-section" aria-labelledby="roi-heading">
+            <span class="section-kicker-badge">Financial Feasibility</span>
+            <h2 class="section-heading-h2" id="roi-heading">Interactive Tuition ROI &amp; Earnings Calculator</h2>
+            <p class="section-intro-desc">
+              Calculate how quickly your investment in this course pays for itself with real freelancing projects or digital asset sales:
+            </p>
+
+            <div class="roi-calc-card">
+              <div class="roi-calc-grid">
+                <div>
+                  <div class="roi-input-group">
+                    <label for="projects-count-slider">Number of Client Websites Built per Month: <span id="projects-count-val" style="color: var(--accent); font-weight: 800;">2</span></label>
+                    <input type="range" class="roi-slider" id="projects-count-slider" min="1" max="6" value="2" step="1">
+                  </div>
+                  <div class="roi-input-group" style="margin-top: 16px;">
+                    <label for="project-price-select">Average Charge per Website:</label>
+                    <select id="project-price-select" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel, #f4f0ff); color: var(--text); font-weight: 600;">
+                      <option value="250">$250 (Basic Business Site / ~PKR 70,000)</option>
+                      <option value="450" selected>$450 (Standard Custom React/WP / ~PKR 126,000)</option>
+                      <option value="900">$900 (Full-Stack AI SaaS / Store / ~PKR 252,000)</option>
+                      <option value="1500">$1,500 (Flippa Micro-Niche Site Flip / ~PKR 420,000)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="roi-result-box">
+                  <div class="roi-metric-num" id="roi-monthly-earning">PKR 252,000</div>
+                  <div class="roi-metric-label">Estimated Monthly Revenue Potential</div>
+                  <div style="margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--line); font-size: 13px; color: var(--accent); font-weight: 700;">
+                    <span id="roi-payback-text">Recovers 100% of course fee in less than 2 weeks!</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 4: 4 Production Capstones -->
+          <section class="course-card-section" id="projects" aria-labelledby="projects-heading">
+            <span class="section-kicker-badge">Proof of Skill</span>
+            <h2 class="section-heading-h2" id="projects-heading">4 Live Production Capstone Projects You Will Deploy</h2>
+            <p class="section-intro-desc">
+              Graduate with a rock-solid, live portfolio hosted on Vercel and GitHub to immediately prove your skills to global clients:
+            </p>
+
+            <div class="capstones-showcase-grid">
+              <article class="capstone-project-card">
+                <div>
+                  <span class="capstone-badge">Capstone 1</span>
+                  <h3>AI SaaS Marketing Engine</h3>
+                  <p>Next.js 14, Tailwind CSS, dark/light design system, animated features grid, and waitlist backend integration.</p>
+                </div>
+                <div class="capstone-tech-tags">
+                  <span class="capstone-tag">Next.js 14</span>
+                  <span class="capstone-tag">Tailwind</span>
+                  <span class="capstone-tag">Vercel</span>
+                </div>
+              </article>
+
+              <article class="capstone-project-card">
+                <div>
+                  <span class="capstone-badge">Capstone 2</span>
+                  <h3>Modern E-Commerce Storefront</h3>
+                  <p>React 18, dynamic cart state management, checkout validation, product search, and responsive mobile dock.</p>
+                </div>
+                <div class="capstone-tech-tags">
+                  <span class="capstone-tag">React 18</span>
+                  <span class="capstone-tag">Context API</span>
+                  <span class="capstone-tag">Stripe Ready</span>
+                </div>
+              </article>
+
+              <article class="capstone-project-card">
+                <div>
+                  <span class="capstone-badge">Capstone 3</span>
+                  <h3>Custom Enterprise WordPress Theme</h3>
+                  <p>Developed from scratch with ACF Pro custom fields, custom post types, 98+ Google Lighthouse speed score.</p>
+                </div>
+                <div class="capstone-tech-tags">
+                  <span class="capstone-tag">WordPress</span>
+                  <span class="capstone-tag">ACF Pro</span>
+                  <span class="capstone-tag">PHP/CSS</span>
+                </div>
+              </article>
+
+              <article class="capstone-project-card">
+                <div>
+                  <span class="capstone-badge">Capstone 4</span>
+                  <h3>Flippa-Ready Micro-Niche Directory</h3>
+                  <p>Turnkey programmatic SEO web portal built for monetization through affiliate links and ready for auction on Flippa.</p>
+                </div>
+                <div class="capstone-tech-tags">
+                  <span class="capstone-tag">Flippa Asset</span>
+                  <span class="capstone-tag">pSEO</span>
+                  <span class="capstone-tag">Monetized</span>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- SECTION 5: $2,000 Free Bonus Pack -->
+          <section class="course-card-section" id="bonuses" aria-labelledby="bonuses-heading">
+            <span class="section-kicker-badge">Included Free with Enrollment</span>
+            <h2 class="section-heading-h2" id="bonuses-heading">The $2,000+ Developer Bonus Pack</h2>
+            <div class="bonuses-total-val-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span>Total Bonus Value: $2,145 (Free with Early Bird Seat)</span>
+            </div>
+            <p class="section-intro-desc">
+              Every student enrolled in this cohort receives instant access to these 7 proprietary commercial assets, templates, and tools:
+            </p>
+
+            <div class="bonuses-grid-7">
+              <div class="bonus-card-item">
+                <div>
+                  <div class="bonus-card-header">
+                    <span class="bonus-seq-label">Bonus 01</span>
+                    <span class="bonus-val-tag">$499 Value</span>
+                  </div>
+                  <h3>Commercial Web Starter Boilerplates</h3>
+                  <p>Production-ready templates for Next.js, Vite, and WordPress with pre-built dark mode, responsive layouts, and SEO tags.</p>
+                </div>
+                <div class="bonus-included-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Included 100% Free</span>
+                </div>
+              </div>
+
+              <div class="bonus-card-item">
+                <div>
+                  <div class="bonus-card-header">
+                    <span class="bonus-seq-label">Bonus 02</span>
+                    <span class="bonus-val-tag">$299 Value</span>
+                  </div>
+                  <h3>500+ Curated AI Prompts for Coding</h3>
+                  <p>Our battle-tested swipe file of system prompts, bug diagnosis prompts, refactoring instructions, and UI generators.</p>
+                </div>
+                <div class="bonus-included-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Included 100% Free</span>
+                </div>
+              </div>
+
+              <div class="bonus-card-item">
+                <div>
+                  <div class="bonus-card-header">
+                    <span class="bonus-seq-label">Bonus 03</span>
+                    <span class="bonus-val-tag">$399 Value</span>
+                  </div>
+                  <h3>Licensed Pro WordPress Themes &amp; Plugins</h3>
+                  <p>Developer licenses for essential tools including ACF Pro, WP Rocket, Elementor Pro components, and security suites.</p>
+                </div>
+                <div class="bonus-included-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Included 100% Free</span>
+                </div>
+              </div>
+
+              <div class="bonus-card-item">
+                <div>
+                  <div class="bonus-card-header">
+                    <span class="bonus-seq-label">Bonus 04</span>
+                    <span class="bonus-val-tag">$299 Value</span>
+                  </div>
+                  <h3>Upwork &amp; Fiverr Winning Proposal Vault</h3>
+                  <p>Word-for-word proposal templates that have closed high-ticket clients, plus Loom audit scripts and contract drafts.</p>
+                </div>
+                <div class="bonus-included-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Included 100% Free</span>
+                </div>
+              </div>
+
+              <div class="bonus-card-item">
+                <div>
+                  <div class="bonus-card-header">
+                    <span class="bonus-seq-label">Bonus 05</span>
+                    <span class="bonus-val-tag">$299 Value</span>
+                  </div>
+                  <h3>Flippa Website Flipping Blueprint</h3>
+                  <p>Complete step-by-step checklist on finding micro-niches, building lightweight assets, drafting listings, and escrow payouts.</p>
+                </div>
+                <div class="bonus-included-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Included 100% Free</span>
+                </div>
+              </div>
+
+              <div class="bonus-card-item">
+                <div>
+                  <div class="bonus-card-header">
+                    <span class="bonus-seq-label">Bonus 06</span>
+                    <span class="bonus-val-tag">$250 Value</span>
+                  </div>
+                  <h3>1-on-1 Code Review &amp; Portfolio Audit</h3>
+                  <p>Personal 45-minute architectural review with Nisar Mehar to polish your GitHub repositories and resume before applying for jobs.</p>
+                </div>
+                <div class="bonus-included-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Included 100% Free</span>
+                </div>
+              </div>
+
+              <div class="bonus-card-item">
+                <div>
+                  <div class="bonus-card-header">
+                    <span class="bonus-seq-label">Bonus 07</span>
+                    <span class="bonus-val-tag">$100 Value</span>
+                  </div>
+                  <h3>Lifetime OneSkills Alumni Community Access</h3>
+                  <p>Private WhatsApp &amp; Discord group with active freelancers, job postings, client referrals, and ongoing curriculum updates.</p>
+                </div>
+                <div class="bonus-included-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Included 100% Free</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 6: Flippa Monetization Banner -->
+          <section class="course-card-section" aria-labelledby="flipping-heading">
+            <span class="section-kicker-badge">Unique Career Pathway</span>
+            <h2 class="section-heading-h2" id="flipping-heading">Beyond Freelancing: Website Flipping on Flippa</h2>
+            <p class="section-intro-desc">
+              Why only sell hours when you can sell digital assets? OneSkills is the only academy in Sheikhupura teaching students how to build and flip micro-websites for 20x to 40x monthly multiples:
+            </p>
+
+            <div class="flipping-banner-card">
+              <div class="flipping-stats-row">
+                <div class="flip-stat-box">
+                  <span class="flip-stat-num">20x â€“ 40x</span>
+                  <div class="flip-stat-desc">Monthly Profit Multiple on Flippa</div>
+                </div>
+                <div class="flip-stat-box">
+                  <span class="flip-stat-num">$500 â€“ $3K</span>
+                  <div class="flip-stat-desc">Average Starter Website Sale Price</div>
+                </div>
+                <div class="flip-stat-box">
+                  <span class="flip-stat-num">48 Hours</span>
+                  <div class="flip-stat-desc">Build Time with AI Workflows</div>
+                </div>
+              </div>
+
+              <p style="font-size: 13.5px; color: var(--text-2); line-height: 1.6; margin: 0;">
+                By combining rapid AI coding (HTML5, lightweight React, or clean WordPress) with programmatic SEO, you learn to generate digital real estate. Even a site making just $40/month in affiliate revenue can be sold on Flippa for $1,200 (~PKR 330,000).
+              </p>
+
+              <div class="flip-platforms-strip">
+                <span>Featured Platforms Covered:</span>
+                <span class="flip-platform-pill">Flippa.com</span>
+                <span class="flip-platform-pill">Motion Invest</span>
+                <span class="flip-platform-pill">Empire Flippers</span>
+                <span class="flip-platform-pill">Escrow.com</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 7: Tool Stack -->
+          <section class="course-card-section" aria-labelledby="tools-heading">
+            <span class="section-kicker-badge">Modern Toolchain</span>
+            <h2 class="section-heading-h2" id="tools-heading">Enterprise Technologies &amp; Tools You Will Master</h2>
+            <p class="section-intro-desc">
+              We never teach outdated software. You work directly with the modern toolchain utilized by silicon valley engineering teams:
+            </p>
+
+            <div class="tools-enterprise-grid">
+              <div class="tool-tile">
+                <span style="font-size: 24px;">âš¡</span>
+                <span class="tool-tile-name">Cursor AI</span>
+                <span class="tool-tile-category">AI IDE</span>
+              </div>
+              <div class="tool-tile">
+                <span style="font-size: 24px;">ðŸ’»</span>
+                <span class="tool-tile-name">VS Code</span>
+                <span class="tool-tile-category">Code Editor</span>
+              </div>
+              <div class="tool-tile">
+                <span style="font-size: 24px;">ðŸ™</span>
+                <span class="tool-tile-name">GitHub</span>
+                <span class="tool-tile-category">Version Control</span>
+              </div>
+              <div class="tool-tile">
+                <span style="font-size: 24px;">âš›ï¸</span>
+                <span class="tool-tile-name">React 18</span>
+                <span class="tool-tile-category">UI Library</span>
+              </div>
+              <div class="tool-tile">
+                <span style="font-size: 24px;">â–²</span>
+                <span class="tool-tile-name">Next.js 14</span>
+                <span class="tool-tile-category">Framework</span>
+              </div>
+              <div class="tool-tile">
+                <span style="font-size: 24px;">ðŸŒ</span>
+                <span class="tool-tile-name">WordPress</span>
+                <span class="tool-tile-category">CMS Engine</span>
+              </div>
+              <div class="tool-tile">
+                <span style="font-size: 24px;">â˜ï¸</span>
+                <span class="tool-tile-name">Vercel</span>
+                <span class="tool-tile-category">Cloud Deploy</span>
+              </div>
+              <div class="tool-tile">
+                <span style="font-size: 24px;">âš¡</span>
+                <span class="tool-tile-name">Supabase</span>
+                <span class="tool-tile-category">Backend / DB</span>
+              </div>
+              <div class="tool-tile">
+                <span style="font-size: 24px;">ðŸŽ¨</span>
+                <span class="tool-tile-name">Tailwind CSS</span>
+                <span class="tool-tile-category">Styling</span>
+              </div>
+              <div class="tool-tile">
+                <span style="font-size: 24px;">ðŸ¤–</span>
+                <span class="tool-tile-name">Claude 3.5</span>
+                <span class="tool-tile-category">AI Architecture</span>
+              </div>
+              <div class="tool-tile">
+                <span style="font-size: 24px;">ðŸ’¼</span>
+                <span class="tool-tile-name">Upwork</span>
+                <span class="tool-tile-category">Freelance</span>
+              </div>
+              <div class="tool-tile">
+                <span style="font-size: 24px;">ðŸ·ï¸</span>
+                <span class="tool-tile-name">Flippa</span>
+                <span class="tool-tile-category">Asset Flipping</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 8: Trainer Profile -->
+          <section class="course-card-section" id="trainer" aria-labelledby="trainer-heading">
+            <span class="section-kicker-badge">Direct Mentorship</span>
+            <h2 class="section-heading-h2" id="trainer-heading">Meet Your Lead Mentor: Nisar Mehar</h2>
+            <p class="section-intro-desc">
+              You learn directly from an active senior web engineer and tech entrepreneur, not an academic lecturer:
+            </p>
+
+            <div class="mentor-enterprise-card">
+              <img src="../assets/images/reviews/testimonial-team-Nisar-Mehar.avif" alt="Nisar Mehar â€” Lead Mentor at OneSkills" class="mentor-avatar" width="96" height="96" loading="lazy">
+              <div>
+                <h3 style="font-size: 18px; font-weight: 800; color: var(--text); margin-bottom: 4px;">Nisar Mehar</h3>
+                <div style="font-size: 12.5px; font-weight: 700; color: var(--accent); margin-bottom: 8px;">Founder &amp; Technical Director, OneSkills.pk &middot; 7+ Years Experience</div>
+                <p style="font-size: 13.5px; color: var(--text-2); line-height: 1.55; margin: 0;">
+                  Senior Full-Stack Engineer and Digital Growth Strategist with 7+ years delivering web applications for global clients across the US, UK, and UAE. Passionate about bringing world-class, AI-augmented engineering education to youth and professionals in Sheikhupura.
+                </p>
+                <div style="margin-top: 10px; font-size: 12px; color: var(--text-3, #64748b);">
+                  <strong>Office Hours:</strong> Monâ€“Sat, 11:00 AM â€“ 7:00 PM at OneSkills Campus (Opp. Mian Hospital).
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 9: Batch Specs & Guarantee -->
+          <section class="course-card-section" aria-labelledby="guarantee-heading">
+            <span class="section-kicker-badge">Zero Risk</span>
+            <h2 class="section-heading-h2" id="guarantee-heading">14-Day 100% Money-Back Guarantee</h2>
+            <div class="moneyback-guarantee-box">
+              <div class="guarantee-shield-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <div class="guarantee-text-col">
+                <h3>Try OneSkills with Complete Peace of Mind</h3>
+                <p>
+                  Attend the first 2 full weeks of classes. If you feel the quality of instruction, workstation facilities, or mentorship does not meet your expectations, let us know in person or via WhatsApp. You will receive an immediate, 100% refund of your tuition with zero friction.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 10: Verified Student Success Stories -->
+          <section class="course-card-section" id="reviews" aria-labelledby="reviews-heading">
+            <span class="section-kicker-badge">Verified Outcomes</span>
+            <h2 class="section-heading-h2" id="reviews-heading">Verified Student Success Stories</h2>
+            <p class="section-intro-desc">
+              Real outcomes from students trained right here at our Sheikhupura campus:
+            </p>
+            <div class="reviews-grid-2col">
+              <article class="review-card-modern">
+                <div class="review-stars-row" aria-label="5 out of 5 stars">â˜…â˜…â˜…â˜…â˜…</div>
+                <p class="review-text-quote">
+                  &ldquo;Before joining OneSkills, I tried watching tutorials for 6 months and couldn't build a real site. Learning Cursor AI, React, and Next.js with Nisar sir helped me launch my own client portfolio and close my first $800 freelance gig!&rdquo;
+                </p>
+                <div class="reviewer-meta-box">
+                  <img class="reviewer-img" src="../assets/images/reviews/testimonial-team-Attique-hussain.avif" alt="Attique Hussain" width="44" height="44" loading="lazy">
+                  <div>
+                    <div class="reviewer-name">Attique Hussain</div>
+                    <div class="reviewer-badge-role">Freelance Frontend Developer</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="review-card-modern">
+                <div class="review-stars-row" aria-label="5 out of 5 stars">â˜…â˜…â˜…â˜…â˜…</div>
+                <p class="review-text-quote">
+                  &ldquo;The dedicated computer lab workstations and 12-student cap make all the difference. When you hit a bug, Nisar sir solves it directly with you on your screen. The website flipping module opened a whole new business avenue for me.&rdquo;
+                </p>
+                <div class="reviewer-meta-box">
+                  <img class="reviewer-img" src="../assets/images/reviews/testimonial-team-Bilal-1.avif" alt="Bilal Ahmed" width="44" height="44" loading="lazy">
+                  <div>
+                    <div class="reviewer-name">Bilal Ahmed</div>
+                    <div class="reviewer-badge-role">Junior React &amp; Next.js Developer</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="review-card-modern">
+                <div class="review-stars-row" aria-label="5 out of 5 stars">â˜…â˜…â˜…â˜…â˜…</div>
+                <p class="review-text-quote">
+                  &ldquo;I transitioned from a non-tech background. Within 10 weeks I was deploying live React and WordPress applications. The structured 72-lesson curriculum gave me confidence that random YouTube videos never could.&rdquo;
+                </p>
+                <div class="reviewer-meta-box">
+                  <img class="reviewer-img" src="../assets/images/reviews/testimonial-team-hussnain.avif" alt="Hussnain Raza" width="44" height="44" loading="lazy">
+                  <div>
+                    <div class="reviewer-name">Hussnain Raza</div>
+                    <div class="reviewer-badge-role">Web Engineer &amp; Upwork Freelancer</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="review-card-modern">
+                <div class="review-stars-row" aria-label="5 out of 5 stars">â˜…â˜…â˜…â˜…â˜…</div>
+                <p class="review-text-quote">
+                  &ldquo;The 14-day guarantee gave me confidence to enroll, but by day 3 I knew this was the highest quality institute in Sheikhupura. The bonus pack alone with ACF Pro and prompt engineering guides is easily worth more than the tuition.&rdquo;
+                </p>
+                <div class="reviewer-meta-box">
+                  <img class="reviewer-img" src="../assets/images/reviews/testimonial-team-rubbi.avif" alt="Rubbi Ali" width="44" height="44" loading="lazy">
+                  <div>
+                    <div class="reviewer-name">Rubbi Ali</div>
+                    <div class="reviewer-badge-role">WordPress &amp; Headless Developer</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- SECTION 11: FAQ Accordion -->
+          <section class="course-card-section" id="faq" aria-labelledby="faq-heading">
+            <span class="section-kicker-badge">Got Questions?</span>
+            <h2 class="section-heading-h2" id="faq-heading">Frequently Asked Questions</h2>
+            <div class="faq-accordion-group">
+              <details class="faq-accordion-item" open>
+                <summary class="faq-accordion-summary">
+                  <span>Do I need prior coding experience to join this course?</span>
+                  <svg class="accordion-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </summary>
+                <div class="faq-accordion-body">
+                  No prior coding background is required. The curriculum begins from scratch with semantic HTML5, CSS fundamentals, and AI coding workflows before gradually advancing into JavaScript, React, Next.js, and WordPress.
+                </div>
+              </details>
+
+              <details class="faq-accordion-item">
+                <summary class="faq-accordion-summary">
+                  <span>What are the class timings and shift options?</span>
+                  <svg class="accordion-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </summary>
+                <div class="faq-accordion-body">
+                  Classes are held 3 days a week in 2 convenient shifts: Batch A (3:00 PM â€“ 5:00 PM) or Batch B (6:00 PM â€“ 8:00 PM). In addition, our air-conditioned lab is open every Saturday for free practice and mentor code reviews.
+                </div>
+              </details>
+
+              <details class="faq-accordion-item">
+                <summary class="faq-accordion-summary">
+                  <span>Can I pay the course fee in installments?</span>
+                  <svg class="accordion-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </summary>
+                <div class="faq-accordion-body">
+                  Yes. To support students and families in Sheikhupura, the PKR 28,000 early bird fee can be split into two easy monthly installments of PKR 14,000.
+                </div>
+              </details>
+
+              <details class="faq-accordion-item">
+                <summary class="faq-accordion-summary">
+                  <span>Do I need to bring my own laptop to class?</span>
+                  <svg class="accordion-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </summary>
+                <div class="faq-accordion-body">
+                  While bringing a laptop is helpful for homework, our Sheikhupura campus provides dedicated modern PC workstations with dual displays, high-speed fiber internet, and generator backup for every enrolled student.
+                </div>
+              </details>
+
+              <details class="faq-accordion-item">
+                <summary class="faq-accordion-summary">
+                  <span>What is the Website Flipping model taught in Module 7?</span>
+                  <svg class="accordion-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </summary>
+                <div class="faq-accordion-body">
+                  You learn how to build micro-niche content websites with programmatic SEO and sell them on marketplaces like Flippa and Motion Invest for 20x to 40x monthly profit ($500 to $3,000 per website), giving you an additional income stream alongside client freelancing.
+                </div>
+              </details>
+
+              <details class="faq-accordion-item">
+                <summary class="faq-accordion-summary">
+                  <span>How do I reserve a demo seat?</span>
+                  <svg class="accordion-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </summary>
+                <div class="faq-accordion-body">
+                  Simply click the WhatsApp button on this page or message us directly at +92 317 603 6127. Our admissions team will confirm your seat and workstation allocation within 15 minutes.
+                </div>
+              </details>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Sticky Enrollment Sidebar (30%) -->
+        <aside class="course-sidebar-wrapper" aria-label="Course Admissions and Reservation">
+          <div class="sidebar-glass-card">
+            <!-- Seat Urgency Progress Widget -->
+            <div class="seats-progress-widget">
+              <div class="seats-urgency-header">
+                <span class="urgency-tag">
+                  <span class="pill-pulse-dot" style="background: var(--accent-amber); box-shadow: 0 0 8px var(--accent-amber);" aria-hidden="true"></span>
+                  Only 3 Seats Left
+                </span>
+                <span>9 / 12 Enrolled</span>
+              </div>
+              <div class="seats-bar-track" aria-hidden="true">
+                <div class="seats-bar-fill" style="width: 75%;"></div>
+              </div>
+            </div>
+
+            <h3 class="sidebar-card-title">Reserve Your Workstation</h3>
+            <p class="sidebar-card-sub">Next batch starts Monday &middot; On-campus Sheikhupura lab</p>
+
+            <!-- Pricing Box with Strikethrough & Savings Tag -->
+            <div class="sidebar-tuition-box">
+              <div class="tuition-price-wrapper">
+                <span class="tuition-original-price">PKR 40,000</span>
+                <span class="tuition-savings-pill">Save 30%</span>
+              </div>
+              <div class="tuition-duration" style="font-size: 28px; font-weight: 800; color: var(--accent);">PKR 28,000</div>
+              <div class="tuition-sub-note">Early Bird Launch Tuition &middot; 3 Months Track</div>
+              <div style="font-size: 11.5px; color: var(--text-2); margin-top: 4px; font-weight: 600;">Flexible 2-Month Installment Plan Available</div>
+            </div>
+
+            <!-- Batch Timing Shift Selector Preview -->
+            <div style="margin: 16px 0; padding: 12px; border-radius: var(--r-s, 8px); background: var(--panel, var(--card)); border: 1px solid var(--line); font-size: 12px;">
+              <div style="font-weight: 700; color: var(--text); margin-bottom: 6px;">Available Shifts:</div>
+              <div style="display: flex; flex-direction: column; gap: 6px; color: var(--text-2);">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span><strong>Batch A:</strong> 3:00 PM â€“ 5:00 PM</span>
+                  <span style="color: var(--accent); font-weight: 700; background: var(--surface-light); padding: 2px 6px; border-radius: 4px;">Afternoon</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span><strong>Batch B:</strong> 6:00 PM â€“ 8:00 PM</span>
+                  <span style="color: var(--accent); font-weight: 700; background: var(--surface-light); padding: 2px 6px; border-radius: 4px;">Evening</span>
+                </div>
+              </div>
+            </div>
+
+            <ul class="sidebar-checklist">
+              <li class="sidebar-check-item">
+                <svg class="check-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>3 Months &middot; 80h 30m across 72 structured lessons</span>
+              </li>
+              <li class="sidebar-check-item">
+                <svg class="check-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>4 production capstone projects deployed live</span>
+              </li>
+              <li class="sidebar-check-item">
+                <svg class="check-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>7 Free Developer Bonuses included (Worth $2,000+)</span>
+              </li>
+              <li class="sidebar-check-item">
+                <svg class="check-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>14-Day 100% Money-Back Guarantee</span>
+              </li>
+              <li class="sidebar-check-item">
+                <svg class="check-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Website Flipping on Flippa &amp; Motion Invest</span>
+              </li>
+              <li class="sidebar-check-item">
+                <svg class="check-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Dedicated on-campus workstation (Max 12 students)</span>
+              </li>
+              <li class="sidebar-check-item">
+                <svg class="check-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Official OneSkills Academy Course Certificate</span>
+              </li>
+            </ul>
+
+            <a class="btn-sidebar-reserve"
+              href="https://wa.me/923176036127?text=Hi%20OneSkills%20Academy%2C%20I%20want%20to%20reserve%20a%20seat%20for%20AI-Powered%20Web%20Development."
+              target="_blank" rel="noopener noreferrer">
+              <span>Reserve Seat on WhatsApp</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+
+            <div class="sidebar-campus-note">
+              <strong>Campus Address:</strong><br>
+              Lahore â€“ Sargodha Road, Opp. Mian Hospital, Sheikhupura.<br>
+              Open Monâ€“Sat &middot; 8:30 AM â€“ 6:00 PM
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- MOBILE STICKY ACTION DOCK -->
+  <div class="course-mobile-action-dock" role="region" aria-label="Quick mobile enrollment">
+    <div class="mobile-dock-info">
+      <span class="mobile-dock-course-name">AI Web Development</span>
+      <span class="mobile-dock-meta">PKR 28,000 &middot; 3 Seats Left</span>
+    </div>
+    <a class="mobile-dock-cta-btn"
+      href="https://wa.me/923176036127?text=Hi%20OneSkills%20Academy%2C%20I%20want%20to%20book%20a%20free%20demo%20class%20for%20AI-Powered%20Web%20Development."
+      target="_blank" rel="noopener noreferrer">
+      <span>Book Demo on WhatsApp</span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </div>
+
+  <!-- APPROVED LUXURY 4-COLUMN FOOTER (Synchronized exactly with OneSkills Home) -->
+  <footer class="footer-wrap" id="footer">
+    <div class="container footer-container">
+
+      <div class="footer-top-grid">
+
+        <!-- Column 1: OneSkills.pk Brand -->
+        <div class="footer-brand-col">
+          <div class="footer-brand-name">OneSkills<span class="brand-pk">.pk</span></div>
+          <div class="footer-brand-sub" aria-hidden="true">ACADEMY</div>
+          <p class="footer-desc">Practical digital skills and hands-on mentorship for learners in Sheikhupura.</p>
+
+          <div class="footer-social-icons-grid" aria-label="OneSkills Social Media Profiles">
+            <a class="social-icon-btn fb" href="https://www.facebook.com/oneskillspk" target="_blank"
+              rel="noopener noreferrer" title="Follow @oneskillspk on Facebook" aria-label="Facebook">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+
+            <a class="social-icon-btn insta" href="https://www.instagram.com/oneskillspk/" target="_blank"
+              rel="noopener noreferrer" title="Follow @oneskillspk on Instagram" aria-label="Instagram">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+
+            <a class="social-icon-btn yt" href="https://www.youtube.com/@OneSkillspk" target="_blank"
+              rel="noopener noreferrer" title="Subscribe to @OneSkillspk on YouTube" aria-label="YouTube">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+
+            <a class="social-icon-btn x" href="https://x.com/oneskillspk/" target="_blank" rel="noopener noreferrer"
+              title="Follow @oneskillspk on X" aria-label="X Twitter">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+
+            <a class="social-icon-btn wa" href="https://wa.me/923176036127" target="_blank" rel="noopener noreferrer"
+              title="Chat with OneSkills on WhatsApp" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.163 8.163 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.01 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.84-.86 2.06 0 1.21.89 2.39 1.01 2.55.12.17 1.74 2.66 4.22 3.73.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29z" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="footer-brand-tagline-wrap">
+            <div class="footer-brand-dash" aria-hidden="true"></div>
+            <span class="footer-brand-tagline">Skills Today, Brighter Tomorrows.</span>
+          </div>
+        </div>
+
+        <!-- Column 2: Career Tracks -->
+        <div class="footer-col">
+          <h4>Career Tracks</h4>
+          <ul class="footer-links-list">
+            <li>
+              <a href="../index.html#courses" class="footer-nav-item">
+                <span>Freelancing &amp; Digital Marketing</span>
+                <span class="footer-nav-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+            <li>
+              <a href="../index.html#courses" class="footer-nav-item">
+                <span>AI Tools &amp; Automation</span>
+                <span class="footer-nav-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+            <li>
+              <a href="../index.html#courses" class="footer-nav-item">
+                <span>AI Powered Web Development</span>
+                <span class="footer-nav-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+            <li>
+              <a href="../index.html#courses" class="footer-nav-item">
+                <span>Crypto &amp; Forex Trading</span>
+                <span class="footer-nav-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+            <li>
+              <a href="../index.html#courses" class="footer-nav-item">
+                <span>Web3 &amp; Blockchain</span>
+                <span class="footer-nav-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+            <li>
+              <a href="../index.html#courses" class="footer-nav-item">
+                <span>Computer &amp; Programming</span>
+                <span class="footer-nav-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Academy Hub -->
+        <div class="footer-col">
+          <h4>Academy Hub</h4>
+          <ul class="footer-links-list">
+            <li>
+              <a href="../index.html#about" class="footer-nav-item">
+                <span>Why OneSkills</span>
+                <span class="footer-nav-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+            <li>
+              <a href="../index.html#instructors" class="footer-nav-item">
+                <span>Lead Mentors</span>
+                <span class="footer-nav-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+            <li>
+              <a href="../index.html#reviews" class="footer-nav-item">
+                <span>Verified Reviews</span>
+                <span class="footer-nav-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+            <li>
+              <a href="../index.html#faq" class="footer-nav-item">
+                <span>FAQ &amp; Admissions</span>
+                <span class="footer-nav-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+            <li>
+              <a href="../index.html#campus" class="footer-nav-item">
+                <span>Campus Directions</span>
+                <span class="footer-nav-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Campus Desk -->
+        <div class="footer-col">
+          <h4>Campus Desk</h4>
+          <ul class="footer-campus-list">
+            <li class="campus-info-item">
+              <div class="campus-item-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div class="campus-item-text">
+                <span class="campus-item-label">Address</span>
+                <span class="campus-item-val">Lahore â€“ Sargodha Road, Opp. Mian Hospital, Near KIPS College, Sheikhupura</span>
+              </div>
+            </li>
+
+            <li class="campus-info-item">
+              <div class="campus-item-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div class="campus-item-text">
+                <span class="campus-item-label">Phone / WhatsApp</span>
+                <span class="campus-item-val"><a href="tel:+923176036127">+92 317 603 6127</a></span>
+              </div>
+            </li>
+
+            <li class="campus-info-item">
+              <div class="campus-item-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div class="campus-item-text">
+                <span class="campus-item-label">Email</span>
+                <span class="campus-item-val"><a href="mailto:info@OneSkills.pk">info@OneSkills.pk</a></span>
+              </div>
+            </li>
+
+            <li class="campus-info-item">
+              <div class="campus-item-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div class="campus-item-text">
+                <span class="campus-item-label">Hours</span>
+                <span class="campus-item-val">Monâ€“Sat &middot; 8:30 AM â€“ 6:00 PM</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Legal Bar -->
+      <div class="footer-bottom-bar">
+        <p>&copy; 2026 OneSkills.pk. All Rights Reserved.</p>
+        <div class="footer-legal-links">
+          <a href="../privacy-policy.html">Privacy Policy</a>
+          <span class="legal-divider" aria-hidden="true">|</span>
+          <a href="../terms-of-service.html">Terms of Service</a>
+          <span class="legal-divider" aria-hidden="true">|</span>
+
+          <a href="#main-content" class="footer-back-to-top" id="footer-back-to-top" aria-label="Back to top">
+            <span class="back-to-top-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="19" x2="12" y2="5"/>
+                <polyline points="5 12 12 5 19 12"/>
+              </svg>
+            </span>
+            <span>Back to top</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Panoramic Hiran Minar Editorial Visual -->
+      <div class="footer-hiran-wrap">
+        <img
+          src="../assets/images/sections/Golden-Hour Reflections at Hiran Minar.webp"
+          alt="Scenic golden-hour reflections at Hiran Minar in Sheikhupura"
+          class="footer-hiran-img"
+          loading="lazy"
+          decoding="async"
+          width="1920"
+          height="540"
+        />
+        <div class="footer-hiran-fade" aria-hidden="true"></div>
+        <div class="footer-hiran-badge" aria-label="Sheikhupura â€” Our Home">
+          <span class="hiran-badge-city">Sheikhupura</span>
+          <span class="hiran-badge-home">
+            <span>OUR HOME</span>
+            <span class="hiran-badge-line" aria-hidden="true"></span>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- SCRIPT FOR INTERACTIVE LOGIC -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Theme Toggle Logic
+      var themeToggleBtn = document.getElementById('theme-toggle');
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function () {
+          var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+          var newTheme = currentTheme === 'light' ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          var meta = document.getElementById('meta-theme-color');
+          if (meta) meta.setAttribute('content', newTheme === 'light' ? '#faf8ff' : '#090614');
+        });
+      }
+
+      // Mobile Hamburger
+      var hamburgerBtn = document.getElementById('hamburger-btn');
+      var primaryNav = document.getElementById('primary-nav');
+      if (hamburgerBtn && primaryNav) {
+        hamburgerBtn.addEventListener('click', function () {
+          var expanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+          hamburgerBtn.setAttribute('aria-expanded', !expanded);
+          primaryNav.classList.toggle('nav-open');
+        });
+      }
+
+      // Curriculum Category Filter Tabs
+      var tabButtons = document.querySelectorAll('.curriculum-tab-btn');
+      var moduleCards = document.querySelectorAll('.timeline-module-card');
+      tabButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          tabButtons.forEach(function (b) {
+            b.classList.remove('active-tab');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active-tab');
+          btn.setAttribute('aria-selected', 'true');
+          var filter = btn.getAttribute('data-filter');
+
+          moduleCards.forEach(function (card) {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Expand / Collapse All Modules
+      var toggleAllBtn = document.getElementById('toggle-all-modules-btn');
+      var allExpanded = false;
+      if (toggleAllBtn) {
+        toggleAllBtn.addEventListener('click', function () {
+          allExpanded = !allExpanded;
+          moduleCards.forEach(function (card) {
+            card.open = allExpanded;
+          });
+          toggleAllBtn.textContent = allExpanded ? 'Collapse All Modules' : 'Expand All Modules';
+        });
+      }
+
+      // Interactive ROI Calculator
+      var slider = document.getElementById('projects-count-slider');
+      var sliderValLabel = document.getElementById('projects-count-val');
+      var priceSelect = document.getElementById('project-price-select');
+      var monthlyResult = document.getElementById('roi-monthly-earning');
+      var paybackText = document.getElementById('roi-payback-text');
+
+      function updateROI() {
+        if (!slider || !priceSelect || !monthlyResult) return;
+        var count = parseInt(slider.value, 10);
+        var priceUsd = parseInt(priceSelect.value, 10);
+        if (sliderValLabel) sliderValLabel.textContent = count;
+
+        var usdPkrRate = 280;
+        var totalUsd = count * priceUsd;
+        var totalPkr = totalUsd * usdPkrRate;
+
+        monthlyResult.textContent = 'PKR ' + totalPkr.toLocaleString();
+
+        var tuition = 28000;
+        var ratio = (totalPkr / tuition).toFixed(1);
+        if (paybackText) {
+          paybackText.textContent = 'Recovers 100% of course fee in ' + (totalPkr >= tuition * 2 ? 'under 10 days (' + ratio + 'x ROI)' : 'first client project') + '!';
+        }
+      }
+
+      if (slider && priceSelect) {
+        slider.addEventListener('input', updateROI);
+        priceSelect.addEventListener('change', updateROI);
+        updateROI();
+      }
+    });
+  </script>
+
+</body>
+
+</html>

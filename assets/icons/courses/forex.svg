@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs><linearGradient id="forex-ink" x1="8" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#9270FF"/><stop offset="1" stop-color="#5D36D8"/></linearGradient></defs>
+  <circle cx="24" cy="24" r="17.5" fill="url(#forex-ink)" fill-opacity=".08" stroke="url(#forex-ink)" stroke-width="1.8"/>
+  <path d="M8.5 24h31M24 6.5c4.6 4.5 7 10.3 7 17.5s-2.4 13-7 17.5c-4.6-4.5-7-10.3-7-17.5s2.4-13 7-17.5Z" stroke="url(#forex-ink)" stroke-width="1.6" opacity=".55"/>
+  <path d="M13 17h20m0 0-4-4m4 4-4 4M35 31H15m0 0 4-4m-4 4 4 4" stroke="url(#forex-ink)" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

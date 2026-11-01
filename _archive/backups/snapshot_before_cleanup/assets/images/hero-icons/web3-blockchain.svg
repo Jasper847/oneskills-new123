@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none">
+  <defs>
+    <linearGradient id="w3-g1" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#818cf8"/>
+      <stop offset="50%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#4338ca"/>
+    </linearGradient>
+    <linearGradient id="w3-g2" x1="14" y1="14" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e0e7ff"/>
+    </linearGradient>
+    <filter id="w3-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#6366f1" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <!-- Outer Decentralized Node Network with cyan highlights -->
+  <circle cx="24" cy="7" r="2.5" fill="#818cf8"/>
+  <circle cx="39" cy="15.5" r="2.5" fill="#06b6d4"/>
+  <circle cx="39" cy="32.5" r="2.5" fill="#818cf8"/>
+  <circle cx="24" cy="41" r="2.5" fill="#06b6d4"/>
+  <circle cx="9" cy="32.5" r="2.5" fill="#818cf8"/>
+  <circle cx="9" cy="15.5" r="2.5" fill="#06b6d4"/>
+  <!-- Interconnecting Network Lines -->
+  <path d="M24 7 L39 15.5 L39 32.5 L24 41 L9 32.5 L9 15.5 Z" stroke="url(#w3-g1)" stroke-width="1.6" stroke-dasharray="3 3" opacity="0.55"/>
+  <!-- Isometric 3D Cryptographic Block Cube -->
+  <!-- Top Face (Luminous Platinum / Indigo) -->
+  <path d="M24 13 L34 19 L24 25 L14 19 Z" fill="url(#w3-g2)" filter="url(#w3-glow)"/>
+  <!-- Left Face (Royal Indigo) -->
+  <path d="M14 19 L24 25 L24 36 L14 30 Z" fill="url(#w3-g1)"/>
+  <!-- Right Face (Deep Cobalt) -->
+  <path d="M24 25 L34 19 L34 30 L24 36 Z" fill="#3730a3"/>
+  <!-- Central glowing cryptographic core vertex in Electric Cyan -->
+  <circle cx="24" cy="25" r="2.4" fill="#06b6d4"/>
+</svg>

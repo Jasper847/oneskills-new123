@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>03 · The Path · OneSkills Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS & REFERENCE PALETTE
+   ============================================================ */
+:root {
+  color-scheme: light;
+
+  /* Reference Warm Peach & Canvas */
+  --bg-page: #faf4ef;
+  --bg-gradient: radial-gradient(circle at 50% 10%, #fff7f2 0%, #fbf0e6 55%, #f6e5d8 100%);
+  --card-bg: #ffffff;
+  --card-shadow: 0 16px 44px -8px rgba(224, 140, 100, 0.14), 0 2px 10px rgba(0, 0, 0, 0.03);
+  --card-shadow-hover: 0 28px 64px -6px rgba(230, 120, 80, 0.24), 0 4px 16px rgba(0, 0, 0, 0.06);
+
+  /* Typography */
+  --text-title: #14161f;
+  --text-desc: #686e7d;
+  --text-muted: #9ba1b0;
+
+  /* Accent Orange from Reference */
+  --accent-orange: #ff5e36;
+  --accent-orange-dim: #fff0eb;
+  --accent-orange-glow: rgba(255, 94, 54, 0.35);
+
+  /* Watermark Numbers */
+  --watermark-num: #fbeee6;
+  --watermark-num-hover: #fcdfd1;
+
+  /* 3D Circular Discs */
+  --disc-1-bg: radial-gradient(circle at 35% 30%, #fff4ef, #fcd5c5);
+  --disc-2-bg: radial-gradient(circle at 35% 30%, #fffbe8, #feeab3);
+  --disc-3-bg: radial-gradient(circle at 35% 30%, #eef5ff, #cde3ff);
+  --disc-4-bg: radial-gradient(circle at 35% 30%, #edfbf4, #c2f5dd);
+
+  /* Fonts */
+  --font: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* Radii */
+  --r-card: 26px;
+  --r-pill: 999px;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg-page: #070913;
+  --bg-gradient: radial-gradient(circle at 50% 10%, #121730 0%, #070913 70%);
+  --card-bg: #0e1329;
+  --card-shadow: 0 16px 44px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --card-shadow-hover: 0 24px 64px rgba(0, 0, 0, 0.7), 0 0 28px rgba(255, 94, 54, 0.28);
+
+  --text-title: #f8fafc;
+  --text-desc: #94a3b8;
+  --text-muted: #64748b;
+
+  --accent-orange: #ff6842;
+  --accent-orange-dim: rgba(255, 104, 66, 0.15);
+  --accent-orange-glow: rgba(255, 104, 66, 0.45);
+
+  --watermark-num: rgba(255, 255, 255, 0.04);
+  --watermark-num-hover: rgba(255, 104, 66, 0.18);
+
+  --disc-1-bg: radial-gradient(circle at 35% 30%, #291e20, #181215);
+  --disc-2-bg: radial-gradient(circle at 35% 30%, #2b2515, #191409);
+  --disc-3-bg: radial-gradient(circle at 35% 30%, #152238, #0b121e);
+  --disc-4-bg: radial-gradient(circle at 35% 30%, #112a20, #091711);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+
+body {
+  font-family: var(--font);
+  background: var(--bg-page);
+  background-image: var(--bg-gradient);
+  color: var(--text-desc);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 40px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background .3s ease, color .3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+.main-wrap {
+  width: 100%;
+  max-width: 1140px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   TOP CONTROLLER
+   ============================================================ */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: var(--card-bg);
+  border-radius: var(--r-pill);
+  margin-bottom: 48px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .04);
+  border: 1px solid rgba(0, 0, 0, .04);
+}
+html[data-theme="dark"] .top-bar {
+  border-color: rgba(255, 255, 255, .08);
+}
+.brand-title {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--accent-orange);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.theme-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: var(--r-pill);
+  font-size: 12.5px;
+  font-weight: 700;
+  background: var(--accent-orange-dim);
+  border: none;
+  color: var(--accent-orange);
+  cursor: pointer;
+  transition: transform .2s var(--ease);
+}
+.theme-switch:hover {
+  transform: scale(1.04);
+}
+
+/* ============================================================
+   SECTION HEADER (Exact Reference Layout)
+   ============================================================ */
+.section-header {
+  text-align: center;
+  max-width: 740px;
+  margin: 0 auto 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Tilted Orange Capsule Badge */
+.tilted-capsule {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-orange);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  padding: 6px 20px;
+  border-radius: var(--r-pill);
+  box-shadow: 0 6px 18px var(--accent-orange-glow);
+  transform: rotate(-3.5deg);
+  margin-bottom: 22px;
+  transition: transform .3s var(--ease);
+}
+.tilted-capsule:hover {
+  transform: rotate(0deg) scale(1.06);
+}
+
+.main-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.6vw, 3.6rem);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -.03em;
+  color: var(--text-title);
+  margin-bottom: 16px;
+}
+
+.sub-lead {
+  color: var(--text-desc);
+  font-size: 1.06rem;
+  line-height: 1.65;
+  max-width: 58ch;
+}
+
+/* ============================================================
+   BENTO / REFERENCE 4-CARD GRID
+   ============================================================ */
+.path-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-bottom: 56px;
+}
+
+/* Card Component */
+.path-card {
+  position: relative;
+  background: var(--card-bg);
+  border-radius: var(--r-card);
+  padding: 34px 34px 30px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  box-shadow: var(--card-shadow);
+  transition: transform .32s var(--ease), box-shadow .32s;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, .03);
+}
+html[data-theme="dark"] .path-card {
+  border-color: rgba(255, 255, 255, .06);
+}
+.path-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* Faint Ghost Number Watermark (Reference Style in Bottom-Right) */
+.watermark-num {
+  position: absolute;
+  bottom: 8px;
+  right: 20px;
+  font-family: var(--font-display);
+  font-size: 88px;
+  font-weight: 900;
+  letter-spacing: -.06em;
+  line-height: 1;
+  color: var(--watermark-num);
+  pointer-events: none;
+  transition: color .3s var(--ease), transform .3s var(--ease);
+  user-select: none;
+}
+.path-card:hover .watermark-num {
+  color: var(--watermark-num-hover);
+  transform: scale(1.08);
+}
+
+/* 3D Circular Emblem Disc (Reference Style) */
+.disc-3d {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--disc-bg);
+  box-shadow: inset 0 2px 6px rgba(255, 255, 255, .85), 0 8px 22px rgba(0, 0, 0, .06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  transition: transform .35s var(--ease);
+}
+html[data-theme="dark"] .disc-3d {
+  box-shadow: inset 0 1px 4px rgba(255, 255, 255, .12), 0 8px 24px rgba(0, 0, 0, .5);
+}
+.path-card:hover .disc-3d {
+  transform: scale(1.1) rotate(6deg);
+}
+
+.disc-p1 { --disc-bg: var(--disc-1-bg); }
+.disc-p2 { --disc-bg: var(--disc-2-bg); }
+.disc-p3 { --disc-bg: var(--disc-3-bg); }
+.disc-p4 { --disc-bg: var(--disc-4-bg); }
+
+/* Card Content Area */
+.card-body {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 120px;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.28rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+  color: var(--text-title);
+  margin-bottom: 8px;
+}
+
+.card-desc {
+  color: var(--text-desc);
+  font-size: .93rem;
+  line-height: 1.58;
+  margin-bottom: 16px;
+  max-width: 38ch;
+}
+
+/* Reference Orange Pill Badge (Solid Orange with Glowing White Dot) */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--accent-orange);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 5px 15px;
+  border-radius: var(--r-pill);
+  box-shadow: 0 4px 12px var(--accent-orange-glow);
+  width: fit-content;
+  transition: transform .2s var(--ease);
+}
+.pill-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 6px #ffffff;
+}
+.path-card:hover .pill-badge {
+  transform: scale(1.05);
+}
+
+/* Soft Secondary Pill Variant */
+.pill-badge-soft {
+  background: var(--accent-orange-dim);
+  color: var(--accent-orange);
+  box-shadow: none;
+}
+.pill-badge-soft::before {
+  background: var(--accent-orange);
+  box-shadow: none;
+}
+
+/* Deliverable Sub-tags */
+.sub-tags-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.sub-tag-chip {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: rgba(0, 0, 0, .03);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+html[data-theme="dark"] .sub-tag-chip {
+  background: rgba(255, 255, 255, .05);
+}
+
+/* ============================================================
+   BOTTOM ACTION BUTTON (Exact Reference Black Pill Button)
+   ============================================================ */
+.bottom-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.black-pill-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #09090b;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 750;
+  padding: 16px 40px;
+  border-radius: var(--r-pill);
+  text-decoration: none;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .2);
+  transition: all .28s var(--ease);
+  letter-spacing: -.01em;
+}
+html[data-theme="light"] .black-pill-cta {
+  background: #09090b;
+  color: #ffffff;
+}
+.black-pill-cta:hover {
+  background: var(--accent-orange);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 40px var(--accent-orange-glow);
+}
+.black-pill-cta svg {
+  transition: transform .2s var(--ease);
+}
+.black-pill-cta:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 960px) {
+  .path-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 32px 16px 64px;
+  }
+  .path-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 26px 22px;
+    gap: 18px;
+  }
+  .disc-3d {
+    width: 80px;
+    height: 80px;
+  }
+  .watermark-num {
+    font-size: 60px;
+    top: 14px;
+    right: 16px;
+    bottom: auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="main-wrap">
+
+  <!-- Top Controller -->
+  <div class="top-bar">
+    <span class="brand-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      OneSkills Academy · The Operating Path
+    </span>
+    <button class="theme-switch" id="theme-switch-btn" type="button" aria-label="Toggle theme">
+      <span id="theme-icon">☀️</span>
+      <span id="theme-label">Light Mode</span>
+    </button>
+  </div>
+
+  <!-- SECTION 03: THE OPERATING PATH -->
+  <section class="section-wrapper" id="path" aria-labelledby="path-heading">
+    
+    <!-- Section Header (Exact Reference Layout) -->
+    <div class="section-header">
+      <span class="tilted-capsule">The Operating Loop</span>
+      <h1 class="main-headline" id="path-heading">Zero to earning,<br>in four moves.</h1>
+      <p class="sub-lead">Every track follows the same operating loop — so you always know exactly where you are, what you are building, and what tangible income milestone comes next.</p>
+    </div>
+
+    <!-- 4-Card Bento Grid (Matching Reference Aesthetics) -->
+    <div class="path-grid">
+
+      <!-- Move 01: Free Demo & Skill Mapping -->
+      <article class="path-card">
+        <!-- 3D Circular Emblem Disc -->
+        <div class="disc-3d disc-p1" aria-hidden="true">
+          <svg width="48" height="48" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="14" fill="#ff5e36" fill-opacity="0.18"/>
+            <circle cx="16" cy="16" r="9.5" stroke="#ff5e36" stroke-width="2.6"/>
+            <circle cx="16" cy="16" r="3.5" fill="#ff5e36"/>
+            <path d="M16 2V6M16 26V30M2 16H6M26 16H30" stroke="#ff5e36" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="card-body">
+          <div>
+            <h2 class="card-title">Free Demo &amp; Skill Mapping</h2>
+            <p class="card-desc">Attend a real live class before paying anything. We map your current starting level, career goals, and fastest earning path.</p>
+          </div>
+
+          <div class="sub-tags-row">
+            <span class="pill-badge">Phase 01 · Week 0</span>
+            <span class="sub-tag-chip">Free Demo</span>
+            <span class="sub-tag-chip">Counseling</span>
+          </div>
+        </div>
+
+        <!-- Ghost Number Watermark -->
+        <span class="watermark-num" aria-hidden="true">01</span>
+      </article>
+
+      <!-- Move 02: Core Skills, Live Batches -->
+      <article class="path-card">
+        <!-- 3D Circular Emblem Disc -->
+        <div class="disc-3d disc-p2" aria-hidden="true">
+          <svg width="48" height="48" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="5" width="26" height="18" rx="4" fill="#f59e0b" fill-opacity="0.18" stroke="#f59e0b" stroke-width="2.4"/>
+            <path d="M10 27H22M16 23V27" stroke="#f59e0b" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M9 12L13 15L9 18M17 18H22" stroke="#d97706" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <div class="card-body">
+          <div>
+            <h2 class="card-title">Core Skills, Live Batches</h2>
+            <p class="card-desc">Small-batch live classes with direct mentor access. No 400-video playlists — every session builds something tangible and production-ready.</p>
+          </div>
+
+          <div class="sub-tags-row">
+            <span class="pill-badge pill-badge-soft">Phase 02 · Weeks 1–4</span>
+            <span class="sub-tag-chip">Max 12 Seats</span>
+            <span class="sub-tag-chip">Live Lab</span>
+          </div>
+        </div>
+
+        <!-- Ghost Number Watermark -->
+        <span class="watermark-num" aria-hidden="true">02</span>
+      </article>
+
+      <!-- Move 03: Portfolio & Client Simulation -->
+      <article class="path-card">
+        <!-- 3D Circular Emblem Disc -->
+        <div class="disc-3d disc-p3" aria-hidden="true">
+          <svg width="48" height="48" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="9" width="24" height="17" rx="3" fill="#3b82f6" fill-opacity="0.18" stroke="#2563eb" stroke-width="2.4"/>
+            <path d="M11 9V6C11 4.89543 11.8954 4 13 4H19C20.1046 4 21 4.89543 21 6V9" stroke="#2563eb" stroke-width="2.4"/>
+            <path d="M4 14H28" stroke="#3b82f6" stroke-width="2"/>
+            <circle cx="16" cy="18" r="2.5" fill="#1d4ed8"/>
+          </svg>
+        </div>
+
+        <div class="card-body">
+          <div>
+            <h2 class="card-title">Portfolio &amp; Client Simulation</h2>
+            <p class="card-desc">Ship portfolio work and rehearse the money part: profiles, proposal craft, pricing, and live mock client calls with immediate mentor feedback.</p>
+          </div>
+
+          <div class="sub-tags-row">
+            <span class="pill-badge">Phase 03 · Weeks 5–8</span>
+            <span class="sub-tag-chip">Portfolio Builds</span>
+            <span class="sub-tag-chip">Mock Clients</span>
+          </div>
+        </div>
+
+        <!-- Ghost Number Watermark -->
+        <span class="watermark-num" aria-hidden="true">03</span>
+      </article>
+
+      <!-- Move 04: Earning Launch + Lifetime Support -->
+      <article class="path-card">
+        <!-- 3D Circular Emblem Disc -->
+        <div class="disc-3d disc-p4" aria-hidden="true">
+          <svg width="48" height="48" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 3C16 3 23 8 23 17C23 21.5 19.5 25 16 27C12.5 25 9 21.5 9 17C9 8 16 3 16 3Z" fill="#10b981" fill-opacity="0.18" stroke="#059669" stroke-width="2.4"/>
+            <circle cx="16" cy="14" r="3.5" fill="#059669"/>
+            <path d="M6 21C6 21 8 23 10 23M26 21C26 21 24 23 22 23M16 27V30" stroke="#047857" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="card-body">
+          <div>
+            <h2 class="card-title">Earning Launch + Lifetime Support</h2>
+            <p class="card-desc">Graduation isn't the end. Lifetime support means you come back for proposal reviews, roadblocks, trade room discussions, and skill upgrades forever.</p>
+          </div>
+
+          <div class="sub-tags-row">
+            <span class="pill-badge pill-badge-soft">Phase 04 · Week 9+</span>
+            <span class="sub-tag-chip">Lifetime Support</span>
+            <span class="sub-tag-chip">Alumni Network</span>
+          </div>
+        </div>
+
+        <!-- Ghost Number Watermark -->
+        <span class="watermark-num" aria-hidden="true">04</span>
+      </article>
+
+    </div>
+
+    <!-- Center Black Pill Action Button -->
+    <div class="bottom-cta">
+      <a class="black-pill-cta" href="#contact" aria-label="Book your free demo class at OneSkills">
+        <span>Book a Free Demo Class</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+  </section>
+
+</div>
+
+<script>
+// Theme Toggle Controller
+(() => {
+  const btn = document.getElementById('theme-switch-btn');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (!btn) return;
+
+  const updateUI = (theme) => {
+    const isDark = theme === 'dark';
+    icon.textContent = isDark ? '🌙' : '☀️';
+    label.textContent = isDark ? 'Dark Mode' : 'Light Mode';
+  };
+
+  btn.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') || 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    updateUI(next);
+  });
+})();
+</script>
+
+</body>
+</html>

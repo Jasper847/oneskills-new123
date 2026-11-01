@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs><linearGradient id="web3-chain" x1="7" y1="7" x2="41" y2="41" gradientUnits="userSpaceOnUse"><stop stop-color="#9A7BFF"/><stop offset="1" stop-color="#5932D3"/></linearGradient></defs>
+  <path d="m24 5.5 15.5 9v18L24 41.5l-15.5-9v-18l15.5-9Z" fill="url(#web3-chain)" fill-opacity=".08" stroke="url(#web3-chain)" stroke-width="1.8"/>
+  <path d="m24 14 8.5 5v10L24 34l-8.5-5V19l8.5-5Z" fill="url(#web3-chain)" fill-opacity=".18" stroke="url(#web3-chain)" stroke-width="1.8"/>
+  <path d="M24 14v8m8.5-3-8.5 5m-8.5-5 8.5 5m0 10v-8m-8.5 3 8.5-5m8.5 5-8.5-5" stroke="url(#web3-chain)" stroke-width="1.4" opacity=".78"/>
+  <circle cx="24" cy="24" r="2.2" fill="#fff"/>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none">
+  <defs>
+    <linearGradient id="trd-g1" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="trd-g2" x1="12" y1="12" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fef9c3"/>
+    </linearGradient>
+    <filter id="trd-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#f59e0b" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <!-- Background subtle financial grid frame -->
+  <rect x="6" y="8" width="36" height="32" rx="7" stroke="url(#trd-g1)" stroke-width="1.8" opacity="0.4" fill="rgba(245, 158, 11, 0.08)"/>
+  <!-- Candlestick 1 (left: neutral/bullish amber) -->
+  <line x1="14" y1="21" x2="14" y2="35" stroke="#f59e0b" stroke-width="1.6" opacity="0.7"/>
+  <rect x="12" y="24" width="4" height="7" rx="1" fill="#f59e0b"/>
+  <!-- Candlestick 2 (mid: golden progression) -->
+  <line x1="24" y1="15" x2="24" y2="31" stroke="#eab308" stroke-width="1.6" opacity="0.8"/>
+  <rect x="22" y="18" width="4" height="8" rx="1" fill="#eab308"/>
+  <!-- Candlestick 3 (right: bullish breakout in Emerald Green!) -->
+  <line x1="34" y1="10" x2="34" y2="25" stroke="#10b981" stroke-width="1.6"/>
+  <rect x="32" y="13" width="4" height="7" rx="1" fill="#10b981"/>
+  <!-- Dynamic Upward Exponential Trendline terminating in arrow -->
+  <path d="M10 32 Q 22 28, 28 19 T 38 12" stroke="url(#trd-g2)" stroke-width="2.6" stroke-linecap="round" fill="none" filter="url(#trd-glow)"/>
+  <path d="M33 11 L39 12 L38 18" stroke="url(#trd-g2)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Peak breakout signal node in glowing gold -->
+  <circle cx="38.5" cy="12.5" r="2.4" fill="#fbbf24"/>
+</svg>

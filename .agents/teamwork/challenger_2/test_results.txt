@@ -1,0 +1,140 @@
+﻿================================================================================
+EMPIRICAL CHALLENGER 2 ADVERSARIAL SUITE
+Target Page: courses/freelancing-mastery.html
+Target CSS:  assets/css/course-v2.css
+Target JS:   assets/js/course-v2.js
+Baseline:    .agents/teamwork/explorer_survey_html/analysis.md
+Timestamp:   2026-10-31T18:47:51Z
+================================================================================
+
+--- TEST 1: 10 DYNAMIC DOM IDs ---
+[PASS] ID 'batch-slot-title' found on line 2061 (exact 1 occurrence).
+[PASS] ID 'batch-seats-badge' found on line 2062 (exact 1 occurrence).
+[PASS] ID 'batch-audience-note' found on line 2064 (exact 1 occurrence).
+[PASS] ID 'card-wa-btn-text' found on line 2113 (exact 1 occurrence).
+[PASS] ID 'card-wa-cta' found on line 2109 (exact 1 occurrence).
+[PASS] ID 'fee-display-amount' found on line 2080 (exact 1 occurrence).
+[PASS] ID 'fee-display-sub' found on line 2081 (exact 1 occurrence).
+[PASS] ID 'map-route-badge' found on line 1757 (exact 1 occurrence).
+[PASS] ID 'town-commute-title' found on line 1815 (exact 1 occurrence).
+[PASS] ID 'town-commute-desc' found on line 1818 (exact 1 occurrence).
+Dynamic DOM IDs Result: ALL 10 PRESENT & UNIQUE - PASS
+
+--- TEST 2: INLINE STYLES IN HTML ---
+[PASS] Exactly 0 inline style attributes found across all 2374 lines.
+Inline Styles Result: PASS
+
+--- TEST 3: CONTENT INTEGRITY & BASELINE DIFF ---
+
+[Subtest 3.1: Pricing Figures]
+[PASS] Pricing 'PKR 25,000': 5 occurrences (>= 4).
+[PASS] Pricing '2 installments of PKR 12,500': 2 occurrences (>= 1).
+[PASS] Pricing 'PKR 8,500 / mo': 1 occurrences (>= 1).
+[PASS] Pricing '14-Day 100% Money-Back Guarantee': 3 occurrences (>= 1).
+[PASS] Pricing 'PKR 30,000 to PKR 80,000': 2 occurrences (>= 1).
+
+[Subtest 3.2: 4 Learning Outcomes]
+[FAIL] Outcome 01 ('Meta & Google Ads Mastery') mismatch! Title: False, Desc: True
+[FAIL] Outcome 02 ('AI Content & Video Engine') mismatch! Title: False, Desc: True
+[FAIL] Outcome 03 ('Local SEO & Google Maps Rank') mismatch! Title: False, Desc: True
+[FAIL] Outcome 04 ('Client Monetization & Dual Income') mismatch! Title: False, Desc: True
+
+[Subtest 3.3: 12 Module Titles]
+[FAIL] Module 01: 'Introduction to Freelancing, Work Ethics, Platforms & Quick Skills' NOT FOUND verbatim!
+[FAIL] Module 02: 'Upwork, Fiverr & Freelancer.com Mastery + Profile Optimization' NOT FOUND verbatim!
+[FAIL] Module 03: 'Winning Proposals, Client Communication, Contracts & Pricing' NOT FOUND verbatim!
+[FAIL] Module 04: 'Digital Marketing Channels, Website Design (WP/Shopify), Vibe Coding & Blogging' NOT FOUND verbatim!
+[FAIL] Module 05: 'Search Engine Optimization (SEO) â€” Keyword Research, On-Page & eCommerce SEO' NOT FOUND verbatim!
+[FAIL] Module 06: 'Technical SEO, Local SEO (GBP), Guest Blogging & White-Hat Parasite SEO' NOT FOUND verbatim!
+[FAIL] Module 07: 'AEO (Answer Engine Optimization) & GEO (Generative Engine Optimization)' NOT FOUND verbatim!
+[FAIL] Module 08: 'Social Media Marketing, Canva Pro, YouTube Automation & Email Lead Gen' NOT FOUND verbatim!
+[FAIL] Module 09: 'Meta Ads Mastery (Facebook & Instagram Ads) + TikTok Paid Campaigns' NOT FOUND verbatim!
+[FAIL] Module 10: 'Google Ads (Search, Display & YouTube), GA4 Analytics & Etsy E-Commerce' NOT FOUND verbatim!
+[FAIL] Module 11: 'AI Agents, AI Automation, Browser Automation, SaaS & App Development' NOT FOUND verbatim!
+[FAIL] Module 12: 'Pricing, Retainers, Direct Client Hunting, Portfolio Defense & Certification' NOT FOUND verbatim!
+
+[Subtest 3.4: 84 Lessons Check]
+Total lessons extracted from frozen baseline: 84
+[PASS] All 84 Lessons (names and descriptions) verified 100% VERBATIM against baseline!
+
+--- TEST 4: 8px GRID SYSTEM STRESS-TEST (CSS) ---
+Spacing property non-8px violations (excluding 4px half-grid): 0
+Dimension property non-8px violations: 0
+Half-grid 4px occurrences in micro-badges/gaps: 0
+
+--- TEST 5: HARDCODED COLOR LEAKS (CSS) ---
+Hardcoded color leaks outside var(): 61
+   Line 201: rgba(110, 68, 255, 0.2) in: border: 1px solid var(--accent-line, rgba(110, 68, 255, 0.2));
+   Line 277: rgba(110, 68, 255, 0.22) in: box-shadow: 0 8px 22px var(--accent-glow, rgba(110, 68, 255, 0.22));
+   Line 284: rgba(110, 68, 255, 0.32) in: box-shadow: 0 12px 28px var(--accent-glow, rgba(110, 68, 255, 0.32));
+   Line 304: rgba(110, 68, 255, 0.3) in: border-color: var(--accent-line, rgba(110, 68, 255, 0.3));
+   Line 306: rgba(110, 68, 255, 0.055) in: background: var(--surface-hover, rgba(110, 68, 255, 0.055));
+   Line 315: rgba(35, 27, 43, 0.12) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.12));
+   Line 323: rgba(110, 68, 255, 0.35) in: border-color: var(--line-strong, rgba(110, 68, 255, 0.35));
+   Line 325: rgba(110, 68, 255, 0.14) in: box-shadow: 0 8px 24px var(--accent-alpha, rgba(110, 68, 255, 0.14));
+   Line 337: rgba(110, 68, 255, 0.32) in: box-shadow: 0 4px 12px var(--accent-glow, rgba(110, 68, 255, 0.32));
+   Line 468: rgba(35, 27, 43, 0.12) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.12));
+   Line 725: rgba(110, 68, 255, 0.04) in: background: var(--surface-hover, rgba(110, 68, 255, 0.04));
+   Line 765: rgba(35, 27, 43, 0.09) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.09));
+   Line 805: rgba(110, 68, 255, 0.3) in: border-color: var(--accent-line, rgba(110, 68, 255, 0.3));
+   Line 891: rgba(110, 68, 255, 0.3) in: border-color: var(--accent-line, rgba(110, 68, 255, 0.3));
+   Line 1037: rgba(110, 68, 255, 0.28) in: border-color: var(--accent-glow, rgba(110, 68, 255, 0.28));
+   Line 1197: rgba(110, 68, 255, 0.12) in: box-shadow: 0 10px 28px var(--accent-alpha, rgba(110, 68, 255, 0.12));
+   Line 1401: rgba(35, 27, 43, 0.09) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.09));
+   Line 1528: rgba(110, 68, 255, 0.28) in: border-color: var(--accent-glow, rgba(110, 68, 255, 0.28));
+   Line 1590: rgba(110, 68, 255, 0.28) in: border-color: var(--accent-glow, rgba(110, 68, 255, 0.28));
+   Line 1752: rgba(35, 27, 43, 0.12) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.12));
+   Line 1789: rgba(22, 16, 38, 0.88) in: background: var(--surface-dark, rgba(22, 16, 38, 0.88));
+   Line 1792: rgba(168, 85, 247, 0.35) in: border: 1px solid var(--accent-line, rgba(168, 85, 247, 0.35));
+   Line 1837: rgba(110, 68, 255, 0.12) in: box-shadow: 0 10px 24px var(--accent-alpha, rgba(110, 68, 255, 0.12));
+   Line 1867: rgba(35, 27, 43, 0.1) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.1));
+   Line 1949: rgba(110, 68, 255, 0.05) in: background: linear-gradient(135deg, var(--surface-subtle, rgba(110, 68, 255, 0.05)) 0%, var(--accent-emerald-subtle, rgba(16, 185, 129, 0.04)) 100%);
+   Line 1949: rgba(16, 185, 129, 0.04) in: background: linear-gradient(135deg, var(--surface-subtle, rgba(110, 68, 255, 0.05)) 0%, var(--accent-emerald-subtle, rgba(16, 185, 129, 0.04)) 100%);
+   Line 1950: rgba(110, 68, 255, 0.22) in: border: 1px solid var(--accent-glow, rgba(110, 68, 255, 0.22));
+   Line 1973: rgba(16, 185, 129, 0.12) in: background: var(--accent-emerald-alpha, rgba(16, 185, 129, 0.12));
+   Line 1990: rgba(35, 27, 43, 0.15) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.15));
+   Line 1996: rgba(0, 0, 0, 0.04) in: box-shadow: var(--shadow-subtle, 0 2px 8px rgba(0, 0, 0, 0.04));
+   Line 2004: rgba(110, 68, 255, 0.15) in: box-shadow: 0 4px 12px var(--accent-alpha, rgba(110, 68, 255, 0.15));
+   Line 2036: rgba(35, 27, 43, 0.12) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.12));
+   Line 2040: rgba(35, 10, 80, 0.04) in: box-shadow: var(--shadow-subtle, 0 2px 8px rgba(35, 10, 80, 0.04));
+   Line 2051: rgba(110, 68, 255, 0.35) in: border-color: var(--line-strong, rgba(110, 68, 255, 0.35));
+   Line 2078: rgba(35, 27, 43, 0.12) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.12));
+   Line 2106: rgba(35, 27, 43, 0.1) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.1));
+   Line 2189: rgba(35, 27, 43, 0.14) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.14));
+   Line 2209: rgba(110, 68, 255, 0.12) in: background: linear-gradient(90deg, var(--accent-alpha, rgba(110, 68, 255, 0.12)) 0%, var(--surface-subtle, rgba(110, 68, 255, 0.02)) 100%);
+   Line 2209: rgba(110, 68, 255, 0.02) in: background: linear-gradient(90deg, var(--accent-alpha, rgba(110, 68, 255, 0.12)) 0%, var(--surface-subtle, rgba(110, 68, 255, 0.02)) 100%);
+   Line 2267: rgba(110, 68, 255, 0.08) in: background: var(--surface-subtle, rgba(110, 68, 255, 0.08));
+   Line 2268: rgba(110, 68, 255, 0.16) in: border: 1px solid var(--accent-alpha, rgba(110, 68, 255, 0.16));
+   Line 2284: rgba(35, 27, 43, 0.1) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.1));
+   Line 2340: rgba(245, 158, 11, 0.35) in: border: 1px solid var(--accent-amber-line, rgba(245, 158, 11, 0.35));
+   Line 2383: rgba(35, 27, 43, 0.15) in: border-bottom: 1px solid var(--line, rgba(35, 27, 43, 0.15));
+   Line 2392: rgba(110, 68, 255, 0.1) in: background: var(--accent-alpha, rgba(110, 68, 255, 0.1));
+   Line 2403: rgba(110, 68, 255, 0.05) in: background: var(--surface-subtle, rgba(110, 68, 255, 0.05));
+   Line 2434: rgba(35, 27, 43, 0.12) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.12));
+   Line 2451: rgba(35, 27, 43, 0.1) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.1));
+   Line 2497: rgba(35, 27, 43, 0.12) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.12));
+   Line 2515: rgba(110, 68, 255, 0.12) in: background: var(--accent-alpha, rgba(110, 68, 255, 0.12));
+   Line 2533: rgba(35, 27, 43, 0.1) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.1));
+   Line 2550: rgba(16, 185, 129, 0.15) in: background: var(--accent-emerald-alpha, rgba(16, 185, 129, 0.15));
+   Line 2561: rgba(35, 27, 43, 0.12) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.12));
+   Line 3165: rgba(110, 68, 255, 0.12) in: background: radial-gradient(circle at center, var(--accent-alpha, rgba(110, 68, 255, 0.12)) 0%, transparent 72%);
+   Line 3177: rgba(35, 27, 43, 0.12) in: border: 1px solid var(--line, rgba(35, 27, 43, 0.12));
+   Line 3179: rgba(110, 68, 255, 0.14) in: box-shadow: 0 20px 48px -12px var(--accent-alpha, rgba(110, 68, 255, 0.14)), var(--shadow-plum-subtle);
+   Line 3185: rgba(110, 68, 255, 0.28) in: box-shadow: 0 20px 48px -12px var(--accent-glow, rgba(110, 68, 255, 0.28)), var(--shadow-hover);
+   Line 3191: rgba(110, 68, 255, 0.22) in: box-shadow: 0 24px 56px -12px var(--accent-glow, rgba(110, 68, 255, 0.22)), 0 6px 20px var(--surface-hover);
+   Line 3205: rgba(110, 68, 255, 0.08) in: background: var(--accent-light, var(--surface-subtle, rgba(110, 68, 255, 0.08)));
+   Line 3207: rgba(110, 68, 255, 0.18) in: border: 1px solid var(--accent-alpha, rgba(110, 68, 255, 0.18));
+   Line 3527: rgba(16, 185, 129, 0.3) in: border-color: var(--accent-emerald-line, rgba(16, 185, 129, 0.3));
+
+--- TEST 6: ADVERSARIAL JS & ACCESSIBILITY AUDIT ---
+[PASS] Skill tabs selector supports both .c-filter-btn and .filter-btn
+[PASS] Curriculum tabs selector supports both .c-filter-btn and .filter-btn
+[PASS] Skip link excluded from smooth scroll
+[PASS] Programmatic focus transferred on anchor jump
+[PASS] Toast accessible role status & polite live
+[PASS] Tuition switcher aria-pressed sync
+[PASS] Commuter town aria-selected sync
+
+================================================================================
+OVERALL EMPIRICAL VERDICT: FAILURES DETECTED -> REQUEST_CHANGES
+================================================================================

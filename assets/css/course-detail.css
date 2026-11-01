@@ -1,0 +1,1931 @@
+/* ============================================================
+   ONESKILLS â€” Course Detail Pages Ultra Luxury Design System
+   Extends main.css with Royal Electric Violet, Lavender Mist Canvas,
+   Obsidian Velvet Dark Mode, Glassmorphic Depth, Refined Typography,
+   and Strict 8px Spacing.
+   ============================================================ */
+
+:root {
+  /* Dedicated Course Palette Tokens (Rule 4) */
+  --text-inverse: #ffffff;
+  --star-gold: #fbbf24;
+  --color-danger: #ef4444;
+  --browser-dot-red: #ff5f56;
+  --browser-dot-yellow: #ffbd2e;
+  --browser-dot-green: #27c93f;
+  --status-emerald-glow: #34d399;
+
+  /* Amber & Emerald Badges (Light) */
+  --badge-amber-text: var(--badge-amber-text);
+  --badge-amber-bg: rgba(245, 158, 11, 0.12);
+  --badge-amber-border: rgba(245, 158, 11, 0.3);
+  --badge-emerald-text: #059669;
+  --badge-emerald-bg: rgba(5, 150, 105, 0.1);
+  --badge-emerald-border: rgba(5, 150, 105, 0.25);
+}
+
+html[data-theme="dark"] {
+  /* Amber & Emerald Badges (Dark) */
+  --badge-amber-text: var(--badge-amber-text);
+  --badge-amber-bg: rgba(245, 158, 11, 0.16);
+  --badge-amber-border: rgba(245, 158, 11, 0.4);
+  --badge-emerald-text: #34d399;
+  --badge-emerald-bg: rgba(52, 211, 153, 0.12);
+  --badge-emerald-border: rgba(52, 211, 153, 0.3);
+}
+
+/* ---------- Page Background & Ambient Nebula Glows ---------- */
+.course-page-wrapper {
+  position: relative;
+  padding-top: calc(var(--header-h, 64px) + 24px);
+  padding-bottom: 96px;
+  background: var(--bg);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Subtle Tech Grid Pattern Overlay */
+.course-page-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 900px;
+  background-image: radial-gradient(rgba(110, 68, 255, 0.09) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Ambient Radial Glow Lighting */
+.course-ambient-glow {
+  position: absolute;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 480px;
+  background: radial-gradient(circle, var(--accent-glow, rgba(110, 68, 255, 0.22)) 0%, transparent 68%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.course-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 640px) {
+  .course-container {
+    padding: 0 16px;
+  }
+}
+
+/* ---------- Accessible Breadcrumb Trail ---------- */
+.course-breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-3);
+  margin-bottom: 24px;
+}
+
+.course-breadcrumbs a {
+  color: var(--text-2);
+  transition: color 0.2s var(--ease);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.course-breadcrumbs a:hover,
+.course-breadcrumbs a:focus-visible {
+  color: var(--accent);
+}
+
+.course-breadcrumbs .breadcrumb-sep {
+  color: var(--text-3);
+  opacity: 0.5;
+  user-select: none;
+}
+
+.course-breadcrumbs [aria-current="page"] {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ---------- Ultra-Premium Hero Section ---------- */
+.course-hero {
+  position: relative;
+  padding: 24px 0 56px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+.course-hero-grid {
+  display: grid;
+  grid-template-columns: 1.28fr 0.92fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .course-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* Hero Pill Status Capsule */
+.course-pill-capsule {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--r-pill, 9999px);
+  background: var(--card);
+  border: 1px solid var(--line-strong, rgba(110, 68, 255, 0.35));
+  box-shadow: 0 4px 16px var(--accent-alpha, rgba(110, 68, 255, 0.12));
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.pill-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+.pill-sep {
+  opacity: 0.35;
+  color: var(--text-3);
+}
+
+.pill-highlight {
+  color: var(--accent);
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.35);
+  }
+}
+
+/* Hero Title with Source Serif Italic Emphasis */
+.course-hero-title {
+  font-family: var(--font, sans-serif);
+  font-size: clamp(2.25rem, 4.2vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: var(--tracking-tight, -0.025em);
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.course-hero-title .title-accent {
+  font-family: var(--font-editorial, 'Source Serif 4', Georgia, serif);
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Handwritten Editorial Annotation */
+.course-handwritten-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--annotation-color);
+  margin-bottom: 16px;
+  user-select: none;
+}
+
+.course-handwritten-note svg {
+  color: var(--annotation-color);
+}
+
+/* Hero Subtitle */
+.course-hero-subtitle {
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--text-2);
+  margin-bottom: 24px;
+  max-width: 620px;
+}
+
+/* 4-Item Quick Specs Strip */
+.course-specs-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 640px) {
+  .course-specs-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
+.spec-strip-card {
+  padding: 16px;
+  border-radius: var(--r-m, 12px);
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.spec-strip-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-line);
+}
+
+.spec-strip-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--text-3);
+  margin-bottom: 4px;
+}
+
+.spec-strip-label svg {
+  color: var(--accent);
+}
+
+.spec-strip-val {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+/* Hero CTAs */
+.course-hero-ctas {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.btn-hero-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  border-radius: var(--r-pill, 9999px);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  color: var(--text-inverse);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 24px var(--accent-glow, rgba(110, 68, 255, 0.35));
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.btn-hero-wa:hover,
+.btn-hero-wa:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px var(--accent-glow, rgba(110, 68, 255, 0.45));
+}
+
+.btn-hero-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 24px;
+  border-radius: var(--r-pill, 9999px);
+  background: var(--card);
+  border: 1px solid var(--line-strong, rgba(110, 68, 255, 0.3));
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow-card);
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.btn-hero-outline:hover,
+.btn-hero-outline:focus-visible {
+  background: var(--surface-hover);
+  border-color: var(--accent);
+}
+
+/* Hero Right Showcase Stage (Browser Perspective Frame) */
+.hero-showcase-stage {
+  position: relative;
+}
+
+.hero-showcase-halo {
+  position: absolute;
+  inset: -12px;
+  background: radial-gradient(circle, var(--accent-glow, rgba(110, 68, 255, 0.25)) 0%, transparent 70%);
+  filter: blur(28px);
+  border-radius: var(--r-xl, 24px);
+  z-index: 0;
+}
+
+.hero-browser-card {
+  position: relative;
+  z-index: 1;
+  border-radius: var(--r-l, 16px);
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line-strong, rgba(110, 68, 255, 0.3));
+  box-shadow: var(--shadow-hover);
+}
+
+/* Browser Chrome Top Bar */
+.browser-top-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 16px;
+  background: var(--panel, var(--bg-raise));
+  border-bottom: 1px solid var(--line);
+}
+
+.browser-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.browser-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.dot-red { background: var(--browser-dot-red); }
+.dot-yellow { background: var(--browser-dot-yellow); }
+.dot-green { background: var(--browser-dot-green); }
+
+.browser-url-pill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 16px;
+  border-radius: var(--r-pill, 9999px);
+  background: var(--surface-subtle);
+  border: 1px solid var(--border-subtle);
+  font-size: 11.5px;
+  color: var(--text-3);
+  font-family: ui-monospace, monospace;
+}
+
+.browser-url-pill svg {
+  color: var(--accent-emerald);
+}
+
+.browser-media-wrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.course-artwork-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+html[data-theme="light"] .banner-dark,
+html:not([data-theme="dark"]) .banner-dark {
+  display: none !important;
+}
+
+html[data-theme="dark"] .banner-light {
+  display: none !important;
+}
+
+html[data-theme="dark"] .banner-dark {
+  display: block !important;
+}
+
+/* Overlaid Floating Badges on Showcase Media */
+.floating-glass-badge {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--r-pill, 9999px);
+  background: #120b28;
+  background: rgba(18, 11, 40, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-inverse);
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.badge-pos-bottom-left {
+  bottom: 16px;
+  left: 16px;
+}
+
+.badge-rating-stars {
+  color: var(--star-gold);
+}
+
+.badge-pos-bottom-right {
+  bottom: 16px;
+  right: 16px;
+}
+
+.glass-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--status-emerald-glow);
+  box-shadow: 0 0 8px var(--status-emerald-glow);
+}
+
+/* ---------- 2-Column Main Layout Grid ---------- */
+.course-main-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 370px;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (max-width: 1080px) {
+  .course-main-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* Main Content Column */
+.course-track-col {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Standard Section Glassmorphic Card */
+.course-card-section {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-l, 16px);
+  padding: 32px;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+@media (max-width: 640px) {
+  .course-card-section {
+    padding: 24px 16px;
+  }
+}
+
+.section-kicker-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: var(--r-s, 8px);
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.section-heading-h2 {
+  font-family: var(--font, sans-serif);
+  font-size: clamp(1.4rem, 2.3vw, 1.85rem);
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.25;
+  letter-spacing: var(--tracking-tight, -0.025em);
+  margin-bottom: 12px;
+}
+
+.section-intro-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-2);
+  margin-bottom: 24px;
+}
+
+/* ---------- Section 1: "The OneSkills Edge" Comparison ---------- */
+.edge-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+@media (max-width: 720px) {
+  .edge-comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.comparison-box {
+  padding: 24px;
+  border-radius: var(--r-m, 12px);
+  border: 1px solid var(--line);
+}
+
+.box-old-way {
+  background: var(--surface-subtle);
+  border-color: var(--border-subtle);
+}
+
+.box-new-way {
+  background: linear-gradient(145deg, var(--card) 0%, var(--surface-tint-purple, rgba(110, 68, 255, 0.06)) 100%);
+  border-color: var(--accent-line);
+  box-shadow: 0 4px 20px var(--accent-alpha);
+  position: relative;
+}
+
+.box-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+  padding: 4px 8px;
+  border-radius: var(--r-s, 8px);
+}
+
+.badge-old {
+  background: rgba(148, 163, 184, 0.2);
+  color: var(--text-3);
+}
+
+.badge-new {
+  background: var(--accent);
+  color: var(--text-inverse);
+}
+
+.comparison-box h3, .comparison-box h4 {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.comparison-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comp-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+
+.comp-icon-cross {
+  color: var(--color-danger);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.comp-icon-check {
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Feature 4-Grid */
+.advantages-4grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+@media (max-width: 640px) {
+  .advantages-4grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.advantage-card {
+  padding: 24px;
+  border-radius: var(--r-m, 12px);
+  background: var(--panel, var(--card));
+  border: 1px solid var(--line);
+  transition: transform 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.advantage-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-line);
+}
+
+.advantage-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-s, 8px);
+  background: var(--accent-light);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px var(--accent-alpha);
+}
+
+.advantage-card h3, .advantage-card h4 {
+  font-size: 15.5px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.advantage-card p {
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.55;
+}
+
+/* ---------- Section 2: Interactive Curriculum Timeline ---------- */
+.curriculum-timeline-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.curriculum-timeline-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  bottom: 24px;
+  left: 24px;
+  width: 2px;
+  background: var(--line-strong, rgba(110, 68, 255, 0.3));
+  z-index: 0;
+}
+
+@media (max-width: 640px) {
+  .curriculum-timeline-wrapper::before {
+    display: none;
+  }
+}
+
+.timeline-module-card {
+  position: relative;
+  z-index: 1;
+  border: 1px solid var(--line);
+  border-radius: var(--r-m, 12px);
+  background: var(--card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.timeline-module-card[open] {
+  border-color: var(--accent-line);
+  box-shadow: 0 8px 24px var(--accent-alpha);
+}
+
+.timeline-summary {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  background: var(--panel, var(--card));
+  transition: background 0.2s var(--ease);
+}
+
+.timeline-summary::-webkit-details-marker {
+  display: none;
+}
+
+.timeline-summary:hover {
+  background: var(--surface-hover);
+}
+
+.timeline-summary-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.module-step-node {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.timeline-module-card[open] .module-step-node {
+  background: var(--accent);
+  color: var(--text-inverse);
+}
+
+.module-meta-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.module-phase-tag {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+.module-heading-text {
+  font-size: 15.5px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.accordion-chevron-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--text-3);
+  transition: transform 0.25s var(--ease), color 0.25s var(--ease);
+  flex-shrink: 0;
+}
+
+.timeline-module-card[open] .accordion-chevron-icon {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+
+.timeline-module-body {
+  padding: 0 24px 24px;
+  border-top: 1px solid var(--line);
+  background: var(--card);
+}
+
+.timeline-topics {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.topic-bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.55;
+}
+
+.topic-bullet-icon {
+  width: 17px;
+  height: 17px;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Hands-on Milestone Card inside Module */
+.milestone-callout-card {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: var(--r-s, 8px);
+  background: linear-gradient(135deg, var(--surface-tint-purple, rgba(110, 68, 255, 0.06)) 0%, var(--card) 100%);
+  border-left: 3px solid var(--accent);
+  border-top: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-size: 13.5px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.milestone-badge {
+  padding: 4px 8px;
+  border-radius: var(--r-s, 8px);
+  background: var(--accent);
+  color: var(--text-inverse);
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+/* ---------- Section 3: 5 Portfolio Projects Showcase ---------- */
+.projects-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .projects-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-showcase-card {
+  padding: 24px;
+  border-radius: var(--r-m, 12px);
+  background: var(--panel, var(--card));
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.project-showcase-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-line);
+  box-shadow: var(--shadow-hover);
+}
+
+.project-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.project-num-tag {
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+.project-live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-emerald);
+  padding: 2px 8px;
+  border-radius: var(--r-pill, 9999px);
+  background: rgba(5, 150, 105, 0.1);
+}
+
+.live-micro-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+}
+
+.project-showcase-card h3, .project-showcase-card h4 {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.project-showcase-card p {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.55;
+}
+
+.project-stack-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.tech-tag-chip {
+  padding: 4px 8px;
+  border-radius: var(--r-s, 8px);
+  background: var(--surface-subtle);
+  border: 1px solid var(--border-subtle);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-2);
+}
+
+/* Full Width Featured Capstone Card */
+.capstone-featured-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(145deg, var(--card) 0%, var(--surface-tint-purple, rgba(110, 68, 255, 0.07)) 100%);
+  border-color: var(--accent-line);
+  box-shadow: 0 8px 30px var(--accent-alpha);
+}
+
+/* ---------- Section 4: Software Stack & AI Tools Mastered ---------- */
+.tech-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .tech-tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-tools-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tech-tool-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: var(--r-m, 12px);
+  background: var(--panel, var(--card));
+  border: 1px solid var(--line);
+  transition: transform 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.tech-tool-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.tool-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-s, 8px);
+  background: var(--surface-subtle);
+  border: 1px solid var(--border-subtle);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tool-info-col h3, .tool-info-col h5 {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.tool-info-col span {
+  font-size: 12px;
+  color: var(--text-3);
+  font-weight: 500;
+}
+
+/* ---------- Section 5: Master Trainer Spotlight ---------- */
+.trainer-spotlight-card {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 32px;
+  border-radius: var(--r-m, 12px);
+  background: linear-gradient(145deg, var(--panel, var(--card)) 0%, var(--surface-subtle) 100%);
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 640px) {
+  .trainer-spotlight-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 24px;
+  }
+}
+
+.trainer-avatar-halo {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.trainer-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow: 0 6px 20px var(--accent-glow);
+}
+
+.trainer-verified-badge {
+  position: absolute;
+  bottom: 0;
+  right: 4px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--text-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border: 2px solid var(--card);
+}
+
+.trainer-details-col h3, .trainer-details-col h4 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.trainer-title-sub {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.trainer-quote-motto {
+  font-family: var(--font-editorial, 'Source Serif 4', Georgia, serif);
+  font-style: italic;
+  font-size: 14.5px;
+  color: var(--text-2);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.trainer-metrics-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .trainer-metrics-row {
+    justify-content: center;
+  }
+}
+
+.trainer-metric-pill {
+  padding: 4px 16px;
+  border-radius: var(--r-pill, 9999px);
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ---------- Section 6: Target Personas (Who Is This For?) ---------- */
+.personas-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 640px) {
+  .personas-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.persona-target-card {
+  padding: 24px;
+  border-radius: var(--r-m, 12px);
+  background: var(--panel, var(--card));
+  border: 1px solid var(--line);
+  transition: transform 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.persona-target-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-line);
+}
+
+.persona-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.persona-emoji-box {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-s, 8px);
+  background: var(--surface-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.persona-target-card h3, .persona-target-card h4 {
+  font-size: 15.5px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.persona-target-card p {
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.55;
+}
+
+/* ---------- Section 7: Workstation & Guarantee Table ---------- */
+.lab-specs-table-wrap {
+  overflow-x: auto;
+}
+
+.lab-specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.lab-specs-table tr {
+  border-bottom: 1px solid var(--line);
+}
+
+.lab-specs-table tr:last-child {
+  border-bottom: none;
+}
+
+.lab-specs-table td {
+  padding: 16px;
+  vertical-align: top;
+}
+
+.spec-td-label {
+  color: var(--text-3);
+  font-weight: 700;
+  width: 34%;
+}
+
+.spec-td-val {
+  color: var(--text);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* ---------- Section 8: Student Success Stories ---------- */
+.reviews-grid-2col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 720px) {
+  .reviews-grid-2col {
+    grid-template-columns: 1fr;
+  }
+}
+
+.review-card-modern {
+  padding: 24px;
+  border-radius: var(--r-m, 12px);
+  background: var(--panel, var(--card));
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.review-stars-row {
+  color: var(--accent-amber);
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.review-text-quote {
+  font-size: 14.5px;
+  color: var(--text-2);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.reviewer-meta-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.reviewer-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+}
+
+.reviewer-name {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.reviewer-badge-role {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ---------- Section 9: FAQ Accordion ---------- */
+.course-faq-accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-accordion-item {
+  border: 1px solid var(--line);
+  border-radius: var(--r-m, 12px);
+  background: var(--panel, var(--card));
+  overflow: hidden;
+  transition: border-color 0.2s var(--ease);
+}
+
+.faq-accordion-item[open] {
+  border-color: var(--accent-line);
+}
+
+.faq-accordion-summary {
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+  transition: color 0.2s var(--ease);
+}
+
+.faq-accordion-summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-accordion-summary:hover {
+  color: var(--accent);
+}
+
+.faq-accordion-body {
+  padding: 0 24px 24px;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--text-2);
+  border-top: 1px solid var(--border-subtle);
+  background: var(--card);
+}
+
+/* ---------- Sticky High-Converting Enrollment Sidebar ---------- */
+.course-sidebar-wrapper {
+  position: sticky;
+  top: calc(var(--header-h, 64px) + 24px);
+}
+
+.sidebar-glass-card {
+  background: var(--card);
+  border: 1px solid var(--line-strong, rgba(110, 68, 255, 0.35));
+  border-radius: var(--r-l, 16px);
+  padding: 32px;
+  box-shadow: var(--shadow-hover);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Top Gradient Accent Stripe */
+.sidebar-glass-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 50%, var(--accent) 100%);
+}
+
+/* Seat Progress Urgency Widget */
+.seats-progress-widget {
+  margin-bottom: 20px;
+}
+
+.seats-urgency-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.seats-urgency-header .urgency-tag {
+  color: var(--accent-amber);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.seats-bar-track {
+  width: 100%;
+  height: 7px;
+  border-radius: var(--r-pill, 9999px);
+  background: var(--surface-subtle);
+  overflow: hidden;
+}
+
+.seats-bar-fill {
+  width: 75%;
+  height: 100%;
+  border-radius: var(--r-pill, 9999px);
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-amber) 100%);
+}
+
+.sidebar-card-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.sidebar-card-sub {
+  font-size: 13px;
+  color: var(--text-2);
+  margin-bottom: 20px;
+}
+
+.sidebar-tuition-box {
+  padding: 16px;
+  border-radius: var(--r-m, 12px);
+  background: var(--surface-subtle);
+  border: 1px solid var(--line);
+  margin-bottom: 22px;
+}
+
+.tuition-duration {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.tuition-sub-note {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-top: 4px;
+}
+
+.sidebar-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.sidebar-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.45;
+}
+
+.check-item-icon {
+  width: 17px;
+  height: 17px;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.btn-sidebar-reserve {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 24px;
+  border-radius: var(--r-pill, 9999px);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  color: var(--text-inverse);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 20px var(--accent-glow);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.btn-sidebar-reserve:hover,
+.btn-sidebar-reserve:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px var(--accent-glow);
+}
+
+.sidebar-campus-note {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-3);
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+.sidebar-campus-note strong {
+  color: var(--text);
+}
+
+/* ---------- Mobile Fixed Action Dock ---------- */
+.course-mobile-action-dock {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 95;
+  padding: 16px 16px max(16px, env(safe-area-inset-bottom));
+  background: var(--card);
+  border-top: 1px solid var(--line-strong);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@media (max-width: 768px) {
+  .course-mobile-action-dock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+}
+
+.mobile-dock-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-dock-course-name {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+
+.mobile-dock-meta {
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.mobile-dock-cta-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--r-pill, 9999px);
+  background: var(--accent);
+  color: var(--text-inverse);
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ---------- Nested Curriculum Lessons List (72 Lessons) ---------- */
+.timeline-lessons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--line);
+}
+
+.lesson-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 16px;
+  border-radius: var(--r-s, 8px);
+  background: var(--surface-light, rgba(110, 68, 255, 0.03));
+  border: 1px solid var(--line-subtle, rgba(0, 0, 0, 0.04));
+  transition: background 0.15s var(--ease), border-color 0.15s var(--ease), transform 0.15s var(--ease);
+}
+
+.lesson-item-row:hover {
+  background: var(--surface-hover, rgba(110, 68, 255, 0.08));
+  border-color: var(--accent-line, rgba(110, 68, 255, 0.25));
+  transform: translateX(4px);
+}
+
+.lesson-item-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.lesson-num-tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--accent-light);
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.lesson-title-text {
+  font-size: 13.5px;
+  color: var(--text);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.lesson-badge-pill {
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: var(--r-pill, 9999px);
+  background: var(--accent-light);
+  color: var(--accent);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.lesson-badge-capstone {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--accent-emerald);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  font-weight: 800;
+}
+
+/* ---------- 7 Free Bonuses Showcase Grid ($2,000+ Value) ---------- */
+.bonuses-total-val-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--r-pill, 9999px);
+  background: var(--badge-amber-bg);
+  border: 1px solid var(--badge-amber-border);
+  color: var(--badge-amber-text);
+  font-size: 12.5px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+html[data-theme="dark"] .bonuses-total-val-badge {
+  background: var(--badge-amber-bg);
+  color: var(--badge-amber-text);
+}
+
+.bonuses-grid-7 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.bonus-card-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  border-radius: var(--r-m, 12px);
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s var(--ease), border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.bonus-card-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-line);
+  box-shadow: 0 12px 28px var(--accent-alpha);
+}
+
+.bonus-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.bonus-seq-label {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+}
+
+.bonus-val-tag {
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: var(--r-pill, 9999px);
+  background: var(--badge-amber-bg);
+  color: var(--badge-amber-text);
+  border: 1px solid var(--badge-amber-border);
+}
+
+html[data-theme="dark"] .bonus-val-tag {
+  color: var(--badge-amber-text);
+}
+
+.bonus-card-item h3, .bonus-card-item h4 {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.bonus-card-item p {
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.bonus-included-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-emerald);
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- Website Flipping & Digital Assets Banner ---------- */
+.flipping-banner-card {
+  position: relative;
+  overflow: hidden;
+  padding: 32px;
+  border-radius: var(--r-l, 16px);
+  background: linear-gradient(135deg, rgba(110, 68, 255, 0.08) 0%, rgba(16, 185, 129, 0.05) 100%), var(--card);
+  border: 1px solid var(--accent-line, rgba(110, 68, 255, 0.3));
+  box-shadow: 0 12px 32px var(--accent-alpha);
+  margin-top: 24px;
+}
+
+.flipping-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+@media (max-width: 640px) {
+  .flipping-stats-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.flip-stat-box {
+  padding: 16px;
+  border-radius: var(--r-m, 12px);
+  background: var(--card);
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.flip-stat-num {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--accent);
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+}
+
+.flip-stat-desc {
+  font-size: 12px;
+  color: var(--text-2);
+  margin-top: 4px;
+}
+
+.flip-platforms-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 12.5px;
+  color: var(--text-3);
+}
+
+.flip-platform-pill {
+  padding: 4px 8px;
+  border-radius: var(--r-pill, 9999px);
+  background: var(--panel, var(--card));
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* ---------- Batch Timings Selection Cards ---------- */
+.batch-timings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+@media (max-width: 600px) {
+  .batch-timings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.batch-timing-card {
+  padding: 16px;
+  border-radius: var(--r-m, 12px);
+  background: var(--card);
+  border: 1px solid var(--line);
+  transition: border-color 0.2s var(--ease);
+}
+
+.batch-timing-card.active-timing {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, var(--surface-light, rgba(110, 68, 255, 0.04)) 0%, var(--card) 100%);
+}
+
+.batch-shift-name {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.batch-hours-val {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.batch-days-val {
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+/* ---------- 14-Day Money-Back Guarantee Card ---------- */
+.moneyback-guarantee-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px;
+  border-radius: var(--r-m, 12px);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, var(--card) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  margin-top: 24px;
+}
+
+.guarantee-shield-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-emerald);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.guarantee-text-col h3, .guarantee-text-col h4 {
+  font-size: 15.5px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.guarantee-text-col p {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ---------- Pricing Strikethrough & Savings Tag ---------- */
+.tuition-price-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.tuition-original-price {
+  font-size: 15px;
+  color: var(--text-3);
+  text-decoration: line-through;
+  font-weight: 600;
+}
+
+.tuition-savings-pill {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: var(--r-pill, 9999px);
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-emerald);
+}
+
+/* ---------- Reduced Motion Compliance (Rule 3) ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-browser-card {
+    transform: none !important;
+  }
+}

@@ -1,0 +1,39 @@
+# OneSkills Academy - Apache 301 Redirects & Canonical Architecture
+# Preserving #1 Google Rankings during WordPress -> Static Architecture Migration
+
+RewriteEngine On
+
+# 301 Permanent Redirects for Ranked Course Slugs
+RewriteRule ^courses/freelancing-digital-marketing-mastery/?$ /courses/freelancing-mastery.html [R=301,L]
+RewriteRule ^courses/ai-tools-automation/?$ /courses/ai-tools-automation.html [R=301,L]
+RewriteRule ^courses/ai-powered-web-development/?$ /courses/ai-web-development.html [R=301,L]
+RewriteRule ^courses/crypto-trading-training/?$ /courses/crypto-trading.html [R=301,L]
+RewriteRule ^courses/forex-trading-mastery/?$ /courses/forex-trading.html [R=301,L]
+RewriteRule ^courses/web3-blockchain-mastery/?$ /courses/web3-blockchain.html [R=301,L]
+RewriteRule ^courses/ai-based-computer-course-sheikhupura/?$ /courses/ai-based-computer-course.html [R=301,L]
+RewriteRule ^courses/redesigned/?$ /courses/redesigned.html [R=301,L]
+RewriteRule ^courses/redesined/?$ /courses/redesined.html [R=301,L]
+RewriteRule ^redesigned/?$ /redesigned.html [R=301,L]
+# Content Gap Hubs & New Landing Pages
+RewriteRule ^courses/shopify-ecommerce-course-in-sheikhupura/?$ /courses/shopify-ecommerce.html [R=301,L]
+RewriteRule ^courses/shopify-ecommerce/?$ /courses/shopify-ecommerce.html [R=301,L]
+RewriteRule ^courses/programming-js-cpp/?$ /courses/programming-js-cpp.html [R=301,L]
+RewriteRule ^courses/ai-based-computer-course/?$ /courses/ai-based-computer-course.html [R=301,L]
+
+# Archived & Legacy Variant Course Slugs
+RewriteRule ^courses/digital_marketing_.*$ /courses/freelancing-mastery.html [R=301,L]
+RewriteRule ^courses/dm-new-course\.html$ /courses/freelancing-mastery.html [R=301,L]
+RewriteRule ^courses/web-development-v2\.html$ /courses/ai-web-development.html [R=301,L]
+RewriteRule ^courses/ai-web-development1\.html$ /courses/ai-web-development.html [R=301,L]
+RewriteRule ^computer-courses-after-matric-in-sheikhupura/?$ /guides/computer-courses-after-matric-in-sheikhupura.html [R=301,L]
+RewriteRule ^which-computer-course-is-best-for-online-earning-in-sheikhupura/?$ /guides/which-computer-course-is-best-for-online-earning-in-sheikhupura.html [R=301,L]
+RewriteRule ^office-management-ms-office-course-in-sheikhupura/?$ /guides/office-management-ms-office-course-in-sheikhupura.html [R=301,L]
+RewriteRule ^ai-graphic-design-video-editing-course-sheikhupura/?$ /guides/ai-graphic-design-video-editing-course-sheikhupura.html [R=301,L]
+RewriteRule ^computer-courses-for-females-in-sheikhupura/?$ /guides/computer-courses-for-females-in-sheikhupura.html [R=301,L]
+RewriteRule ^dit-vs-short-ai-computer-course-sheikhupura/?$ /guides/dit-vs-short-ai-computer-course-sheikhupura.html [R=301,L]
+RewriteRule ^computer-it-courses-for-farooqabad-safdarabad-students/?$ /guides/computer-it-courses-for-farooqabad-safdarabad-students.html [R=301,L]
+RewriteRule ^ai-web-development-trading-courses-near-muridke/?$ /guides/ai-web-development-trading-courses-near-muridke.html [R=301,L]
+RewriteRule ^seo-training-website-flipping-course-sheikhupura/?$ /guides/seo-training-website-flipping-course-sheikhupura.html [R=301,L]
+
+# Custom 404 Error Page
+ErrorDocument 404 /404.html

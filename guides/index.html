@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Student &amp; Career Guidance Hub (2026) | OneSkills Academy Sheikhupura</title>
+  <meta name="description"
+    content="Practical career guides for students, job seekers, and matric/inter pass-outs in Sheikhupura. Local IT roadmaps, freelancing guides, and commute advice.">
+  <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+  <link rel="canonical" href="https://oneskills.pk/guides/">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf8ff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#090614">
+  <meta name="theme-color" content="#faf8ff" id="meta-theme-color">
+  <meta name="color-scheme" content="light dark">
+
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var theme = saved || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      var meta = document.getElementById('meta-theme-color');
+      if (meta) meta.setAttribute('content', theme === 'light' ? '#faf8ff' : '#090614');
+    })();
+  </script>
+
+  <link rel="icon" type="image/webp" href="../favicon.webp">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/brand/favicon.webp">
+  <link rel="shortcut icon" href="../favicon.webp">
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="OneSkills Academy Sheikhupura">
+  <meta property="og:title" content="Student &amp; Career Guidance Hub (2026) | OneSkills Academy">
+  <meta property="og:description"
+    content="Practical career guides for students, job seekers, and matric/inter pass-outs in Sheikhupura. Local IT roadmaps, freelancing guides, and commute advice.">
+  <meta property="og:url" content="https://oneskills.pk/guides/">
+  <meta property="og:image" content="https://oneskills.pk/assets/images/brand/og-cover.webp">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@oneskillspk">
+  <meta name="twitter:title" content="Student &amp; Career Guidance Hub (2026) | OneSkills Academy">
+  <meta name="twitter:description"
+    content="Practical career guides for students, job seekers, and matric/inter pass-outs in Sheikhupura. Local IT roadmaps, freelancing guides, and commute advice.">
+  <meta name="twitter:image" content="https://oneskills.pk/assets/images/brand/og-cover.webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/course-detail.css">
+
+  <style>
+    .hub-page {
+      padding-top: calc(var(--header-h, 64px) + 36px);
+      padding-bottom: 96px;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .hub-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .hub-header {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 48px;
+    }
+
+    .hub-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      background: var(--accent-dim);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+      border: 1px solid var(--accent-line);
+    }
+
+    .hub-title {
+      font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -.025em;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .hub-subtitle {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--text-2);
+    }
+
+    .hub-filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+
+    .hub-filter-btn {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--text-2);
+      padding: 8px 18px;
+      border-radius: var(--r-s, 8px);
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+
+    .hub-filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .hub-filter-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      box-shadow: 0 4px 14px var(--accent-shadow);
+    }
+
+    .hub-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 992px) {
+      .hub-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hub-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hub-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .hub-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-line);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+    }
+
+    .hub-card-top {
+      margin-bottom: 16px;
+    }
+
+    .hub-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .hub-tag {
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      font-size: 11px;
+    }
+
+    .hub-reading-time {
+      color: var(--text-3);
+    }
+
+    .hub-card-title {
+      font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .hub-card-excerpt {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--text-2);
+    }
+
+    .hub-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      margin-top: 20px;
+      font-size: 13px;
+    }
+
+    .hub-card-author {
+      color: var(--text-3);
+      font-weight: 500;
+    }
+
+    .hub-card-link {
+      color: var(--accent);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .hub-card:hover .hub-card-link {
+      text-decoration: underline;
+    }
+
+    /* Hub CTA Strip */
+    .hub-cta-strip {
+      margin-top: 64px;
+      padding: 36px 32px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(0, 117, 222, 0.08), rgba(124, 58, 237, 0.08));
+      border: 1px solid var(--accent-line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .hub-cta-strip {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    .hub-cta-text h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .hub-cta-text p {
+      color: var(--text-2);
+      font-size: 14.5px;
+      margin: 0;
+    }
+  </style>
+
+  <!-- Schema.org CollectionPage JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "OneSkills Student & Career Guidance Hub (2026)",
+    "description": "Comprehensive practical computer course guidance, matric break roadmaps, and local career advice for students in Sheikhupura.",
+    "url": "https://oneskills.pk/guides/",
+    "publisher": {
+      "@type": "EducationalOrganization",
+      "name": "OneSkills Academy",
+      "url": "https://oneskills.pk/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://oneskills.pk/" },
+      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://oneskills.pk/guides/" }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <!-- SITE HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="../index.html#home" class="logo" aria-label="OneSkills Academy home">
+        <img class="logo-img logo-light-img" src="../assets/images/brand/OneSkills-Logo-light.webp" alt="OneSkills Academy" width="160" height="36">
+        <img class="logo-img logo-dark-img" src="../assets/images/brand/OneSkills-Logo-dark.webp" alt="OneSkills Academy" width="160" height="36">
+      </a>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a class="nav-link" href="../index.html#home">Home</a></li>
+          <li><a class="nav-link" href="../index.html#courses">Courses</a></li>
+          <li><a class="nav-link active" href="index.html" aria-current="page">Guides</a></li>
+          <li><a class="nav-link" href="../about.html">About</a></li>
+          <li><a class="nav-link" href="../index.html#instructors">Instructors</a></li>
+          <li><a class="nav-link" href="../index.html#faq">FAQ</a></li>
+          <li><a class="nav-link" href="../index.html#contact">Contact</a></li>
+          <li class="mobile-nav-theme"><button class="mobile-theme-btn" id="mobile-theme-btn" type="button" aria-label="Switch theme"><span>Switch Theme</span><span aria-hidden="true">☀ / ☾</span></button></li>
+        </ul>
+      </nav>
+      <div class="header-ctas">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <a class="btn-header-primary" href="https://wa.me/923176036127?text=Hi%20OneSkills%20Academy%2C%20I%20want%20to%20ask%20about%20career%20guidance." target="_blank" rel="noopener noreferrer" aria-label="Talk to career counselor on WhatsApp"><span class="btn-text-full">Book Free Demo</span><span class="btn-text-short">Free Demo</span><span class="btn-header-arrow" aria-hidden="true">→</span></a>
+        <button class="hamburger" id="hamburger-btn" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu"><i></i><i></i><i></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="hub-page">
+    <div class="hub-container">
+      
+      <!-- Breadcrumb -->
+      <nav class="course-breadcrumbs" aria-label="Breadcrumb navigation" style="margin-bottom: 24px;">
+        <a href="../index.html">Home</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">Student &amp; Career Guides</span>
+      </nav>
+
+      <!-- Hub Header -->
+      <header class="hub-header">
+        <div class="hub-badge">Local Guidance &middot; Sheikhupura</div>
+        <h1 class="hub-title">OneSkills Career &amp; Student Guidance Hub</h1>
+        <p class="hub-subtitle">
+          Real, practical roadmaps on computer courses after matric, freelancing paths, local office skills, and regional commute guidance written by active industry mentors.
+        </p>
+      </header>
+
+      <!-- Category Filter Tabs -->
+      <div class="hub-filter-tabs" role="tablist" aria-label="Filter Guides">
+        <button class="hub-filter-btn active" data-filter="all" type="button">All Guides (9)</button>
+        <button class="hub-filter-btn" data-filter="matric" type="button">Matric &amp; Intermediate (3)</button>
+        <button class="hub-filter-btn" data-filter="earning" type="button">Online Earning &amp; Freelancing (3)</button>
+        <button class="hub-filter-btn" data-filter="regional" type="button">Regional &amp; Female Batches (3)</button>
+      </div>
+
+      <!-- Guides Cards Grid -->
+      <div class="hub-grid" id="guides-grid">
+        
+        <!-- Guide 1 -->
+        <a href="computer-courses-after-matric-in-sheikhupura.html" class="hub-card" data-category="matric">
+          <div class="hub-card-top">
+            <div class="hub-card-meta">
+              <span class="hub-tag">Career Roadmap</span>
+              <span class="hub-reading-time">7 Min Read</span>
+            </div>
+            <h2 class="hub-card-title">Best Computer Courses After Matric &amp; Intermediate in Sheikhupura (2026 Guide)</h2>
+            <p class="hub-card-excerpt">
+              Practical comparison of AI computer courses, web development, and freelancing for matric and intermediate students during their 3-month exam break.
+            </p>
+          </div>
+          <div class="hub-card-footer">
+            <span class="hub-card-author">Nisar Mehar</span>
+            <span class="hub-card-link">Read Guide &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Guide 2 -->
+        <a href="which-computer-course-is-best-for-online-earning-in-sheikhupura.html" class="hub-card" data-category="earning">
+          <div class="hub-card-top">
+            <div class="hub-card-meta">
+              <span class="hub-tag">Online Earning</span>
+              <span class="hub-reading-time">8 Min Read</span>
+            </div>
+            <h2 class="hub-card-title">Which Computer Course is Best for Online Earning in Sheikhupura? (Honest 2026 Breakdown)</h2>
+            <p class="hub-card-excerpt">
+              Detailed breakdown of high-demand earning skills comparing Web Development, AI Tools, Crypto/Forex Trading, and Freelancing with realistic timelines.
+            </p>
+          </div>
+          <div class="hub-card-footer">
+            <span class="hub-card-author">Senior Mentor Team</span>
+            <span class="hub-card-link">Read Guide &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Guide 3 -->
+        <a href="dit-vs-short-ai-computer-course-sheikhupura.html" class="hub-card" data-category="matric">
+          <div class="hub-card-top">
+            <div class="hub-card-meta">
+              <span class="hub-tag">Course Comparison</span>
+              <span class="hub-reading-time">6 Min Read</span>
+            </div>
+            <h2 class="hub-card-title">DIT vs Short AI Computer Course: Which Should You Choose in Sheikhupura?</h2>
+            <p class="hub-card-excerpt">
+              Compare traditional 1-year government DIT diplomas with intensive 3-month AI-powered practical skill bootcamps. Curriculum and job outcomes analyzed.
+            </p>
+          </div>
+          <div class="hub-card-footer">
+            <span class="hub-card-author">Academic Desk</span>
+            <span class="hub-card-link">Read Guide &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Guide 4 -->
+        <a href="office-management-ms-office-course-in-sheikhupura.html" class="hub-card" data-category="matric">
+          <div class="hub-card-top">
+            <div class="hub-card-meta">
+              <span class="hub-tag">Office Skills</span>
+              <span class="hub-reading-time">6 Min Read</span>
+            </div>
+            <h2 class="hub-card-title">Advanced MS Office &amp; AI Productivity Course in Sheikhupura</h2>
+            <p class="hub-card-excerpt">
+              Master Excel dashboards, Word documentation, PowerPoint pitching, and ChatGPT automation for corporate, school, and factory management roles.
+            </p>
+          </div>
+          <div class="hub-card-footer">
+            <span class="hub-card-author">Asghar Ali</span>
+            <span class="hub-card-link">Read Guide &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Guide 5 -->
+        <a href="ai-graphic-design-video-editing-course-sheikhupura.html" class="hub-card" data-category="earning">
+          <div class="hub-card-top">
+            <div class="hub-card-meta">
+              <span class="hub-tag">Creative Track</span>
+              <span class="hub-reading-time">7 Min Read</span>
+            </div>
+            <h2 class="hub-card-title">AI Graphic Design &amp; Video Editing Course in Sheikhupura</h2>
+            <p class="hub-card-excerpt">
+              Learn Adobe Photoshop, Premiere Pro, CapCut, and Midjourney to produce viral social media reels, YouTube edits, and freelance brand assets.
+            </p>
+          </div>
+          <div class="hub-card-footer">
+            <span class="hub-card-author">Creative Dept.</span>
+            <span class="hub-card-link">Read Guide &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Guide 6 -->
+        <a href="seo-training-website-flipping-course-sheikhupura.html" class="hub-card" data-category="earning">
+          <div class="hub-card-top">
+            <div class="hub-card-meta">
+              <span class="hub-tag">Digital Marketing</span>
+              <span class="hub-reading-time">7 Min Read</span>
+            </div>
+            <h2 class="hub-card-title">Practical SEO Training &amp; Digital Marketing Course in Sheikhupura</h2>
+            <p class="hub-card-excerpt">
+              Hands-on search engine optimization, Google Search Console, keyword research, programmatic content, and client ranking campaigns.
+            </p>
+          </div>
+          <div class="hub-card-footer">
+            <span class="hub-card-author">Nisar Mehar</span>
+            <span class="hub-card-link">Read Guide &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Guide 7 -->
+        <a href="computer-courses-for-females-in-sheikhupura.html" class="hub-card" data-category="regional">
+          <div class="hub-card-top">
+            <div class="hub-card-meta">
+              <span class="hub-tag">Female Students</span>
+              <span class="hub-reading-time">6 Min Read</span>
+            </div>
+            <h2 class="hub-card-title">Computer &amp; IT Courses for Females in Sheikhupura (Safe Lab &amp; Timings)</h2>
+            <p class="hub-card-excerpt">
+              Dedicated female batches, privacy-focused computer labs, female mentor support, and remote freelance career training in Sargodha Road campus.
+            </p>
+          </div>
+          <div class="hub-card-footer">
+            <span class="hub-card-author">Admissions Desk</span>
+            <span class="hub-card-link">Read Guide &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Guide 8 -->
+        <a href="computer-it-courses-for-farooqabad-safdarabad-students.html" class="hub-card" data-category="regional">
+          <div class="hub-card-top">
+            <div class="hub-card-meta">
+              <span class="hub-tag">Regional Commute</span>
+              <span class="hub-reading-time">6 Min Read</span>
+            </div>
+            <h2 class="hub-card-title">Computer &amp; IT Courses for Farooqabad &amp; Safdarabad Students (Commute Guide)</h2>
+            <p class="hub-card-excerpt">
+              Direct wagon and bus commute details from Farooqabad and Safdarabad to OneSkills Sheikhupura campus. Flexible batch scheduling for daily commuters.
+            </p>
+          </div>
+          <div class="hub-card-footer">
+            <span class="hub-card-author">Campus Desk</span>
+            <span class="hub-card-link">Read Guide &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Guide 9 -->
+        <a href="ai-web-development-trading-courses-near-muridke.html" class="hub-card" data-category="regional">
+          <div class="hub-card-top">
+            <div class="hub-card-meta">
+              <span class="hub-tag">Regional Commute</span>
+              <span class="hub-reading-time">6 Min Read</span>
+            </div>
+            <h2 class="hub-card-title">AI Web Development &amp; Trading Courses Near Muridke (Sheikhupura Campus)</h2>
+            <p class="hub-card-excerpt">
+              Why Muridke students choose OneSkills Sheikhupura over Lahore academies. Direct highway access, weekend batches, and live trading workstation access.
+            </p>
+          </div>
+          <div class="hub-card-footer">
+            <span class="hub-card-author">Lead Mentors</span>
+            <span class="hub-card-link">Read Guide &rarr;</span>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Quick Action Strip -->
+      <section class="hub-cta-strip" aria-labelledby="hub-cta-title">
+        <div class="hub-cta-text">
+          <h3 id="hub-cta-title">Need Personalized Career Advice?</h3>
+          <p>Visit our campus on Sargodha Road opposite Mian Hospital or chat with a senior mentor on WhatsApp.</p>
+        </div>
+        <a class="btn-action-primary" style="white-space: nowrap;"
+          href="https://wa.me/923176036127?text=Hi%20OneSkills%20Academy%2C%20I%20need%20personalized%20career%20guidance."
+          target="_blank" rel="noopener">
+          Chat on WhatsApp &rarr;
+        </a>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-wrap" id="footer">
+    <div class="container footer-container">
+
+      <div class="footer-top-grid">
+
+        <!-- Column 1: OneSkills.pk Brand -->
+        <div class="footer-brand-col">
+          <div class="footer-brand-name">OneSkills<span class="brand-pk">.pk</span></div>
+          <div class="footer-brand-sub" aria-hidden="true">ACADEMY</div>
+          <p class="footer-desc">Practical digital skills and hands-on mentorship for learners in Sheikhupura.</p>
+
+          <div class="footer-social-icons-grid" aria-label="OneSkills Social Media Profiles">
+            <a class="social-icon-btn fb" href="https://www.facebook.com/oneskillspk" target="_blank"
+              rel="noopener noreferrer" title="Follow @oneskillspk on Facebook" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
+            </a>
+            <a class="social-icon-btn insta" href="https://www.instagram.com/oneskillspk/" target="_blank"
+              rel="noopener noreferrer" title="Follow @oneskillspk on Instagram" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+            </a>
+            <a class="social-icon-btn yt" href="https://www.youtube.com/@OneSkillspk" target="_blank"
+              rel="noopener noreferrer" title="Subscribe to @OneSkillspk on YouTube" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg>
+            </a>
+            <a class="social-icon-btn x" href="https://x.com/oneskillspk/" target="_blank" rel="noopener noreferrer"
+              title="Follow @oneskillspk on X" aria-label="X Twitter">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+            </a>
+            <a class="social-icon-btn wa" href="https://wa.me/923176036127" target="_blank" rel="noopener noreferrer"
+              title="Chat with OneSkills on WhatsApp" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.163 8.163 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.01 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.84-.86 2.06 0 1.21.89 2.39 1.01 2.55.12.17 1.74 2.66 4.22 3.73.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29z" /></svg>
+            </a>
+          </div>
+
+          <div class="footer-brand-tagline-wrap">
+            <div class="footer-brand-dash" aria-hidden="true"></div>
+            <span class="footer-brand-tagline">Skills Today, Brighter Tomorrows.</span>
+          </div>
+        </div>
+
+        <!-- Column 2: Career Tracks -->
+        <div class="footer-col">
+          <h4>Career Tracks</h4>
+          <ul class="footer-links-list">
+            <li><a href="../courses/freelancing-mastery.html" class="footer-nav-item"><span>Freelancing Mastery</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="../courses/ai-tools-automation.html" class="footer-nav-item"><span>AI Tools &amp; Automation</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="../courses/ai-web-development.html" class="footer-nav-item"><span>AI Web Development</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="../courses/shopify-ecommerce.html" class="footer-nav-item"><span>Shopify &amp; E-Commerce</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="../courses/crypto-trading.html" class="footer-nav-item"><span>Crypto Trading</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="../courses/ai-based-computer-course.html" class="footer-nav-item"><span>Computer &amp; Office Skills</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Academy Hub -->
+        <div class="footer-col">
+          <h4>Academy Hub</h4>
+          <ul class="footer-links-list">
+            <li><a href="../about.html" class="footer-nav-item"><span>About Us</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="index.html" class="footer-nav-item"><span>Career Guides Hub</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="../index.html#instructors" class="footer-nav-item"><span>Lead Mentors</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="../index.html#faq" class="footer-nav-item"><span>FAQ &amp; Admissions</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a href="../index.html#contact" class="footer-nav-item"><span>Campus Directions</span><span class="footer-nav-arrow" aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Campus Desk -->
+        <div class="footer-col">
+          <h4>Campus Desk</h4>
+          <ul class="footer-campus-list">
+            <li class="campus-info-item">
+              <div class="campus-item-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="campus-item-text">
+                <span class="campus-item-label">Address</span>
+                <span class="campus-item-val">Lahore – Sargodha Road, Opp. Mian Hospital, Near KIPS College, Sheikhupura</span>
+              </div>
+            </li>
+            <li class="campus-info-item">
+              <div class="campus-item-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="campus-item-text">
+                <span class="campus-item-label">Phone / WhatsApp</span>
+                <span class="campus-item-val"><a href="tel:+923176036127">+92 317 603 6127</a></span>
+              </div>
+            </li>
+            <li class="campus-info-item">
+              <div class="campus-item-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="campus-item-text">
+                <span class="campus-item-label">Hours</span>
+                <span class="campus-item-val">Mon–Sat &middot; 8:30 AM – 6:00 PM</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Legal Bar -->
+      <div class="footer-bottom-bar">
+        <p>&copy; 2026 OneSkills.pk. All Rights Reserved.</p>
+        <div class="footer-legal-links">
+          <a href="../privacy-policy.html">Privacy Policy</a>
+          <span class="legal-divider" aria-hidden="true">|</span>
+          <a href="../terms-of-service.html">Terms of Service</a>
+          <span class="legal-divider" aria-hidden="true">|</span>
+
+          <a href="#site-header" class="footer-back-to-top" id="footer-back-to-top" aria-label="Back to top">
+            <span class="back-to-top-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            </span>
+            <span>Back to top</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Panoramic Hiran Minar Visual -->
+      <div class="footer-hiran-wrap">
+        <img src="../assets/images/sections/Golden-Hour Reflections at Hiran Minar.webp" alt="Scenic golden-hour reflections at Hiran Minar in Sheikhupura" class="footer-hiran-img" loading="lazy" decoding="async" width="1920" height="540">
+        <div class="footer-hiran-fade" aria-hidden="true"></div>
+        <div class="footer-hiran-badge" aria-label="Sheikhupura — Our Home">
+          <span class="hiran-badge-city">Sheikhupura</span>
+          <span class="hiran-badge-home"><span>OUR HOME</span><span class="hiran-badge-line" aria-hidden="true"></span></span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      // Theme Toggle Engine
+      const btn = document.getElementById('theme-toggle');
+      const mobileBtn = document.getElementById('mobile-theme-btn');
+      const metaTheme = document.getElementById('meta-theme-color');
+      const toggle = () => {
+        const current = document.documentElement.getAttribute('data-theme') || 'dark';
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        if (metaTheme) metaTheme.setAttribute('content', next === 'light' ? '#faf8ff' : '#090614');
+      };
+      if (btn) btn.addEventListener('click', toggle);
+      if (mobileBtn) mobileBtn.addEventListener('click', toggle);
+
+      // Mobile Menu
+      const hBtn = document.getElementById('hamburger-btn');
+      const nav = document.getElementById('primary-nav');
+      const overlay = document.getElementById('nav-overlay');
+      if (hBtn && nav && overlay) {
+        let isOpen = false;
+        const toggleNav = (state) => {
+          isOpen = state;
+          hBtn.setAttribute('aria-expanded', String(state));
+          nav.classList.toggle('nav-open', state);
+          overlay.classList.toggle('overlay-open', state);
+          document.body.style.overflow = state ? 'hidden' : '';
+        };
+        hBtn.addEventListener('click', () => toggleNav(!isOpen));
+        overlay.addEventListener('click', () => toggleNav(false));
+      }
+
+      // Filter Tabs Logic
+      const filterBtns = document.querySelectorAll('.hub-filter-btn');
+      const cards = document.querySelectorAll('.hub-card');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.getAttribute('data-filter');
+          cards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

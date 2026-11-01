@@ -1,0 +1,1167 @@
+/* ============================================================
+   ONESKILLS — PREMIUM REFINEMENT LAYER
+   Load after main.css. Homepage scope only.
+   ============================================================ */
+
+:root {
+  --os-page: #fbfaf8;
+  --os-surface: #ffffff;
+  --os-soft: #f4f1f8;
+  --os-proof: #f2f5ef;
+  --os-ink: #1b1722;
+  --os-muted: #68616f;
+  --os-border: rgba(35, 27, 43, 0.11);
+  --os-quiet-button: #211a2b;
+  --os-quiet-button-text: #ffffff;
+}
+
+html[data-theme="light"] {
+  --bg: var(--os-page);
+  --bg-raise: var(--os-surface);
+  --card: var(--os-surface);
+  --card-hover: var(--os-surface);
+  --panel: var(--os-surface);
+  --text: var(--os-ink);
+  --text-2: #57505f;
+  --text-3: var(--os-muted);
+  --line: var(--os-border);
+  --line-strong: rgba(110, 68, 255, 0.32);
+  --surface-subtle: rgba(27, 23, 34, 0.025);
+  --surface-hover: rgba(110, 68, 255, 0.055);
+  --accent-light: #f0ebff;
+  --accent-dim: #f0ebff;
+  --header-scrolled-bg: rgba(251, 250, 248, 0.92);
+  --header-scrolled-border: var(--os-border);
+  --trust-bar-bg: var(--os-surface);
+  --trust-bar-border: var(--os-border);
+  --trust-bar-shadow: none;
+}
+
+html[data-theme="dark"] {
+  --os-page: #090714;
+  --os-surface: #14101f;
+  --os-soft: #100c1b;
+  --os-proof: #0d1412;
+  --os-ink: #f8f5fc;
+  --os-muted: #aaa0b8;
+  --os-border: rgba(255, 255, 255, 0.09);
+  --os-quiet-button: #eee8fa;
+  --os-quiet-button-text: #1b1327;
+  --header-scrolled-bg: rgba(9, 7, 20, 0.92);
+}
+
+html {
+  scroll-padding-top: calc(var(--header-h) + 24px);
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+
+body.home-page {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.home-page::before {
+  opacity: 0.45;
+  background-image:
+    radial-gradient(ellipse 65% 42% at 16% -8%, rgba(110, 68, 255, 0.045), transparent 70%),
+    radial-gradient(ellipse 45% 35% at 96% 38%, rgba(227, 245, 184, 0.08), transparent 75%);
+}
+
+/* Content must never depend on animation JavaScript. */
+body.home-page .reveal,
+body.home-page .reveal.show {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+body.home-page :focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+body.home-page summary.faq-trigger:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 5px;
+  border-radius: 8px;
+}
+
+/* ------------------------------------------------------------
+   Layout, surfaces and section rhythm
+   ------------------------------------------------------------ */
+
+body.home-page .container,
+body.home-page .header-inner,
+body.home-page .hero-layout-inner,
+body.home-page .hero-trust-bar {
+  max-width: 1240px;
+}
+
+body.home-page .section-wrapper {
+  padding: clamp(80px, 7.5vw, 108px) 0;
+  border-bottom: 0;
+}
+
+body.home-page .method-section,
+body.home-page .reviews-section,
+body.home-page .faq-section,
+body.home-page .campus-section {
+  background: var(--bg);
+}
+
+body.home-page .courses-section {
+  background: var(--os-soft);
+}
+
+body.home-page .reviews-section {
+  background: var(--os-proof);
+}
+
+body.home-page .final-cta-section {
+  padding: 24px 0 96px;
+}
+
+body.home-page .campus-section {
+  padding-top: 96px;
+}
+
+body.home-page .method-bg-silhouette,
+body.home-page .reviews-landmark-bg {
+  opacity: 0.1;
+}
+
+/* ------------------------------------------------------------
+   Header and shared buttons
+   ------------------------------------------------------------ */
+
+body.home-page .site-header.scrolled {
+  box-shadow: 0 8px 30px rgba(27, 23, 34, 0.045);
+}
+
+body.home-page .primary-nav ul {
+  gap: 2px;
+}
+
+body.home-page .nav-link {
+  padding: 8px 12px;
+  border-radius: 9px;
+  font-size: 13px;
+}
+
+body.home-page .nav-link.active {
+  color: var(--text);
+  background: var(--surface-hover);
+  border-color: transparent;
+  font-weight: 600;
+}
+
+body.home-page :is(
+  .btn-header-primary,
+  .btn-primary.hero-btn-primary,
+  .flagship-cta,
+  .btn-final-demo,
+  .btn-campus-directions
+) {
+  background: var(--accent);
+  color: #ffffff !important;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(110, 68, 255, 0.18);
+  filter: none;
+}
+
+body.home-page :is(
+  .btn-header-primary,
+  .btn-primary.hero-btn-primary,
+  .flagship-cta,
+  .btn-final-demo,
+  .btn-campus-directions
+):hover {
+  background: var(--accent-hover);
+  color: #ffffff !important;
+  box-shadow: 0 11px 26px rgba(110, 68, 255, 0.23);
+  filter: none;
+  transform: translateY(-2px);
+}
+
+body.home-page .btn-header-primary {
+  min-height: 42px;
+  padding: 9px 18px;
+}
+
+body.home-page :is(
+  .link-secondary.hero-btn-secondary,
+  .btn-final-wa,
+  .course-view-link
+) {
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+/* Contextual advisor actions should not compete with demo conversion. */
+body.home-page :is(
+  .btn-guidance-advisor,
+  .btn-roadmap-advisor,
+  .btn-mentor-demo,
+  .btn-demo-banner,
+  .btn-advisor-action
+) {
+  background: var(--os-quiet-button);
+  color: var(--os-quiet-button-text) !important;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  box-shadow: none;
+  filter: none;
+}
+
+body.home-page :is(
+  .btn-guidance-advisor,
+  .btn-roadmap-advisor,
+  .btn-mentor-demo,
+  .btn-demo-banner,
+  .btn-advisor-action
+):hover {
+  background: var(--accent);
+  color: #ffffff !important;
+  box-shadow: none;
+  filter: none;
+  transform: translateY(-1px);
+}
+
+/* ------------------------------------------------------------
+   Hero — retain the original mascot and composition
+   ------------------------------------------------------------ */
+
+body.home-page .hero {
+  padding-top: calc(var(--header-h) + 42px);
+  padding-bottom: 44px;
+}
+
+body.home-page .hero-layout-inner {
+  gap: 36px;
+}
+
+body.home-page .hero-content {
+  max-width: 590px;
+}
+
+body.home-page .hero-grid {
+  opacity: 0.3;
+}
+
+body.home-page .hero-glow {
+  opacity: 0.5;
+}
+
+body.home-page .hero-beam,
+body.home-page .hero-section-divider {
+  display: none;
+}
+
+body.home-page .hero-h1 {
+  max-width: 610px;
+  font-size: clamp(2.9rem, 4.25vw, 4rem);
+  font-weight: 600;
+  line-height: 1.045;
+  letter-spacing: -0.048em;
+}
+
+body.home-page .accent-sheikhupura {
+  color: var(--accent);
+  background: none;
+  -webkit-text-fill-color: var(--accent);
+}
+
+body.home-page .hero-sub {
+  max-width: 550px;
+  color: var(--text-2);
+  font-size: 16px;
+  line-height: 1.72;
+}
+
+body.home-page .pill {
+  background: var(--card);
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+body.home-page .pill-tag {
+  color: var(--accent);
+  background: var(--accent-light);
+  border-radius: 8px;
+}
+
+body.home-page .pill-dot {
+  background: var(--accent);
+  box-shadow: none;
+}
+
+body.home-page .pill-dot::after {
+  display: none;
+}
+
+body.home-page .mascot-frame,
+body.home-page .hero-skill-badge,
+body.home-page .badge-round-icon,
+body.home-page .badge-round-icon img,
+body.home-page .portal-ring {
+  animation: none !important;
+}
+
+body.home-page .badge-round-icon {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 24px rgba(35, 27, 43, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease;
+}
+
+body.home-page .badge-round-icon img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 10px;
+  opacity: 1;
+  display: block;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.home-page .hero-skill-badge {
+  cursor: pointer;
+}
+
+body.home-page .hero-skill-badge:hover .badge-round-icon {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 16px 32px rgba(110, 68, 255, 0.18), 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+body.home-page .hero-skill-badge:hover .badge-round-icon img {
+  transform: scale(1.04);
+}
+
+html[data-theme="dark"] body.home-page .badge-round-icon {
+  background: rgba(20, 16, 31, 0.75);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="dark"] body.home-page .hero-skill-badge:hover .badge-round-icon {
+  box-shadow: 0 16px 36px rgba(110, 68, 255, 0.32), 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+body.home-page .hero-trust-bar {
+  margin-top: 18px;
+  padding: 24px 28px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body.home-page .metric-icon-box {
+  width: 38px;
+  height: 38px;
+  color: var(--accent);
+  background: var(--accent-light);
+  border-radius: 11px;
+}
+
+body.home-page .metric-value {
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+body.home-page .metric-title {
+  color: var(--text-3);
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+
+body.home-page .hero-brand-proof {
+  gap: 13px;
+}
+
+body.home-page .brand-proof-heading {
+  color: var(--text-3);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+body.home-page .brand-logo {
+  opacity: 0.76;
+}
+
+/* --------------------------------------------------
+   Unified editorial section headings
+   -------------------------------------------------- */
+
+body.home-page :is(
+  .method-heading,
+  .courses-heading,
+  .roadmap-title,
+  .mentor-title,
+  .reviews-title,
+  .faq-title,
+  .campus-headline,
+  .final-cta-title
+) {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.35vw, 2.9rem);
+  font-weight: 600;
+  line-height: 1.13;
+  letter-spacing: -0.042em;
+  text-wrap: balance;
+}
+
+body.home-page :is(
+  .method-eyebrow,
+  .courses-eyebrow,
+  .roadmap-eyebrow,
+  .mentor-eyebrow,
+  .reviews-eyebrow,
+  .faq-eyebrow,
+  .campus-eyebrow
+) {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  color: var(--accent);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+}
+
+body.home-page :is(
+  .method-eyebrow,
+  .courses-eyebrow,
+  .roadmap-eyebrow,
+  .mentor-eyebrow,
+  .reviews-eyebrow,
+  .faq-eyebrow,
+  .campus-eyebrow
+)::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+body.home-page .campus-eyebrow-dot {
+  display: none;
+}
+
+body.home-page :is(
+  .method-heading-accent,
+  .courses-heading-accent,
+  .roadmap-title-accent,
+  .mentor-title-accent,
+  .reviews-accent-phrase,
+  .faq-accent-phrase,
+  .campus-accent-phrase
+) {
+  color: var(--accent);
+  white-space: normal;
+  border: 0;
+  padding: 0;
+}
+
+body.home-page .courses-heading-accent {
+  border-bottom: 0 !important;
+}
+
+body.home-page :is(
+  .method-heading-swoosh,
+  .roadmap-heading-swoosh,
+  .mentor-heading-swoosh,
+  .reviews-underline-svg,
+  .faq-underline-svg,
+  .campus-underline-svg
+) {
+  display: none;
+}
+
+body.home-page :is(
+  .method-annotation,
+  .courses-ann-left,
+  .courses-ann-right,
+  .review-annotation,
+  .faq-annotation,
+  .campus-annotation,
+  .final-cta-ann,
+  .mentor-note-top,
+  .mentor-cta-decor
+) {
+  display: none !important;
+}
+
+body.home-page :is(
+  .method-lead,
+  .courses-lead,
+  .roadmap-sub,
+  .mentor-sub,
+  .reviews-sub,
+  .faq-sub,
+  .campus-sub
+) {
+  color: var(--text-2);
+  font-size: 15px;
+  line-height: 1.72;
+}
+
+/* --------------------------------------------------
+   Method, courses and roadmap
+   -------------------------------------------------- */
+
+body.home-page .stage-card,
+body.home-page .course-card-standard,
+body.home-page .course-card-flagship,
+body.home-page .method-benefits-bar,
+body.home-page .mentor-benefits-panel {
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+body.home-page .stage-card {
+  border-radius: 16px;
+}
+
+body.home-page .stage-card:hover,
+body.home-page .course-card-standard:hover,
+body.home-page .course-card-flagship:hover {
+  border-color: rgba(110, 68, 255, 0.28);
+  box-shadow: 0 14px 34px rgba(35, 24, 48, 0.07);
+}
+
+body.home-page .method-benefits-bar,
+body.home-page .mentor-benefits-panel {
+  border-radius: 18px;
+}
+
+body.home-page .course-card-flagship {
+  padding: 24px;
+  border-radius: 24px;
+}
+
+body.home-page .flagship-proof-card {
+  background: var(--accent-light);
+  border-color: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+body.home-page .course-card-flagship:hover .flagship-proof-card {
+  box-shadow: none;
+  transform: none;
+}
+
+body.home-page .courses-grid-cards {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+body.home-page .courses-grid-cards .course-card-standard,
+body.home-page .courses-grid-cards.is-filtered .course-card-standard {
+  grid-column: auto;
+}
+
+body.home-page .course-card-standard {
+  padding: 14px 14px 16px;
+  border-radius: 18px;
+}
+
+body.home-page .course-card-standard:hover {
+  transform: translateY(-3px);
+}
+
+body.home-page .course-media-wrap {
+  border-color: var(--line);
+}
+
+body.home-page .course-title {
+  font-size: 16px;
+  line-height: 1.38;
+}
+
+body.home-page .course-desc {
+  color: var(--text-2);
+  font-size: 12.5px;
+  line-height: 1.58;
+}
+
+body.home-page .course-view-link {
+  color: var(--accent);
+  background: var(--surface-subtle);
+  border-color: var(--line);
+}
+
+body.home-page .course-card-standard:hover .course-view-link:not(:hover) {
+  color: var(--accent) !important;
+  background: var(--accent-light) !important;
+  border-color: rgba(110, 68, 255, 0.18) !important;
+  box-shadow: none;
+}
+
+body.home-page .course-view-link:hover {
+  color: #ffffff !important;
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  box-shadow: none;
+}
+
+body.home-page .filter-btn {
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+body.home-page .filter-btn.active {
+  color: #ffffff !important;
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  box-shadow: none;
+}
+
+body.home-page .roadmap-grid {
+  gap: 24px;
+}
+
+body.home-page .roadmap-icon-bubble {
+  width: 60px;
+  height: 60px;
+  background: var(--card);
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+body.home-page .roadmap-icon-bubble svg {
+  width: 26px;
+  height: 26px;
+}
+
+body.home-page .roadmap-step-badge {
+  height: 60px;
+}
+
+body.home-page .roadmap-step-num {
+  top: 7px;
+  font-size: 19px;
+}
+
+body.home-page .roadmap-connector {
+  opacity: 0.55;
+}
+
+body.home-page .roadmap-stage-title {
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+body.home-page .roadmap-meta-pill {
+  padding: 0;
+  color: var(--text-3);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+/* --------------------------------------------------
+   Shared quiet advisor treatments
+   -------------------------------------------------- */
+
+body.home-page :is(
+  .career-guidance-banner,
+  .roadmap-cta-banner,
+  .mentor-cta-panel,
+  .reviews-demo-banner
+) {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+body.home-page .career-guidance-banner,
+body.home-page .roadmap-cta-banner,
+body.home-page .mentor-cta-panel,
+body.home-page .reviews-demo-banner {
+  padding: 22px 24px;
+}
+
+body.home-page .guidance-landmark-backdrop,
+body.home-page .roadmap-cta-watermark,
+body.home-page .guidance-landmark-brand,
+body.home-page .roadmap-cta-divider,
+body.home-page .mentor-cta-divider {
+  display: none;
+}
+
+body.home-page .roadmap-cta-title,
+body.home-page .mentor-cta-title,
+body.home-page .guidance-title {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------
+   Mentor network
+   -------------------------------------------------- */
+
+body.home-page .mentor-orbit-wrap {
+  margin-bottom: 40px;
+}
+
+body.home-page .mentor-orbit-arena {
+  height: 580px;
+}
+
+body.home-page .mentor-center-avatar-wrap {
+  box-shadow:
+    0 10px 28px rgba(110, 68, 255, 0.12),
+    0 0 0 8px rgba(110, 68, 255, 0.045);
+}
+
+body.home-page .mentor-name {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+body.home-page .mentor-specialty-pill {
+  color: var(--text-2);
+  background: var(--card);
+  border-color: var(--line);
+  line-height: 1.35;
+}
+
+/* --------------------------------------------------
+   Reviews and FAQ
+   -------------------------------------------------- */
+
+body.home-page .featured-review-card,
+body.home-page .google-proof-card,
+body.home-page .supporting-review-card,
+body.home-page .faq-advisor-card,
+body.home-page .faq-panel-container {
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+body.home-page .featured-quote {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  font-weight: 400;
+  line-height: 1.46;
+  letter-spacing: -0.015em;
+}
+
+body.home-page .google-proof-card {
+  background: var(--card);
+}
+
+body.home-page .google-rating-score {
+  letter-spacing: -0.045em;
+}
+
+body.home-page .btn-google-action {
+  color: var(--text) !important;
+  background: var(--surface-subtle);
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+
+body.home-page .btn-google-action:hover {
+  color: var(--accent) !important;
+  background: var(--accent-light);
+  box-shadow: none;
+  transform: none;
+}
+
+body.home-page .supporting-quote-text {
+  line-height: 1.68;
+}
+
+body.home-page .faq-advisor-card {
+  background: var(--accent-light);
+}
+
+body.home-page .faq-panel-container {
+  padding: 28px 32px;
+}
+
+body.home-page details.faq-item[open] {
+  background: transparent;
+  border-color: var(--line);
+}
+
+body.home-page .faq-q-title {
+  line-height: 1.5;
+}
+
+body.home-page .g-review-modal-box,
+body.home-page .video-modal {
+  max-height: calc(100dvh - 48px);
+}
+
+body.home-page .g-review-modal-box {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* --------------------------------------------------
+   Campus, final CTA and footer
+   -------------------------------------------------- */
+
+body.home-page .campus-map-card,
+body.home-page .campus-info-card,
+body.home-page .campus-benefits-row {
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+body.home-page .campus-info-card {
+  padding: 30px 28px;
+}
+
+body.home-page .campus-benefits-row {
+  background: transparent;
+}
+
+body.home-page .campus-tagline {
+  display: none;
+}
+
+body.home-page .final-cta-card {
+  min-height: 400px;
+  border-color: var(--line);
+  box-shadow: 0 24px 60px rgba(44, 30, 62, 0.1);
+}
+
+body.home-page .final-cta-content {
+  max-width: 700px;
+}
+
+body.home-page .footer-container {
+  border-radius: 24px;
+}
+
+body.home-page .footer-nav-item,
+body.home-page .campus-item-val,
+body.home-page .footer-desc {
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------
+   UI locking and map fallback
+   -------------------------------------------------- */
+
+body.os-ui-locked {
+  overflow: hidden !important;
+}
+
+body.os-ui-locked .sticky-cta,
+body.os-ui-locked .floating-wa {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.os-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.os-map-fallback {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  z-index: 1002;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow-card);
+  font-family: var(--font);
+}
+
+.os-map-fallback p {
+  margin: 0;
+  color: var(--text-2);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.os-map-fallback strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.os-map-fallback a {
+  flex: 0 0 auto;
+  padding: 9px 13px;
+  color: #ffffff;
+  background: var(--accent);
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------
+   Responsive refinements
+   -------------------------------------------------- */
+
+@media (max-width: 1180px) {
+  body.home-page .hero-h1 {
+    font-size: clamp(2.65rem, 4.6vw, 3.45rem);
+  }
+}
+
+@media (max-width: 1100px) {
+  body.home-page .courses-grid-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.home-page .course-card-standard {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 1023px) {
+  body.home-page .hero-h1 {
+    max-width: 760px;
+    font-size: clamp(2.9rem, 7vw, 4.25rem);
+  }
+
+  body.home-page .hero-h1-line {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 900px) {
+  body.home-page .section-wrapper {
+    padding: 76px 0;
+  }
+
+  body.home-page .floating-wa {
+    display: none;
+  }
+
+  body.home-page main {
+    padding-bottom: 96px;
+  }
+
+  body.home-page .sticky-cta {
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    left: 12px;
+    padding: 10px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 0 14px 40px rgba(25, 18, 35, 0.16);
+  }
+
+  body.home-page .sticky-cta .btn-sticky {
+    min-height: 44px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  body.home-page .hero-trust-bar {
+    padding: 20px;
+  }
+
+  body.home-page .trust-metrics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  body.home-page .trust-metric-card,
+  body.home-page .trust-metric-card:nth-child(2) {
+    padding: 0;
+    border: 0;
+  }
+
+  body.home-page .trust-metric-card:nth-child(odd) {
+    padding-right: 14px;
+    border-right: 1px solid var(--line);
+  }
+
+  body.home-page .trust-metric-card:nth-child(-n+2) {
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  body.home-page .faq-panel-container {
+    padding: 24px 20px;
+  }
+
+  body.home-page .roadmap-icon-bubble {
+    width: 56px;
+    height: 56px;
+  }
+
+  body.home-page .campus-info-card {
+    padding: 26px 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  body.home-page .hero {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  body.home-page .hero-h1 {
+    font-size: clamp(2.5rem, 11vw, 3.35rem);
+    line-height: 1.06;
+  }
+
+  body.home-page :is(
+    .method-heading,
+    .courses-heading,
+    .roadmap-title,
+    .mentor-title,
+    .reviews-title,
+    .faq-title,
+    .campus-headline,
+    .final-cta-title
+  ) {
+    font-size: clamp(1.9rem, 8vw, 2.45rem);
+    line-height: 1.17;
+  }
+
+  body.home-page .courses-grid-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body.home-page .course-card-flagship {
+    padding: 18px;
+  }
+
+  body.home-page .course-card-standard {
+    padding: 15px;
+  }
+
+  body.home-page .course-title {
+    min-height: 0;
+    font-size: 17px;
+  }
+
+  body.home-page .course-desc {
+    min-height: 0;
+    font-size: 13px;
+  }
+
+  body.home-page .mentor-orbit-arena {
+    height: auto;
+  }
+
+  body.home-page .featured-quote {
+    font-size: 1.35rem;
+  }
+
+  body.home-page .featured-review-card,
+  body.home-page .google-proof-card {
+    padding: 24px 20px;
+  }
+
+  body.home-page .final-cta-card {
+    min-height: 420px;
+  }
+
+  body.home-page .final-cta-section {
+    padding-bottom: 72px;
+  }
+
+  body.home-page .g-review-modal-box,
+  body.home-page .video-modal {
+    max-height: calc(100dvh - 28px);
+  }
+
+  .os-map-fallback {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .os-map-fallback a {
+    text-align: center;
+  }
+}
+
+@media (max-width: 380px) {
+  body.home-page .trust-metrics-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body.home-page .trust-metric-card,
+  body.home-page .trust-metric-card:nth-child(odd),
+  body.home-page .trust-metric-card:nth-child(-n+2) {
+    padding: 0 0 12px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  body.home-page .trust-metric-card:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+}
+
+@media (hover: none) {
+  body.home-page :is(
+    .course-card-standard,
+    .course-card-flagship,
+    .stage-card,
+    .featured-review-card,
+    .supporting-review-card
+  ):hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.home-page *,
+  body.home-page *::before,
+  body.home-page *::after {
+    scroll-behavior: auto !important;
+  }
+
+  body.home-page .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

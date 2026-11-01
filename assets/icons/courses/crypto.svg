@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs><linearGradient id="crypto-coin" x1="8" y1="6" x2="40" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#A68CFF"/><stop offset="1" stop-color="#6139D8"/></linearGradient></defs>
+  <circle cx="24" cy="24" r="17.5" fill="url(#crypto-coin)" fill-opacity=".12" stroke="url(#crypto-coin)" stroke-width="2"/>
+  <circle cx="24" cy="24" r="12.5" stroke="url(#crypto-coin)" stroke-width="1.4" opacity=".38"/>
+  <path d="m24 13.5 8 4.7v9.6l-8 4.7-8-4.7v-9.6l8-4.7Z" fill="url(#crypto-coin)" fill-opacity=".22" stroke="url(#crypto-coin)" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="m16.2 18.2 7.8 4.6 7.8-4.6M24 22.8v9.5" stroke="url(#crypto-coin)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m10 10-2.5 2.5M38 10l2.5 2.5M10 38l-2.5-2.5" stroke="#A68CFF" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

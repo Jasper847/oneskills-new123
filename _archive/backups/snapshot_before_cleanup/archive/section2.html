@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Courses &amp; Career Programs · OneSkills Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM TOKENS & ELEVATION
+   ============================================================ */
+:root {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --bg: #050710;
+  --bg-raise: #0a0e1c;
+  --header-panel: #0d1224;
+  --card: #0d1224;
+  --card-hover: #121830;
+  --card-inner: #02040a;
+
+  /* Borders & Dividers */
+  --line: rgba(255, 255, 255, .08);
+  --line-strong: rgba(99, 102, 241, .45);
+  --line-divider: rgba(255, 255, 255, .06);
+
+  /* Interactive & Badges */
+  --surface-subtle: rgba(255, 255, 255, .035);
+  --surface-hover: rgba(255, 255, 255, .07);
+  --badge-bg: #6366f1;
+  --badge-text: #ffffff;
+
+  /* Typography */
+  --text: #f8fafc;
+  --text-2: #94a3b8;
+  --text-3: #64748b;
+
+  /* Brand Accents */
+  --accent: #6366f1;
+  --accent-2: #818cf8;
+  --accent-glow: rgba(99, 102, 241, .3);
+
+  /* Fonts */
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Geist', 'Inter', system-ui, sans-serif;
+
+  /* Radii & Motion */
+  --r-s: 8px;
+  --r-m: 14px;
+  --r-l: 20px;
+  --r-xl: 26px;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+
+  /* Surfaces */
+  --bg: #f8f9fe;
+  --bg-raise: #edf0fb;
+  --header-panel: #fdfaf6;
+  --card: #ffffff;
+  --card-hover: #fcfdff;
+  --card-inner: #f1f5f9;
+
+  /* Borders & Dividers */
+  --line: rgba(0, 0, 0, .08);
+  --line-strong: rgba(91, 80, 230, .4);
+  --line-divider: rgba(0, 0, 0, .06);
+
+  /* Interactive & Badges */
+  --surface-subtle: rgba(0, 0, 0, .03);
+  --surface-hover: rgba(91, 80, 230, .08);
+  --badge-bg: #5b50e6;
+  --badge-text: #ffffff;
+
+  /* Typography */
+  --text: #09090b;
+  --text-2: #475569;
+  --text-3: #64748b;
+
+  /* Brand Accents */
+  --accent: #5b50e6;
+  --accent-2: #6366f1;
+  --accent-glow: rgba(91, 80, 230, .25);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 40px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background .3s ease, color .3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Accessible Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Background Ambient Glow */
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    radial-gradient(ellipse 70% 50% at 20% -10%, rgba(99,102,241,.09), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 90%, rgba(6,182,212,.07), transparent 60%);
+}
+
+.gallery-container {
+  width: 100%;
+  max-width: 1180px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Top Toolbar */
+.section-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-m);
+  margin-bottom: 32px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .04);
+}
+.brand-mark {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  background: var(--surface-subtle);
+  border: 1px solid var(--line);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all .2s var(--ease);
+}
+.theme-toggle-btn:hover {
+  color: var(--text);
+  border-color: var(--line-strong);
+  background: var(--surface-hover);
+}
+
+/* ============================================================
+   HEADER PANEL (Reference Banner Box)
+   ============================================================ */
+.header-panel {
+  position: relative;
+  background: var(--header-panel);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  padding: 44px 48px;
+  margin-bottom: 36px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .03);
+  overflow: hidden;
+}
+html[data-theme="light"] .header-panel {
+  background: #fdfaf6;
+  border-color: #ede5dd;
+}
+
+/* Playful Reference Decorative Accents */
+.deco-shape {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: .85;
+}
+.deco-star-1 {
+  top: 22px;
+  left: 26px;
+  transform: rotate(-12deg);
+}
+.deco-cloud {
+  top: 22px;
+  right: 140px;
+}
+.deco-heart {
+  top: 26px;
+  left: 50%;
+  transform: translateX(-50%) rotate(8deg);
+}
+.deco-star-2 {
+  bottom: 24px;
+  right: 32px;
+  transform: rotate(15deg);
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+}
+.header-panel h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -.03em;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.header-panel p {
+  color: var(--text-2);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 62ch;
+  margin-bottom: 28px;
+}
+
+/* Filter Navigation Pills (High Contrast & Accessible) */
+.filter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  padding: 8px 18px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--text-2);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s var(--ease);
+  white-space: nowrap;
+}
+html[data-theme="light"] .filter-btn {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+.filter-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--surface-hover);
+  transform: translateY(-1px);
+}
+html[data-theme="light"] .filter-btn:hover {
+  background: #f1f5f9;
+  color: #1e1b4b;
+  border-color: var(--accent);
+}
+.filter-btn.active {
+  color: #ffffff !important;
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  font-weight: 700;
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+
+/* ============================================================
+   3-COLUMN COURSE CARDS GRID (Harmonized Heights)
+   ============================================================ */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+/* Course Card */
+.course-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-l);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+  transition: transform .25s var(--ease), border-color .25s, box-shadow .25s;
+}
+html[data-theme="light"] .course-card {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .04);
+  border-color: #e2e8f0;
+}
+.course-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, .12), 0 0 20px var(--accent-glow);
+}
+.course-card.hidden-card { display: none !important; }
+
+/* Top Thumbnail Frame — Calibrated for 3:2 and 16:9 Artwork */
+.card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9.2;
+  background: var(--card-inner);
+  border-radius: var(--r-m);
+  overflow: hidden;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+}
+html[data-theme="light"] .card-media {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Pure Uncropped Rendering for all 7 tracks */
+  object-position: center;
+  display: block;
+  transition: transform .35s var(--ease);
+}
+.course-card:hover .card-img {
+  transform: scale(1.03);
+}
+
+/* Dual Theme Images */
+.img-dark { display: block }
+.img-light { display: none }
+html[data-theme="light"] .img-dark { display: none }
+html[data-theme="light"] .img-light { display: block }
+
+/* Overlapping Floating Badge */
+.floating-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  z-index: 3;
+  min-width: 44px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+  border: 1.5px solid rgba(255, 255, 255, .3);
+}
+
+/* Card Information Body */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-start;
+}
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 750;
+  line-height: 1.32;
+  letter-spacing: -.02em;
+  color: var(--text);
+  margin-bottom: 8px;
+  min-height: 2.9em; /* Exact row alignment */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card-desc {
+  color: var(--text-2);
+  font-size: .88rem;
+  line-height: 1.55;
+  margin-bottom: 18px;
+  min-height: 3.1em; /* Exact row alignment */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 3-Column Micro-Stats Matrix */
+.stats-matrix {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  text-align: center;
+  padding: 12px 0;
+  border-top: 1px solid var(--line-divider);
+  border-bottom: 1px solid var(--line-divider);
+  margin-bottom: 16px;
+}
+.stat-col {
+  padding: 0 4px;
+  border-right: 1px solid var(--line-divider);
+}
+.stat-col:last-child {
+  border-right: none;
+}
+.stat-label {
+  display: block;
+  font-size: 10.5px;
+  color: var(--text-3);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin-bottom: 2px;
+}
+.stat-value {
+  display: block;
+  font-size: 12.5px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* Full Width Action Button with Micro-Interaction */
+.card-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .2s var(--ease);
+  cursor: pointer;
+}
+.card-action-btn svg {
+  transition: transform .2s var(--ease);
+}
+.course-card:hover .card-action-btn svg {
+  transform: translateX(3px);
+}
+
+.btn-outline {
+  background: var(--surface-subtle);
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+html[data-theme="light"] .btn-outline {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #1e293b;
+}
+
+/* Robust, High-Contrast Hover Styles */
+.course-card:hover .btn-outline,
+.btn-outline:hover {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+.course-card:hover .btn-outline svg,
+.btn-outline:hover svg {
+  stroke: #ffffff;
+}
+
+.btn-solid {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #ffffff;
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+.btn-solid:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  color: #ffffff !important;
+}
+
+/* Stagger Animation */
+.card-animate-in {
+  animation: cardFadeIn .32s var(--ease) both;
+}
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translate3d(0, 10px, 0) }
+  to { opacity: 1; transform: translate3d(0, 0, 0) }
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+@media (max-width: 1024px) {
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  .header-panel {
+    padding: 36px 32px;
+  }
+}
+
+@media (max-width: 680px) {
+  body {
+    padding: 24px 16px 60px;
+  }
+  .courses-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .header-panel {
+    padding: 28px 20px;
+    border-radius: var(--r-l);
+  }
+  .card-title,
+  .card-desc {
+    min-height: auto;
+  }
+  .filter-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding-bottom: 6px;
+  }
+  .deco-shape {
+    display: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="gallery-container">
+
+  <!-- Minimal Header Toolbar -->
+  <div class="section-toolbar">
+    <span class="brand-mark">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      OneSkills Academy · Career Programs
+    </span>
+    <button class="theme-toggle-btn" id="theme-toggle-btn" type="button" aria-label="Toggle theme">
+      <span id="theme-icon">🌙</span>
+      <span id="theme-label">Dark Mode</span>
+    </button>
+  </div>
+
+  <!-- SECTION 02: COURSES CATALOG -->
+  <section class="section-wrapper" id="courses" aria-labelledby="courses-heading">
+    
+    <!-- Header Banner Panel (Reference UI Layout) -->
+    <div class="header-panel">
+      <!-- Decorative Accents -->
+      <svg class="deco-shape deco-star-1" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <svg class="deco-shape deco-heart" width="28" height="28" viewBox="0 0 24 24" fill="#ec4899" stroke="#ec4899" stroke-width="1.5" opacity="0.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <svg class="deco-shape deco-cloud" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="1.8"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+      <svg class="deco-shape deco-star-2" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+
+      <div class="header-content">
+        <h2 id="courses-heading">Our Courses</h2>
+        <p>You can start learning these practical, mentor-led programs in Sheikhupura and earn your certified industry credential with live client work.</p>
+
+        <!-- Filter Pills Tabs -->
+        <div class="filter-tabs" id="filter-tabs" role="tablist" aria-label="Course category filters">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Courses</button>
+          <button class="filter-btn" data-filter="freelancing" role="tab" aria-selected="false">Freelancing &amp; Marketing</button>
+          <button class="filter-btn" data-filter="ai" role="tab" aria-selected="false">AI &amp; Automation</button>
+          <button class="filter-btn" data-filter="web" role="tab" aria-selected="false">Web Development</button>
+          <button class="filter-btn" data-filter="trading" role="tab" aria-selected="false">Crypto &amp; Forex</button>
+          <button class="filter-btn" data-filter="web3" role="tab" aria-selected="false">Web3 &amp; Blockchain</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3-Column Course Cards Grid -->
+    <div class="courses-grid" id="courses-grid">
+
+      <!-- Course 01: Freelancing Mastery (Featured / Flagship) -->
+      <article class="course-card" data-category="freelancing">
+        <div>
+          <div class="card-media">
+            <img class="card-img img-light" src="assets/images/Freelancing Mastery-light.webp" alt="Freelancing and Digital Marketing Mastery" loading="lazy" width="480" height="300">
+            <img class="card-img img-dark" src="assets/images/Freelancing Mastery-dark.webp" alt="Freelancing and Digital Marketing Mastery" loading="lazy" width="480" height="300">
+            <span class="floating-badge">★ Top</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Freelancing &amp; Digital Marketing Mastery</h3>
+            <p class="card-desc">Fiverr &amp; Upwork profile dominance, proposal craft, Meta Ads, and AI workflows ending with direct client outreach.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="stats-matrix">
+            <div class="stat-col">
+              <span class="stat-label">Duration</span>
+              <span class="stat-value">3 Months</span>
+            </div>
+            <div class="stat-col">
+              <span class="stat-label">Format</span>
+              <span class="stat-value">On-Campus</span>
+            </div>
+            <div class="stat-col">
+              <span class="stat-label">Capacity</span>
+              <span class="stat-value">12 Seats</span>
+            </div>
+          </div>
+          <a class="card-action-btn btn-solid" href="courses/freelancing-mastery.html">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <span>Explore Curriculum</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Course 02: AI Tools & Automation -->
+      <article class="course-card" data-category="ai">
+        <div>
+          <div class="card-media">
+            <img class="card-img img-light" src="assets/images/AI Tools & Automation-light.webp" alt="AI Tools & Automation" loading="lazy" width="480" height="300">
+            <img class="card-img img-dark" src="assets/images/AI Tools & Automation-dark.webp" alt="AI Tools & Automation" loading="lazy" width="480" height="300">
+            <span class="floating-badge">AI</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">AI Tools &amp; Automation</h3>
+            <p class="card-desc">8 weeks of hands-on AI: ChatGPT, Claude, Midjourney, autonomous content pipelines, and prompt engineering.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="stats-matrix">
+            <div class="stat-col">
+              <span class="stat-label">Duration</span>
+              <span class="stat-value">2 Months</span>
+            </div>
+            <div class="stat-col">
+              <span class="stat-label">Format</span>
+              <span class="stat-value">Live Lab</span>
+            </div>
+            <div class="stat-col">
+              <span class="stat-label">Capacity</span>
+              <span class="stat-value">12 Seats</span>
+            </div>
+          </div>
+          <a class="card-action-btn btn-outline" href="courses/ai-tools-automation.html">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <span>View Program</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Course 03: AI Powered Web Development -->
+      <article class="course-card" data-category="web">
+        <div>
+          <div class="card-media">
+            <img class="card-img img-light" src="assets/images/AI Web Development-light.webp" alt="AI Powered Web Development" loading="lazy" width="480" height="300">
+            <img class="card-img img-dark" src="assets/images/AI Web Development-dark.webp" alt="AI Powered Web Development" loading="lazy" width="480" height="300">
+            <span class="floating-badge">Dev</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">AI Powered Web Development</h3>
+            <p class="card-desc">Build and ship 5 production web apps with React, Tailwind, responsive design, and AI-accelerated workflows.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="stats-matrix">
+            <div class="stat-col">
+              <span class="stat-label">Duration</span>
+              <span class="stat-value">3 Months</span>
+            </div>
+            <div class="stat-col">
+              <span class="stat-label">Format</span>
+              <span class="stat-value">5 Projects</span>
+            </div>
+            <div class="stat-col">
+              <span class="stat-label">Capacity</span>
+              <span class="stat-value">12 Seats</span>
+            </div>
+          </div>
+          <a class="card-action-btn btn-outline" href="courses/ai-web-development.html">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <span>View Program</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Course 04: Crypto Trading -->
+      <article class="course-card" data-category="trading">
+        <div>
+          <div class="card-media">
+            <img class="card-img img-light" src="assets/images/Crypto Trading-light.webp" alt="Crypto Trading Course" loading="lazy" width="480" height="300">
+            <img class="card-img img-dark" src="assets/images/Crypto Trading-dark.webp" alt="Crypto Trading Course" loading="lazy" width="480" height="300">
+            <span class="floating-badge">Crypto</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Crypto Trading Course</h3>
+            <p class="card-desc">Risk-first market mechanics: technical analysis, TradingView systems, liquidity order blocks, and trade execution.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="stats-matrix">
+            <div class="stat-col">
+              <span class="stat-label">Duration</span>
+              <span class="stat-value">3 Months</span>
+            </div>
+            <div class="stat-col">
+              <span class="stat-label">Format</span>
+              <span class="stat-value">Trade Room</span>
+            </div>
+            <div class="stat-col">
+              <span class="stat-label">Capacity</span>
+              <span class="stat-value">12 Seats</span>
+            </div>
+          </div>
+          <a class="card-action-btn btn-outline" href="courses/crypto-trading.html">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <span>View Program</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Course 05: Forex Trading -->
+      <article class="course-card" data-category="trading">
+        <div>
+          <div class="card-media">
+            <img class="card-img img-light" src="assets/images/Forex Trading-light.webp" alt="Forex Trading Course" loading="lazy" width="480" height="300">
+            <img class="card-img img-dark" src="assets/images/Forex Trading-dark.webp" alt="Forex Trading Course" loading="lazy" width="480" height="300">
+            <span class="floating-badge">Forex</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Forex Trading Course</h3>
+            <p class="card-desc">Master currency market structure, session liquidity, and smart money concepts with on-campus mentorship.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="stats-matrix">
+            <div class="stat-col">
+              <span class="stat-label">Duration</span>
+              <span class="stat-value">3 Months</span>
+            </div>
+            <div class="stat-col">
+              <span class="stat-label">Format</span>
+              <span class="stat-value">Price Action</span>
+            </div>
+            <div class="stat-col">
+              <span class="stat-label">Capacity</span>
+              <span class="stat-value">1-on-1</span>
+            </div>
+          </div>
+          <a class="card-action-btn btn-outline" href="courses/forex-trading.html">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <span>View Program</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Course 06: Web3 & Blockchain -->
+      <article class="course-card" data-category="web3">
+        <div>
+          <div class="card-media">
+            <img class="card-img img-light" src="assets/images/Web3 & Blockchain-light.webp" alt="Web3 & Blockchain Mastery" loading="lazy" width="480" height="300">
+            <img class="card-img img-dark" src="assets/images/Web3 & Blockchain-dark.webp" alt="Web3 & Blockchain Mastery" loading="lazy" width="480" height="300">
+            <span class="floating-badge">Web3</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Web3 &amp; Blockchain Mastery</h3>
+            <p class="card-desc">Wallets, smart contract fundamentals, decentralized apps, and crypto airdrop strategies on-chain.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="stats-matrix">
+            <div class="stat-col">
+              <span class="stat-label">Duration</span>
+              <span class="stat-value">6 Months</span>
+            </div>
+            <div class="stat-col">
+              <span class="stat-label">Format</span>
+              <span class="stat-value">On-Chain</span>
+            </div>
+            <div class="stat-col">
+              <span class="stat-label">Capacity</span>
+              <span class="stat-value">12 Seats</span>
+            </div>
+          </div>
+          <a class="card-action-btn btn-outline" href="courses/web3-blockchain.html">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <span>View Program</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Course 07: AI Based Computer Course -->
+      <article class="course-card" data-category="ai">
+        <div>
+          <div class="card-media">
+            <img class="card-img img-light" src="assets/images/Computer Course-light.webp" alt="AI Based Computer Course" loading="lazy" width="480" height="300">
+            <img class="card-img img-dark" src="assets/images/Computer Course-dark.webp" alt="AI Based Computer Course" loading="lazy" width="480" height="300">
+            <span class="floating-badge">Office</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">AI Based Computer Course</h3>
+            <p class="card-desc">Windows 11 mastery, advanced MS Office (Word, Excel, PowerPoint), and workplace AI productivity tools.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="stats-matrix">
+            <div class="stat-col">
+              <span class="stat-label">Duration</span>
+              <span class="stat-value">3 Months</span>
+            </div>
+            <div class="stat-col">
+              <span class="stat-label">Format</span>
+              <span class="stat-value">Weekends</span>
+            </div>
+            <div class="stat-col">
+              <span class="stat-label">Capacity</span>
+              <span class="stat-value">12 Seats</span>
+            </div>
+          </div>
+          <a class="card-action-btn btn-outline" href="courses/ai-based-computer-course.html">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <span>View Program</span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+</div>
+
+<script>
+// Theme Toggle Controller
+(() => {
+  const btn = document.getElementById('theme-toggle-btn');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (!btn) return;
+
+  const updateUI = (theme) => {
+    const isDark = theme === 'dark';
+    icon.textContent = isDark ? '🌙' : '☀️';
+    label.textContent = isDark ? 'Dark Mode' : 'Light Mode';
+  };
+
+  btn.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    updateUI(next);
+  });
+})();
+
+// Category Filter Controller (Preserves full functionality & smooth transitions)
+(() => {
+  const tabs = document.querySelectorAll('#filter-tabs .filter-btn');
+  const cards = document.querySelectorAll('#courses-grid .course-card');
+  if (!tabs.length || !cards.length) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+
+      const filter = tab.dataset.filter;
+      cards.forEach((card, i) => {
+        const matches = (filter === 'all' || card.dataset.category === filter);
+        if (matches) {
+          card.classList.remove('hidden-card');
+          card.classList.remove('card-animate-in');
+          void card.offsetWidth;
+          card.style.animationDelay = `${i * 0.04}s`;
+          card.classList.add('card-animate-in');
+        } else {
+          card.classList.add('hidden-card');
+        }
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

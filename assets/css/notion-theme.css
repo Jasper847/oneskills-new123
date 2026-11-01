@@ -1,0 +1,741 @@
+/* ============================================================
+   ONESKILLS ACADEMY — NOTION DESIGN SYSTEM & FLOW ANIMATIONS
+   Extracted from Notion.com design specifications
+   "Warm paper notebook under afternoon sun"
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. DESIGN TOKENS & CSS CUSTOM PROPERTIES
+   ------------------------------------------------------------ */
+:root {
+  /* --- Notion Color Tokens --- */
+  --color-notion-blue: #0075de;
+  --color-paper-warmth: #f6f5f4;
+  --color-pure-white: #ffffff;
+  --color-ink-black: #000000;
+  --color-charcoal: #111111;
+  --color-stone: #757575;
+  --color-graphite: #615d59;
+  --color-slate: #696969;
+  --color-sky-tint: #e6f3fe;
+  --color-marigold: #ffb110;
+  --color-peach: #f6d5b8;
+  --color-coral: #f64932;
+  --color-saffron: #e89d01;
+  --color-vermillion: #e32d14;
+  --color-mocha: #b18164;
+  --color-signal-blue: #097fe8;
+  --color-sky-wash: #62aef0;
+  --color-midnight-ink: #02093a;
+
+  /* --- Semantic Color Mapping (Light Mode Default) --- */
+  color-scheme: light;
+  --bg: #f6f5f4;
+  --bg-raise: #ffffff;
+  --card: #ffffff;
+  --card-hover: #ffffff;
+  --panel: #fcfbf9;
+  --canvas: #f6f5f4;
+
+  /* Borders & Hairlines (1px solid rgba(0,0,0,0.08) Notion style) */
+  --line: rgba(0, 0, 0, 0.08);
+  --line-strong: rgba(0, 117, 222, 0.35);
+  --border-subtle: rgba(0, 0, 0, 0.05);
+  --border-hairline: 1px solid rgba(0, 0, 0, 0.08);
+
+  /* Surfaces & Hover */
+  --surface-subtle: rgba(0, 0, 0, 0.025);
+  --surface-hover: rgba(0, 0, 0, 0.045);
+  --surface-tint-blue: #e6f3fe;
+  --surface-accent-marigold: #ffb110;
+  --surface-accent-coral: #f64932;
+  --surface-accent-sky: #62aef0;
+
+  /* Typography Colors (Ink Black with alpha variations) */
+  --text: #000000;
+  --text-95: rgba(0, 0, 0, 0.95);
+  --text-90: rgba(0, 0, 0, 0.90);
+  --text-2: #615d59; /* Graphite */
+  --text-3: #757575; /* Stone */
+  --text-muted: #696969; /* Slate */
+
+  /* Action & Primary CTA Tokens */
+  --accent: #0075de; /* Notion Blue */
+  --accent-2: #097fe8;
+  --accent-hover: #0060b8;
+  --accent-dim: #e6f3fe;
+  --accent-line: rgba(0, 117, 222, 0.3);
+  --accent-glow: rgba(0, 117, 222, 0.15);
+
+  /* High Impact Conversion CTA */
+  --accent-convert: #0075de;
+  --accent-convert-hover: #0062bd;
+  --accent-convert-text: #ffffff;
+  --accent-convert-shadow: rgba(0, 117, 222, 0.22);
+  
+  /* Alternate Warm Highlights */
+  --accent-marigold: #ffb110;
+  --accent-coral: #f64932;
+  --accent-emerald: #10b981;
+  --accent-cyan: #097fe8;
+
+  /* Typography Font Families */
+  --font-notioninter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-lyon-text: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+  --font: var(--font-notioninter);
+  --font-display: var(--font-notioninter);
+  --font-editorial: var(--font-lyon-text);
+
+  /* Notion Type Scale & Negative Tracking */
+  --text-caption: 12px;
+  --leading-caption: 1.33;
+  --tracking-caption: 0.12px;
+
+  --text-body-sm: 14px;
+  --leading-body-sm: 1.43;
+
+  --text-body: 16px;
+  --leading-body: 1.5;
+
+  --text-subheading: 20px;
+  --leading-subheading: 1.35;
+
+  --text-heading-sm: 22px;
+  --leading-heading-sm: 1.27;
+  --tracking-heading-sm: -0.242px;
+
+  --text-heading: 40px;
+  --leading-heading: 1.15;
+  --tracking-heading: -0.025em;
+
+  --text-heading-lg: 48px;
+  --leading-heading-lg: 1.12;
+  --tracking-heading-lg: -0.03em;
+
+  --text-display-sm: 54px;
+  --leading-display-sm: 1.04;
+  --tracking-display-sm: -1.89px;
+
+  --text-display: 72px;
+  --leading-display: 1.21;
+  --tracking-display: -2.016px;
+
+  --text-display-lg: 96px;
+  --leading-display-lg: 1.04;
+  --tracking-display-lg: -4.608px;
+
+  /* 8px Layout & Spacing Scale */
+  --spacing-unit: 4px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-28: 28px;
+  --spacing-32: 32px;
+  --spacing-36: 36px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+
+  /* Notion Border Radius Scale */
+  --radius-small: 4px;
+  --radius-buttons: 8px;
+  --radius-cards: 12px;
+  --radius-pills: 9999px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+
+  --r-s: 8px;
+  --r-m: 12px;
+  --r-l: 16px;
+  --r-xl: 24px;
+  --r-pill: 9999px;
+
+  /* Layout */
+  --header-h: 64px;
+  --page-max-width: 1440px;
+  --max-width: 1200px;
+  --section-gap: 80px;
+  --card-padding: 24px;
+
+  /* Elevation */
+  --shadow-nav: 0px 0.7px 1.5px rgba(0, 0, 0, 0.02), 0px 3px 9px rgba(0, 0, 0, 0.035);
+  --shadow-mockup: 0px 4px 14px rgba(0, 0, 0, 0.08);
+  --shadow-floating-chip: 0px 4px 16px rgba(0, 0, 0, 0.06);
+
+  /* Transitions */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 200ms ease;
+}
+
+/* ------------------------------------------------------------
+   2. DARK THEME — SLEEK MIDNIGHT INK PALETTE
+   ------------------------------------------------------------ */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #070913;
+  --bg-raise: #0e1222;
+  --card: #111528;
+  --card-hover: #161b34;
+  --panel: #0a0e1c;
+  --canvas: #070913;
+
+  /* Borders */
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(0, 117, 222, 0.5);
+  --border-subtle: rgba(255, 255, 255, 0.04);
+  --border-hairline: 1px solid rgba(255, 255, 255, 0.08);
+
+  /* Surfaces */
+  --surface-subtle: rgba(255, 255, 255, 0.035);
+  --surface-hover: rgba(255, 255, 255, 0.065);
+  --surface-tint-blue: rgba(0, 117, 222, 0.15);
+
+  /* Text */
+  --text: #f8fafc;
+  --text-95: rgba(248, 250, 252, 0.95);
+  --text-90: rgba(248, 250, 252, 0.90);
+  --text-2: #94a3b8;
+  --text-3: #64748b;
+  --text-muted: #758296;
+
+  /* Actions */
+  --accent: #0075de;
+  --accent-2: #097fe8;
+  --accent-hover: #1e8bf0;
+  --accent-dim: rgba(0, 117, 222, 0.18);
+  --accent-line: rgba(0, 117, 222, 0.45);
+  --accent-glow: rgba(0, 117, 222, 0.28);
+
+  --accent-convert: #0075de;
+  --accent-convert-hover: #1e8bf0;
+  --accent-convert-text: #ffffff;
+  --accent-convert-shadow: rgba(0, 117, 222, 0.35);
+
+  --shadow-nav: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-mockup: 0px 8px 30px rgba(0, 0, 0, 0.4);
+  --shadow-floating-chip: 0px 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* ------------------------------------------------------------
+   3. GLOBAL NOTION BASE RESETS & TYPOGRAPHY
+   ------------------------------------------------------------ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-notioninter);
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: var(--leading-body);
+  font-size: var(--text-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+svg {
+  display: block;
+}
+
+::selection {
+  background: rgba(0, 117, 222, 0.22);
+  color: inherit;
+}
+
+/* ------------------------------------------------------------
+   4. NOTION TYPOGRAPHIC SIGNATURES & HIGHLIGHT PILLS
+   ------------------------------------------------------------ */
+.editorial-serif {
+  font-family: var(--font-lyon-text);
+  font-weight: 400;
+}
+
+/* Notion Hero Highlight Pills wrapping action verbs */
+.highlight-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 18px;
+  border-radius: var(--radius-pills);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin: 0 4px;
+  vertical-align: middle;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.highlight-pill:hover {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.highlight-pill.peach {
+  background-color: var(--color-peach);
+  color: #000000;
+}
+
+.highlight-pill.yellow,
+.highlight-pill.marigold {
+  background-color: var(--color-marigold);
+  color: #000000;
+}
+
+.highlight-pill.coral {
+  background-color: var(--color-coral);
+  color: #ffffff;
+}
+
+.highlight-pill.sky {
+  background-color: var(--color-sky-tint);
+  color: var(--color-notion-blue);
+  border: 1px solid rgba(0, 117, 222, 0.2);
+}
+
+/* Character Marks — 40-48px circle with flat illustration and 2px rotating colored border */
+.avatar-character-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-signal-blue);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: transform 200ms ease;
+}
+
+.avatar-character-mark:hover {
+  transform: translateY(-2px) scale(1.06);
+}
+
+.avatar-character-mark.border-coral { border-color: var(--color-coral); }
+.avatar-character-mark.border-yellow { border-color: var(--color-marigold); }
+.avatar-character-mark.border-sky { border-color: var(--color-sky-wash); }
+.avatar-character-mark.border-blue { border-color: var(--color-signal-blue); }
+
+/* ------------------------------------------------------------
+   5. NOTION BUTTONS & ACTION STYLES
+   ------------------------------------------------------------ */
+/* Primary CTA: Notion Blue filled button (the single chromatic commitment) */
+.btn-notion-primary,
+.btn-primary,
+.btn-solid,
+.btn-header-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-notion-blue);
+  color: #ffffff !important;
+  font-family: var(--font-notioninter);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 8px 18px;
+  border-radius: var(--radius-buttons);
+  border: 1px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn-notion-primary:hover,
+.btn-primary:hover,
+.btn-solid:hover,
+.btn-header-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 117, 222, 0.25);
+}
+
+/* Ghost CTA: Sky Tint background with Notion Blue text */
+.btn-notion-ghost,
+.link-secondary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-sky-tint);
+  color: var(--color-notion-blue) !important;
+  font-family: var(--font-notioninter);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: var(--radius-buttons);
+  border: 1px solid rgba(0, 117, 222, 0.15);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-notion-ghost:hover,
+.link-secondary:hover,
+.btn-ghost:hover {
+  background-color: #dbeafe;
+  border-color: rgba(0, 117, 222, 0.3);
+  transform: translateY(-1px);
+}
+
+html[data-theme="dark"] .btn-notion-ghost,
+html[data-theme="dark"] .link-secondary {
+  background-color: rgba(0, 117, 222, 0.15);
+  color: #62aef0 !important;
+  border-color: rgba(0, 117, 222, 0.35);
+}
+
+html[data-theme="dark"] .btn-notion-ghost:hover,
+html[data-theme="dark"] .link-secondary:hover {
+  background-color: rgba(0, 117, 222, 0.25);
+  border-color: rgba(0, 117, 222, 0.5);
+}
+
+/* Ghost Text Button (tertiary actions) */
+.btn-notion-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  color: var(--text-95);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: var(--radius-buttons);
+  transition: background-color var(--transition-fast);
+}
+
+.btn-notion-text:hover {
+  background-color: var(--surface-hover);
+}
+
+/* Outlined Text Button */
+.btn-notion-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  color: var(--text-90);
+  border: 1px solid var(--line);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: var(--radius-small);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.btn-notion-outline:hover {
+  border-color: var(--text-3);
+  background-color: var(--surface-subtle);
+}
+
+/* ------------------------------------------------------------
+   6. NOTION CARD SURFACES & ACCENT PANELS
+   ------------------------------------------------------------ */
+/* White Feature Card (1px hairline border, 12px radius, zero drop shadow) */
+.notion-card,
+.panel-card,
+.card,
+.instructor-card,
+.review-card,
+.dash-card {
+  background-color: var(--card);
+  border-radius: var(--radius-cards);
+  border: 1px solid var(--line);
+  box-shadow: none;
+  transition: border-color var(--transition-fast), transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.notion-card:hover,
+.panel-card:hover,
+.card:hover,
+.instructor-card:hover,
+.review-card:hover {
+  border-color: rgba(0, 0, 0, 0.16);
+  transform: translateY(-2px);
+}
+
+html[data-theme="dark"] .notion-card:hover,
+html[data-theme="dark"] .panel-card:hover,
+html[data-theme="dark"] .card:hover,
+html[data-theme="dark"] .instructor-card:hover,
+html[data-theme="dark"] .review-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Accent Card Surfaces */
+.accent-card-marigold {
+  background-color: var(--color-marigold) !important;
+  color: #000000 !important;
+  border: none !important;
+  border-radius: var(--radius-cards);
+}
+
+.accent-card-coral {
+  background-color: var(--color-coral) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: var(--radius-cards);
+}
+
+.accent-card-sky {
+  background-color: var(--color-sky-wash) !important;
+  color: #000000 !important;
+  border: none !important;
+  border-radius: var(--radius-cards);
+}
+
+.accent-card-midnight {
+  background-color: var(--color-midnight-ink) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: var(--radius-cards);
+}
+
+/* ------------------------------------------------------------
+   7. FLOW ANIMATIONS & CONNECTOR SYSTEM
+   ------------------------------------------------------------ */
+@keyframes flowDashes {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* SVG Connector Lines */
+.hero-connectors-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+}
+
+.connector-line {
+  fill: none;
+  stroke: rgba(0, 117, 222, 0.4);
+  stroke-width: 1.75;
+  stroke-dasharray: 6 6;
+  animation: flowDashes 2.5s linear infinite;
+}
+
+html[data-theme="dark"] .connector-line {
+  stroke: rgba(0, 117, 222, 0.65);
+}
+
+/* Floating Outcome Chips */
+.outcome-chip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--card);
+  padding: 10px 16px;
+  border-radius: var(--radius-cards);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-floating-chip);
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.outcome-chip:hover,
+.outcome-chip:focus-visible {
+  transform: translateY(-3px) scale(1.02);
+  border-color: var(--color-notion-blue);
+  box-shadow: 0 8px 24px rgba(0, 117, 222, 0.15);
+}
+
+/* Speech / Proof Bubbles */
+.proof-bubble {
+  position: absolute;
+  top: -68px;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background-color: var(--card);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: var(--radius-buttons);
+  border: 1px solid var(--line);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 200ms ease, transform 200ms ease, visibility 200ms ease;
+  z-index: 10;
+}
+
+.proof-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0;
+  border-style: solid;
+  border-color: var(--card) transparent transparent;
+}
+
+.outcome-chip:hover .proof-bubble,
+.outcome-chip:focus-visible .proof-bubble,
+.outcome-chip.bubble-active .proof-bubble {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ------------------------------------------------------------
+   8. NOTION NAVIGATION BAR
+   ------------------------------------------------------------ */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-h);
+  background: rgba(246, 245, 244, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  z-index: 1000;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+html[data-theme="dark"] .site-header {
+  background: rgba(7, 9, 19, 0.85);
+}
+
+.site-header.scrolled {
+  box-shadow: var(--shadow-nav);
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.primary-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.nav-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-3);
+  padding: 6px 12px;
+  border-radius: var(--radius-buttons);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--text);
+  background-color: var(--surface-hover);
+}
+
+.nav-link.active {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------
+   9. NOTION PILL TAGS & STATUS BADGES
+   ------------------------------------------------------------ */
+.pill-tag,
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: var(--radius-pills);
+  background: var(--surface-subtle);
+  color: var(--text-2);
+  border: 1px solid var(--line);
+}
+
+.status-pill.active {
+  background: var(--color-sky-tint);
+  color: var(--color-notion-blue);
+  border-color: rgba(0, 117, 222, 0.2);
+}
+
+/* ------------------------------------------------------------
+   10. REDUCED MOTION SAFETY (RULE 3 COMPLIANT)
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .connector-line {
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

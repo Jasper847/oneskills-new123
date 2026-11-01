@@ -1,0 +1,8 @@
+# OneSkills Academy — robots.txt
+# Allow all crawlers full access to all pages and assets
+
+User-agent: *
+Allow: /
+
+# Sitemap location — update URL if path changes after deployment
+Sitemap: https://oneskills.pk/sitemap.xml

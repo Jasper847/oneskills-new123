@@ -1,0 +1,287 @@
+﻿{
+  "total": 35,
+  "passed": 35,
+  "failed": 0,
+  "errors": [],
+  "tests": [
+    {
+      "name": "21-Skill Filter: Element Discovery",
+      "passed": true,
+      "details": {
+        "tabCount": 5,
+        "cardCount": 21,
+        "hasCountEl": true
+      }
+    },
+    {
+      "name": "21-Skill Filter: Tabs carry dual classes (.c-filter-btn &amp; .filter-btn)",
+      "passed": true,
+      "details": {
+        "allHaveBothClasses": true
+      }
+    },
+    {
+      "name": "21-Skill Filter: Category \"all\" displays exactly 21 cards",
+      "passed": true,
+      "details": {
+        "visible": 21,
+        "countText": "21"
+      }
+    },
+    {
+      "name": "21-Skill Filter: Category \"seo-aeo\" displays exactly 8 cards",
+      "passed": true,
+      "details": {
+        "visible": 8,
+        "allMatch": true,
+        "countText": "8"
+      }
+    },
+    {
+      "name": "21-Skill Filter: Category \"ai-code\" displays exactly 6 cards",
+      "passed": true,
+      "details": {
+        "visible": 6,
+        "allMatch": true,
+        "countText": "6"
+      }
+    },
+    {
+      "name": "21-Skill Filter: Category \"ads-ecom\" displays exactly 5 cards",
+      "passed": true,
+      "details": {
+        "visible": 5,
+        "allMatch": true,
+        "countText": "5"
+      }
+    },
+    {
+      "name": "21-Skill Filter: Category \"freelance\" displays exactly 2 cards",
+      "passed": true,
+      "details": {
+        "visible": 2,
+        "allMatch": true,
+        "countText": "2"
+      }
+    },
+    {
+      "name": "21-Skill Filter: ARIA attributes (aria-selected, aria-pressed) sync properly on tab click",
+      "passed": true,
+      "details": {
+        "freeSelected": "true",
+        "freePressed": "true",
+        "seoSelected": "false",
+        "seoPressed": "false"
+      }
+    },
+    {
+      "name": "12-Module Filter: Element Discovery",
+      "passed": true,
+      "details": {
+        "btnCount": 5,
+        "modCount": 12,
+        "hasSearch": true
+      }
+    },
+    {
+      "name": "12-Module Filter: Buttons carry dual classes (.c-filter-btn &amp; .filter-btn)",
+      "passed": true,
+      "details": {
+        "allHaveBothClasses": true
+      }
+    },
+    {
+      "name": "12-Module Filter: \"freelancing\" category matches 4 modules",
+      "passed": true,
+      "details": {
+        "visible": 4
+      }
+    },
+    {
+      "name": "12-Module Filter: \"seo\" category matches 4 modules",
+      "passed": true,
+      "details": {
+        "visible": 4
+      }
+    },
+    {
+      "name": "12-Module Filter: \"ads\" category matches 3 modules",
+      "passed": true,
+      "details": {
+        "visible": 3
+      }
+    },
+    {
+      "name": "12-Module Filter: \"ai\" category matches 5 modules",
+      "passed": true,
+      "details": {
+        "visible": 5
+      }
+    },
+    {
+      "name": "12-Module Filter: \"all\" category displays all 12 modules",
+      "passed": true,
+      "details": {
+        "visible": 12
+      }
+    },
+    {
+      "name": "12-Module Filter: Live search for \"AEO\" filters and opens matching modules",
+      "passed": true,
+      "details": {
+        "visibleCount": 1,
+        "allOpened": true
+      }
+    },
+    {
+      "name": "12-Module Filter: #btn-expand-modules sets open on all 12 modules",
+      "passed": true,
+      "details": {
+        "allExpanded": true
+      }
+    },
+    {
+      "name": "12-Module Filter: #btn-collapse-modules removes open from all 12 modules",
+      "passed": true,
+      "details": {
+        "allCollapsed": true
+      }
+    },
+    {
+      "name": "Copy Button: #btn-copy-full-curriculum exists",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "name": "Copy Button: Copies overview paragraph without full curriculum dump",
+      "passed": true,
+      "details": {
+        "textLength": 696,
+        "hasOverview": true,
+        "isOverviewOnly": true
+      }
+    },
+    {
+      "name": "Copy Button: Generates accessible toast (role=\"status\", aria-live=\"polite\", aria-atomic=\"true\")",
+      "passed": true,
+      "details": {
+        "hasToast": true,
+        "role": "status",
+        "ariaLive": "polite",
+        "text": "Complete course overview copied to clipboard!"
+      }
+    },
+    {
+      "name": "Smooth Scroll: .skip-link is strictly excluded from JS smooth scroll interception",
+      "passed": true,
+      "details": {
+        "skipLinkFound": true,
+        "isExcluded": true
+      }
+    },
+    {
+      "name": "Smooth Scroll: Anchor click shifts programmatic keyboard focus (tabindex=\"-1\" &amp; focus())",
+      "passed": true,
+      "details": {
+        "targetTabindex": "-1",
+        "activeElementId": "curriculum"
+      }
+    },
+    {
+      "name": "ARIA State Sync: Town buttons update aria-selected, aria-pressed, badge &amp; city select",
+      "passed": true,
+      "details": {
+        "farooqabadAriaSelected": true,
+        "farooqabadAriaPressed": true,
+        "skpAriaSelectedFalse": true,
+        "skpAriaPressedFalse": true,
+        "badgeText": "├░┼╕┼í┼Æ Farooqabad Direct Route (18├óΓé¼ΓÇ£22 mins)",
+        "cityValue": "Farooqabad"
+      }
+    },
+    {
+      "name": "ARIA State Sync: Tuition switchers update aria-pressed and display prices accurately",
+      "passed": true,
+      "details": {
+        "installPressed": true,
+        "fullPressed": true,
+        "fullAmount": "PKR 25,000"
+      }
+    },
+    {
+      "name": "ARIA State Sync: Batch slot buttons update aria-selected, aria-checked, title &amp; WhatsApp CTA",
+      "passed": true,
+      "details": {
+        "eveningAriaSelected": true,
+        "eveningSlotUpdated": true,
+        "waLinkUpdated": true
+      }
+    },
+    {
+      "name": "ARIA State Sync: Subnavigation links update aria-current=\"true\" on active and remove from inactive",
+      "passed": true,
+      "details": {
+        "activeHasAriaCurrent": true
+      }
+    },
+    {
+      "name": "Booking Form: Form submit triggers WhatsApp pass URL with student parameters",
+      "passed": true,
+      "details": {
+        "openedUrlCount": 1,
+        "sampleUrl": "https://wa.me/923176036127?text=Assalam-o-Alaikum%20OneSkills%20Academy!%20My%20name%20is%20Challenger%20Student%20from%20Farooqabad.%20I%20want%20to%20reserve%20a%20Free%20Demo%20Seat%20for%20the%20Freelancing%20%26%20Digital%20Marketing%20Mastery%20Course%20(Morning%20(10%3A00%20AM)).%20My%20primary%20goal%20is%3A%20Fiverr%20%26%20Upwork%20Freelancing."
+      }
+    },
+    {
+      "name": "Adversarial Edge Case: Special regex symbols in search do not crash DOM or throw SyntaxError",
+      "passed": true,
+      "details": {
+        "query": ".*+?^${}()|[]\\",
+        "errorCount": 0
+      }
+    },
+    {
+      "name": "Adversarial Edge Case: Case-insensitive search (\"UPWORK\") finds matching modules",
+      "passed": true,
+      "details": {
+        "count": 3
+      }
+    },
+    {
+      "name": "Adversarial Edge Case: Unknown data-town key gracefully ignored without exception",
+      "passed": true,
+      "details": {
+        "threw": false
+      }
+    },
+    {
+      "name": "Adversarial Edge Case: Unknown data-batch key gracefully ignored without exception",
+      "passed": true,
+      "details": {
+        "threw": false
+      }
+    },
+    {
+      "name": "Adversarial Edge Case: Anchor targeting non-existent element does not throw TypeError",
+      "passed": true,
+      "details": {
+        "threw": false
+      }
+    },
+    {
+      "name": "Stress Test: Rapid tab switching completes without error or corrupted counts",
+      "passed": true,
+      "details": {
+        "finalCount": 2
+      }
+    },
+    {
+      "name": "Runtime Stability: Zero unhandled console errors or exceptions",
+      "passed": true,
+      "details": {
+        "errorCount": 0,
+        "errors": []
+      }
+    }
+  ]
+}
