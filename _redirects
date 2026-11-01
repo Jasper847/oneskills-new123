@@ -1,0 +1,54 @@
+# OneSkills Academy - 301 Permanent Redirects for Static Hosts (Netlify/Cloudflare Pages)
+
+/courses/freelancing-digital-marketing-mastery  /courses/freelancing-mastery.html  301!
+/courses/freelancing-digital-marketing-mastery/ /courses/freelancing-mastery.html  301!
+/courses/freelancing-mastery                   /courses/freelancing-mastery.html  301!
+/courses/freelancing-mastery/                  /courses/freelancing-mastery.html  301!
+
+/courses/ai-tools-automation                   /courses/ai-tools-automation.html  301!
+/courses/ai-tools-automation/                  /courses/ai-tools-automation.html  301!
+/courses/ai-tools-automation-training          /courses/ai-tools-automation.html  301!
+/courses/ai-tools-automation-training/         /courses/ai-tools-automation.html  301!
+
+/courses/ai-powered-web-development            /courses/ai-web-development.html   301!
+/courses/ai-powered-web-development/           /courses/ai-web-development.html   301!
+/courses/ai-web-development                    /courses/ai-web-development.html   301!
+/courses/ai-web-development/                   /courses/ai-web-development.html   301!
+
+/courses/crypto-trading-training               /courses/crypto-trading.html       301!
+/courses/crypto-trading-training/              /courses/crypto-trading.html       301!
+/courses/crypto-trading                        /courses/crypto-trading.html       301!
+/courses/crypto-trading/                       /courses/crypto-trading.html       301!
+
+/courses/forex-trading-mastery                 /courses/forex-trading.html        301!
+/courses/forex-trading-mastery/                /courses/forex-trading.html        301!
+/courses/forex-trading                         /courses/forex-trading.html        301!
+/courses/forex-trading/                        /courses/forex-trading.html        301!
+
+/courses/web3-blockchain-mastery               /courses/web3-blockchain.html      301!
+/courses/web3-blockchain-mastery/              /courses/web3-blockchain.html      301!
+/courses/web3-blockchain                       /courses/web3-blockchain.html      301!
+/courses/web3-blockchain/                      /courses/web3-blockchain.html      301!
+
+/courses/ai-based-computer-course-sheikhupura  /courses/ai-based-computer-course.html  301!
+/courses/ai-based-computer-course-sheikhupura/ /courses/ai-based-computer-course.html  301!
+/courses/ai-based-computer-course              /courses/ai-based-computer-course.html  301!
+/courses/ai-based-computer-course/             /courses/ai-based-computer-course.html  301!
+
+/courses/shopify-ecommerce-course-in-sheikhupura /courses/shopify-ecommerce.html 301!
+/courses/shopify-ecommerce-course-in-sheikhupura/ /courses/shopify-ecommerce.html 301!
+/courses/shopify-ecommerce                     /courses/shopify-ecommerce.html    301!
+/courses/shopify-ecommerce/                    /courses/shopify-ecommerce.html    301!
+
+/courses/programming-js-cpp                    /courses/programming-js-cpp.html   301!
+/courses/programming-js-cpp/                   /courses/programming-js-cpp.html   301!
+
+/about-us                                      /about.html                        301!
+/about-us/                                     /about.html                        301!
+/contact-us                                    /index.html#contact                301!
+/contact-us/                                   /index.html#contact                301!
+
+/computer-courses-after-matric-in-sheikhupura   /guides/computer-courses-after-matric-in-sheikhupura.html 301!
+/which-computer-course-is-best-for-online-earning-in-sheikhupura /guides/which-computer-course-is-best-for-online-earning-in-sheikhupura.html 301!
+/office-management-ms-office-course-in-sheikhupura /guides/office-management-ms-office-course-in-sheikhupura.html 301!
+/seo-training-website-flipping-course-sheikhupura /guides/seo-training-website-flipping-course-sheikhupura.html 301!

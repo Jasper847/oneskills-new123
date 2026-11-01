@@ -391,7 +391,7 @@
           batchButtons.forEach((b) => {
             const isTarget = b === btn;
             b.classList.toggle('active', isTarget);
-            b.setAttribute('aria-selected', String(isTarget));
+            b.setAttribute('aria-checked', String(isTarget));
           });
 
           if (slotTitleDisplay) slotTitleDisplay.textContent = info.title;
@@ -452,7 +452,6 @@
           townButtons.forEach((b) => {
             const isTarget = b === btn;
             b.classList.toggle('active', isTarget);
-            b.setAttribute('aria-pressed', String(isTarget));
             b.setAttribute('aria-selected', String(isTarget));
           });
 
