@@ -83,7 +83,7 @@
     /* ------------------------------------------------------------------------
        2. Sticky Course Subnav Scroll-Spy
        ------------------------------------------------------------------------ */
-    const subnavLinks = Array.from(document.querySelectorAll('.c-subnav-link'));
+    const subnavLinks = Array.from(document.querySelectorAll('.c-subnav-link, .c-subnav__link'));
     const sections = subnavLinks
       .map((link) => {
         const id = link.getAttribute('href');
@@ -103,6 +103,7 @@
               subnavLinks.forEach((link) => {
                 const isActive = link.getAttribute('href') === activeId;
                 link.classList.toggle('active', isActive);
+                link.classList.toggle('is-active', isActive);
                 if (isActive) {
                   link.setAttribute('aria-current', 'true');
                 } else {
@@ -124,7 +125,7 @@
     /* ------------------------------------------------------------------------
        3. Smooth Anchor Scrolling with Header & Subnav Offset
        ------------------------------------------------------------------------ */
-    const anchorLinks = Array.from(document.querySelectorAll('.c-subnav-link, a[href^="#"]:not(.skip-link):not([data-no-scroll])'));
+    const anchorLinks = Array.from(document.querySelectorAll('.c-subnav-link, .c-subnav__link, a[href^="#"]:not(.skip-link):not([data-no-scroll])'));
     anchorLinks.forEach((link) => {
       link.addEventListener('click', (e) => {
         const href = link.getAttribute('href');
@@ -185,11 +186,14 @@
        ------------------------------------------------------------------------ */
     const curriculumFilterBtns = Array.from(document.querySelectorAll('#curriculum-filter-tabs .c-filter-btn, .c-curriculum-tabs .c-filter-btn'));
     const phaseModules = Array.from(document.querySelectorAll('#syllabus-stack .c-phase-item, .c-phase-stack .c-phase-item'));
-    const syllabusSearchInput = document.getElementById('syllabus-search');
+    const bAccordionModules = Array.from(document.querySelectorAll('.c-curriculum-accordion .c-accordion-item'));
+    const syllabusSearchInput = document.getElementById('syllabus-search') || document.getElementById('curriculum-search');
     let currentPhaseFilter = 'all';
 
     const filterCurriculum = () => {
       const query = syllabusSearchInput ? syllabusSearchInput.value.trim().toLowerCase() : '';
+      
+      // Filter Cohort A modules
       phaseModules.forEach((mod) => {
         const phaseAttr = (mod.getAttribute('data-mod-cat') || mod.getAttribute('data-phase') || '').toLowerCase();
         const textContent = mod.textContent.toLowerCase();
@@ -204,6 +208,16 @@
           }
         } else {
           mod.style.display = 'none';
+        }
+      });
+
+      // Filter Cohort B modules
+      bAccordionModules.forEach((mod) => {
+        const textContent = mod.textContent.toLowerCase();
+        const matchesQuery = !query || textContent.indexOf(query) !== -1;
+        mod.style.display = matchesQuery ? 'block' : 'none';
+        if (query && matchesQuery) {
+          mod.classList.add('is-open');
         }
       });
     };
@@ -233,6 +247,7 @@
     if (btnExpandAll) {
       btnExpandAll.addEventListener('click', () => {
         phaseModules.forEach((mod) => mod.setAttribute('open', ''));
+        bAccordionModules.forEach((mod) => mod.classList.add('is-open'));
         showToast('All curriculum modules expanded');
       });
     }
@@ -240,7 +255,31 @@
     if (btnCollapseAll) {
       btnCollapseAll.addEventListener('click', () => {
         phaseModules.forEach((mod) => mod.removeAttribute('open'));
+        bAccordionModules.forEach((mod) => mod.classList.remove('is-open'));
         showToast('Curriculum modules collapsed');
+      });
+    }
+
+    // Cohort B Accordion Triggers
+    const accordionTriggers = Array.from(document.querySelectorAll('.c-accordion-item__trigger, .c-faq-item__trigger'));
+    if (accordionTriggers.length) {
+      accordionTriggers.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.c-accordion-item, .c-faq-item');
+          if (item) {
+            const isOpen = item.classList.contains('is-open');
+            item.classList.toggle('is-open', !isOpen);
+            btn.setAttribute('aria-expanded', String(!isOpen));
+            const content = item.querySelector('.c-accordion-item__content, .c-faq-item__content');
+            if (content) {
+              if (!isOpen) {
+                content.removeAttribute('hidden');
+              } else {
+                content.setAttribute('hidden', '');
+              }
+            }
+          }
+        });
       });
     }
 
@@ -278,6 +317,32 @@
     if (btnFeeFull && btnFeeInstall) {
       btnFeeFull.addEventListener('click', () => setFeePlan(true));
       btnFeeInstall.addEventListener('click', () => setFeePlan(false));
+    }
+
+    // Cohort B Tuition Switcher
+    const tuitionSwitcherBtns = Array.from(document.querySelectorAll('.c-tuition-switcher__btn'));
+    if (tuitionSwitcherBtns.length) {
+      tuitionSwitcherBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const mode = btn.getAttribute('data-tuition-mode') || 'full';
+          tuitionSwitcherBtns.forEach((b) => {
+            const isTarget = b === btn;
+            b.classList.toggle('is-active', isTarget);
+            b.setAttribute('aria-pressed', String(isTarget));
+          });
+          const fullDisplay = document.querySelector('[data-tuition-display="full"]');
+          const installDisplay = document.querySelector('[data-tuition-display="installment"]');
+          if (fullDisplay && installDisplay) {
+            if (mode === 'full') {
+              fullDisplay.classList.remove('is-hidden');
+              installDisplay.classList.add('is-hidden');
+            } else {
+              fullDisplay.classList.add('is-hidden');
+              installDisplay.classList.remove('is-hidden');
+            }
+          }
+        });
+      });
     }
 
     /* ------------------------------------------------------------------------
@@ -428,6 +493,83 @@
         const textToCopy = aeoSummaryEl ? aeoSummaryEl.innerText.trim() : `${courseTitle} at OneSkills Academy Sheikhupura`;
         copyText(textToCopy, 'Course syllabus overview copied to clipboard!');
       });
+    }
+
+    /* ------------------------------------------------------------------------
+       11. Cohort B Commuter Tabs & Route Switching
+       ------------------------------------------------------------------------ */
+    const commuterTabs = Array.from(document.querySelectorAll('.c-commuter-tab'));
+    if (commuterTabs.length) {
+      commuterTabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          const route = tab.getAttribute('data-route') || 'skp';
+          commuterTabs.forEach((t) => {
+            const isTarget = t === tab;
+            t.classList.toggle('is-active', isTarget);
+            t.setAttribute('aria-selected', String(isTarget));
+          });
+          const routePanels = Array.from(document.querySelectorAll('.c-route-info'));
+          routePanels.forEach((panel) => {
+            const isMatch = panel.getAttribute('data-route-content') === route;
+            panel.classList.toggle('is-active', isMatch);
+          });
+        });
+      });
+    }
+
+    /* ------------------------------------------------------------------------
+       12. Theme Toggle Controller (Light / Dark)
+       ------------------------------------------------------------------------ */
+    const themeBtns = Array.from(document.querySelectorAll('.theme-toggle, .theme-toggle-btn, #theme-toggle'));
+    if (themeBtns.length) {
+      themeBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const currentTheme = document.documentElement.getAttribute('data-theme') ||
+                              document.body.getAttribute('data-theme') ||
+                              (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', nextTheme);
+          document.body.setAttribute('data-theme', nextTheme);
+          try {
+            localStorage.setItem('oneskills-theme', nextTheme);
+          } catch (e) {}
+        });
+      });
+    }
+
+    /* ------------------------------------------------------------------------
+       13. Master Catalog Hub Filter & Search Controller (`courses/index.html`)
+       ------------------------------------------------------------------------ */
+    const catalogTabs = Array.from(document.querySelectorAll('.catalog-tab-btn'));
+    const catalogSearchInput = document.getElementById('catalog-search');
+    const catalogCards = Array.from(document.querySelectorAll('.catalog-grid .c-card'));
+
+    const runCatalogFilter = () => {
+      const activeTab = document.querySelector('.catalog-tab-btn.is-active');
+      const cat = activeTab ? (activeTab.getAttribute('data-cat') || 'all') : 'all';
+      const q = catalogSearchInput ? catalogSearchInput.value.trim().toLowerCase() : '';
+
+      catalogCards.forEach((card) => {
+        const cardCat = (card.getAttribute('data-category') || '').toLowerCase();
+        const cardText = card.textContent.toLowerCase();
+        const matchesCat = cat === 'all' || cardCat.indexOf(cat) !== -1;
+        const matchesQ = !q || cardText.indexOf(q) !== -1;
+        card.style.display = (matchesCat && matchesQ) ? 'flex' : 'none';
+      });
+    };
+
+    if (catalogTabs.length) {
+      catalogTabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          catalogTabs.forEach((t) => t.classList.remove('is-active'));
+          tab.classList.add('is-active');
+          runCatalogFilter();
+        });
+      });
+    }
+
+    if (catalogSearchInput) {
+      catalogSearchInput.addEventListener('input', runCatalogFilter);
     }
   });
 })();

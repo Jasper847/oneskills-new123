@@ -55,5 +55,9 @@ foreach ($p in $pages) {
     }
 }
 
-$brokenAssets | Select-Object -Unique File, Type, Ref, ResolvedPath | Format-Table -AutoSize
+if ($brokenAssets.Count -gt 0) {
+    $brokenAssets | Select-Object -Unique File, Type, Ref, ResolvedPath | Format-Table -AutoSize
+} else {
+    Write-Host "PERFECT AUDIT: 0 broken links, 0 broken images across all 10 course pages!" -ForegroundColor Green
+}
 

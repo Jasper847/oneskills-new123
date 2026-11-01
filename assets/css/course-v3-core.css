@@ -71,6 +71,25 @@
   --brand-tint: rgba(111, 66, 193, 0.08);
   --brand-glow: rgba(111, 66, 193, 0.18);
   --brand-surface: #f7f4fc;
+
+  /* Legacy & Semantic Token Aliases */
+  --color-primary: var(--brand-primary);
+  --color-primary-subtle: var(--brand-tint);
+  --color-primary-dark: var(--brand-secondary);
+  --color-border: var(--border-subtle);
+  --color-border-card: var(--border-card);
+  --color-surface: var(--surface-card);
+  --color-surface-subtle: var(--surface-alt);
+  --color-surface-hover: var(--surface-hover);
+  --color-text: var(--text-primary);
+  --color-text-muted: var(--text-secondary);
+  --color-text-subtle: var(--text-muted);
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --transition-base: 200ms ease;
 }
 
 /* Dark Theme Overrides */
@@ -1548,4 +1567,1869 @@ details.c-faq-item[open] .c-faq-summary svg {
     scroll-behavior: auto !important;
   }
 }
+
+/* --------------------------------------------------------------------------
+   19. Cohort B Global Header & Navigation
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface-card);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background-color var(--duration-base) ease, border-color var(--duration-base) ease;
+}
+
+.site-header__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand-logo {
+  height: 38px;
+  width: auto;
+  max-width: 170px;
+  display: block;
+  object-fit: contain;
+}
+
+.site-nav {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .site-nav {
+    display: block;
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  transition: color var(--duration-fast) ease;
+}
+
+.nav-links a:hover,
+.nav-links a.is-active,
+.nav-links a[aria-current="page"] {
+  color: var(--brand-primary);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.theme-toggle-btn {
+  background: var(--surface-alt);
+  border: 1px solid var(--border-card);
+  color: var(--text-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-subtle);
+}
+
+.theme-toggle-btn .sun-icon {
+  display: block;
+}
+.theme-toggle-btn .moon-icon {
+  display: none;
+}
+[data-theme="dark"] .theme-toggle-btn .sun-icon {
+  display: none;
+}
+[data-theme="dark"] .theme-toggle-btn .moon-icon {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   20. Cohort B Breadcrumbs
+   -------------------------------------------------------------------------- */
+.c-breadcrumbs {
+  background: var(--surface-alt);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: var(--space-2) var(--space-4);
+}
+
+.c-breadcrumbs__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.c-breadcrumbs__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.c-breadcrumbs__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.c-breadcrumbs__item:not(:last-child)::after {
+  content: "/";
+  color: var(--text-muted);
+}
+
+.c-breadcrumbs__item a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-fast) ease;
+}
+
+.c-breadcrumbs__item a:hover {
+  color: var(--brand-primary);
+}
+
+.c-breadcrumbs__item[aria-current="page"] {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   21. Cohort B Buttons & Badges System
+   -------------------------------------------------------------------------- */
+.c-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--duration-fast) ease;
+  line-height: 1.2;
+}
+
+.c-btn--sm {
+  padding: var(--space-2) var(--space-3);
+  font-size: 13px;
+  min-height: 36px;
+}
+
+.c-btn--lg {
+  padding: var(--space-3) var(--space-6);
+  font-size: 15px;
+  min-height: 48px;
+}
+
+.c-btn--block {
+  width: 100%;
+}
+
+.c-btn--primary {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  box-shadow: 0 2px 8px var(--brand-glow);
+}
+
+.c-btn--primary:hover {
+  background: var(--brand-secondary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px var(--brand-glow);
+}
+
+.c-btn--secondary {
+  background: var(--surface-card);
+  color: var(--text-primary);
+  border-color: var(--border-card);
+}
+
+.c-btn--secondary:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-subtle);
+}
+
+.c-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 4px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.c-badge--subtle {
+  background: var(--surface-alt);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-card);
+}
+
+.c-badge--primary {
+  background: var(--brand-tint);
+  color: var(--brand-primary);
+  border: 1px solid var(--brand-primary);
+}
+
+.c-badge--live {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+[data-theme="dark"] .c-badge--live {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.c-badge--danger {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+[data-theme="dark"] .c-badge--danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.c-badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: #10b981;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* --------------------------------------------------------------------------
+   22. Cohort B Hero Section Layout
+   -------------------------------------------------------------------------- */
+.c-hero__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-4) var(--space-12) var(--space-4);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .c-hero__inner {
+    grid-template-columns: 1.25fr 0.95fr;
+    gap: var(--space-10);
+    padding: var(--space-12) var(--space-4) var(--space-16) var(--space-4);
+  }
+}
+
+.c-hero__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.c-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.c-hero__rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #d97706;
+  font-weight: 600;
+  padding: 4px var(--space-2);
+}
+
+.c-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-4) 0;
+}
+
+.c-hero__title-highlight {
+  color: var(--brand-primary);
+  position: relative;
+}
+
+.c-hero__lead {
+  font-size: clamp(15px, 1.5vw, 17px);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-6) 0;
+}
+
+.c-hero__metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .c-hero__metrics-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.c-hero__metric {
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+}
+
+.c-hero__metric-value {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--brand-primary);
+  line-height: 1.2;
+}
+
+.c-hero__metric-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
+.c-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.c-hero__byol-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  background: var(--surface-alt);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.c-hero__byol-notice svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--brand-primary);
+}
+
+/* --------------------------------------------------------------------------
+   23. Sticky Tuition Enrollment Card (Cohort B)
+   -------------------------------------------------------------------------- */
+.c-hero__card {
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .c-hero__card {
+    position: sticky;
+    top: 96px;
+  }
+}
+
+.c-tuition-card {
+  background: var(--surface-card);
+  border: 2px solid var(--brand-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-card);
+}
+
+.c-tuition-card__header {
+  margin-bottom: var(--space-4);
+}
+
+.c-tuition-card__badge-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.c-tuition-card__title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 2px 0;
+}
+
+.c-tuition-card__schedule {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.c-tuition-switcher {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  background: var(--surface-alt);
+  padding: 4px;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-5);
+}
+
+.c-tuition-switcher__btn {
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: var(--space-2);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-secondary);
+  transition: all var(--duration-fast) ease;
+}
+
+.c-tuition-switcher__btn strong {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.c-tuition-switcher__btn.is-active,
+.c-tuition-switcher__btn[aria-pressed="true"] {
+  background: var(--surface-card);
+  color: var(--brand-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.c-tuition-switcher__btn.is-active strong {
+  color: var(--brand-primary);
+}
+
+.c-tuition-card__price-panel {
+  text-align: center;
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.c-tuition-card__price-display {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+}
+
+.c-tuition-card__currency {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.c-tuition-card__amount {
+  font-family: var(--font-mono);
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.c-tuition-card__period {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.c-tuition-card__installment-note {
+  font-size: 12px;
+  color: var(--brand-primary);
+  margin-top: 4px;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.c-tuition-card__slots {
+  margin-bottom: var(--space-4);
+}
+
+.c-tuition-card__slots-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.c-tuition-card__slots-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.c-slot-radio {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  cursor: pointer;
+  background: var(--surface-alt);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  transition: all var(--duration-fast) ease;
+}
+
+.c-slot-radio:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-subtle);
+}
+
+.c-slot-radio input[type="radio"] {
+  accent-color: var(--brand-primary);
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.c-slot-radio__box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 13px;
+}
+
+.c-slot-radio__box strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.c-slot-radio__box span {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.c-tuition-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-5) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.c-tuition-card__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.c-tuition-card__features svg {
+  flex-shrink: 0;
+  color: #10b981;
+  margin-top: 2px;
+}
+
+.c-tuition-card__trust-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: var(--space-3);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   24. Cohort B Sticky Subnav
+   -------------------------------------------------------------------------- */
+.c-subnav__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-2) var(--space-4);
+}
+
+.c-subnav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.c-subnav__list::-webkit-scrollbar {
+  display: none;
+}
+
+.c-subnav__link {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  transition: all var(--duration-fast) ease;
+}
+
+.c-subnav__link:hover,
+.c-subnav__link.is-active,
+.c-subnav__link[aria-current="true"] {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+}
+
+/* --------------------------------------------------------------------------
+   25. Cohort B Section Wrappers & Headers
+   -------------------------------------------------------------------------- */
+.c-section__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-4);
+}
+
+.c-section--alt {
+  background: var(--surface-alt);
+}
+
+.c-section__header {
+  text-align: center;
+  max-width: var(--container-prose);
+  margin: 0 auto var(--space-8) auto;
+}
+
+.c-section__eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brand-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.c-section__title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-3) 0;
+}
+
+.c-section__lead {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   26. Bento Grid & Specs Matrix (Cohort B & Hub)
+   -------------------------------------------------------------------------- */
+.c-bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .c-bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .c-bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.c-bento-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+}
+
+.c-bento-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.c-bento-card--featured {
+  grid-column: 1 / -1;
+  background: var(--surface-card);
+  border-color: var(--brand-primary);
+}
+
+.c-bento-card__icon {
+  font-size: 28px;
+  margin-bottom: var(--space-3);
+}
+
+.c-bento-card__title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.c-bento-card__text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.c-specs-matrix {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .c-specs-matrix {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.c-specs-item {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3);
+  background: var(--surface-alt);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.c-specs-item__label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.c-specs-item__value {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+/* --------------------------------------------------------------------------
+   27. Cohort B Curriculum Accordion & Search
+   -------------------------------------------------------------------------- */
+.c-curriculum-controls {
+  max-width: var(--container-prose);
+  margin: 0 auto var(--space-6) auto;
+}
+
+.c-curriculum-search {
+  position: relative;
+}
+
+.c-curriculum-search__input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4) var(--space-3) 44px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+}
+
+.c-curriculum-search__input:focus {
+  border-color: var(--brand-primary);
+  box-shadow: var(--shadow-focus);
+}
+
+.c-curriculum-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: var(--container-prose);
+  margin: 0 auto;
+}
+
+.c-accordion-item {
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--duration-fast) ease;
+}
+
+.c-accordion-item.is-open {
+  border-color: var(--brand-primary);
+}
+
+.c-accordion-item__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  min-height: 52px;
+}
+
+.c-accordion-item__header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.c-accordion-item__badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: var(--brand-tint);
+  color: var(--brand-primary);
+}
+
+.c-accordion-item__title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.c-accordion-item__icon {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: transform var(--duration-fast) ease;
+  margin-left: var(--space-2);
+}
+
+.c-accordion-item.is-open .c-accordion-item__icon {
+  transform: rotate(180deg);
+  color: var(--brand-primary);
+}
+
+.c-accordion-item__content {
+  display: none;
+  padding: 0 var(--space-6) var(--space-5) var(--space-6);
+  border-top: 1px solid var(--border-subtle);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.c-accordion-item.is-open .c-accordion-item__content {
+  display: block;
+}
+
+.c-accordion-item__list {
+  padding-left: var(--space-4);
+  margin: var(--space-3) 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   28. Journey, Tools, Deliverables & Mentors Grids
+   -------------------------------------------------------------------------- */
+.c-journey-grid,
+.c-tools-grid,
+.c-deliverables-grid,
+.c-mentors-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .c-journey-grid,
+  .c-tools-grid,
+  .c-deliverables-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .c-journey-grid,
+  .c-tools-grid,
+  .c-deliverables-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .c-mentors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.c-journey-step,
+.c-tool-card,
+.c-deliverable-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+
+.c-journey-step__num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--brand-primary);
+  margin-bottom: var(--space-2);
+}
+
+.c-journey-step__title,
+.c-tool-card__name,
+.c-deliverable-card__title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.c-journey-step__desc,
+.c-tool-card__desc,
+.c-deliverable-card__desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.c-tool-card__category,
+.c-deliverable-card__badge {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--brand-primary);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.c-mentor-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .c-mentor-card {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.c-mentor-card__avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  border: 3px solid var(--surface-alt);
+  flex-shrink: 0;
+}
+
+.c-mentor-card__avatar-placeholder {
+  width: 96px;
+  height: 96px;
+  border-radius: var(--radius-full);
+  background: var(--brand-tint);
+  color: var(--brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.c-mentor-card__name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 2px 0;
+}
+
+.c-mentor-card__role {
+  font-size: 13px;
+  font-family: var(--font-mono);
+  color: var(--brand-primary);
+  margin-bottom: var(--space-2);
+}
+
+.c-mentor-card__bio {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   29. Pricing Grid & Policies (Cohort B)
+   -------------------------------------------------------------------------- */
+.c-pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  max-width: 900px;
+  margin: 0 auto var(--space-8) auto;
+}
+
+@media (min-width: 768px) {
+  .c-pricing-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.c-pricing-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.c-pricing-card--popular {
+  border: 2px solid var(--brand-primary);
+  box-shadow: var(--shadow-card);
+}
+
+.c-pricing-card__title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-4) 0;
+}
+
+.c-pricing-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: var(--space-2);
+}
+
+.c-pricing-card__currency {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.c-pricing-card__amount {
+  font-family: var(--font-mono);
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.c-pricing-card__period {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.c-pricing-card__note {
+  font-size: 13px;
+  color: var(--brand-primary);
+  margin-bottom: var(--space-4);
+}
+
+.c-pricing-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-6) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.c-pricing-card__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.c-pricing-card__list svg {
+  flex-shrink: 0;
+  color: #10b981;
+  margin-top: 2px;
+}
+
+.c-policy-box {
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .c-policy-box {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.c-policy-box__item h4 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.c-policy-box__item p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   30. Catalog Hub Course Cards & Grid (`courses/index.html`)
+   -------------------------------------------------------------------------- */
+.catalog-hero {
+  padding: var(--space-10) var(--space-4) var(--space-8) var(--space-4);
+  text-align: center;
+}
+
+.catalog-hero__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.catalog-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+}
+
+.catalog-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-4) 0;
+}
+
+.catalog-hero__lead {
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: var(--container-prose);
+  margin: 0 auto var(--space-8) auto;
+}
+
+.catalog-filter-bar {
+  max-width: var(--container-narrow);
+  margin: 0 auto var(--space-8) auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.catalog-search-box {
+  position: relative;
+  width: 100%;
+}
+
+.catalog-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.catalog-search-input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4) var(--space-3) 42px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  outline: none;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration-fast) ease;
+}
+
+.catalog-search-input:focus {
+  border-color: var(--brand-primary);
+  box-shadow: var(--shadow-focus);
+}
+
+.catalog-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.catalog-tab-btn {
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+  min-height: 38px;
+}
+
+.catalog-tab-btn:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+.catalog-tab-btn.is-active,
+.catalog-tab-btn[aria-selected="true"] {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  border-color: var(--brand-primary);
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  max-width: var(--container-max);
+  margin: 0 auto var(--space-12) auto;
+  padding: 0 var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .catalog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.c-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-fast) ease, box-shadow var(--duration-fast) ease, border-color var(--duration-fast) ease;
+}
+
+.c-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand-primary);
+  box-shadow: var(--shadow-hover);
+}
+
+.c-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.c-card__duration {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.c-card__title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.c-card__desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-4) 0;
+}
+
+.c-card__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: var(--space-5);
+}
+
+.c-card__skill {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  background: var(--surface-alt);
+  color: var(--text-secondary);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.c-card__footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.c-card__fee {
+  display: flex;
+  flex-direction: column;
+}
+
+.c-card__fee-amount {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--brand-primary);
+}
+
+.c-card__fee-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   31. Global Footer (Cohort B & Hub)
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: var(--surface-card);
+  border-top: 1px solid var(--border-subtle);
+  padding: var(--space-12) var(--space-4) var(--space-6) var(--space-4);
+}
+
+.site-footer__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .site-footer__grid {
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+  }
+}
+
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.site-footer__logo {
+  height: 36px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+}
+
+.site-footer__about {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.site-footer__address {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  font-style: normal;
+}
+
+.site-footer__links h4 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-3) 0;
+}
+
+.site-footer__links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.site-footer__links a {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-fast) ease;
+}
+
+.site-footer__links a:hover {
+  color: var(--brand-primary);
+}
+
+.site-footer__bottom {
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   32. Location, Commuter Belt, Reviews, Related Tracks & FAQ (Cohort B)
+   -------------------------------------------------------------------------- */
+.c-location-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .c-location-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.c-location-card,
+.c-commuter-panel {
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+
+.c-location-card__title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.c-location-card__address {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-4) 0;
+}
+
+.c-location-card__contact {
+  font-size: 13px;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.c-location-card__contact a {
+  color: var(--brand-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.c-commuter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.c-commuter-tab {
+  background: var(--surface-alt);
+  border: 1px solid var(--border-card);
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+}
+
+.c-commuter-tab:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+.c-commuter-tab.is-active,
+.c-commuter-tab[aria-selected="true"] {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  border-color: var(--brand-primary);
+}
+
+.c-commuter-content {
+  background: var(--surface-alt);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.c-route-info {
+  display: none;
+}
+
+.c-route-info.is-active {
+  display: block;
+}
+
+.c-route-info h4 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-1) 0;
+}
+
+.c-route-info p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.c-faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: var(--container-prose);
+  margin: 0 auto;
+}
+
+.c-faq-item {
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--duration-fast) ease;
+}
+
+.c-faq-item.is-open {
+  border-color: var(--brand-primary);
+}
+
+.c-faq-item__trigger {
+  width: 100%;
+  padding: var(--space-4) var(--space-6);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  min-height: 52px;
+}
+
+.c-faq-item__question {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.c-faq-item__icon {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: transform var(--duration-fast) ease;
+  margin-left: var(--space-3);
+  flex-shrink: 0;
+}
+
+.c-faq-item.is-open .c-faq-item__icon {
+  transform: rotate(45deg);
+  color: var(--brand-primary);
+}
+
+.c-faq-item__content {
+  padding: 0 var(--space-6) var(--space-5) var(--space-6);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.c-faq-item__content[hidden] {
+  display: none;
+}
+
+.c-faq-item.is-open .c-faq-item__content[hidden] {
+  display: block;
+}
+
+.c-related-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .c-related-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.c-related-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-fast) ease, border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+}
+
+.c-related-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--brand-primary);
+  box-shadow: var(--shadow-hover);
+}
+
+.c-related-card__category {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--brand-primary);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.c-related-card__title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.c-related-card__desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-4) 0;
+}
+
+.c-related-card__link {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brand-primary);
+}
+
+.c-review-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.c-review-card__stars {
+  color: #f59e0b;
+  font-size: 14px;
+}
+
+.c-review-card__text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: 0 0 var(--space-4) 0;
+}
+
+.c-review-card__author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-3);
+}
+
+.c-review-card__author strong {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.c-review-card__author span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+
+
+.c-trust-icon {
+  font-size: 16px;
+}
+
+.c-pricing-card__header {
+  margin-bottom: var(--space-4);
+}
+
+.c-mentor-card__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.c-mobile-dock__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.c-mobile-dock__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.c-mobile-dock__label {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--brand-primary);
+}
+
+.c-mobile-dock__sub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+
 

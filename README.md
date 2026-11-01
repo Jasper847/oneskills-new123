@@ -19,26 +19,32 @@ Welcome to the official repository for **OneSkills Academy** (Sheikhupura, Punja
 
 ---
 
-## 🚀 Flagship Course: Freelancing & Digital Marketing Mastery
+## 🚀 Complete V3 Course Portfolio & Master Catalog Hub
 
-The flagship course page ([`courses/freelancing-mastery.html`](courses/freelancing-mastery.html)) is an enterprise-grade digital education experience designed according to strict forensic UX, accessibility, and conversion standards.
+OneSkills Academy offers 9 specialized, on-campus digital skills programs alongside a unified Master Course Catalog Hub ([`courses/index.html`](courses/index.html)). Every course page is built on the shared **V3 Course System** (`assets/css/course-v3-core.css`, `assets/js/course-v3-core.js`), adhering to strict forensic UX, accessibility (WCAG 2.2 AA), and conversion standards.
 
-### Key Institutional Facts (Authoritative Source of Truth)
+### V3 Course Portfolio Matrix
 
-| Parameter | Official Specification |
-| :--- | :--- |
-| **Total Course Tuition** | **PKR 28,000** (Full Track) |
-| **Flexible Installments** | **2 Payments of PKR 14,000** |
-| **Duration** | **12 Weeks (3 Months)** — 36 on-campus sessions |
-| **Practical Hands-On Hours** | **80+ Practical Training Hours** |
-| **Cohort Size** | **Maximum 12 Students** per batch (strict direct mentor cap) |
-| **Student Equipment** | **Bring Your Own Laptop (BYOL)** — personal laptops for live campaign setup |
-| **Google Review Rating** | **5.0 / 5.0 Rating** (Verified Google Business Profile) |
-| **Refund Policy** | **14-Day Full Refund Policy** calculated from the **fee payment date** |
-| **Lead Instructor** | **Nisar Mehar** (7+ years experience · 160+ students mentored) |
-| **Internship Program** | **1-Month Unpaid Internship** post-graduation (extendable up to 3 months) |
-| **Classroom Infrastructure** | Modern, comfortable classroom studio with reliable power backup & high-speed internet |
-| **Admissions Status** | **Admissions Open · Contact for next batch schedule** |
+| # | Course Page | Program Title | Duration | Tuition (PKR) | Installments | Focus Area |
+|---|---|---|---|---|---|---|
+| **01** | [`courses/freelancing-mastery.html`](courses/freelancing-mastery.html) | Freelancing & Digital Marketing Mastery | 12 Weeks | PKR 28,000 | 2 × PKR 14,000 | Upwork, Fiverr, Meta Ads, SEO, USD Remittance |
+| **02** | [`courses/ai-web-development.html`](courses/ai-web-development.html) | AI-Driven Full-Stack Web Development | 12 Weeks | PKR 35,000 | 2 × PKR 17,500 | Next.js 15, React 19, TypeScript, Supabase, Vercel |
+| **03** | [`courses/programming-js-cpp.html`](courses/programming-js-cpp.html) | Programming Fundamentals (C++ & JavaScript) | 8 Weeks | PKR 25,000 | 2 × PKR 12,500 | Data Structures, Algorithms, OOP, Memory & Pointers |
+| **04** | [`courses/ai-based-computer-course.html`](courses/ai-based-computer-course.html) | AI-Integrated Office & Computer Applications | 8 Weeks | PKR 15,000 | 2 × PKR 7,500 | Modern MS Office, Excel Automation, AI Prompting |
+| **05** | [`courses/ai-tools-automation.html`](courses/ai-tools-automation.html) | AI Tools & Workflow Automation Bootcamp | 8 Weeks | PKR 20,000 | 2 × PKR 10,000 | Zapier, Make.com, Midjourney, Claude, GPT Automations |
+| **06** | [`courses/web3-blockchain.html`](courses/web3-blockchain.html) | Web3, Smart Contracts & Blockchain Engineering | 10 Weeks | PKR 40,000 | 2 × PKR 20,000 | Solidity, Hardhat, Ethereum, Security & Auditing |
+| **07** | [`courses/forex-trading.html`](courses/forex-trading.html) | Professional Forex & Financial Markets Trading | 8 Weeks | PKR 35,000 | 2 × PKR 17,500 | Risk Management, Prop Firm Prep, Technical Analysis |
+| **08** | [`courses/crypto-trading.html`](courses/crypto-trading.html) | Crypto Trading & Decentralized Derivatives | 8 Weeks | PKR 35,000 | 2 × PKR 17,500 | Spot & Futures, Order Flow, On-Chain Analysis |
+| **09** | [`courses/shopify-ecommerce.html`](courses/shopify-ecommerce.html) | Shopify Dropshipping & E-Commerce Accelerator | 8 Weeks | PKR 30,000 | 2 × PKR 15,000 | Store Setup, Local Courier COD, Meta Ads, Sourcing |
+| **Hub** | [`courses/index.html`](courses/index.html) | Master Course Catalog Hub | All Programs | Filterable Hub | Dual Display | Interactive Search, Filter Tabs & Program Navigator |
+
+### Authoritative Institutional Standards
+
+- **Classroom Infrastructure:** Small batches capped at **12 students** for direct mentor guidance.
+- **Hardware Policy:** **Bring Your Own Laptop (BYOL)** — students work on their personal hardware for commercial independence.
+- **Tuition Guarantee:** **14-day full refund policy** calculated from the fee payment date.
+- **Practical Internship:** **1-month unpaid post-course practical internship** (extendable up to 3 months depending on available projects and learning progression). Zero fabricated employment or guaranteed earnings claims.
+- **Google Review Rating:** Confirmed **5.0/5.0 rating** on Google Business Profile. Schema JSON-LD contains zero fabricated review counts.
 
 ---
 
@@ -102,10 +108,12 @@ oneskills-new123/
 │   ├── css/
 │   │   ├── main.css             # Global site-wide stylesheet and CSS tokens
 │   │   ├── refinement.css       # Layout refinement and polish layer
-│   │   └── course-v2.css        # Enterprise V2 course component styling
+│   │   ├── course-v2.css        # Flagship V2 course component styling
+│   │   └── course-v3-core.css   # Universal V3 course system stylesheet (All 9 courses + Hub)
 │   ├── js/
 │   │   ├── main.js              # Site-wide interactive scripts (nav, theme)
-│   │   └── course-v2.js         # Course V2 interactive modules & state engines
+│   │   ├── course-v2.js         # Flagship V2 interactive module
+│   │   └── course-v3-core.js    # Universal V3 interactive controller (Dual search, tabs, toggles)
 │   └── images/
 │       ├── brand/               # Official logos, favicons, and wordmarks
 │       ├── campus/              # Authentic Sheikhupura classroom facility imagery
@@ -113,17 +121,20 @@ oneskills-new123/
 │       ├── reviews/             # Verified student and mentor profile avatars
 │       └── vibegif/             # Optimized micro-interaction animated WebP assets
 ├── courses/
-│   ├── ai-based-computer-course.html
-│   ├── ai-tools-automation.html
-│   ├── ai-web-development.html
-│   ├── crypto-trading.html
-│   ├── digital-marketing.html
-│   ├── forex-trading.html
-│   ├── freelancing-mastery.html # Primary flagship course page (V2 Architecture)
-│   ├── programming-js-cpp.html
-│   ├── shopify-ecommerce.html
-│   └── web3-blockchain.html
+│   ├── index.html               # Master Course Catalog Hub
+│   ├── freelancing-mastery.html # Freelancing & Digital Marketing Mastery
+│   ├── ai-web-development.html  # AI Full-Stack Web Development
+│   ├── programming-js-cpp.html  # Programming Fundamentals (C++ & JS)
+│   ├── ai-based-computer-course.html # AI Office Applications
+│   ├── ai-tools-automation.html # AI Tools & Automation
+│   ├── web3-blockchain.html     # Web3 & Blockchain Engineering
+│   ├── forex-trading.html       # Forex & Financial Markets Trading
+│   ├── crypto-trading.html      # Crypto Trading & Derivatives
+│   └── shopify-ecommerce.html   # Shopify Dropshipping & E-Commerce
 ├── guides/                      # Student reference guides, articles, and documentation
+├── scratch/
+│   ├── audit_all_links_and_assets.ps1 # Automated link & asset forensic audit script
+│   └── find_missing_classes.ps1       # Automated CSS class parity verification script
 ├── 404.html                     # Custom accessible 404 error page
 ├── about.html                   # Academy background, vision, and leadership
 ├── index.html                   # Main academy landing page
