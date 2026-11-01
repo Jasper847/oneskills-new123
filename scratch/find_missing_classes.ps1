@@ -29,3 +29,4 @@ foreach ($c in $classes.Keys) {
 }
 Write-Output "Total missing classes in course-v3-core.css: $($missing.Count)"
 $missing | Sort-Object | ForEach-Object { Write-Output $_ }
+
