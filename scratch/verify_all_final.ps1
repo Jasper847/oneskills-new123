@@ -60,4 +60,5 @@ foreach ($file in $courses) {
 }
 
 $results | Format-Table -AutoSize
-Write-Host "Overall Verification Status:" (if ($allPassed) { "ALL CHECKS PASSED (100% HEALTHY)" } else { "SOME CHECKS FAILED" })
+$summaryText = if ($allPassed) { "ALL CHECKS PASSED (100% HEALTHY)" } else { "SOME CHECKS FAILED" }
+Write-Host "Overall Verification Status: $summaryText"
