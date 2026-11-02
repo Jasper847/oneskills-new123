@@ -22,3 +22,4 @@ foreach ($c in $courses) {
     }
 }
 Write-Host "Captures complete."
+

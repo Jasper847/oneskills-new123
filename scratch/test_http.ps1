@@ -1,23 +1,26 @@
-$pages = @(
-    '',
-    'courses/',
-    'courses/freelancing-mastery.html',
-    'courses/ai-web-development.html',
-    'courses/ai-tools-automation.html',
-    'courses/crypto-trading.html',
-    'courses/forex-trading.html',
-    'courses/web3-blockchain.html',
-    'courses/ai-based-computer-course.html',
-    'courses/programming-js-cpp.html',
-    'courses/shopify-ecommerce.html'
+$urls = @(
+    "http://localhost:8080/",
+    "http://localhost:8080/courses/",
+    "http://localhost:8080/courses/freelancing-mastery.html",
+    "http://localhost:8080/courses/ai-web-development.html",
+    "http://localhost:8080/courses/ai-tools-automation.html",
+    "http://localhost:8080/courses/crypto-trading.html",
+    "http://localhost:8080/courses/forex-trading.html",
+    "http://localhost:8080/courses/web3-blockchain.html",
+    "http://localhost:8080/courses/ai-based-computer-course.html",
+    "http://localhost:8080/courses/programming-js-cpp.html",
+    "http://localhost:8080/courses/shopify-ecommerce.html",
+    "http://localhost:8080/about.html",
+    "http://localhost:8080/privacy-policy.html",
+    "http://localhost:8080/terms-of-service.html",
+    "http://localhost:8080/404.html"
 )
 
-foreach ($p in $pages) {
+foreach ($u in $urls) {
     try {
-        $res = Invoke-WebRequest -Uri "http://localhost:8080/$p" -UseBasicParsing -TimeoutSec 5
-        Write-Host "$($res.StatusCode) OK: http://localhost:8080/$p" -ForegroundColor Green
+        $res = Invoke-WebRequest -Uri $u -UseBasicParsing -TimeoutSec 3
+        Write-Output "$($res.StatusCode) OK: $u"
     } catch {
-        Write-Host "ERR: http://localhost:8080/$p - $($_.Exception.Message)" -ForegroundColor Red
+        Write-Output "ERR: $u -> $_"
     }
 }
-

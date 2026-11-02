@@ -1,0 +1,596 @@
+﻿/* ============================================================
+   PREMIUM REFINED FOOTER -- ONESKILLS.PK
+   Ultra-Premium Editorial Footer x Luxury Digital Academy
+   Sheikhupura Architectural Signature (Apple-Level Restraint)
+   ============================================================ */
+    :root {
+      /* Refined Deep Purple/Obsidian (Warm Luxury Plum Undertone, Not Pure Black) */
+      --footer-wrap-bg: #140c28;
+      --footer-card-bg: #ffffff;
+      --footer-card-border: rgba(110, 68, 255, 0.12);
+      --footer-card-shadow: 0 24px 64px rgba(10, 4, 25, 0.42), 0 2px 10px rgba(110, 68, 255, 0.08);
+      --footer-text-primary: #0f172a;
+      --footer-text-secondary: #475569;
+      --footer-text-muted: #64748b;
+      --footer-divider: rgba(110, 68, 255, 0.08);
+      --footer-badge-bg: #f3efff;
+      --footer-badge-border: rgba(110, 68, 255, 0.14);
+      --footer-badge-text: #6e44ff;
+      --footer-hiran-fade: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.45) 40%, rgba(255, 255, 255, 0) 100%);
+      --footer-hiran-script: #7c3aed;
+    }
+
+    html[data-theme="dark"] {
+      --footer-wrap-bg: #0f071e;
+      --footer-card-bg: #130b24;
+      --footer-card-border: rgba(168, 85, 247, 0.22);
+      --footer-card-shadow: 0 24px 64px rgba(0, 0, 0, 0.7), 0 0 32px rgba(124, 58, 237, 0.15);
+      --footer-text-primary: #f8fafc;
+      --footer-text-secondary: #cbd5e1;
+      --footer-text-muted: #94a3b8;
+      --footer-divider: rgba(255, 255, 255, 0.08);
+      --footer-badge-bg: rgba(124, 58, 237, 0.16);
+      --footer-badge-border: rgba(168, 85, 247, 0.28);
+      --footer-badge-text: #c4b5fd;
+      --footer-hiran-fade: linear-gradient(to bottom, #130b24 0%, rgba(19, 11, 36, 0.45) 40%, rgba(19, 11, 36, 0) 100%);
+      --footer-hiran-script: #c4b5fd;
+    }
+
+    /* Section Wrapper — Deep Obsidian Frame with Luxurious Breathing Room */
+    .footer-wrap {
+      width: 100%;
+      background: var(--footer-wrap-bg);
+      border-top: 1px solid var(--line);
+      padding: clamp(40px, 4vw, 64px) 0 clamp(48px, 4.5vw, 72px);
+      margin-top: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Main Footer Container Card — Fills Viewport Confidently without Touching Edges */
+    .footer-container {
+      position: relative;
+      z-index: 1;
+      width: 93vw;
+      max-width: 1540px;
+      margin: 0 auto;
+      background: var(--footer-card-bg);
+      border-radius: 28px;
+      border: 1px solid var(--footer-card-border);
+      box-shadow: var(--footer-card-shadow);
+      overflow: hidden;
+      padding: 0;
+    }
+
+    /* Balanced 4-Column Editorial Grid across Wide Card (Uses fr to eliminate overflow) */
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1.05fr 0.95fr 1.6fr;
+      gap: clamp(24px, 2.4vw, 44px);
+      padding: clamp(44px, 3.8vw, 60px) clamp(36px, 4vw, 64px) clamp(26px, 2.2vw, 36px);
+      margin-bottom: 0;
+    }
+
+    /* Column Sizing Safety */
+    .footer-brand-col,
+    .footer-col {
+      min-width: 0;
+    }
+
+    /* Column 1: Brand Introduction */
+    .footer-brand-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-brand-name {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--footer-text-primary);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .footer-brand-name .brand-pk {
+      color: var(--accent);
+    }
+
+    .footer-brand-sub {
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-top: -4px;
+      user-select: none;
+    }
+
+    .footer-desc {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--footer-text-secondary);
+      max-width: 330px;
+      margin: 0;
+    }
+
+    .footer-social-icons-grid {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .social-icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--footer-badge-bg);
+      border: 1px solid var(--footer-badge-border);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--footer-text-primary);
+      text-decoration: none;
+      transition: transform 0.2s var(--ease), border-color 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+    .social-icon-btn svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+      transition: transform 0.2s ease;
+    }
+
+    .social-icon-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      color: #ffffff;
+      background: var(--accent);
+      box-shadow: 0 4px 14px rgba(110, 68, 255, 0.28);
+    }
+
+    .footer-brand-tagline-wrap {
+      margin-top: 6px;
+    }
+
+    .footer-brand-dash {
+      width: 26px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .footer-brand-tagline {
+      font-size: 11.5px;
+      color: var(--footer-text-muted);
+      letter-spacing: 0.03em;
+      font-weight: 500;
+    }
+
+    /* Headings & Lists */
+    .footer-col h4 {
+      font-family: var(--font-display);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--footer-text-primary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 0 18px 0;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-nav-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13.5px;
+      color: var(--footer-text-secondary);
+      text-decoration: none;
+      transition: color 0.18s ease;
+      line-height: 1.4;
+      padding: 1px 0;
+    }
+
+    .footer-nav-arrow {
+      font-size: 13px;
+      color: var(--accent);
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: transform 0.18s ease, opacity 0.18s ease;
+      margin-left: 6px;
+      flex-shrink: 0;
+    }
+
+    .footer-nav-item:hover {
+      color: var(--accent);
+    }
+
+    .footer-nav-item:hover .footer-nav-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Campus Desk Column — Compact Spacing, Natural Address Flow */
+    .footer-campus-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .campus-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .campus-item-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      background: var(--footer-badge-bg);
+      border: 1px solid var(--footer-badge-border);
+      color: var(--footer-badge-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .campus-item-icon svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .campus-item-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      line-height: 1.45;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .campus-item-label {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--footer-text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .campus-item-val {
+      font-size: 12px;
+      color: var(--footer-text-secondary);
+      line-height: 1.45;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .campus-item-val a {
+      color: var(--footer-text-secondary);
+      text-decoration: none;
+      transition: color 0.18s ease;
+    }
+
+    .campus-item-val a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    /* Bottom Legal Bar — Integrated Flush within Card */
+    .footer-bottom-bar {
+      padding: 18px clamp(36px, 4vw, 64px) 20px;
+      border-top: 1px solid var(--footer-divider);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12.5px;
+      color: var(--footer-text-muted);
+    }
+
+    .footer-bottom-bar p {
+      margin: 0;
+      color: var(--footer-text-muted);
+    }
+
+    .footer-legal-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .legal-divider {
+      color: var(--footer-divider);
+      font-size: 11px;
+      user-select: none;
+    }
+
+    .footer-legal-links a {
+      color: var(--footer-text-muted);
+      text-decoration: none;
+      transition: color 0.18s ease;
+      font-size: 12.5px;
+    }
+
+    .footer-legal-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-back-to-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--footer-text-secondary);
+      text-decoration: none;
+      transition: color 0.18s ease, transform 0.18s ease;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .footer-back-to-top .back-to-top-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--footer-badge-bg);
+      border: 1px solid var(--footer-badge-border);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .footer-back-to-top:hover {
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .footer-back-to-top:hover .back-to-top-icon {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    /* Panoramic Hiran Minar Visual Section — Full Card Width Editorial Finish */
+    .footer-hiran-wrap {
+      position: relative;
+      width: 100%;
+      height: clamp(260px, 19vw, 320px);
+      overflow: hidden;
+      display: block;
+      background: #e2e8f0;
+    }
+
+    .footer-hiran-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 58%;
+      display: block;
+    }
+
+    /* Subtle Non-Washed Transition Blend */
+    .footer-hiran-fade {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: var(--footer-hiran-fade);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Restrained Editorial Signature Badge (80-85% Size, Clean Top-Right Positioning) */
+    .footer-hiran-badge {
+      position: absolute;
+      top: 22px;
+      right: clamp(28px, 3.5vw, 56px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      z-index: 2;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hiran-badge-city {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(26px, 2.2vw, 34px);
+      font-weight: 700;
+      color: var(--footer-hiran-script);
+      line-height: 1;
+      transform: rotate(-3deg);
+      text-shadow: 0 1px 10px rgba(255, 255, 255, 0.95), 0 0 3px rgba(255, 255, 255, 0.8);
+    }
+
+    .hiran-badge-home {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--footer-hiran-script);
+      text-transform: uppercase;
+      margin-top: -1px;
+      text-shadow: 0 1px 6px rgba(255, 255, 255, 0.9);
+    }
+
+    .hiran-badge-line {
+      width: 24px;
+      height: 1.5px;
+      background: var(--footer-hiran-script);
+      border-radius: 1px;
+      box-shadow: 0 1px 4px rgba(255, 255, 255, 0.9);
+    }
+
+    /* Responsive Adaptation across Breakpoints */
+    @media (max-width: 1200px) {
+      .footer-container {
+        width: 94vw;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1.4fr 1.05fr 0.95fr 1.6fr;
+        padding: 40px 36px 24px;
+      }
+
+      .footer-bottom-bar {
+        padding: 16px 36px 18px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .footer-wrap {
+        padding: 36px 0 52px;
+      }
+
+      .footer-container {
+        width: 94vw;
+        border-radius: 24px;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px 30px;
+        padding: 36px 32px 24px;
+      }
+
+      .footer-desc {
+        max-width: 100%;
+      }
+
+      .footer-bottom-bar {
+        padding: 16px 32px 18px;
+      }
+
+      .footer-hiran-wrap {
+        height: 240px;
+      }
+
+      .footer-hiran-badge {
+        top: 16px;
+        right: 32px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-wrap {
+        padding: 28px 0 44px;
+      }
+
+      .footer-container {
+        width: 94vw;
+        border-radius: 22px;
+      }
+
+      .footer-top-grid {
+        gap: 32px 24px;
+        padding: 32px 24px 20px;
+      }
+
+      .footer-bottom-bar {
+        padding: 16px 24px 18px;
+      }
+
+      .footer-hiran-wrap {
+        height: 215px;
+      }
+
+      .footer-hiran-badge {
+        right: 24px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .footer-wrap {
+        padding: 24px 12px 36px;
+      }
+
+      .footer-container {
+        width: 100%;
+        border-radius: 18px;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 24px 18px 16px;
+      }
+
+      .footer-desc {
+        max-width: 100%;
+      }
+
+      .footer-bottom-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 14px 18px 16px;
+        text-align: left;
+      }
+
+      .footer-legal-links {
+        flex-wrap: wrap;
+        gap: 8px 10px;
+      }
+
+      .footer-hiran-wrap {
+        height: 195px;
+      }
+
+      .footer-hiran-img {
+        object-position: 52% 58%;
+      }
+
+      .footer-hiran-badge {
+        top: 12px;
+        right: 16px;
+      }
+
+      .hiran-badge-city {
+        font-size: 24px;
+      }
+
+      .hiran-badge-home {
+        font-size: 8.5px;
+        letter-spacing: 0.15em;
+        gap: 5px;
+      }
+
+      .hiran-badge-line {
+        width: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .social-icon-btn,
+      .footer-nav-item,
+      .footer-nav-arrow,
+      .footer-back-to-top {
+        transition: none !important;
+        transform: none !important;
+      }
+    }
